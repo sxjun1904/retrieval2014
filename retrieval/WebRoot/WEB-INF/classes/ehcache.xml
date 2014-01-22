@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="ehcache">
+
+	<diskStore path="java.io.tmpdir/jeesite/ehcache" />
+
+	<!-- DefaultCache setting.
+	1.maxElementsInMemory：缓存中允许创建的最大对象数 .
+	2.eternal：缓存中对象是否为永久的，如果是，超时设置将被忽略，对象从不过期
+	3.timeToIdleSeconds：缓存数据的钝化时间，也就是在一个元素消亡之前，两次访问时间的最大时间间隔值，这只能在元素不是永久驻留时有效，如果该值是 0 就意味着元素可以停顿无穷长的时间。
+	4.timeToLiveSeconds：缓存数据的生存时间，也就是一个元素从构建到消亡的最大时间间隔值，这只能在元素不是永久驻留时有效，如果该值是0就意味着元素可以停顿无穷长的时间。
+	5.overflowToDisk：内存不足时，是否启用磁盘缓存。
+	6.memoryStoreEvictionPolicy：缓存满了之后的淘汰算法。LRU和FIFO算法这里就不做介绍。LFU算法直接淘汰使用比较少的对象，在内存保留的都是一些经常访问的对象。对于大部分网站项目，该算法比较适用。
+	 -->
+	<defaultCache maxEntriesLocalHeap="1000" eternal="false" timeToIdleSeconds="300" timeToLiveSeconds="600"
+		overflowToDisk="true" maxEntriesLocalDisk="100000" />
+	
+	<cache name="dictList" maxElementsInMemory="3000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="3600"
+        overflowToDisk="true"  diskSpoolBufferSizeMB="30" />
+        
+	<cache name="menuList" maxElementsInMemory="3000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="3600"
+        overflowToDisk="true"  diskSpoolBufferSizeMB="30" />
+        
+</ehcache>
