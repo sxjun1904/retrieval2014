@@ -7,6 +7,15 @@
 	<%@include file="/WEB-INF/include/head.jsp" %>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			selectDownMenu("address","addressIds","canvasDiv",{demo:true});
+			var val = $("#databaseType").val();
+			$("input[name='databaseType']").each(function(){
+				if(val==$(this).val())
+		        	$(this).attr("checked", true);
+		    });
+			$("input[name='databaseType']").click(function(){
+				$("#databaseType").val($(this).val());
+			});
 		});
 	</script>
 </head>
@@ -26,9 +35,9 @@
 			<label class="control-label">数据库类型:</label>
 			<div class="controls">
 				<input id="databaseType" type="hidden" name="database.databaseType" value="${database.databaseType}">
-				<input type="radio" name="databaseType" value="0" />Oracle
-				<input type="radio" name="databaseType" value="1" />MySql
-				<input type="radio" name="databaseType" value="2" />SqlServer
+				<c:forEach items="${databaseTypes}" var="dt">
+				<input type="radio" name="databaseType" value="${dt.key}" />${dt.value}
+				</c:forEach>
 			</div>
 		</div>
 		<div class="control-group">
@@ -59,6 +68,9 @@
 			<input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;
 			<input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 		</div>
+		<input type="text" name="address" id="address" >
+		<input type="hidden" name="addressIds" id="addressIds" >
+		<div id="canvasDiv" demo="true"></div>
 	</form>
 </body>
 </html>

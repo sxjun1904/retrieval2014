@@ -36,7 +36,7 @@ function selectDown(_seft,targetValId,obj) {
 	});
 
 	targetId.find("#selectSub :checkbox").click(function(){		
-		if(obj.mutil=='true'){
+		if(obj.mutil=='true'|| obj.mutil==true){
 			if($(this).attr("checked"))
 				$(this).attr("checked",false);
 			else
@@ -68,19 +68,20 @@ function demo1(){
 	return array;
 }
 
-function getTemplate(array,obj){
+function getTemplate(obj){
 	var loopHtml = "";
+	var array = obj.data;
 	for(var i = 0 ;i<array.length;i++){
 		loopHtml +='<input type="checkbox" name="cr'+array[i].id+'"  id="cr'+array[i].id+'" value="'+array[i].name+';'+array[i].id+'"/><label for="cr'+array[i].id+'">'+array[i].name+'</label>';
 		if(obj.countbr!=null)
 		if((i+1)%obj.countbr==0)
 			loopHtml +='<br>';
 	}
-	var template = '<div id="selectItem" style="width:'+obj.c_width+'; height:'+obj.c_height+'" class="selectItemhidden"> '+
-					'<div id="selectItemAd" class="selectItemtit bgc_ccc" style="background:'+obj.tbakcolor+'"> '+
-						'<h2 id="selectItemTitle" class="selectItemleft">'+(obj.title!=null?obj.title:"标题")+'</h2> '+
+	var template = '<div id="selectItem" style="width:'+obj.width+'; height:'+obj.height+'" class="selectItemhidden"> '+
+					'<div id="selectItemAd" class="selectItemtit bgc_ccc" style="background:'+obj.background+'"> '+
+						'<span id="selectItemTitle" class="selectItemleft">'+obj.title+'</span> '+
 						'<div id="selectItemClose" class="selectItemright">关闭</div>'+
-						'<div id="selectItemSubmit" class="selectItemright" style="display:'+((obj.mutil=="true")?"block":"none")+'">确定</div>'+
+						'<div id="selectItemSubmit" class="selectItemright" style="display:'+((obj.mutil=="true"|| obj.mutil==true)?"block":"none")+'">确定</div>'+
 					'</div> '+
 					'<div id="selectItemCount" class="selectItemcont">'+
 					'<div id="selectSub">'+
@@ -96,36 +97,45 @@ function getCSS(){
 	$("body").css({"font-size":"12px"});
 	$(".selectItemcont").css({"padding":"8px"});
 	$(".selectItemtit").css({"line-height":"20px","height":"20px","margin":"1px","padding-left":"12px"});
-	$(".bgc_ccc").css({"background":"#E88E22"});
+	//$(".bgc_ccc").css({"background":"#E88E22"});
 	$(".selectItemleft").css({"float":"left","margin":"0px","padding":"0px","font-size":"12px","font-weight":"bold","color":"#fff"});
 	$(".selectItemright").css({"float":"right","cursor":"pointer","color":"#fff","margin":"2px"});
 	$(".selectItemcls").css({"clear":"both","font-size":"0px","height":"0px","overflow":"hidden"});
 	$(".selectItemhidden").css({"display":"none"});
 }
 
-function divAttr(_div){
-	this.countbr=_div.attr("countbr");
-	this.c_width=_div.attr("c_width");
-	this.c_height=_div.attr("c_height");
-	this.tbakcolor=_div.attr("tbakcolor");
-	this.mutil=_div.attr("mutil");
-	this.title=_div.attr("title");
-	this.data=_div.attr("data");
-	this.demo=_div.attr("demo");
+/**
+ * 将v1的null或空转化为v2
+ * @param v1
+ * @param v2
+ * @returns
+ */
+function findVal(v1,v2){
+	return (v1!=null&&v1!='')?v1:v2;
+}
+
+function getDefalut(opt){
+	this.countbr = findVal(opt.countbr,"4");
+	this.width = findVal(opt.width,"100");
+	this.height = findVal(opt.height,"60");
+	this.background = findVal(opt.background,"#E88E22");
+	this.mutil = findVal(opt.mutil,"false");
+	this.title = findVal(opt.title,"标题");
+	this.data = opt.data;
+	this.demo = findVal(opt.demo,false);
 	return this;
 }
 
-function selectDownMenu(targetVals,targetIds,div){
+function selectDownMenu(targetVals,targetIds,div, opt){
 	_div = $('#'+div);
-	var obj = divAttr(_div);
-	var array = obj.data;
-	if(obj.demo=="true")
-		array = demo1();
-	else if(array=null){
+	var opt = getDefalut(opt);
+	if(opt.demo=="true"||opt.demo==true)
+		opt.data = demo1();
+	else if(opt.data==null){
 		alert('您还没有选项值！');
 		return;
 	}
-	_div.html(getTemplate(array,obj));
+	_div.html(getTemplate(opt));
 	getCSS();
-	selectDown($('#'+targetVals),$('#'+targetIds),obj);
+	selectDown($('#'+targetVals),$('#'+targetIds),opt);
 }

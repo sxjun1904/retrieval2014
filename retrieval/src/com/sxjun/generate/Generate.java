@@ -38,9 +38,9 @@ public class Generate {
 		String packageName = "com.sxjun";
 		String moduleName = "retrieval";			// 模块名，例：sys
 		String subModuleName = "";				// 子模块名（可选） 
-		String className = "indexCagetory";			// 类名，例：user
+		String className = "product";			// 类名，例：user
 		String classAuthor = "sxjun";		// 类作者，例：ThinkGem
-		String functionName = "索引分类";			// 功能名，例：用户
+		String functionName = "索类";			// 功能名，例：用户
 
 		// 是否启用生成工具
 		Boolean isEnable = true;			

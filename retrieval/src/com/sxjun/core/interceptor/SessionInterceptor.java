@@ -16,7 +16,7 @@ public class SessionInterceptor implements Interceptor{
 		User loginUser = controller.getSessionAttr("user");  
 //		if (loginUser != null && loginUser.canVisit(ai.getActionKey()))  
 		String actionKey = ai.getActionKey();
-		if (loginUser != null || "/".equals(actionKey) ||(actionKey).startsWith("/"+Global.frontPath+"/"))
+		if (loginUser != null || "/".equals(actionKey) || (actionKey).startsWith("/"+Global.frontPath+"/") || "/rest/".equals(actionKey))
 			ai.invoke();  
 		else 
 			controller.render("/WEB-INF/login.jsp");;  

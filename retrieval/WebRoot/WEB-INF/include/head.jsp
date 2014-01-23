@@ -15,3 +15,4 @@
 <link href="${ctxStatic}/common/jeesite.min.css" type="text/css" rel="stylesheet" />
 <script src="${ctxStatic}/common/jeesite.min.js" type="text/javascript"></script>
 <script src="${ctxStatic}/jquery-autocomplete/jquery.autocomplete.min.js" type="text/javascript"></script>
+<script src="${ctxStatic}/myjs/selectDownMenu.js" type="text/javascript"></script>

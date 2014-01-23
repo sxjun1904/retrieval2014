@@ -23,7 +23,4 @@ public class LoginController extends Controller{
 		
 	}
 	
-	public void login(){
-		render("/WEB-INF/login.jsp");
-	}
 }

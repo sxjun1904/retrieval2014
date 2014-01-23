@@ -86,7 +86,7 @@ public class DatabaseIndexAllItemImpl implements ICreateIndexAllItem{
 		DatabaseLink databaseLink_Orcl = new DatabaseLink(RDatabaseType.ORACLE,"jdbc:oracle:thin:@192.168.200.185:1521:orcl","epointsq365","11111");
 		databaseIndexAllItem_Orcl.setDatabaseLink(databaseLink_Orcl);
 		
-		l.add(databaseIndexAllItem_Orcl);
+		//l.add(databaseIndexAllItem_Orcl);
 		return l;
 	}
 
