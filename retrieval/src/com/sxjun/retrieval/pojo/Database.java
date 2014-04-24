@@ -2,6 +2,8 @@ package com.sxjun.retrieval.pojo;
 
 import com.sxjun.system.pojo.BasePojo;
 
+import framework.retrieval.engine.RetrievalType.RDatabaseType;
+
 
 
 public class Database extends BasePojo{

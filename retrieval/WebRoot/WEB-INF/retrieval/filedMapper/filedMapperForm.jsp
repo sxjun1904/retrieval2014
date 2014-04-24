@@ -28,10 +28,10 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/filedMapper/list">字段映射列表</a></li>
-		<li class="active"><a href="${ctx}/filedMapper/form?id=${filedMapper.id}">${not empty filedMapper.id?'修改':'添加'}字段映射</a></li>
+		<li><a href="${ctx_a}/filedMapper/list">字段映射列表</a></li>
+		<li class="active"><a href="${ctx_a}/filedMapper/form?id=${filedMapper.id}">${not empty filedMapper.id?'修改':'添加'}字段映射</a></li>
 	</ul><br/>
-	<form id="inputForm" modelAttribute="filedMapper" action="${ctx}/filedMapper/save" method="post" class="form-horizontal">
+	<form id="inputForm" modelAttribute="filedMapper" action="${ctx_a}/filedMapper/save" method="post" class="form-horizontal">
 		<div class="control-group">
 			<label class="control-label">数据库字段:</label>
 			<div class="controls">

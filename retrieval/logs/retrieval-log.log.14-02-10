@@ -1,0 +1,24 @@
+2014-02-10 08:56:38 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-10 08:56:46 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-10 08:56:46 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-10 08:56:50 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-02-10 08:57:07 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-02-10 08:57:43 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-02-10 08:58:17 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-02-10 08:58:22 CacheKit [WARN] Could not find cache config [dicN_3], using default.
+2014-02-10 16:38:45 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-10 16:38:48 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-10 16:38:48 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-10 16:38:50 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-02-10 16:39:42 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-02-10 16:39:48 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-02-10 16:39:53 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-02-10 16:39:55 CacheKit [WARN] Could not find cache config [dicN_3], using default.
+2014-02-10 16:53:24 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-10 16:53:28 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-10 16:53:28 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-10 16:53:28 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-02-10 16:53:33 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-02-10 16:53:38 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-02-10 16:53:44 ActionHandler [WARN] 404 Action Not Found: /a/database/a/database/list?_=1392022422689
+2014-02-10 16:53:53 ActionHandler [WARN] 404 Action Not Found: /a/database/a/database/list?_=1392022422690

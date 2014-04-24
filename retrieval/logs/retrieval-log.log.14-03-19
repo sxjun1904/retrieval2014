@@ -1,0 +1,6 @@
+2014-03-19 11:42:13 FailoverTransport [INFO] Successfully connected to tcp://58.213.119.196:1109
+2014-03-19 11:42:24 FailoverTransport [WARN] Transport (tcp://58.213.119.196:1109) failed, reason:  java.io.IOException: Wire format negotiation timeout: peer did not send his wire format., attempting to automatically reconnect
+2014-03-19 12:11:22 FailoverTransport [INFO] Successfully connected to tcp://58.213.119.196:1109
+2014-03-19 12:11:33 FailoverTransport [INFO] Successfully connected to tcp://58.213.119.196:1109
+2014-03-19 12:11:43 FailoverTransport [WARN] Transport (tcp://58.213.119.196:1109) failed, reason:  java.io.IOException: Wire format negotiation timeout: peer did not send his wire format., attempting to automatically reconnect
+2014-03-19 12:32:50 FailoverTransport [INFO] Successfully reconnected to tcp://58.213.119.196:1109

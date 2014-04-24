@@ -19,6 +19,7 @@ import org.apache.lucene.index.IndexWriter;
 
 import framework.base.snoic.base.util.StringClass;
 import framework.retrieval.engine.RetrievalType;
+import framework.retrieval.engine.RetrievalType.RDocItemType;
 import framework.retrieval.engine.facade.IRDocOperatorFacade;
 import framework.retrieval.engine.facade.IRIndexOperatorFacade;
 import framework.retrieval.engine.facade.IRQueryFacade;

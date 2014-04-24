@@ -17,7 +17,13 @@ import com.jfinal.aop.Before;
 import com.jfinal.plugin.ehcache.CacheInterceptor;
 import com.jfinal.plugin.ehcache.CacheKit;
 import com.jfinal.plugin.ehcache.CacheName;
+import com.sxjun.retrieval.constant.DefaultConstant.DatabaseType;
+import com.sxjun.retrieval.constant.DefaultConstant.FieldType;
+import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
+import com.sxjun.retrieval.constant.DefaultConstant.ItemType;
 import com.sxjun.retrieval.pojo.Dict;
+
+import framework.retrieval.engine.RetrievalType.RDatabaseType;
 
 /**
  * 字典工具类
@@ -27,6 +33,88 @@ import com.sxjun.retrieval.pojo.Dict;
 public class DictUtils {
 	
 	public static final String CACHE_DICT_MAP = "dictMap";
+	public static final String CACHE_DICT_N = "dicN_";
+	
+	public static final int DATABASE_TYPE = 0;
+	public static final int FIELD_TYPE = 1;
+	public static final int ITEMTYPE_TYPE = 2;
+	public static final int INDEXPATH_TYPE = 3;
+	
+	public static RDatabaseType changeToRDatabaseType(String type){
+		RDatabaseType rDatabaseType = null;
+		switch(Integer.parseInt(type)){
+			case 0 :{
+				rDatabaseType = RDatabaseType.MYSQL;
+				break;
+			}
+			case 1 :{
+				rDatabaseType = RDatabaseType.ORACLE;
+				break;
+			}
+			case 2 :{
+				rDatabaseType = RDatabaseType.SQLSERVER;
+				break;
+			}
+			default:{
+				break;
+			}
+		}
+		return rDatabaseType;
+	}
+	
+	/**
+	 * 
+	 * 0 ：数据库类型
+	 * 1：字段特殊处理
+	 * @param type
+	 * @return
+	 */
+	@Before(CacheInterceptor.class)
+	@CacheName("dictN")
+	public static Map<String,String> getDictMap(Integer type){
+		Map<String, String> m = CacheKit.get(CACHE_DICT_N+type, CACHE_DICT_N+type);
+		if(m==null){
+			m = Maps.newHashMap();
+			switch(type){
+				case 0:{
+					m.put(DatabaseType.SQLSERVER.getValue(), DatabaseType.SQLSERVER.toString());
+					m.put(DatabaseType.ORACLE.getValue(), DatabaseType.ORACLE.toString());
+					m.put(DatabaseType.MYSQL.getValue(), DatabaseType.MYSQL.toString());
+					break;
+				} 
+				case 1:{
+					m.put(FieldType.BOLOB.getValue(), FieldType.BOLOB.toString());
+					m.put(FieldType.CLOB.getValue(), FieldType.CLOB.toString());
+					m.put(FieldType.RMHTML.getValue(), FieldType.RMHTML.toString());
+					break;
+				}
+				case 2:{
+					m.put(ItemType.KEYWORD.getValue(),ItemType.KEYWORD.toString());
+					m.put(ItemType.DATE.getValue(),ItemType.DATE.toString());
+					m.put(ItemType.NUMBER.getValue(),ItemType.NUMBER.toString());
+					m.put(ItemType.PROPERTY.getValue(),ItemType.PROPERTY.toString());
+					m.put(ItemType.CONTENT.getValue(),ItemType.CONTENT.toString());
+					break;
+				}
+				case 3:{
+					m.put(IndexPathType.DB.getValue(),IndexPathType.DB.toString());
+					m.put(IndexPathType.FILE.getValue(),IndexPathType.FILE.toString());
+					m.put(IndexPathType.IMAGE.getValue(),IndexPathType.IMAGE.toString());
+					break;
+				}
+				default:{
+					break;
+				}
+			}
+			CacheKit.put(CACHE_DICT_N+type, CACHE_DICT_N+type, m);
+		}
+		return m;
+	}
+	
+	public static String getDictMapByKey(Integer type,String val){
+		Map<String, String> m = getDictMap(type);
+		return m.get(val);
+	}
 	
 	public static String getDictLabel(String value, String type, String defaultValue){
 		if (StringUtils.isNotBlank(type) && StringUtils.isNotBlank(value)){

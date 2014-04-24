@@ -16,6 +16,54 @@
 			$("input[name='databaseType']").click(function(){
 				$("#databaseType").val($(this).val());
 			});
+			
+			$("#btn").click(function(){
+				var dialog = art.dialog({id: 'N3690',title: false});
+
+				// jQuery ajax   
+				$.ajax({
+				    url: 'list',
+				    success: function (data) {
+				        dialog.content(data);
+				    },
+				    cache: false
+				});
+			});
+			
+			$("#btnSubmit").click(function(){
+				$("#inputForm").ajaxSubmit({
+	                type: 'post',
+	                url: 'save' ,
+	                success: function(data){
+	                	if(data.msg==0){
+	                		art.dialog.alert('保存成功！');
+		                    $( "#inputForm").resetForm();
+	                	}else
+	                		art.dialog.alert('保存失败！');
+	                		
+	                },
+	                error: function(XmlHttpRequest, textStatus, errorThrown){
+	                	art.dialog.alert('网络不通，保存失败！');
+	                }
+	            });
+			});
+			
+			$("#btntest").click(function(){
+				$("#inputForm").ajaxSubmit({
+	                type: 'post',
+	                url: 'databaseTest' ,
+	                success: function(data){
+	                	if(data.msg==0)
+	                		art.dialog.alert('测试连接成功！');
+	                	else
+	                		art.dialog.alert( '测试连接失败！');
+	                },
+	                error: function(XmlHttpRequest, textStatus, errorThrown){
+	                	art.dialog.alert( '网络不通，测试连接失败！');
+	                }
+	            });
+			});
+			
 		});
 	</script>
 </head>
@@ -44,6 +92,7 @@
 			<label class="control-label">ip地址:</label>
 			<div class="controls">
 				<input id="ip" name="database.ip" value="${database.ip}">
+				<input type="hidden" id="id" name="database.id" value="${database.id}">
 			</div>
 		</div>
 		<div class="control-group">
@@ -65,12 +114,14 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;
+			<input id="btntest" class="btn btn-primary" type="button" value="测试"/>&nbsp;
+			<input id="btnSubmit" class="btn btn-primary" type="button" value="保 存"/>&nbsp;
 			<input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 		</div>
 		<input type="text" name="address" id="address" >
 		<input type="hidden" name="addressIds" id="addressIds" >
 		<div id="canvasDiv" demo="true"></div>
+		<input id="btn" class="btn btn-primary" type="button" value="示例"/>&nbsp;
 	</form>
 </body>
 </html>

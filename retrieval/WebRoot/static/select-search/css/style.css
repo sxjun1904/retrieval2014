@@ -1,0 +1,19 @@
+@charset "utf-8";
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* searchBar */
+.searchBar{padding-left:60px;padding-top:7px;width:700px;margin:40px auto;background:url(../images/bg02.gif) no-repeat;height:100px;}
+.searchBar span{float:right;margin-top:6px;}
+.searchBar span a{color:#666;margin-right:8px;}
+.searchBar span a:hover{color:#ef9b11;}
+.searchBar .select{float:left;margin-top:1px;display:inline;margin-right:8px;}
+.searchBar .text{float:left;}
+.searchBar .text input{width:214px;padding-top:3px;height:17px;border:1px solid #b7d1eb;}
+.btn{float:left;display:inline;margin-left:8px;margin-top:2px;}
+/* selectbox-wrapper */
+div.selectbox-wrapper{border-right:#b7d1eb 1px solid;border-top:#b7d1eb 0px solid;margin-top:-3px;border-left:#b7d1eb 1px solid;width:63px;border-bottom:#b7d1eb 1px solid;position:absolute;background-color:#fff;text-align:left}
+div.selectbox-wrapper ul li.selected{background-color:#e0ecf7;}
+div.selectbox-wrapper ul li.current{color:#fff;background-color:#36c}
+div.selectbox-wrapper ul li{padding-right:3px;padding-left:3px;padding-bottom:3px;width:57px;cursor:pointer;line-height:20px;padding-top:3px}
+.selectbox{border:none;display:block;padding-left:4px;width:90px;cursor:pointer;padding-top:5px;height:28px;background:url(../images/bg01.gif) no-repeat;}

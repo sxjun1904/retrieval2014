@@ -14,5 +14,9 @@
 <script src="${ctxStatic}/common/mustache.min.js" type="text/javascript"></script>
 <link href="${ctxStatic}/common/jeesite.min.css" type="text/css" rel="stylesheet" />
 <script src="${ctxStatic}/common/jeesite.min.js" type="text/javascript"></script>
+
 <script src="${ctxStatic}/jquery-autocomplete/jquery.autocomplete.min.js" type="text/javascript"></script>
 <script src="${ctxStatic}/myjs/selectDownMenu.js" type="text/javascript"></script>
+<script src="${ctxStatic}/artDialog4.1.7/artDialog.js?skin=default" type="text/javascript"></script>
+<script src="${ctxStatic}/jquery/jquery.form.js" type="text/javascript"></script>
+<script src="${ctxStatic}/artDialog4.1.7/plugins/iframeTools.js" type="text/javascript"></script>

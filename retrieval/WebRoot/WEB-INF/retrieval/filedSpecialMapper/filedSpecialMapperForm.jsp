@@ -7,6 +7,14 @@
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			var val = $("#specialType").val();
+			$("input[name='specialType']").each(function(){
+				if(val==$(this).val())
+		        	$(this).attr("checked", true);
+		    });
+			$("input[name='specialType']").click(function(){
+				$("#specialType").val($(this).val());
+			});
 			$("#name").focus();
 			$("#inputForm").validate({
 				submitHandler: function(form){
@@ -28,10 +36,10 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/filedSpecialMapper/list">特殊字段映射列表</a></li>
-		<li class="active"><a href="${ctx}/filedSpecialMapper/form?id=${filedSpecialMapper.id}">${not empty filedSpecialMapper.id?'修改':'添加'}特殊字段映射</a></li>
+		<li><a href="${ctx_a}/filedSpecialMapper/list">特殊字段映射列表</a></li>
+		<li class="active"><a href="${ctx_a}/filedSpecialMapper/form?id=${filedSpecialMapper.id}">${not empty filedSpecialMapper.id?'修改':'添加'}特殊字段映射</a></li>
 	</ul><br/>
-	<form id="inputForm" modelAttribute="filedSpecialMapper" action="${ctx}/filedSpecialMapper/save" method="post" class="form-horizontal">
+	<form id="inputForm" modelAttribute="filedSpecialMapper" action="${ctx_a}/filedSpecialMapper/save" method="post" class="form-horizontal">
 		<div class="control-group">
 			<label class="control-label">数据库字段:</label>
 			<div class="controls">
@@ -41,7 +49,10 @@
 		<div class="control-group">
 			<label class="control-label">类型:</label>
 			<div class="controls">
-				<input id="SpecialType" name="filedSpecialMapper.SpecialType" value=${filedSpecialMapper.SpecialType}>
+				<input id="specialType" type="hidden" value="${filedSpecialMapper.specialType}">
+				<c:forEach items="${specialTypes}" var="specialType">
+					<input type="radio" name="specialType" value="${specialType.key}" />${specialType.value}
+				</c:forEach>
 			</div>
 		</div>
 		<div class="form-actions">

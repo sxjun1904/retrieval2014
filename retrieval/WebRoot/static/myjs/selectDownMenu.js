@@ -8,7 +8,7 @@ function selectDown(_seft,targetValId,obj) {
 		//targetId.bgiframe();
 		targetId.find("#selectSub :checkbox").attr("checked",false);
 		var targetVal = targetValId.val().split(";");
-		for(var i=0;i<targetVal.length-1;i++){
+		for(var i=0;i<targetVal.length;i++){
 			var checkid = "#cr"+targetVal[i];
 			targetId.find(checkid).attr("checked",true);
 		}
@@ -35,7 +35,7 @@ function selectDown(_seft,targetValId,obj) {
 		targetId.hide();
 	});
 
-	targetId.find("#selectSub :checkbox").click(function(){		
+	targetId.find("#selectSub :checkbox").click(function(){	
 		if(obj.mutil=='true'|| obj.mutil==true){
 			if($(this).attr("checked"))
 				$(this).attr("checked",false);
@@ -48,6 +48,7 @@ function selectDown(_seft,targetValId,obj) {
 			_seft.val( name_id[0]);
 			targetValId.val(name_id[1]);
 			targetId.hide();
+			obj.select(name_id[1],name_id[0]);
 		}
 	});
 
@@ -77,7 +78,7 @@ function getTemplate(obj){
 		if((i+1)%obj.countbr==0)
 			loopHtml +='<br>';
 	}
-	var template = '<div id="selectItem" style="width:'+obj.width+'; height:'+obj.height+'" class="selectItemhidden"> '+
+	var template = '<div id="selectItem" style="width:'+obj.width+'; min-height:'+obj.height+'" class="selectItemhidden"> '+
 					'<div id="selectItemAd" class="selectItemtit bgc_ccc" style="background:'+obj.background+'"> '+
 						'<span id="selectItemTitle" class="selectItemleft">'+obj.title+'</span> '+
 						'<div id="selectItemClose" class="selectItemright">关闭</div>'+
@@ -93,7 +94,7 @@ function getTemplate(obj){
 }
 
 function getCSS(){
-	$("#selectItem").css({"background":"#FFF","position":"absolute","top":"0px","left":"center","border":"1px solid #000","overflow":"hidden","width":"240px","z-index":"1000"});
+	$("#selectItem").css({"background":"#FFF","position":"absolute","top":"0px","left":"center","border":"1px solid #000","overflow":"hidden","z-index":"1000"});
 	$("body").css({"font-size":"12px"});
 	$(".selectItemcont").css({"padding":"8px"});
 	$(".selectItemtit").css({"line-height":"20px","height":"20px","margin":"1px","padding-left":"12px"});
@@ -101,7 +102,7 @@ function getCSS(){
 	$(".selectItemleft").css({"float":"left","margin":"0px","padding":"0px","font-size":"12px","font-weight":"bold","color":"#fff"});
 	$(".selectItemright").css({"float":"right","cursor":"pointer","color":"#fff","margin":"2px"});
 	$(".selectItemcls").css({"clear":"both","font-size":"0px","height":"0px","overflow":"hidden"});
-	$(".selectItemhidden").css({"display":"none"});
+	$(".selectItemhidden").css({"display":"none","height":"auto"});
 }
 
 /**
@@ -116,13 +117,14 @@ function findVal(v1,v2){
 
 function getDefalut(opt){
 	this.countbr = findVal(opt.countbr,"4");
-	this.width = findVal(opt.width,"100");
+	this.width = findVal(opt.width,"240");
 	this.height = findVal(opt.height,"60");
 	this.background = findVal(opt.background,"#E88E22");
 	this.mutil = findVal(opt.mutil,"false");
 	this.title = findVal(opt.title,"标题");
 	this.data = opt.data;
 	this.demo = findVal(opt.demo,false);
+	this.select = findVal(opt.select,null);
 	return this;
 }
 

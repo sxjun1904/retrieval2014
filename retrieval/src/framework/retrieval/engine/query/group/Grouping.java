@@ -26,7 +26,7 @@ import framework.retrieval.helper.RetrievalPages;
  */
 public class Grouping
 {
-    public void groupBy(IndexSearcher searcher, Query query, Sort groupSort, String groupField,RetrievalPages retrievalPages) throws IOException {
+    public static RetrievalPages groupBy(IndexSearcher searcher, Query query, Sort groupSort, String groupField,RetrievalPages retrievalPages) throws IOException {
         int topNGroups = 30; // 每页需要多少个组
         int groupOffset = 0; // 起始的组
         boolean fillFields = true;
@@ -49,7 +49,7 @@ public class Grouping
 
         if (topGroups == null) {
             // No groups matched
-            return;
+            return retrievalPages;
         }
 
         Collector secondPassCollector = null;
@@ -96,6 +96,7 @@ public class Grouping
         for (GroupDocs<String> groupDocs : groupsResult.groups) {
         	retrievalPages.getGroup().put(groupDocs.groupValue, groupDocs.totalHits);
         }
+        return retrievalPages;
     }
 
 }

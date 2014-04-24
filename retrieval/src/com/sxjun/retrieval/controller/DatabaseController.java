@@ -1,56 +1,78 @@
 package com.sxjun.retrieval.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
-import org.apache.commons.lang.StringUtils;
-
-import com.jfinal.core.Controller;
+import com.sxjun.core.plugin.redis.RedisKit;
+import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.Page;
-import com.sxjun.retrieval.constant.DefaultConstant.DatabaseType;
+import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.pojo.Database;
 
+import framework.base.snoic.base.util.JdbcUtil;
+import framework.retrieval.engine.RetrievalType.RDatabaseType;
 
-public class DatabaseController extends Controller {
 
-	public void index() {
-		
-	}
+public class DatabaseController extends BaseController<Database> {
+	private final static String cachename = Database.class.getSimpleName();
 	
 	public void list() {
 		Page<Database> page = new Page<Database>(super.getRequest(), super.getResponse());
-		page.setList(getDbs());
+		List<Database> objs = RedisKit.getObjs(cachename);
+		page.setList(objs);
 		setAttr("page",page);
 		render("databaseList.jsp");
 	}
 	
 	public void form(){
-		Map<String,String> dt = new HashMap<String,String>();
-		dt.put(DatabaseType.SQLSERVER.getValue(), DatabaseType.SQLSERVER.toString());
-		dt.put(DatabaseType.ORACLE.getValue(), DatabaseType.ORACLE.toString());
-		dt.put(DatabaseType.MYSQL.getValue(), DatabaseType.MYSQL.toString());
-		
-		String id = getPara();
-		if(StringUtils.isNotBlank(id))
-			setAttr("database",getDbs().get(0));
+		Map<String,String> dt = DictUtils.getDictMap(DictUtils.DATABASE_TYPE);
 		setAttr("databaseTypes",dt);
-		render("databaseForm.jsp");
+		form(cachename);
 	}
+	
 	
 	public void save(){
 		Database db = getModel(Database.class);
-		render("databaseForm.jsp");
+		if(databaseTest(db)){
+			save(db);
+		}else{
+			msg = MSG_FAULT;
+			setAttr("msg",msg);
+			renderJson(new String[]{"msg"});
+		}
 	}
 	
 	public void delete(){
-		String id=getPara();
-		list();
+		delete(cachename);
 	}
 	
-	public List<Database> getDbs(){
+	public void databaseTest(){
+		Database db = getModel(Database.class);
+		if(databaseTest(db))
+			msg = MSG_OK;
+		else
+			msg = MSG_FAULT;
+		setAttr("msg",msg);
+		renderJson(new String[]{"msg"});
+	}
+	
+	
+	public boolean databaseTest(Database db){
+		try {
+			RDatabaseType type = DictUtils.changeToRDatabaseType(db.getDatabaseType());
+			Connection conn = SQLUtil.getConnection(db);
+			
+			String testSql = SQLUtil.getTestSql(type);
+			Map map = JdbcUtil.getSingleMapObject(conn, testSql,true);
+			return !map.isEmpty();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	/*public List<Database> getDbs(){
 		List<Database> dblist = new ArrayList<Database>();
 		Database db = new Database();
 		db.setId(UUID.randomUUID().toString());
@@ -62,6 +84,6 @@ public class DatabaseController extends Controller {
 		db.setPassword("11111");
 		dblist.add(db);
 		return dblist;
-	}
+	}*/
 	
 }

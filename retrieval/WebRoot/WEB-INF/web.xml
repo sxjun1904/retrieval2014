@@ -2,6 +2,13 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>retrieval</display-name>
   
+   <servlet> 
+    <servlet-name>InitConnServlet</servlet-name> 
+    <servlet-class>org.apache.activemq.web.InitConnServlet</servlet-class> 
+    <!-- 如果需要自动加载，加下面一句 --> 
+    <load-on-startup>1</load-on-startup> 
+ </servlet> 
+  
   <filter>
     <filter-name>jfinal</filter-name>
     <filter-class>com.jfinal.core.JFinalFilter</filter-class>

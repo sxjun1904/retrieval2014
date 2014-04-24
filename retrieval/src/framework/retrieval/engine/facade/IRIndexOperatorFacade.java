@@ -39,6 +39,10 @@ public interface IRIndexOperatorFacade {
 	 * 优化索引
 	 * @param
 	 */
+	@Deprecated
 	public void optimize();
+	
+	
+	public void forceMerge(int IndexNum);
 
 }

@@ -7,6 +7,15 @@
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			var val = $("#indexPathType").val();
+			$("input[name='indexPathType']").each(function(){
+				if(val==$(this).val())
+		        	$(this).attr("checked", true);
+		    });
+			$("input[name='indexPathType']").click(function(){
+				$("#indexPathType").val($(this).val());
+			});
+			
 			$("#name").focus();
 			$("#inputForm").validate({
 				submitHandler: function(form){
@@ -23,35 +32,56 @@
 					}
 				}
 			});
+			
+			$("#btnSubmit").click(function(){
+				$("#inputForm").ajaxSubmit({
+	                type: 'post',
+	                url: 'save' ,
+	                success: function(data){
+	                	if(data.msg==0){
+	                		art.dialog.alert('保存成功！');
+	                	}else
+	                		art.dialog.alert('保存失败！');
+	                		
+	                },
+	                error: function(XmlHttpRequest, textStatus, errorThrown){
+	                	art.dialog.alert('网络不通，保存失败！');
+	                }
+	            });
+			});
 		});
 	</script>
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/indexCagetory/list">索引分类列表</a></li>
-		<li class="active"><a href="${ctx}/indexCagetory/form?id=${indexCagetory.id}">${not empty indexCagetory.id?'修改':'添加'}索引分类</a></li>
+		<li><a href="${ctx_a}/indexCagetory/list">索引分类列表</a></li>
+		<li class="active"><a href="${ctx_a}/indexCagetory/form?id=${indexCagetory.id}">${not empty indexCagetory.id?'修改':'添加'}索引分类</a></li>
 	</ul><br/>
-	<form id="inputForm" modelAttribute="indexCagetory" action="${ctx}/indexCagetory/save" method="post" class="form-horizontal">
+	<form id="inputForm" modelAttribute="indexCagetory" action="${ctx_a}/indexCagetory/save" method="post" class="form-horizontal">
 		<div class="control-group">
 			<label class="control-label">索引分类:</label>
 			<div class="controls">
 				<input id="indexInfoType" name="indexCagetory.indexInfoType" value=${indexCagetory.indexInfoType}>
+				<input id="id" type="hidden"  name="indexCagetory.id" value=${indexCagetory.id}>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">路径类型:</label>
 			<div class="controls">
-				<input id="IndexPathType" name="indexCagetory.IndexPathType" value=${indexCagetory.IndexPathType}>
+				<input id="indexPathType" type="hidden" name="indexCagetory.indexPathType" value="${indexCagetory.indexPathType}">
+				<c:forEach items="${indexPathTypes}" var="indexPathType">
+				<input type="radio" name="indexPathType" value="${indexPathType.key}" />${indexPathType.value}
+				</c:forEach>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">路径:</label>
 			<div class="controls">
-				<input id="IndexPath" name="indexCagetory.IndexPath" value=${indexCagetory.IndexPath}>
+				<input id="indexPath" name="indexCagetory.indexPath" value=${indexCagetory.indexPath}>
 			</div>
 		</div>
 		<div class="form-actions">
-			<input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;
+			<input id="btnSubmit" class="btn btn-primary" type="button" value="保 存"/>&nbsp;
 			<input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 		</div>
 	</form>

@@ -18,7 +18,7 @@ public class FiledSpecialMapper extends BasePojo{
 	/**
 	 * 特殊处理类型
 	 */
-	private String SpecialType;
+	private String specialType;//0:plain，1：rm_html,2:blob,3:clob
 	/**
 	 * 获取数据库字段
 	 * @return
@@ -37,13 +37,13 @@ public class FiledSpecialMapper extends BasePojo{
 	 * @return
 	 */
 	public String getSpecialType() {
-		return SpecialType;
+		return specialType;
 	}
 	/**
 	 * 设置特殊处理类型
 	 */
 	public void setSpecialType(String specialType) {
-		SpecialType = specialType;
+		this.specialType = specialType;
 	} 
 	
 }

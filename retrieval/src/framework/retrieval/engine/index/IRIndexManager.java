@@ -45,4 +45,10 @@ public interface IRIndexManager {
 	 */
 	public void optimize();
 	
+	
+	/**
+	 * 执行索引优化
+	 */
+	public void forceMerge(int IndexNum);
+	
 }

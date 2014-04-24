@@ -62,7 +62,10 @@ public class RedisKit {
     public static List getKeys(String cacheName) {
         return RedisManager.getJedisCache(cacheName, redisManager).getKeys();
     }
-
+    
+    public static List getObjs(String cacheName) {
+    	return RedisManager.getJedisCache(cacheName, redisManager).getObjs();
+    }
 
     public static void remove(String cacheName, Object key) {
         RedisManager.getJedisCache(cacheName, redisManager).remove(key);
@@ -107,12 +110,14 @@ public class RedisKit {
     public static void main(String[] args) {
         RedisPlugin redisPlugin = new RedisPlugin("127.0.0.1", 6379, 0);
         redisPlugin.start();
-        RedisKit.put("user", "name", "Michael");
+       /* RedisKit.put("user", "name", "Michael");
         String name = RedisKit.get("user", "name");
         System.out.println(name);
         RedisKit.remove("user", "name");
         String name1 = RedisKit.get("user", "name");
-        System.out.println(name1);
+        System.out.println(name1);*/
+        RedisKit.get("Database", "name");
+        List name = RedisKit.getKeys("Database");
     }
 
 }

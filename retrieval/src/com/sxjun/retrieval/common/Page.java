@@ -6,7 +6,9 @@
 package com.sxjun.retrieval.common;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +44,8 @@ public class Page<T> {
 	private String orderBy = ""; // 标准查询有效， 实例： updatedate desc, name asc
 	
 	private String funcName = "page"; // 设置点击页码调用的js函数名称，默认为page，在一页有多个分页对象时使用。
+	
+	private Map<String,Integer> group = new HashMap<String,Integer>();
 	
 	/**
 	 * 构造方法
@@ -460,6 +464,14 @@ public class Page<T> {
 		}
 		return firstResult;
 	}
+	public Map<String, Integer> getGroup() {
+		return group;
+	}
+
+	public void setGroup(Map<String, Integer> group) {
+		this.group = group;
+	}
+
 	/**
 	 * 获取 Hibernate MaxResults
 	 */

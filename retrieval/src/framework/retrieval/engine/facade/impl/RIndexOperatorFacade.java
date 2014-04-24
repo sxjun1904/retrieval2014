@@ -57,5 +57,10 @@ public class RIndexOperatorFacade implements IRIndexOperatorFacade{
 	public void optimize(){
 		indexManager.optimize();
 	}
+
+	@Override
+	public void forceMerge(int IndexNum) {
+		indexManager.forceMerge(IndexNum);
+	}
 	
 }

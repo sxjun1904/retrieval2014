@@ -3,7 +3,7 @@
  */
 package ${packageName}.${moduleName}.pojo${subModuleName};
 
-import com.sxjun.retrieval.pojo.BasePojo;
+import com.sxjun.system.pojo.BasePojo;
 
 /**
  * ${functionName}Entity

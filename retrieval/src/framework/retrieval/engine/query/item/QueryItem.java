@@ -296,4 +296,8 @@ public class QueryItem implements Serializable{
 	public String toString(){
 		return query.toString();
 	}
+
+	public Query getQuery() {
+		return query;
+	}
 }

@@ -10,7 +10,7 @@ public class LoginController extends Controller{
 	public void index(){
 		User user = getModel(User.class);
 		System.out.println("username="+user.getUsername());
-		if(user!=null&&"sxjun".equals(user.getUsername())){
+		if(user!=null&&"admin".equals(user.getUsername())){
 			// 放数据至session 
 			setSessionAttr("user", user); 
 			render("/WEB-INF/index.jsp");

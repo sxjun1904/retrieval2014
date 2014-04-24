@@ -23,15 +23,32 @@
 					}
 				}
 			});
+			
+			$("#btnSubmit").click(function(){
+				$("#inputForm").ajaxSubmit({
+	                type: 'post',
+	                url: 'save' ,
+	                success: function(data){
+	                	if(data.msg==0){
+	                		art.dialog.alert('保存成功！');
+	                	}else
+	                		art.dialog.alert('保存失败！');
+	                		
+	                },
+	                error: function(XmlHttpRequest, textStatus, errorThrown){
+	                	art.dialog.alert('网络不通，保存失败！');
+	                }
+	            });
+			});
 		});
 	</script>
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${r"${ctx}"}/${urlPrefix}/list">${functionName}列表</a></li>
-		<li class="active"><a href="${r"${ctx}"}/${urlPrefix}/form?id=${"${"+className+".id}"}">${r"${not empty "+className+".id?'修改':'添加'}"}${functionName}</a></li>
+		<li><a href="${r"${ctx_a}"}/${urlPrefix}/list">${functionName}列表</a></li>
+		<li class="active"><a href="${r"${ctx_a}"}/${urlPrefix}/form?id=${"${"+className+".id}"}">${r"${not empty "+className+".id?'修改':'添加'}"}${functionName}</a></li>
 	</ul><br/>
-	<form id="inputForm" modelAttribute="${className}" action="${r"${ctx}"}/${urlPrefix}/save" method="post" class="form-horizontal">
+	<form id="inputForm" modelAttribute="${className}" action="${r"${ctx_a}"}/${urlPrefix}/save" method="post" class="form-horizontal">
 		<div class="control-group">
 			<label class="control-label">名称:</label>
 			<div class="controls">
@@ -45,7 +62,7 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;
+			<input id="btnSubmit" class="btn btn-primary" type="button" value="保 存"/>&nbsp;
 			<input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>
 		</div>
 	</form>

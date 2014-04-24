@@ -1,0 +1,179 @@
+2014-02-25 13:06:57 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-25 13:07:00 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:07:00 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:07:00 Holder [WARN] 
+java.lang.ClassNotFoundException: org.apache.activemq.web.InitConnServlet
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:307)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:430)
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:383)
+	at org.eclipse.jetty.util.Loader.loadClass(Loader.java:101)
+	at org.eclipse.jetty.util.Loader.loadClass(Loader.java:80)
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:97)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.main(JFinal.java:179)
+2014-02-25 13:07:00 / [WARN] unavailable
+javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:104)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.main(JFinal.java:179)
+2014-02-25 13:07:00 AbstractLifeCycle [WARN] FAILED InitConnServlet: javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:104)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.main(JFinal.java:179)
+2014-02-25 13:07:00 WebAppContext [WARN] Failed startup of context o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:104)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.main(JFinal.java:179)
+2014-02-25 13:07:00 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-02-25 13:08:18 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-02-25 13:08:18 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:08:21 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:08:21 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:08:21 Holder [WARN] 
+java.lang.ClassNotFoundException: org.apache.activemq.web.InitConnServlet
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:307)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:430)
+	at com.jfinal.server.JFinalClassLoader.loadClass(JFinalClassLoader.java:53)
+	at org.eclipse.jetty.util.Loader.loadClass(Loader.java:101)
+	at org.eclipse.jetty.util.Loader.loadClass(Loader.java:80)
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:97)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2014-02-25 13:08:21 retrieval [WARN] unavailable
+javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:104)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2014-02-25 13:08:21 AbstractLifeCycle [WARN] FAILED InitConnServlet: javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:104)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2014-02-25 13:08:21 WebAppContext [WARN] Failed startup of context o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+javax.servlet.UnavailableException: org.apache.activemq.web.InitConnServlet
+	at org.eclipse.jetty.servlet.Holder.doStart(Holder.java:104)
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:298)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:747)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:106)
+	at com.jfinal.server.Scanner.compare(Scanner.java:87)
+	at com.jfinal.server.Scanner.working(Scanner.java:56)
+	at com.jfinal.server.Scanner.access$0(Scanner.java:54)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:93)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2014-02-25 13:10:30 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-25 13:10:33 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:10:33 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:27:13 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-25 13:27:16 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:27:16 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:27:17 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-02-25 13:30:15 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-25 13:30:18 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:30:18 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-25 13:30:19 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80

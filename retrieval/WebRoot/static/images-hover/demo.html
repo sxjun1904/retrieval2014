@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery图片导航插件鼠标悬停图片文字滑动效果</title>
+<meta name="description" content="jquery图片导航插件制作鼠标悬停图片和文字内容滑动动画展示，图片左右滑动、文字上下滑动。" />
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/* demo */
+.demo{width:660px;margin:20px auto;}
+.demo h2{height:34px;font-size:16px;margin:20px 0 0 0;}
+</style>
+<link href="css/images_hover_move.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/images_hover_move.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$("#images_hover_move").images_hover_move({
+		window_width: '600',//幻灯片窗口宽度
+		window_height: '190',//幻灯片窗口的高度
+		border_color: '#999',
+		title_color: '#333',
+		title_background_color: '#CCC',
+		background_color: '#f5f5f5'
+	});
+	
+	$("#images_hover_move1").images_hover_move({
+		window_width: '600',//幻灯片窗口宽度
+		window_height: '100',//幻灯片窗口的高度
+		border_color: '#999',
+		title_color: '#333',
+		title_background_color: '#CCC',
+		background_color: '#f5f5f5'
+	});
+	
+});
+</script>
+</head>
+<body>
+
+	<div class="demo">
+		<h2>演示1(功能的图像风格)</h2>
+		<div id="images_hover_move" class="images_hover_move">
+			<ul>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_1.jpg" title="title1" wdith="259" height="194" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_2.jpg" title="title2" wdith="259" height="194" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_3.jpg" title="title3" wdith="203" height="203" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_4.jpg" title="title4" wdith="259" height="194" /></a></li>
+			</ul>
+		</div>
+		<h2>演示2(导航样式)</h2>
+		<div id="images_hover_move1" class="images_hover_move">
+			<ul>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_1.jpg" title="Navigation1" wdith="259" height="194" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_2.jpg" title="Navigation2" wdith="259" height="194" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_3.jpg" title="Navigation3" wdith="249" height="203" /></a></li>
+				<li><a href="http://www.17sucai.com/"><img src="images/slideshow_large_4.jpg" title="Navigation4" wdith="259" height="194" /></a></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -5,53 +5,51 @@ package com.sxjun.retrieval.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
 import org.apache.commons.lang.StringUtils;
+
 import com.jfinal.core.Controller;
+import com.sxjun.core.plugin.redis.RedisKit;
+import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.pojo.IndexCagetory;
-import com.sxjun.retrieval.pojo.InitField;
 
 /**
  * 索引分类Controller
  * @author sxjun
  * @version 2014-01-14
  */
-public class IndexCagetoryController extends Controller {
-
-	public void index() {
-	}
+public class IndexCagetoryController extends BaseController<IndexCagetory> {
+	private final static String cachename = IndexCagetory.class.getSimpleName();
 	
 	public void list() {
-		List<IndexCagetory> indexCagetoryList = getIndexCagetoryList(); 
-		setAttr("indexCagetory",indexCagetoryList);
-		render("indexCagetoryList.jsp");
+		list(cachename);
 	}
 	
 	public void form(){
-		String id = getPara();
-		if(StringUtils.isNotBlank(id))
-			setAttr("indexCagetory",getIndexCagetoryList().get(0));
-		render("indexCagetoryForm.jsp");
+		
+		Map<String,String> indexPathTypes = DictUtils.getDictMap(DictUtils.INDEXPATH_TYPE);
+		setAttr("indexPathTypes",indexPathTypes);
+		form(cachename);
 	}
 	
 	public void save(){
-		IndexCagetory indexCagetory = getModel(IndexCagetory.class);
-		render("indexCagetoryForm.jsp");
+		save(getModel(IndexCagetory.class));
 	}
 	
 	public void delete(){
-		String id=getPara();
-		list();
+		delete(cachename);
 	}
-
-	public List<IndexCagetory> getIndexCagetoryList(){
+	
+	/*public List<IndexCagetory> getIndexCagetoryList(){
 		List<IndexCagetory> l = new ArrayList<IndexCagetory>();
 		IndexCagetory indexCagetory = new IndexCagetory();
 		indexCagetory.setId(UUID.randomUUID().toString());
-		indexCagetory.setIndexInfoType("谁家");
+		indexCagetory.setIndexInfoType("数据库");
 		indexCagetory.setIndexPath("test/java");
-		indexCagetory.setIndexPathType("DB");
+		indexCagetory.setIndexPathType("0");
 		l.add(indexCagetory);
 		return l;
-	}
+	}*/
 }

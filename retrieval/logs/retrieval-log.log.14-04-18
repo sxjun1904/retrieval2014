@@ -1,0 +1,962 @@
+2014-04-18 10:38:21 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 10:38:26 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 10:38:26 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 10:38:29 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 10:38:53 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 10:39:01 RedisManager [ERROR] get redis from pool fail
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:22)
+	at com.sxjun.core.plugin.redis.RedisManager.getJedisCache(RedisManager.java:32)
+	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:67)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:55)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:46)
+	at com.sxjun.retrieval.controller.InitFieldController.list(InitFieldController.java:19)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:134)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1665)
+	at redis.clients.jedis.JedisPool$JedisFactory.makeObject(JedisPool.java:72)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1148)
+	at redis.clients.util.Pool.getResource(Pool.java:20)
+	... 37 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:519)
+	at redis.clients.jedis.Connection.connect(Connection.java:129)
+	... 42 more
+2014-04-18 10:39:02 RedisManager [ERROR] create redis0fail
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:134)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:79)
+	at redis.clients.jedis.BinaryClient.select(BinaryClient.java:148)
+	at redis.clients.jedis.Jedis.select(Jedis.java:328)
+	at com.sxjun.core.plugin.redis.RedisManager.getJedisCache(RedisManager.java:42)
+	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:67)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:55)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:46)
+	at com.sxjun.retrieval.controller.InitFieldController.list(InitFieldController.java:19)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:519)
+	at redis.clients.jedis.Connection.connect(Connection.java:129)
+	... 41 more
+2014-04-18 10:39:02 ActionHandler [ERROR] /a/initField/list
+java.lang.NullPointerException
+	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:67)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:55)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:46)
+	at com.sxjun.retrieval.controller.InitFieldController.list(InitFieldController.java:19)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 10:39:02 RedisManager [ERROR] get redis from pool fail
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:22)
+	at com.sxjun.core.plugin.redis.RedisManager.getJedisCache(RedisManager.java:32)
+	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:67)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:55)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:46)
+	at com.sxjun.retrieval.controller.RDatabaseIndexController.list(RDatabaseIndexController.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:134)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1665)
+	at redis.clients.jedis.JedisPool$JedisFactory.makeObject(JedisPool.java:72)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1148)
+	at redis.clients.util.Pool.getResource(Pool.java:20)
+	... 37 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:519)
+	at redis.clients.jedis.Connection.connect(Connection.java:129)
+	... 42 more
+2014-04-18 10:39:03 RedisManager [ERROR] create redis0fail
+redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:134)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:79)
+	at redis.clients.jedis.BinaryClient.select(BinaryClient.java:148)
+	at redis.clients.jedis.Jedis.select(Jedis.java:328)
+	at com.sxjun.core.plugin.redis.RedisManager.getJedisCache(RedisManager.java:42)
+	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:67)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:55)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:46)
+	at com.sxjun.retrieval.controller.RDatabaseIndexController.list(RDatabaseIndexController.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:519)
+	at redis.clients.jedis.Connection.connect(Connection.java:129)
+	... 41 more
+2014-04-18 10:39:03 ActionHandler [ERROR] /a/rDatabaseIndex/list
+java.lang.NullPointerException
+	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:67)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:55)
+	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:46)
+	at com.sxjun.retrieval.controller.RDatabaseIndexController.list(RDatabaseIndexController.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 10:48:34 ActionHandler [ERROR] /a/rDatabaseIndex/form
+com.jfinal.render.RenderException: org.apache.jasper.JasperException: /WEB-INF/retrieval/rDatabaseIndex/rDatabaseIndexForm.jsp(274,16) PWC6038: "${rDatabaseIndex.id is empty}" contains invalid expression(s): javax.el.ELException: Error Parsing: ${rDatabaseIndex.id is empty}
+	at com.jfinal.render.JspRender.render(JspRender.java:58)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.apache.jasper.JasperException: /WEB-INF/retrieval/rDatabaseIndex/rDatabaseIndexForm.jsp(274,16) PWC6038: "${rDatabaseIndex.id is empty}" contains invalid expression(s): javax.el.ELException: Error Parsing: ${rDatabaseIndex.id is empty}
+	at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:376)
+	at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:188)
+	at org.apache.jasper.compiler.JspUtil.validateExpressions(JspUtil.java:656)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.getJspAttribute(Validator.java:1366)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.checkXmlAttributes(Validator.java:1142)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.visit(Validator.java:859)
+	at org.apache.jasper.compiler.Node$CustomTag.accept(Node.java:1502)
+	at org.apache.jasper.compiler.Node$Nodes.visit(Node.java:2297)
+	at org.apache.jasper.compiler.Node$Visitor.visitBody(Node.java:2347)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.visit(Validator.java:879)
+	at org.apache.jasper.compiler.Node$CustomTag.accept(Node.java:1502)
+	at org.apache.jasper.compiler.Node$Nodes.visit(Node.java:2297)
+	at org.apache.jasper.compiler.Node$Visitor.visitBody(Node.java:2347)
+	at org.apache.jasper.compiler.Node$Visitor.visit(Node.java:2353)
+	at org.apache.jasper.compiler.Node$Root.accept(Node.java:499)
+	at org.apache.jasper.compiler.Node$Nodes.visit(Node.java:2297)
+	at org.apache.jasper.compiler.Validator.validate(Validator.java:1882)
+	at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:223)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:451)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:625)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:374)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:492)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.Dispatcher.forward(Dispatcher.java:276)
+	at org.eclipse.jetty.server.Dispatcher.forward(Dispatcher.java:103)
+	at com.jfinal.render.JspRender.render(JspRender.java:56)
+	... 25 more
+2014-04-18 10:48:55 ActionHandler [ERROR] /a/rDatabaseIndex/form
+com.jfinal.render.RenderException: org.apache.jasper.JasperException: /WEB-INF/retrieval/rDatabaseIndex/rDatabaseIndexForm.jsp(274,16) PWC6038: "${rDatabaseIndex.id eq empty}" contains invalid expression(s): javax.el.ELException: Error Parsing: ${rDatabaseIndex.id eq empty}
+	at com.jfinal.render.JspRender.render(JspRender.java:58)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.apache.jasper.JasperException: /WEB-INF/retrieval/rDatabaseIndex/rDatabaseIndexForm.jsp(274,16) PWC6038: "${rDatabaseIndex.id eq empty}" contains invalid expression(s): javax.el.ELException: Error Parsing: ${rDatabaseIndex.id eq empty}
+	at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:376)
+	at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:188)
+	at org.apache.jasper.compiler.JspUtil.validateExpressions(JspUtil.java:656)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.getJspAttribute(Validator.java:1366)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.checkXmlAttributes(Validator.java:1142)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.visit(Validator.java:859)
+	at org.apache.jasper.compiler.Node$CustomTag.accept(Node.java:1502)
+	at org.apache.jasper.compiler.Node$Nodes.visit(Node.java:2297)
+	at org.apache.jasper.compiler.Node$Visitor.visitBody(Node.java:2347)
+	at org.apache.jasper.compiler.Validator$ValidateVisitor.visit(Validator.java:879)
+	at org.apache.jasper.compiler.Node$CustomTag.accept(Node.java:1502)
+	at org.apache.jasper.compiler.Node$Nodes.visit(Node.java:2297)
+	at org.apache.jasper.compiler.Node$Visitor.visitBody(Node.java:2347)
+	at org.apache.jasper.compiler.Node$Visitor.visit(Node.java:2353)
+	at org.apache.jasper.compiler.Node$Root.accept(Node.java:499)
+	at org.apache.jasper.compiler.Node$Nodes.visit(Node.java:2297)
+	at org.apache.jasper.compiler.Validator.validate(Validator.java:1882)
+	at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:223)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:451)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:625)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:374)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:492)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.Dispatcher.forward(Dispatcher.java:276)
+	at org.eclipse.jetty.server.Dispatcher.forward(Dispatcher.java:103)
+	at com.jfinal.render.JspRender.render(JspRender.java:56)
+	... 25 more
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 10:57:48 ELContextCleaner [INFO] removed
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 10:57:48 ELContextCleaner [INFO] removed
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 10:57:48 ELContextCleaner [INFO] removed
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 10:57:48 ELContextCleaner [INFO] removed
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 10:57:48 ELContextCleaner [INFO] removed
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 10:57:48 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@dec8b3clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 10:57:48 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 10:57:48 ELContextCleaner [INFO] removed
+2014-04-18 10:57:48 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 10:57:48 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:04:28 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 11:04:32 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:04:32 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:04:32 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 11:04:35 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 11:04:40 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 11:04:42 CacheKit [WARN] Could not find cache config [dicN_1], using default.
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 11:11:22 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 11:11:22 ELContextCleaner [INFO] removed
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-18 11:11:22 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=null
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 11:11:22 ELContextCleaner [INFO] removed
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 11:11:22 ELContextCleaner [INFO] removed
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 11:11:22 ELContextCleaner [INFO] removed
+2014-04-18 11:11:22 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 11:11:22 ELContextCleaner [INFO] removed
+2014-04-18 11:11:22 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 11:11:22 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:11:26 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:11:26 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:15:03 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 11:15:07 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:15:07 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:15:08 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 11:15:11 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 11:15:17 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 11:15:19 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 11:19:01 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 11:19:01 ELContextCleaner [INFO] removed
+2014-04-18 11:19:01 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 11:19:01 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:19:05 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:19:05 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:22:04 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 11:22:06 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 11:23:13 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@23dfa9clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@23dfa9
+2014-04-18 11:23:13 ELContextCleaner [INFO] removed
+2014-04-18 11:23:13 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 11:23:13 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:23:23 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 11:23:27 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:23:27 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 11:23:28 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 11:23:31 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 11:23:39 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 12:19:40 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 12:19:44 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:19:44 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:19:44 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 12:19:55 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 12:20:02 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:24:23 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@4a7df6clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 12:24:23 ELContextCleaner [INFO] removed
+2014-04-18 12:24:23 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:24:23 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:25:38 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 12:25:42 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:25:42 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:25:42 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 12:25:47 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 12:25:52 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:33:17 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:33:17 ELContextCleaner [INFO] removed
+2014-04-18 12:33:17 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:33:17 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:33:21 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:33:21 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:37:03 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 12:37:07 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:37:07 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:37:07 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 12:37:14 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 12:37:19 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@dec8b3
+2014-04-18 12:37:49 ELContextCleaner [INFO] removed
+2014-04-18 12:37:49 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:37:49 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@dec8b3clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:37:49 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:37:49 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:37:52 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:37:52 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:38:00 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 12:38:04 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:38:04 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:38:04 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 12:38:14 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 12:38:20 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:43:18 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-18 12:43:18 ELContextCleaner [INFO] removed
+2014-04-18 12:43:18 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:43:18 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:43:22 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:43:22 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:49:17 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:49:17 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@1430ea5clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:49:17 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:49:17 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:49:21 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:49:21 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:49:57 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@1f42649
+2014-04-18 12:49:57 ELContextCleaner [INFO] removed
+2014-04-18 12:49:57 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@1f42649
+2014-04-18 12:49:57 ELContextCleaner [INFO] removed
+2014-04-18 12:49:57 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@1f42649
+2014-04-18 12:49:57 ELContextCleaner [INFO] removed
+2014-04-18 12:49:57 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:49:57 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@1f42649clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:49:57 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@1f42649
+2014-04-18 12:49:57 ELContextCleaner [INFO] removed
+2014-04-18 12:49:57 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@1f42649
+2014-04-18 12:49:57 ELContextCleaner [INFO] removed
+2014-04-18 12:49:57 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:49:57 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:50:01 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:50:01 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:50:12 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@3bae40
+2014-04-18 12:50:12 ELContextCleaner [INFO] removed
+2014-04-18 12:50:12 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@3bae40
+2014-04-18 12:50:12 ELContextCleaner [INFO] removed
+2014-04-18 12:50:12 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:50:12 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@3bae40clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:50:12 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@3bae40
+2014-04-18 12:50:12 ELContextCleaner [INFO] removed
+2014-04-18 12:50:12 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@3bae40
+2014-04-18 12:50:12 ELContextCleaner [INFO] removed
+2014-04-18 12:50:12 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@3bae40
+2014-04-18 12:50:12 ELContextCleaner [INFO] removed
+2014-04-18 12:50:12 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:50:12 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:50:16 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:50:16 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:50:58 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:50:58 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@47d144clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:50:58 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:50:58 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:51:01 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:51:01 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:51:58 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:51:58 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@36ae6dclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:51:58 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:51:58 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:52:02 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:52:02 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:52:49 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:52:49 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@1907878clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 12:52:49 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 12:52:49 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:52:53 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 12:52:57 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:52:57 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 12:52:58 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 12:53:05 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 12:53:10 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 12:57:57 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-18 13:01:59 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@4a7df6clazz's classloader=null
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-18 13:01:59 ELContextCleaner [INFO] removed
+2014-04-18 13:01:59 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 13:01:59 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@4a7df6clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 13:01:59 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 13:01:59 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 13:02:03 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 13:02:03 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 13:14:43 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-18 13:14:47 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 13:14:47 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-18 13:14:48 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-18 13:14:55 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-18 13:15:01 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-18 14:19:42 ActionHandler [WARN] 404 Action Not Found: //jmx-console/HtmlAdaptor
+2014-04-18 14:19:42 ActionHandler [WARN] 404 Action Not Found: //manager/html/upload
+2014-04-18 14:19:43 ServletHandler [WARN] //zecmd/zecmd.jsp
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(URLEncoder.java:188)
+	at java.net.URLEncoder.encode(URLEncoder.java:154)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:474)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1336)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:82)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 14:19:43 ServletHandler [WARN] //CluJaNuL/cmd.jsp
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(URLEncoder.java:188)
+	at java.net.URLEncoder.encode(URLEncoder.java:154)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:474)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1336)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:82)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 14:19:43 ServletHandler [WARN] //wstats/wstats.jsp
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(URLEncoder.java:188)
+	at java.net.URLEncoder.encode(URLEncoder.java:154)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:474)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1336)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:82)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 14:19:46 ServletHandler [WARN] //idssvc/idssvc.jsp
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(URLEncoder.java:188)
+	at java.net.URLEncoder.encode(URLEncoder.java:154)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:474)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1336)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:82)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 14:19:46 ServletHandler [WARN] //iesvc/iesvc.jsp
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(URLEncoder.java:188)
+	at java.net.URLEncoder.encode(URLEncoder.java:154)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:474)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1336)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:82)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 14:19:46 ServletHandler [WARN] //bynazi/cmd.jsp
+java.lang.NullPointerException
+	at java.net.URLEncoder.encode(URLEncoder.java:188)
+	at java.net.URLEncoder.encode(URLEncoder.java:154)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:474)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1336)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:82)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-18 16:09:54 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 16:09:55 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@124111a
+2014-04-18 16:09:55 ELContextCleaner [INFO] removed
+2014-04-18 16:09:55 ELContextCleaner [INFO] Clazz: class javax.servlet.http.Cookie loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 16:09:55 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-18 16:09:55 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-18 16:09:55 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}

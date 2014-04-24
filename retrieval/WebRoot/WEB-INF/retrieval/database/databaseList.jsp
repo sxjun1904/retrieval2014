@@ -58,7 +58,7 @@
 					<div>${databasePage.databaseName}</div>
 				</td>
 				<td>
-					<div>${databasePage.databaseType}</div>
+					<div>${fns:getDictMapByKey(0,databasePage.databaseType)}</div>
 				</td>
 				<td>
 					<div>${databasePage.ip}</div>
@@ -73,7 +73,7 @@
 					<div>${databasePage.password}</div>
 				</td>
 				<td>
-    				<a href="${ctx_a}/database/form/${databasePage.id}">修改</a>
+    				<a href="${ctx_a}/database/form?id=${databasePage.id}">修改</a>
     				<a href="${ctx_a}/database/delete/${databasePage.id}" onclick="return confirm('确认要删除该数据源吗？', this.href)">删除</a>
     			</td>
 			</tr>

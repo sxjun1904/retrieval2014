@@ -30,12 +30,12 @@ public class QuartzManager {
 	   public final static String SCHEDULE_TYPE_TRIGGER_SIMPLE = "simple";
 	   public final static String SCHEDULE_TYPE_TRIGGER_CRON = "cron";
 	   
-	   private JustSchedule justSchedule;
+	   private JustBaseSchedule justSchedule;
 	   private TriggerManager triggerManager;  
 	   
 	   public QuartzManager(){}
 	   
-	   public QuartzManager(JustSchedule justSchedule){
+	   public QuartzManager(JustBaseSchedule justSchedule){
 		   this.justSchedule = justSchedule;
 		   this.triggerManager = new TriggerManager(justSchedule);
 	   }
@@ -75,7 +75,7 @@ public class QuartzManager {
 	   public void addJob(String jobName,String jobGroupName,String triggerName,String triggerGroupName,Job job,String scheduletype)throws SchedulerException, ParseException{
 	       Scheduler sched = sf.getScheduler();
 	       JobDetail jobDetail = new JobDetail(jobName, jobGroupName, job.getClass());//任务名，任务组，任务执行类
-	       jobDetail.getJobDataMap().put(JUST_SCHEDULE_RETURN, justSchedule);
+	       jobDetail.getJobDataMap().put(JUST_SCHEDULE_RETURN, justSchedule.getTransObject());
 	       Trigger trigger = null;
 	       //触发器
 	       if(SCHEDULE_TYPE_TRIGGER_SIMPLE.equals(scheduletype)){
@@ -167,11 +167,11 @@ public class QuartzManager {
 	       sched.deleteJob(jobName,jobGroupName);//删除任务
 	   }
 
-		public JustSchedule getJustSchedule() {
+		public JustBaseSchedule getJustSchedule() {
 			return justSchedule;
 		}
 	
-		public void setJustSchedule(JustSchedule justSchedule) {
+		public void setJustSchedule(JustBaseSchedule justSchedule) {
 			this.justSchedule = justSchedule;
 			this.triggerManager = new TriggerManager(justSchedule);
 		}

@@ -8,13 +8,13 @@ import org.quartz.CronTrigger;
 import org.quartz.SimpleTrigger;
 
 public class TriggerManager {
-	private JustSchedule justSchedule;
+	private JustBaseSchedule justSchedule;
 	
 	public TriggerManager(){
 		
 	}
 	
-	public TriggerManager(JustSchedule dataexEsbSchedule){
+	public TriggerManager(JustBaseSchedule dataexEsbSchedule){
 		this.justSchedule = dataexEsbSchedule;
 	}
 	
@@ -69,19 +69,19 @@ public class TriggerManager {
 	 * @return
 	 */
 	public Long getInterval(){
-		if(JustSchedule.SCHEDULE_MINUTES.equals(justSchedule.getFrequencyUnits()))
+		if(JustBaseSchedule.SCHEDULE_MINUTES.equals(justSchedule.getFrequencyUnits()))
 			return Long.decode(justSchedule.getFrequency())*60*1000L;
-		else if(JustSchedule.SCHEDULE_SECONDS.equals(justSchedule.getFrequencyUnits()))
+		else if(JustBaseSchedule.SCHEDULE_SECONDS.equals(justSchedule.getFrequencyUnits()))
 			return Long.decode(justSchedule.getFrequency())*1000L;
 		else
 			return Long.decode(justSchedule.getFrequency());
 	}
 	
-	public JustSchedule getDataexEsbSchedule() {
+	public JustBaseSchedule getDataexEsbSchedule() {
 		return justSchedule;
 	}
 	
-	public void setDataexEsbSchedule(JustSchedule justSchedule) {
+	public void setDataexEsbSchedule(JustBaseSchedule justSchedule) {
 		this.justSchedule = justSchedule;
 	}
 }

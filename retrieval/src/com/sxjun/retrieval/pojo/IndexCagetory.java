@@ -18,35 +18,30 @@ public class IndexCagetory extends BasePojo{
 	/**
 	 * DB、FILE、IMAGE
 	 */
-	private String IndexPathType;	
+	private String indexPathType;	
 	/**
 	 * TEST/TEST_WEB
 	 */
-	private String IndexPath;
-	
+	private String indexPath;
 	public String getIndexInfoType() {
 		return indexInfoType;
 	}
-	
 	public void setIndexInfoType(String indexInfoType) {
 		this.indexInfoType = indexInfoType;
 	}
-	
 	public String getIndexPathType() {
-		return IndexPathType;
+		return indexPathType;
 	}
-	
 	public void setIndexPathType(String indexPathType) {
-		IndexPathType = indexPathType;
+		this.indexPathType = indexPathType;
 	}
-	
 	public String getIndexPath() {
-		return IndexPath;
+		return indexPath;
+	}
+	public void setIndexPath(String indexPath) {
+		this.indexPath = indexPath;
 	}
 	
-	public void setIndexPath(String indexPath) {
-		IndexPath = indexPath;
-	}	
 	
 }
 

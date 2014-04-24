@@ -84,7 +84,7 @@ public class DBIndexOperatorFacade extends AbstractIndexBaseOperator{
 			indexWriter = super.retrievalApplicationContext.getFacade().createIndexWriter(indexPathType);
 			IRDocOperatorFacade docOperatorFacade = retrievalApplicationContext.getFacade().createDocOperatorFacade();
 			indexCount += docOperatorFacade.createAll(databaseIndexAllItem,indexWriter);
-			retrievalApplicationContext.getFacade().createIndexOperatorFacade(indexPathType).optimize();
+			retrievalApplicationContext.getFacade().createIndexOperatorFacade(indexPathType).forceMerge(5);
 			return indexCount;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -109,7 +109,8 @@ public class DBIndexOperatorFacade extends AbstractIndexBaseOperator{
 			databaseIndexAllItem.setIndexPathType(indexPathType);
 			IRDocOperatorFacade docOperatorFacade = retrievalApplicationContext.getFacade().createDocOperatorFacade();
 			indexCount += docOperatorFacade.createAll(databaseIndexAllItem);
-			retrievalApplicationContext.getFacade().createIndexOperatorFacade(indexPathType).optimize();
+//			retrievalApplicationContext.getFacade().createIndexOperatorFacade(indexPathType).optimize();
+			retrievalApplicationContext.getFacade().createIndexOperatorFacade(indexPathType).forceMerge(5);
 			return indexCount;
 		} catch (Exception e) {
 			e.printStackTrace();

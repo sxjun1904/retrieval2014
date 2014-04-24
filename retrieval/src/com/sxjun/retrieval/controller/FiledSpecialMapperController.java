@@ -5,9 +5,11 @@ package com.sxjun.retrieval.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import org.apache.commons.lang.StringUtils;
 import com.jfinal.core.Controller;
+import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.pojo.FiledSpecialMapper;
 
 /**
@@ -27,9 +29,11 @@ public class FiledSpecialMapperController extends Controller {
 	}
 	
 	public void form(){
+		Map<String,String> fieldtypes = DictUtils.getDictMap(DictUtils.FIELD_TYPE);
 		String id = getPara();
 		if(StringUtils.isNotBlank(id))
 			setAttr("filedSpecialMapper",getFiledSpecialMapperList().get(0));
+		setAttr("specialTypes",fieldtypes);
 		render("filedSpecialMapperForm.jsp");
 	}
 	
@@ -48,7 +52,7 @@ public class FiledSpecialMapperController extends Controller {
 		FiledSpecialMapper filedSpecialMapper = new FiledSpecialMapper();
 		filedSpecialMapper.setId(UUID.randomUUID().toString());
 		filedSpecialMapper.setSqlField("page");
-		filedSpecialMapper.setSpecialType("blob");
+		filedSpecialMapper.setSpecialType("0");
 		l.add(filedSpecialMapper);
 		return l;
 	}

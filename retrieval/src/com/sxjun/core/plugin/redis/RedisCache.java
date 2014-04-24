@@ -45,28 +45,50 @@ public class RedisCache {
     	RedisManager.getJedisPool().returnResource(cache);
     }
     
+    public Object _get(Object key){
+    	 if (null == key)
+             return null;
+         byte[] b = cache.get((cacheName+":"+String.valueOf(key)).getBytes());
+         return b == null ? null : SerializationUtils.deserialize(b);
+    }
     public Object get(Object key) {
-        if (null == key)
-            return null;
-        byte[] b = cache.get((cacheName+":"+String.valueOf(key)).getBytes());
+        Object o = _get(key);
         RedisManager.getJedisPool().returnResource(cache);
-        return b == null ? null : SerializationUtils.deserialize(b);
+        return o;
     }
 
     public void put(Object key, Object value) {
         cache.set((cacheName+":"+String.valueOf(key)).getBytes(), value == null ? null : SerializationUtils .serialize((Serializable) value));
         RedisManager.getJedisPool().returnResource(cache);
     }
-
-    public List getKeys(){
-        List<Object> keys = new ArrayList<Object>();
-        Set<byte[]> list = cache.keys(String.valueOf("*").getBytes());
-        for (byte[] bs : list) {
-            keys.add(bs == null ? null : SerializationUtils.deserialize(bs));
+    
+    public List<String>_keys(){
+    	List<String> keys = new ArrayList<String>();
+        Set<String> keys_list = cache.keys(cacheName+":"+String.valueOf("*"));
+        for (String bs : keys_list) {
+            keys.add(bs);
         }
+        return keys;
+    }
+
+    public List<String> getKeys(){
+        List<String> keys = _keys();
         RedisManager.getJedisPool().returnResource(cache);
         return keys;
     }
+    
+    public List getObjs(){
+    	List keyList = new ArrayList();
+    	List<String> keys = _keys();
+    	for(String key : keys){
+    		String[] _key = key.split(":");
+    		if(_key.length==2)
+    			keyList.add(_get(_key[1]));
+    	}
+    	RedisManager.getJedisPool().returnResource(cache);
+    	return keyList;
+    }
+    
 
     public void remove(Object key) {
         cache.expire((cacheName+":"+String.valueOf(key)).getBytes(), 0);

@@ -15,32 +15,23 @@ import ${packageName}.${moduleName}.pojo${subModuleName}.${ClassName};
  * @author ${classAuthor}
  * @version ${classVersion}
  */
-public class ${ClassName}Controller extends Controller {
+public class ${ClassName}Controller extends BaseController<${ClassName}> {
+	private final static String cachename = ${ClassName}.class.getSimpleName();
 
-	public void index() {
-	}
-	
 	public void list() {
-		List<${ClassName}> ${className}List = get${ClassName}List(); 
-		setAttr("${className}",${className}List);
-		render("${className}List.jsp");
+		list(cachename);
 	}
 	
 	public void form(){
-		String id = getPara();
-		if(StringUtils.isNotBlank(id))
-			setAttr("${className}",get${ClassName}List().get(0));
-		render("${className}Form.jsp");
+		form(cachename);
 	}
 	
 	public void save(){
-		${ClassName} ${className} = getModel(${ClassName}.class);
-		render("${className}Form.jsp");
+		save(getModel(${ClassName}.class));
 	}
 	
 	public void delete(){
-		String id=getPara();
-		list();
+		delete(cachename);
 	}
 
 	public List<${ClassName}> get${ClassName}List(){

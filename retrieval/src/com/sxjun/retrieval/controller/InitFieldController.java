@@ -2,42 +2,39 @@ package com.sxjun.retrieval.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.jfinal.core.Controller;
+import com.sxjun.core.plugin.redis.RedisKit;
+import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.retrieval.pojo.IndexCagetory;
 import com.sxjun.retrieval.pojo.InitField;
 
-public class InitFieldController  extends Controller {
-	public void index() {
-		
-	}
+public class InitFieldController  extends BaseController<InitField> {
+	private final static String cachename = InitField.class.getSimpleName();
 	
 	public void list() {
-		List<InitField> initFieldList = getInitFieldList(); 
-		setAttr("initField",initFieldList);
-		render("initFieldList.jsp");
+		list(cachename);
 	}
 	
 	public void form(){
-		String id = getPara();
-		if(StringUtils.isNotBlank(id))
-			setAttr("initField",getInitFieldList().get(0));
-		render("initFieldForm.jsp");
+		Map<String,String> itemTypes = DictUtils.getDictMap(DictUtils.ITEMTYPE_TYPE);
+		setAttr("itemTypes",itemTypes);
+		
+		form(cachename);
 	}
 	
 	public void save(){
-		InitField db = getModel(InitField.class);
-		render("initFieldForm.jsp");
+		save(getModel(InitField.class));
 	}
 	
 	public void delete(){
-		String id=getPara();
-		list();
+		delete(cachename);
 	}
 	
-	public List<InitField> getInitFieldList(){
+	/*public List<InitField> getInitFieldList(){
 		List<InitField> dblist = new ArrayList<InitField>();
 		InitField initField = new InitField();
 		initField.setId(UUID.randomUUID().toString());
@@ -47,5 +44,5 @@ public class InitFieldController  extends Controller {
 		initField.setDescription("跳转地址");
 		dblist.add(initField);
 		return dblist;
-	}
+	}*/
 }

@@ -182,5 +182,33 @@ public class RIndexManager implements IRIndexManager {
 		}
 		
 	}
+
+	@Override
+	public void forceMerge(int IndexNum) {
+
+		RetrievalIndexLock.getInstance().lock(indexPathType);
+		
+		IndexWriter indexWriter=indexWriteProvider.createNormalIndexWriter(indexPathType);
+
+		try{
+			try {
+				indexWriter.forceMerge(IndexNum);
+			} catch (Exception e) {
+				RetrievalUtil.errorLog(log, e);
+			}
+			try {
+				indexWriter.commit();
+			} catch (Exception e) {
+				RetrievalUtil.errorLog(log, e);
+			}
+			try {
+				indexWriter.close();
+			} catch (Exception e) {
+				RetrievalUtil.errorLog(log, e);
+			}
+		}finally{
+			RetrievalIndexLock.getInstance().unlock(indexPathType);
+		}
+	}
 	
 }

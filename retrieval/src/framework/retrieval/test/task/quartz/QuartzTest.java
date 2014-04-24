@@ -4,13 +4,13 @@ import java.text.ParseException;
 
 import org.quartz.SchedulerException;
 
-import framework.retrieval.task.quartz.JustSchedule;
+import framework.retrieval.task.quartz.JustBaseSchedule;
 import framework.retrieval.task.quartz.QuartzManager;
 import framework.retrieval.task.quartz.job.PrintJob;
 
 public class QuartzTest {
 	public static void main(String[] args) {
-		JustSchedule js = new JustSchedule();
+		JustBaseSchedule js = new JustBaseSchedule();
 //		js.setFrequency("20");
 //		js.setScheduleID("1");
 //		js.setFrequencyUnits(JustSchedule.SCHEDULE_MINUTES);

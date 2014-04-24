@@ -92,7 +92,7 @@ public class IKCAnalyzerBuilder implements IRAnalyzerBuilder {
 	public Query createQuery(String fieldName, String queryContent, Float score) {
 		Query query = null;
 		QueryParser parser = new QueryParser(luceneVersion, fieldName, createQueryAnalyzer());
-//		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
+		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
 		try {
 			query = parser.parse(queryContent);
 			if(score!=null)

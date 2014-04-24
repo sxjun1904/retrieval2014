@@ -58,6 +58,22 @@
   </function>
   
   <function>
+    <description>根据主键值获取字典值</description>
+    <name>getDictMapByKey</name>
+    <function-class>com.sxjun.retrieval.common.DictUtils</function-class>
+    <function-signature>java.lang.String getDictMapByKey(java.lang.Integer, java.lang.String)</function-signature>
+    <example>${fns:getDictMapByKey(type,key)}</example>  
+  </function>
+  
+  <function>
+    <description>根据主键值获取字典值</description>
+    <name>getDictMap</name>
+    <function-class>com.sxjun.retrieval.common.DictUtils</function-class>
+    <function-signature>java.lang.String getDictMap(java.lang.Integer)</function-signature>
+    <example>${fns:getDictMap(type)}</example>  
+  </function>
+  
+  <function>
     <description>获取字典对象列表</description>
     <name>getDictList</name>
     <function-class>com.sxjun.retrieval.common.DictUtils</function-class>

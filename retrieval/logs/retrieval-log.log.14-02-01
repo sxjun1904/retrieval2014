@@ -1,0 +1,68 @@
+2014-02-01 10:21:09 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-02-01 10:21:12 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-01 10:21:12 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-02-01 10:21:12 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-02-01 10:27:59 ActionHandler [WARN] 404 Action Not Found: /a/
+2014-02-01 10:28:03 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-02-01 10:28:11 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-02-01 10:29:11 ActionHandler [ERROR] /a/indexCagetory/list
+com.jfinal.render.RenderException: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: The class 'com.sxjun.retrieval.pojo.IndexCagetory' does not have the property 'IndexPathType'.
+	at com.jfinal.render.JspRender.render(JspRender.java:58)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:92)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: org.apache.jasper.JasperException: javax.el.PropertyNotFoundException: The class 'com.sxjun.retrieval.pojo.IndexCagetory' does not have the property 'IndexPathType'.
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:432)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:492)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.Dispatcher.forward(Dispatcher.java:276)
+	at org.eclipse.jetty.server.Dispatcher.forward(Dispatcher.java:103)
+	at com.jfinal.render.JspRender.render(JspRender.java:56)
+	... 25 more
+Caused by: javax.el.PropertyNotFoundException: The class 'com.sxjun.retrieval.pojo.IndexCagetory' does not have the property 'IndexPathType'.
+	at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:664)
+	at javax.el.BeanELResolver.getValue(BeanELResolver.java:293)
+	at javax.el.CompositeELResolver.getValue(CompositeELResolver.java:188)
+	at com.sun.el.parser.AstValue.getValue(AstValue.java:120)
+	at com.sun.el.parser.AstValue.getValue(AstValue.java:167)
+	at com.sun.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:224)
+	at org.apache.jasper.runtime.PageContextImpl.evaluateExpression(PageContextImpl.java:1009)
+	at org.apache.jsp.WEB_002dINF.retrieval.indexCagetory.indexCagetoryList_jsp._jspx_meth_c_forEach_0(indexCagetoryList_jsp.java from :291)
+	at org.apache.jsp.WEB_002dINF.retrieval.indexCagetory.indexCagetoryList_jsp._jspService(indexCagetoryList_jsp.java from :169)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:111)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:403)
+	... 41 more

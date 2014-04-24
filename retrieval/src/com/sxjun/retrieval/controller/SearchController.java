@@ -11,6 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.lucene.search.BooleanClause;
 
 import com.jfinal.core.Controller;
+import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.Page;
 import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
@@ -39,20 +40,37 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	public List<RetrievalPage> getRetrievalPage(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
 		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,new String[]{"DB/B/TEST_WEB","DB/B/VIEW_THREAD_CASE"},queryItem);
 		return retrievalPageQueryHelper.getResults(retrievalPageQuery);
-		
+	}
+	
+	public RetrievalPages getRetrievalGroupPage(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem,RetrievalPages retrievalPages){
+		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,new String[]{"DB/B/TEST_WEB","DB/B/VIEW_THREAD_CASE"},queryItem);
+		return retrievalPageQueryHelper.getGroupResult(retrievalPageQuery,retrievalPages);
 	}
 	
 	public int getRetrievalCount(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
 		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,new String[]{"DB/B/TEST_WEB","DB/B/VIEW_THREAD_CASE"},queryItem);
-		return retrievalPageQueryHelper.getResultCount(retrievalPageQuery);
+		return retrievalPageQueryHelper.getResultCount(retrievalPageQuery,true);
 	}
 
 	public void index() {
-		
+		render("index.jsp");
 	}
 	
-	public void search() {
+	
+	public void search1(){
+		searchFor(Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	public void search(){
+		searchFor(Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	public void searchFor(String methodName) {
 		SimpleQuery simpleQuery = getModel(SimpleQuery.class);
+		if(StringKit.isBlank(simpleQuery.getKeyword())){
+			index();
+			return;
+		}
 		List<String> queryFields = simpleQuery.getQueryFields();
 		List<SimpleItem> simpleItems = simpleQuery.getSimpleItems();
 		//需要附带查询出的字段
@@ -75,17 +93,17 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 			long startTime = System.currentTimeMillis();
 			page = search(simpleQuery,page);
 			long endTime = System.currentTimeMillis();
-			String time = String.format("%.2f",(double)(endTime-startTime)/1000);
+			String time = String.format("%.3f",(double)(endTime-startTime)/1000);
 			setAttr("page", page);
 			setAttr("time",time);
 			setAttr("simpleQuery", simpleQuery);
-			render("search.jsp");
+			render(methodName+".jsp");
 		}else{
 			RetrievalPages pages = null;
 			long startTime = System.currentTimeMillis();
 			pages = search(simpleQuery);
 			long endTime = System.currentTimeMillis();
-			String time = String.format("%.2f",(double)(endTime-startTime)/1000);
+			String time = String.format("%.3f",(double)(endTime-startTime)/1000);
 			pages.setTime(time);
 			
 			if("json".equals(type)){
@@ -121,6 +139,7 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		RetrievalPages retrievalPages = search(simpleQuery);
 		page.setCount(retrievalPages.getCount());
 		page.setList(retrievalPages.getRetrievalPageList());
+		page.setGroup(retrievalPages.getGroup());
 		return page;
 	}
 	
@@ -134,10 +153,14 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		QueryItem queryItem = composeQuerys(simpleQuery);
 		RetrievalPages retrievalPages = new RetrievalPages();
 		if(queryItem!=null){
-			List<RetrievalPage> retrievalPageList = searchBody(retrievalPageQuery, queryItem);
+			/*List<RetrievalPage> retrievalPageList = searchBody(retrievalPageQuery, queryItem);
 			int count = getRetrievalCount(retrievalPageQuery, queryItem);
 			retrievalPages.setRetrievalPageList(retrievalPageList);
+			retrievalPages.setCount(count);*/
+			retrievalPages = searchGroupBody(retrievalPageQuery,queryItem,retrievalPages);
+			int count = getRetrievalCount(retrievalPageQuery, queryItem);
 			retrievalPages.setCount(count);
+			
 		}
 		return retrievalPages;
 	}
@@ -151,6 +174,10 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	public List<RetrievalPage> searchBody(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
 		List<RetrievalPage> retrievalPageList = getRetrievalPage(retrievalPageQuery, queryItem);
 		return retrievalPageList;
+	}
+	
+	public RetrievalPages searchGroupBody(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem,RetrievalPages retrievalPages){
+		return getRetrievalGroupPage(retrievalPageQuery, queryItem, retrievalPages);
 	}
 	
 	/**

@@ -48,6 +48,7 @@ import framework.retrieval.engine.query.item.QueryWrap;
 import framework.retrieval.engine.query.result.DatabaseQueryResult;
 import framework.retrieval.engine.query.result.FileQueryResult;
 import framework.retrieval.engine.query.result.QueryResult;
+import framework.retrieval.engine.query.score.ScoreQuery;
 
 /**
  * 索引查询对象
@@ -992,16 +993,24 @@ public class RQuery {
 	 * @return
 	 */
 	public int getQueryResultsCount(QueryItem queryItem) {
+		return  getQueryResultsCount(queryItem,false);
+	}
+	public int getQueryResultsCount(QueryItem queryItem,boolean flag) {
 		QueryWrap queryWrap = queryItem.getQueryWrap();
-		ScoreDoc[] hits = getHits(queryWrap.getQuery());
+		if(flag){
+			return getHitsCount(queryWrap.getQuery());
+		}else{
+			ScoreDoc[] hits = getHits(queryWrap.getQuery());
 
-		int length = 0;
+			int length = 0;
 
-		if (hits != null) {
-			length = hits.length;
+			if (hits != null) {
+				length = hits.length;
+			}
+
+			return length;
 		}
-
-		return length;
+		
 	}
 
 	/**
@@ -1055,7 +1064,6 @@ public class RQuery {
 		QueryWrap queryWrap = queryItem.getQueryWrap();
 
 		ScoreDoc[] hits = getHits(queryWrap.getQuery());
-
 		List<Document> documents = getPageDocuments(hits, queryWrap.getQuery(),
 				startIndex, endIndex);
 
@@ -1077,7 +1085,6 @@ public class RQuery {
 				}
 			}
 		}
-
 		return queryResults;
 	}
 
@@ -1199,7 +1206,7 @@ public class RQuery {
 	private ScoreDoc[] getHits(Query query) {
 		TopDocs hits = null;
 		try {
-			hits = searcher.search(query, null,queryResultTopDocsNum);
+			hits = searcher.search(new ScoreQuery(query), null,queryResultTopDocsNum);
 		} catch (Exception e) {
 			throw new RetrievalQueryException(e);
 		}
@@ -1207,6 +1214,20 @@ public class RQuery {
 			return hits.scoreDocs;
 		} else {
 			return null;
+		}
+	}
+	
+	private int getHitsCount(Query query) {
+		TopDocs hits = null;
+		try {
+			hits = searcher.search(new ScoreQuery(query), null,queryResultTopDocsNum);
+		} catch (Exception e) {
+			throw new RetrievalQueryException(e);
+		}
+		if (hits != null) {
+			return hits.totalHits;
+		} else {
+			return 0;
 		}
 	}
 
@@ -1221,7 +1242,7 @@ public class RQuery {
 		TopDocs hits = null;
 
 		try {
-			hits = searcher.search(query, null,queryResultTopDocsNum, sort);
+			hits = searcher.search(new ScoreQuery(query), null,queryResultTopDocsNum, sort);
 		} catch (IOException e) {
 			throw new RetrievalQueryException(e);
 		}
@@ -1257,4 +1278,13 @@ public class RQuery {
 		}
 		return docs;
 	}
+
+	public Searcher getSearcher() {
+		return searcher;
+	}
+
+	public void setSearcher(Searcher searcher) {
+		this.searcher = searcher;
+	}
+	
 }

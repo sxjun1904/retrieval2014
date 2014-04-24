@@ -51,7 +51,11 @@ public class TestRetrievalPageQueryHelper {
 
 //		QueryItem queryItem=queryItem0.should(QueryItem.SHOULD,queryItem1).should(queryItem2).should(queryItem3.mustNot(QueryItem.SHOULD,queryItem4)).should(queryItem5);
 //		QueryItem queryItem=queryItem0.should(QueryItem.SHOULD,queryItem2);
+		long s_time = System.currentTimeMillis();
 		List<RetrievalPage> retrievalPageList=testInternalRetrievalQueryHelper.getRetrievalPage(retrievalPageQuery, queryItem0);
+		long e_time = System.currentTimeMillis();
+		System.out.println(e_time-s_time);
+		
 		/*System.out.println("first time :"+retrievalPageList.size());
 		TestDatabaseIndexAll testDatabaseIndexAll=new TestDatabaseIndexAll();
 		testDatabaseIndexAll.create();

@@ -15,8 +15,11 @@
  */
 package framework.retrieval.helper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.lucene.search.IndexSearcher;
 
 import framework.base.snoic.base.util.StringClass;
 import framework.retrieval.engine.RetrievalConstant;
@@ -26,6 +29,7 @@ import framework.retrieval.engine.context.RFacade;
 import framework.retrieval.engine.context.RetrievalApplicationContext;
 import framework.retrieval.engine.facade.IRQueryFacade;
 import framework.retrieval.engine.query.RQuery;
+import framework.retrieval.engine.query.group.Grouping;
 import framework.retrieval.engine.query.item.QueryItem;
 import framework.retrieval.engine.query.item.QuerySort;
 import framework.retrieval.engine.query.item.QueryUtil;
@@ -42,6 +46,8 @@ public class RetrievalPageQueryHelper {
 	private QueryItem queryItem=null;
 	private RFacade helperFacade=null;
 	private IRQueryFacade queryFacade=null;
+	private RQuery query=null;
+	private QuerySort querySort=null;
 	
 	public RetrievalPageQueryHelper(RetrievalApplicationContext retrievalApplicationContext,String[] indexPathTypes,QueryItem queryItem){
 
@@ -67,27 +73,41 @@ public class RetrievalPageQueryHelper {
 	 * 获取搜索结果记录数
 	 */
 	public int getResultCount(RetrievalPageQuery retrievalQuery){
-		RQuery query=queryFacade.createRQuery(indexPathTypes);
-		int count=query.getQueryResultsCount(queryItem);
+		return getResultCount(retrievalQuery,false);
+	}
+	
+	/**
+	 * 获取搜索结果记录数
+	 * flag :是否需要得到真实的查询数
+	 */
+	public int getResultCount(RetrievalPageQuery retrievalQuery,boolean flag){
+		query=queryFacade.createRQuery(indexPathTypes);
+		int count=query.getQueryResultsCount(queryItem,flag);
 		query.close();
 		return count;
+	}
+	
+	public RetrievalPages getGroupResult(RetrievalPageQuery retrievalQuery,RetrievalPages retrievalPages){
+		retrievalPages.setRetrievalPageList(getResults(retrievalQuery));
+		try {
+			retrievalPages = Grouping.groupBy((IndexSearcher)query.getSearcher(), queryItem.getQuery(), new QuerySort(StringClass.getString(RetrievalType.RDocItemSpecialName._IC),true).getSort(), StringClass.getString(RetrievalType.RDocItemSpecialName._IBT), retrievalPages);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return retrievalPages;
 	}
 
 	/**
 	 * 获取当前页结果集
 	 */
 	public List<RetrievalPage> getResults(RetrievalPageQuery retrievalQuery) {
-
 		String orderFieldName=StringClass.getString(retrievalQuery.getOrderByFieldName());
 		boolean ascFlag=retrievalQuery.isAscFlag();
 		int pageSize=retrievalQuery.getPageSize();
 		int nowPage=retrievalQuery.getNowStartPage();
 		
 		QueryResult[] queryResults=null;
-		
-		RQuery query=queryFacade.createRQuery(indexPathTypes);
-		
-		QuerySort querySort=null;
+		query=queryFacade.createRQuery(indexPathTypes);
 		if(!orderFieldName.equals("")){
 			
 			if(orderFieldName.equalsIgnoreCase(RetrievalConstant.DEFAULT_INDEX_QUERY_SORT_CREATETIME_NAME)){
@@ -122,7 +142,7 @@ public class RetrievalPageQueryHelper {
 				retrievalPages.add(retrievalPage);
 			}
 		}
-		
+//		new Grouping().groupBy(query.getSearcher(), queryItem.getQuery(), querySort.getSort(), groupField, retrievalPage);
 		return retrievalPages;
 	}
 	
@@ -177,7 +197,7 @@ public class RetrievalPageQueryHelper {
 			}
 			/******add by sxjun******/
 			
-			RQuery query=queryFacade.createRQuery(indexPathTypes);
+			query=queryFacade.createRQuery(indexPathTypes);
 			FileQueryResult[] fileQueryResults=query.getFileQueryResultArray(tableName, recordId);
 			
 			if(fileQueryResults!=null && fileQueryResults.length>0){
