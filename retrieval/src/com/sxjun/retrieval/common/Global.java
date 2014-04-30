@@ -5,13 +5,14 @@
  */
 package com.sxjun.retrieval.common;
 
+import java.util.Map;
 import java.util.Properties;
 
 
 
 /**
  * 全局配置类
- * @author ThinkGem
+ * @author sxjun
  * @version 2013-03-23
  */
 public class Global {
@@ -20,6 +21,7 @@ public class Global {
 	public static String adminPath;
 	public static String frontPath;
 	public static String urlSuffix;
+	public static Map<String,Object> licenseInfo;
 	
 	public static Properties properties;
 	
@@ -32,10 +34,17 @@ public class Global {
 	public static String getUrlSuffix() {
 		return urlSuffix;
 	}
+	public static Map<String, Object> getLicenseInfo() {
+		return licenseInfo;
+	}
+	
 	/**
 	 * 获取配置
 	 */
 	public static String getConfig(String key) {
 		return properties.getProperty(key);
 	}
+	
+	
+	
 }

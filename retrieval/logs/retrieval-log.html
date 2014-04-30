@@ -11,7 +11,7 @@ th {background: #336699; color: #FFFFFF; text-align: left;}
 </head>
 <body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
 <hr size="1" noshade>
-Log session start time Thu Apr 24 16:06:25 CST 2014<br>
+Log session start time Wed Apr 30 09:40:31 CST 2014<br>
 <br>
 <table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
 <tr>
@@ -24,84 +24,42 @@ Log session start time Thu Apr 24 16:06:25 CST 2014<br>
 
 <tr>
 <td>0</td>
-<td title="qtp3190337-26 thread">qtp3190337-26</td>
+<td title="qtp19098837-25 thread">qtp19098837-25</td>
 <td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
 <td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
 <td title="Message">Could not find cache config [dictMap], using default.</td>
 </tr>
 
 <tr>
-<td>10191</td>
-<td title="qtp3190337-22 thread">qtp3190337-22</td>
-<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
-<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
-<td title="Message">Could not find cache config [dicN_2], using default.</td>
-</tr>
-
-<tr>
-<td>248390</td>
-<td title="qtp3190337-25 thread">qtp3190337-25</td>
-<td title="Level">INFO</td>
-<td title="org.quartz.simpl.SimpleThreadPool category">org.quartz.simpl.SimpleThreadPool</td>
-<td title="Message">Job execution threads will use class loader of thread: qtp3190337-25</td>
-</tr>
-
-<tr>
-<td>248422</td>
-<td title="qtp3190337-25 thread">qtp3190337-25</td>
-<td title="Level">INFO</td>
-<td title="org.quartz.core.QuartzScheduler category">org.quartz.core.QuartzScheduler</td>
-<td title="Message">Quartz Scheduler v.1.6.0 created.</td>
-</tr>
-
-<tr>
-<td>248424</td>
-<td title="qtp3190337-25 thread">qtp3190337-25</td>
-<td title="Level">INFO</td>
-<td title="org.quartz.simpl.RAMJobStore category">org.quartz.simpl.RAMJobStore</td>
-<td title="Message">RAMJobStore initialized.</td>
-</tr>
-
-<tr>
-<td>248424</td>
-<td title="qtp3190337-25 thread">qtp3190337-25</td>
-<td title="Level">INFO</td>
-<td title="org.quartz.impl.StdSchedulerFactory category">org.quartz.impl.StdSchedulerFactory</td>
-<td title="Message">Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'</td>
-</tr>
-
-<tr>
-<td>248428</td>
-<td title="qtp3190337-25 thread">qtp3190337-25</td>
-<td title="Level">INFO</td>
-<td title="org.quartz.impl.StdSchedulerFactory category">org.quartz.impl.StdSchedulerFactory</td>
-<td title="Message">Quartz scheduler version: 1.6.0</td>
-</tr>
-
-<tr>
-<td>248439</td>
-<td title="qtp3190337-25 thread">qtp3190337-25</td>
-<td title="Level">INFO</td>
-<td title="org.quartz.core.QuartzScheduler category">org.quartz.core.QuartzScheduler</td>
-<td title="Message">Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.</td>
-</tr>
-
-<tr>
-<td>609351</td>
-<td title="qtp3190337-21 thread">qtp3190337-21</td>
+<td>332887</td>
+<td title="qtp19098837-24 thread">qtp19098837-24</td>
 <td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
 <td title="com.jfinal.core.ActionHandler category">com.jfinal.core.ActionHandler</td>
-<td title="Message">/a/rDatabaseIndex/save</td>
+<td title="Message">/f/search/page</td>
 </tr>
-<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.lang.NullPointerException
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:144)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:92)
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+<br>&nbsp;&nbsp;&nbsp
+<tr>
+<td>368878</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.server.handler.ContextHandler category">org.eclipse.jetty.server.handler.ContextHandler</td>
+<td title="Message">stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}</td>
+</tr>
+troller.java:301)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:281)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:260)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:248)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.page(SearchController.java:75)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
@@ -128,20 +86,322 @@ Log session start time Thu Apr 24 16:06:25 CST 2014<br>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 <br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.lang.NullPointerException
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 41 more
 </td></tr>
 
 <tr>
-<td>763740</td>
-<td title="qtp3190337-21 thread">qtp3190337-21</td>
-<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
-<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
-<td title="Message">Could not find cache config [dicN_3], using default.</td>
+<td>337802</td>
+<td title="qtp19098837-26 thread">qtp19098837-26</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.jfinal.core.ActionHandler category">com.jfinal.core.ActionHandler</td>
+<td title="Message">/f/search/page</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:61)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:301)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:281)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:260)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:248)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.SearchController.page(SearchController.java:75)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.lang.NullPointerException
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 41 more
+</td></tr>
+
+<tr>
+<td>355614</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.JustSchedule loaded by WebAppClassLoader=retrieval@18488ef</td>
 </tr>
 
 <tr>
-<td>764651</td>
-<td title="qtp3190337-22 thread">qtp3190337-22</td>
-<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
-<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
-<td title="Message">Could not find cache config [dicN_0], using default.</td>
+<td>355614</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355614</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class java.util.HashMap$Entry loaded by null</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">not removed: contextclassloader=WebAppClassLoader=retrieval@18488efclazz's classloader=null</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355615</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355616</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">not removed: contextclassloader=WebAppClassLoader=retrieval@18488efclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class javax.servlet.jsp.jstl.core.LoopTagSupport$1Status loaded by sun.misc.Launcher$AppClassLoader@126b249</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">not removed: contextclassloader=WebAppClassLoader=retrieval@18488efclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249</td>
+</tr>
+
+<tr>
+<td>355617</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355618</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355618</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@18488ef</td>
+</tr>
+
+<tr>
+<td>355618</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>355618</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">javax.el.BeanELResolver purged</td>
 </tr>

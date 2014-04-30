@@ -7,7 +7,16 @@
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
+			$("#init").click(function(){
+				$.ajax({
+				    url: 'init',
+				    success: function (data) {
+				    	if(data.msg==0)
+				    		art.dialog.alert('后台启动初始化！');
+				    },
+				    cache: false
+				});
+			});
 		});
 		function page(n,s){
 			$("#pageNo").val(n);
@@ -22,6 +31,7 @@
 		<li class="active"><a href="${ctx_a}/rDatabaseIndex/list">索引设置列表</a></li>
 		<li><a href="${ctx_a}/rDatabaseIndex/form">索引设置添加</a></li>
 	</ul>
+	<button id="init" class="btn btn-primary">初始化索引</button>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead><tr><th>数据源</th><th>表名</th><th>主键字段</th><th>标题字段</th><th>摘要字段</th><th>是否去重</th><th>信息</th><th>启用状态</th><th>操作</th></tr></thead>
 		<tbody>

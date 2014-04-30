@@ -23,7 +23,7 @@ import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.constant.DefaultConstant.ItemType;
 import com.sxjun.retrieval.pojo.Dict;
 
-import framework.retrieval.engine.RetrievalType.RDatabaseType;
+import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 /**
  * 字典工具类

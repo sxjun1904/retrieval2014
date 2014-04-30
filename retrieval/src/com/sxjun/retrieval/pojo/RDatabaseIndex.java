@@ -23,6 +23,7 @@ public class RDatabaseIndex extends BasePojo{
 	private String tableName;//数据表名
 	private String keyField;//主键字段
 	private String sql;//Sql查询语句
+	private String trigSql;//触发器查询sql
 	private String indexOperatorType;//操作类型 0:插入，1:更新
 	private String defaultTitleFieldName;//设置数据库字段对应的标题
 	private String defaultResumeFieldName;//设置数据库字段对应的摘要字段
@@ -39,7 +40,7 @@ public class RDatabaseIndex extends BasePojo{
 	private List<JustSchedule> justScheduleList;//任务调度
 	private String style ;//风格  0:rest 1:复合
 	private String indexTriggerRecord;//触发器表
-	private String isInit = "0";//是否初始化 0：否，1：是
+	private String isInit = "0";//是否初始化 0：否，1：是,2：零时
 	
 	public Database getDatabase() {
 		return database;
@@ -180,6 +181,13 @@ public class RDatabaseIndex extends BasePojo{
 	public void setIndexPath_id(String indexPath_id) {
 		this.indexPath_id = indexPath_id;
 	}
+	public String getTrigSql() {
+		return trigSql;
+	}
+	public void setTrigSql(String trigSql) {
+		this.trigSql = trigSql;
+	}
+	
 }
 
 

@@ -45,6 +45,7 @@
 			<label class="control-label">字段名:</label>
 			<div class="controls">
 				<input id="field" name="initField.field" value="${initField.field}">
+				<input id="idd" type="hidden" name="initField.id" value="${initField.id}">
 			</div>
 		</div>
 		<div class="control-group">
@@ -58,7 +59,7 @@
 			<div class="controls">
 				<input id="fieldType" type="hidden" name="initField.fieldType" value="${initField.fieldType}">
 				<c:forEach items="${itemTypes}" var="itemTypes">
-				<input type="radio" name="fieldType" value="${itemTypes.key}" />${itemTypes.value}
+				<input type="radio" name="fieldType" value="${itemTypes.value}" />${itemTypes.value}
 				</c:forEach>
 			</div>
 		</div>

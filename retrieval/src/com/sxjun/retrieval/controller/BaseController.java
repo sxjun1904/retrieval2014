@@ -1,24 +1,21 @@
 package com.sxjun.retrieval.controller;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StringKit;
-import com.sxjun.core.plugin.redis.RedisKit;
-import com.sxjun.retrieval.common.DictUtils;
-import com.sxjun.retrieval.pojo.Database;
-import com.sxjun.retrieval.pojo.IndexCagetory;
-import com.sxjun.retrieval.pojo.InitField;
+import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.system.pojo.BasePojo;
 
 public abstract class BaseController<T  extends BasePojo> extends Controller{
 	protected final static String MSG_OK = "0";
 	protected final static String MSG_FAULT = "1";
 	protected String msg = MSG_FAULT;
+	
+	private CommonService<T> commonservice = new CommonService<T>();
 	
 	public void index() {}
 	
@@ -51,9 +48,9 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 	 * @param db
 	 * @param viewname
 	 */
-	public void list(String db,String viewname){
-		List indexCagetoryList = RedisKit.getObjs(db); 
-		setAttr(viewname,indexCagetoryList);
+	public void list(String t,String viewname){
+		List list = commonservice.getObjs(t); 
+		setAttr(viewname,list);
 		render(viewname+"List.jsp");
 	}
 	
@@ -70,10 +67,10 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 		 form(db ,viewname,null);
 	}
 	
-	public void form(String db ,String viewname,String key){
+	public void form(String t ,String viewname,String key){
 		String id = getPara(key==null?"id":key);
 		if(StringUtils.isNotBlank(id))
-			setAttr(viewname,RedisKit.get(db, id));
+			setAttr(viewname,commonservice.get(t, id));
 		render(viewname+"Form.jsp");
 	}
 	
@@ -85,7 +82,7 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 		try {
 			String id = t.getId()==null?UUID.randomUUID().toString():t.getId();
 			t.setId(id);
-			RedisKit.put(t.getClass().getSimpleName(), id, t);
+			commonservice.put(t.getClass().getSimpleName(), id, t);
 			msg = MSG_OK;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -109,7 +106,7 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 	 */
 	public void delete(String t){
 		String id=getPara();
-		RedisKit.remove(t, id);
+		commonservice.remove(t, id);
 		list();
 	}
 	

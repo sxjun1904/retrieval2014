@@ -18,6 +18,8 @@ import com.sxjun.core.routes.RetrievalFrontRoutes;
 import com.sxjun.core.routes.SystemRoutes;
 import com.sxjun.retrieval.common.Global;
 
+import frame.base.core.util.RSAUtil;
+
 
 public class GlobalConfig extends JFinalConfig {
 	private final String json = System.getenv("VCAP_SERVICES");
@@ -30,6 +32,7 @@ public class GlobalConfig extends JFinalConfig {
 		Global.frontPath = getProperty("frontPath","f");
 	    Global.adminPath = getProperty("adminPath","a");
 	    Global.urlSuffix = getProperty("urlSuffix");
+	    Global.licenseInfo = RSAUtil.getLicenceInfo();
 	    
 		if (isLocal) {
 			me.setDevMode(true);

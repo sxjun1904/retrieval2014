@@ -2,8 +2,8 @@ package com.sxjun.retrieval.pojo;
 
 import org.apache.lucene.search.BooleanClause;
 
-import framework.retrieval.engine.RetrievalType;
-import framework.retrieval.engine.query.item.QueryItem;
+import frame.retrieval.engine.RetrievalType;
+import frame.retrieval.engine.query.item.QueryItem;
 
 public class SimpleItem {
 	/**

@@ -49,7 +49,7 @@
 </head>
 <body>
 	<div>
-		<form id="searchForm" action="${ctx_f}/search/search1" method="post" class="form_search">
+		<form id="searchForm" action="${ctx_f}/search/page" method="post" class="form_search">
 			<div style="margin-top:5px;font-size:25px;font-weight:normal;font-familiy:Helvetica, Georgia, Arial, sans-serif, 黑体;clear:both;color:#99C5DD;">${fns:getConfig('productName')}</div>
 			<div class="searchBar">
 				<div class="select">

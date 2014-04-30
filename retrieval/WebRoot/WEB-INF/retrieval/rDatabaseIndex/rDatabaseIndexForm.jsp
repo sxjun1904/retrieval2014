@@ -184,8 +184,7 @@
 				if(num_1<tabid.childNodes.length)
 					num_1 = tabid.childNodes.length;
 				$("#justScheduleBody").append('<tr id="_f'+num_1+'">'+
-						'<td><input name="justSchedule.scheduleName"></input></td>'+
-						'<td><input name="justSchedule.expression"></input></td>'+
+						'<td></input><input name="justSchedule.expression"></input></td>'+
 						'<td>'+
 						'	<input type="button" onclick="del_1(\'_f'+num_1+'\')" value="删除"></input>'+
 						'</td>'+
@@ -414,12 +413,11 @@
 			    </div>
 			    <div style="overflow-y:scroll;height:170px">
 			    	<table id="justScheduleTable" class="table table-striped table-bordered table-condensed">
-						<thead><tr><th>调度名</th><th>表达式</th><th>操作</th></tr></thead>
+						<thead><tr><th>表达式</th><th>操作</th></tr></thead>
 						<tbody id="justScheduleBody">
 								<c:forEach items="${rDatabaseIndex.justScheduleList}" var="justSchedule" varStatus="status">
 									<tr id="_f${status.index}">
-										<td><input name="justSchedule.scheduleName" value="${justSchedule.scheduleName}"></input></td>
-										<td><input name="justSchedule.expression" value="${justSchedule.expression}"></input></td>
+										<td><inputt type="hidden" name="justSchedule.id" value="${justSchedule.id}"><inputt type="hidden" name="justSchedule.scheduleName" value="${justSchedule.scheduleName}"></input><input name="justSchedule.expression" value="${justSchedule.expression}"></input></td>
 										<td>
 											<input type="button" onclick="del_1('_f${status.index}')" value="删除"></input>
 										</td>

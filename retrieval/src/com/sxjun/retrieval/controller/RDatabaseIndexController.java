@@ -16,7 +16,7 @@ import com.jfinal.kit.StringKit;
 import com.sxjun.core.plugin.redis.RedisKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
-import com.sxjun.retrieval.controller.job.DataaseIndexJob;
+import com.sxjun.retrieval.controller.job.DataaseIndexJob0;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.FiledMapper;
 import com.sxjun.retrieval.pojo.FiledSpecialMapper;
@@ -25,11 +25,11 @@ import com.sxjun.retrieval.pojo.InitField;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
-import framework.base.snoic.base.util.JdbcUtil;
-import framework.base.snoic.base.util.StringClass;
-import framework.retrieval.engine.RetrievalType.RDatabaseType;
-import framework.retrieval.task.quartz.JustBaseSchedule;
-import framework.retrieval.task.quartz.JustBaseSchedulerManage;
+import frame.retrieval.engine.RetrievalType.RDatabaseType;
+import frame.retrieval.task.quartz.JustBaseSchedule;
+import frame.retrieval.task.quartz.JustBaseSchedulerManage;
+import frame.base.core.util.JdbcUtil;
+import frame.base.core.util.StringClass;
 
 /**
  * 索引设置Controller
@@ -48,7 +48,21 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		form(cachename);
 	}
 	
+	public void init(){
+		Job dij = new DataaseIndexJob0();
+		JustBaseSchedule jbs = new JustBaseSchedule();
+		jbs.setScheduleID(UUID.randomUUID().toString());
+		jbs.setExecCount("1");
+		jbs.setScheduleName(UUID.randomUUID().toString());
+		JustBaseSchedulerManage jbsm = new JustBaseSchedulerManage(jbs);
+		jbsm.startUpJustScheduler(dij);
+		msg = MSG_OK;
+		setAttr("msg",msg);
+		renderJson(new String[]{"msg"});
+	}
+	
 	public void save(){
+		RDatabaseIndex rdI = getModel(RDatabaseIndex.class);
 		String[] indexFields = getParaValues("filedMapper.indexField");
 		String[] sqlFields = getParaValues("filedMapper.sqlField");
 		List<FiledMapper> fmList = new ArrayList<FiledMapper>();
@@ -70,28 +84,32 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			fsm.setSpecialType(specialTypes[i]);
 			fsmList.add(fsm);
 		}
-		
+		//定时任务
 		String[] scheduleNames = getParaValues("justSchedule.scheduleName");
 		String[] expression = getParaValues("justSchedule.expression");
 		List<JustSchedule> justList = new ArrayList<JustSchedule>();
-		if(scheduleNames!=null&&scheduleNames.length>0)
-		for(int i=0;i<scheduleNames.length;i++){
+		if(expression!=null&&expression.length>0)
+		for(int i=0;i<expression.length;i++){
 			JustSchedule fsm = new JustSchedule();
-			fsm.setId(UUID.randomUUID().toString());
-			fsm.setScheduleName(scheduleNames[i]);
-			fsm.setExpression(expression[i]);
+			if(StringKit.isBlank(fsm.getId()))
+				fsm.setId(UUID.randomUUID().toString());
+			if(scheduleNames!=null&&StringKit.notBlank(scheduleNames[i]))
+				fsm.setScheduleName(scheduleNames[i]);
+			else
+				fsm.setScheduleName(rdI.getTableName()+fsm.getId());
+			fsm.setExpression(expression[i].trim());
 			justList.add(getJustSchedule(fsm));
 		}
 		
-		RDatabaseIndex rdI = getModel(RDatabaseIndex.class);
+		
 		Database db = RedisKit.get(Database.class.getSimpleName(), rdI.getDatabase_id());
 		rdI.setFiledMapperLsit(fmList);
 		rdI.setFiledSpecialMapperLsit(fsmList);
 		rdI.setJustScheduleList(justList);
 		rdI.setDatabase(db);
 		rdI = checkRDatabaseIndex(rdI);
-		if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
-			Job dij = new DataaseIndexJob();
+		/*if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
+			Job dij = new DataaseIndexJob0();
 			JustBaseSchedule jbs = new JustBaseSchedule();
 			jbs.setScheduleID(UUID.randomUUID().toString());
 			jbs.setExecCount("1");
@@ -99,10 +117,15 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			jbs.setTransObject(rdI);
 			JustBaseSchedulerManage jbsm = new JustBaseSchedulerManage(jbs);
 			jbsm.startUpJustScheduler(dij);
-			rdI.setIsInit("1");
-		}
+		}*/
 		save(checkRDatabaseIndex(rdI));
 	}
+	
+	/**
+	 * h 小时；m 分；s 秒
+	 * @param js
+	 * @return
+	 */
 	
 	public JustSchedule getJustSchedule(JustSchedule js){
 		String exp = js.getExpression().trim();
@@ -168,12 +191,15 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 				}else{
 					String[] f = fm.getSqlField().split(";");
 					for(String s : f){
-						sql +=s+", ";
+						sql +=s+",";
 					}
 				}
 			}
-			sql = sql.substring(0,sql.length()-2);
+			sql = sql.substring(0,sql.length()-1);
 		}
+		String trigsql = "select b."+rdI.getKeyField()+",b."+rdI.getDefaultTitleFieldName()+",b."+rdI.getDefaultResumeFieldName()+",b."+ sql.replace(",", ",b.") +" from "+SQLUtil.INDEX_TRIGGER_RECORD+
+				" a left join "+rdI.getTableName()+" b on a.columnvalue=b."+rdI.getKeyField()+" where 1=1 ";
+		
 		sql = "select "+rdI.getKeyField()+","+rdI.getDefaultTitleFieldName()+","+rdI.getDefaultResumeFieldName()+","+ sql +" from "+rdI.getTableName()+" where 1=1 ";
 		
 		if(rdI.getFiledSpecialMapperLsit()!=null&&iserror.equals("0")){
@@ -194,12 +220,21 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		
 		if(StringKit.notBlank(rdI.getCondtion())){
 			String condtion = rdI.getCondtion().trim();
-			if(condtion.startsWith("and"))
+			if(condtion.startsWith("and")){
 				sql += " "+condtion;
-			else 
+				trigsql = trigsql+" "+condtion+" order by a.insertdate ";
+			}else{ 
 				sql += "and "+condtion;
+				trigsql = trigsql+"and "+condtion+" order by a.insertdate ";
+			}
 		}	
+		
+		if(StringKit.isBlank(rdI.getDatabaseRecordInterceptor()))
+			rdI.setDatabaseRecordInterceptor("com.sxjun.retrieval.controller.index.DatabaseRecordInterceptor");
+		
+		
 		rdI.setSql(sql);
+		rdI.setTrigSql(trigsql);
 		rdI.setIsError(iserror);
 		rdI.setError(error);
 		return rdI;

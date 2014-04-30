@@ -33,7 +33,7 @@
 					<div>${initField.field}</div>
 				</td>
 				<td>
-					<div>${fns:getDictMapByKey(2,initField.fieldType)}</div>
+					<div>${initField.fieldType}</div>
 				</td>
 				<td>
 					<div>${initField.defaultValue}</div>

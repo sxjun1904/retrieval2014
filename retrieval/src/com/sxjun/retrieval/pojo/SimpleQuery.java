@@ -3,7 +3,7 @@ package com.sxjun.retrieval.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-import framework.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
+import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
 
 public class SimpleQuery {
 	/**

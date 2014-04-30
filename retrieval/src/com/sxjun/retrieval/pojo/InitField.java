@@ -1,5 +1,6 @@
 package com.sxjun.retrieval.pojo;
 
+import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.system.pojo.BasePojo;
 
 public class InitField extends BasePojo{
@@ -33,7 +34,7 @@ public class InitField extends BasePojo{
 	 * @param field
 	 */
 	public void setField(String field) {
-		this.field = field;
+		this.field = field.toUpperCase();
 	}
 	/**
 	 * 字段类型，分词，不分词

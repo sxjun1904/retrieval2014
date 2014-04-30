@@ -2,7 +2,7 @@ package com.sxjun.retrieval.pojo;
 
 import com.sxjun.system.pojo.BasePojo;
 
-import framework.retrieval.engine.RetrievalType.RDatabaseType;
+import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 
 
