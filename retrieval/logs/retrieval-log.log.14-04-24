@@ -1,0 +1,1040 @@
+2014-04-24 08:33:46 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 08:33:55 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:33:55 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:33:56 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 08:34:14 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-24 08:37:45 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 08:37:49 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:37:49 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:37:49 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 08:51:53 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 08:51:53 ELContextCleaner [INFO] removed
+2014-04-24 08:51:53 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 08:51:53 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 08:51:53 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 08:51:53 ELContextCleaner [INFO] removed
+2014-04-24 08:51:53 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 08:51:53 ELContextCleaner [INFO] removed
+2014-04-24 08:51:53 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 08:51:53 ELContextCleaner [INFO] removed
+2014-04-24 08:51:53 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 08:51:53 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:54:01 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 08:54:05 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:54:05 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:54:05 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 08:55:57 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 08:55:57 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:57:10 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 08:57:14 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:57:14 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:57:15 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 08:59:22 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 08:59:22 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@4a7df6clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 08:59:22 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 08:59:22 ELContextCleaner [INFO] removed
+2014-04-24 08:59:22 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 08:59:22 ELContextCleaner [INFO] removed
+2014-04-24 08:59:22 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 08:59:22 ELContextCleaner [INFO] removed
+2014-04-24 08:59:22 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 08:59:22 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:59:25 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 08:59:25 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:01:43 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:01:43 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@1f844f7clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:01:43 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 09:01:43 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:01:47 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:01:47 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:24:38 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 09:24:42 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:24:42 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:24:43 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 09:24:50 ActionHandler [ERROR] /f/search/search1
+java.lang.NullPointerException
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:93)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:174)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:154)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-24 09:26:08 ActionHandler [ERROR] /f/search/search1
+java.lang.NullPointerException
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:93)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:174)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:154)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-24 09:26:55 ActionHandler [ERROR] /f/search/search1
+java.lang.NullPointerException
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:93)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:174)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:154)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-24 09:27:25 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 09:27:25 ELContextCleaner [INFO] removed
+2014-04-24 09:27:25 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 09:27:25 ELContextCleaner [INFO] removed
+2014-04-24 09:27:25 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 09:27:25 ELContextCleaner [INFO] removed
+2014-04-24 09:27:25 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:27:25 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:27:25 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 09:27:25 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:27:29 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:27:29 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:29:57 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:29:57 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@d81c91clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:29:57 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 09:29:57 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:30:00 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:30:00 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:30:20 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 09:30:24 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:30:24 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:30:24 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 09:30:41 ActionHandler [ERROR] /f/search/search1
+java.lang.NullPointerException
+	at org.apache.lucene.search.grouping.AbstractFirstPassGroupingCollector.<init>(AbstractFirstPassGroupingCollector.java:73)
+	at org.apache.lucene.search.grouping.TermFirstPassGroupingCollector.<init>(TermFirstPassGroupingCollector.java:56)
+	at framework.retrieval.engine.query.group.Grouping.groupBy(Grouping.java:41)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:93)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:174)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:154)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-24 09:33:47 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:33:47 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:33:47 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:33:47 ELContextCleaner [INFO] removed
+2014-04-24 09:33:47 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:33:47 ELContextCleaner [INFO] removed
+2014-04-24 09:33:47 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:33:47 ELContextCleaner [INFO] removed
+2014-04-24 09:33:47 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 09:33:47 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:33:51 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:33:51 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:34:09 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 09:34:13 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:34:13 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:34:14 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 09:47:37 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:47:37 ELContextCleaner [INFO] removed
+2014-04-24 09:47:37 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:47:37 ELContextCleaner [INFO] removed
+2014-04-24 09:47:37 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:47:37 ELContextCleaner [INFO] removed
+2014-04-24 09:47:37 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 09:47:37 ELContextCleaner [INFO] removed
+2014-04-24 09:47:37 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:47:37 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 09:47:37 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 09:47:37 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:47:41 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:47:41 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:49:12 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 09:49:15 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:49:15 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 09:49:16 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 11:12:11 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 11:12:15 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 11:12:15 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 11:12:15 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 12:03:13 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 12:35:46 ELContextCleaner [INFO] removed
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 12:35:46 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=null
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 12:35:46 ELContextCleaner [INFO] removed
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 12:35:46 ELContextCleaner [INFO] removed
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 12:35:46 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 12:35:46 ELContextCleaner [INFO] removed
+2014-04-24 12:35:46 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 12:35:46 ELContextCleaner [INFO] removed
+2014-04-24 12:35:46 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 12:35:46 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 12:35:53 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 12:35:57 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 12:35:57 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 12:35:58 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 12:36:02 ActionHandler [WARN] 404 Action Not Found: /f/index
+2014-04-24 12:36:05 ActionHandler [WARN] 404 Action Not Found: /f/index
+2014-04-24 12:36:09 ActionHandler [WARN] 404 Action Not Found: /f/index
+2014-04-24 12:36:23 ActionHandler [WARN] 404 Action Not Found: /f/index
+2014-04-24 12:36:31 ActionHandler [WARN] 404 Action Not Found: /f/search//index
+2014-04-24 13:47:21 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-24 14:30:00 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:31:31 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:32:22 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:32:52 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:32:54 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:33:54 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:34:45 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:44:30 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:44:45 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:45:31 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 14:45:43 ActionHandler [ERROR] /f/search/search1
+framework.retrieval.engine.query.RetrievalQueryException: java.lang.NullPointerException
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1211)
+	at framework.retrieval.engine.query.RQuery.getQueryResults(RQuery.java:1066)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getResults(RetrievalPageQueryHelper.java:130)
+	at framework.retrieval.helper.RetrievalPageQueryHelper.getGroupResult(RetrievalPageQueryHelper.java:91)
+	at com.sxjun.retrieval.controller.SearchController.getRetrievalGroupPage(SearchController.java:46)
+	at com.sxjun.retrieval.controller.SearchController.searchGroupBody(SearchController.java:175)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:155)
+	at com.sxjun.retrieval.controller.SearchController.search(SearchController.java:134)
+	at com.sxjun.retrieval.controller.SearchController.searchFor(SearchController.java:89)
+	at com.sxjun.retrieval.controller.SearchController.search1(SearchController.java:60)
+	at sun.reflect.GeneratedMethodAccessor21.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.NullPointerException
+	at org.apache.lucene.search.BooleanQuery.rewrite(BooleanQuery.java:378)
+	at org.apache.lucene.search.function.CustomScoreQuery.rewrite(CustomScoreQuery.java:94)
+	at org.apache.lucene.search.IndexSearcher.rewrite(IndexSearcher.java:592)
+	at org.apache.lucene.search.Searcher.createNormalizedWeight(Searcher.java:167)
+	at org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:664)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:342)
+	at framework.retrieval.engine.query.RQuery.getHits(RQuery.java:1209)
+	... 40 more
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 15:01:16 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=null
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 15:01:16 ELContextCleaner [INFO] removed
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 15:01:16 ELContextCleaner [INFO] removed
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 15:01:16 ELContextCleaner [INFO] removed
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 15:01:16 ELContextCleaner [INFO] removed
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 15:01:16 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@124111aclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 15:01:16 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@124111a
+2014-04-24 15:01:16 ELContextCleaner [INFO] removed
+2014-04-24 15:01:16 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 15:01:16 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 15:01:22 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 15:01:22 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 15:01:48 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 15:01:48 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@1d1708bclazz's classloader=null
+2014-04-24 15:01:48 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@1d1708b
+2014-04-24 15:01:48 ELContextCleaner [INFO] removed
+2014-04-24 15:01:48 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@1d1708b
+2014-04-24 15:01:48 ELContextCleaner [INFO] removed
+2014-04-24 15:01:48 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 15:01:48 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@1d1708bclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 15:01:48 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@1d1708b
+2014-04-24 15:01:48 ELContextCleaner [INFO] removed
+2014-04-24 15:01:48 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 15:01:48 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 15:01:51 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 15:01:51 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 15:33:32 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 15:33:32 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@121d44cclazz's classloader=null
+2014-04-24 15:33:32 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@121d44c
+2014-04-24 15:33:32 ELContextCleaner [INFO] removed
+2014-04-24 15:33:32 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@121d44c
+2014-04-24 15:33:32 ELContextCleaner [INFO] removed
+2014-04-24 15:33:32 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@121d44c
+2014-04-24 15:33:32 ELContextCleaner [INFO] removed
+2014-04-24 15:33:32 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@121d44c
+2014-04-24 15:33:32 ELContextCleaner [INFO] removed
+2014-04-24 15:33:32 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 15:33:32 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@121d44cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 15:33:32 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 15:33:32 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:06:21 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 16:06:25 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:06:25 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:06:26 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 16:06:30 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-04-24 16:06:41 CacheKit [WARN] Could not find cache config [dicN_2], using default.
+2014-04-24 16:10:39 SimpleThreadPool [INFO] Job execution threads will use class loader of thread: qtp3190337-25
+2014-04-24 16:10:39 QuartzScheduler [INFO] Quartz Scheduler v.1.6.0 created.
+2014-04-24 16:10:39 RAMJobStore [INFO] RAMJobStore initialized.
+2014-04-24 16:10:39 StdSchedulerFactory [INFO] Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2014-04-24 16:10:39 StdSchedulerFactory [INFO] Quartz scheduler version: 1.6.0
+2014-04-24 16:10:39 QuartzScheduler [INFO] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2014-04-24 16:16:40 ActionHandler [ERROR] /a/rDatabaseIndex/save
+java.lang.NullPointerException
+	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:144)
+	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:92)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:20)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:619)
+2014-04-24 16:19:14 CacheKit [WARN] Could not find cache config [dicN_3], using default.
+2014-04-24 16:19:15 CacheKit [WARN] Could not find cache config [dicN_0], using default.
+2014-04-24 16:23:27 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 16:23:31 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:23:31 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:23:31 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 16:29:10 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 16:29:10 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=null
+2014-04-24 16:29:10 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 16:29:10 ELContextCleaner [INFO] removed
+2014-04-24 16:29:10 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 16:29:10 ELContextCleaner [INFO] removed
+2014-04-24 16:29:10 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 16:29:10 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@93df2cclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 16:29:10 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 16:29:10 ELContextCleaner [INFO] removed
+2014-04-24 16:29:10 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@93df2c
+2014-04-24 16:29:10 ELContextCleaner [INFO] removed
+2014-04-24 16:29:10 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 16:29:10 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:33:25 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 16:33:29 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:33:29 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 16:33:29 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 17:12:34 ELContextCleaner [INFO] Clazz: class framework.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 17:12:34 ELContextCleaner [INFO] removed
+2014-04-24 17:12:34 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 17:12:34 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@4a7df6clazz's classloader=null
+2014-04-24 17:12:34 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 17:12:34 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@4a7df6clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 17:12:34 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 17:12:34 ELContextCleaner [INFO] removed
+2014-04-24 17:12:34 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 17:12:34 ELContextCleaner [INFO] removed
+2014-04-24 17:12:34 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@4a7df6
+2014-04-24 17:12:34 ELContextCleaner [INFO] removed
+2014-04-24 17:12:34 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 17:12:34 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:12:38 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:12:38 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:15:00 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-04-24 17:15:00 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@619488clazz's classloader=null
+2014-04-24 17:15:00 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 17:15:00 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@619488clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-04-24 17:15:00 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@619488
+2014-04-24 17:15:00 ELContextCleaner [INFO] removed
+2014-04-24 17:15:00 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 17:15:00 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:18:11 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 17:18:15 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:18:15 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:18:16 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 17:18:52 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-04-24 17:18:52 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:18:56 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:18:56 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:19:13 ActionHandler [WARN] 404 Action Not Found: /f/search/xml/%E4%B8%AD%E5%9B%BD/%E5%8D%97%E4%BA%AC
+2014-04-24 17:19:36 ActionHandler [WARN] 404 Action Not Found: /f/search/xml/%E4%B8%AD%E5%9B%BD/%E5%8D%97%E4%BA%AC
+2014-04-24 17:20:00 ActionHandler [WARN] 404 Action Not Found: /f/search/xml/%E4%B8%AD%E5%9B%BD/%E5%8D%97%E4%BA%AC
+2014-04-24 17:26:51 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 17:26:55 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:26:55 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:26:55 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-04-24 17:30:19 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-04-24 17:30:22 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:30:22 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-04-24 17:30:23 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80

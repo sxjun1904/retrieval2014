@@ -10,8 +10,8 @@ import com.sxjun.retrieval.common.Page;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.pojo.Database;
 
-import frame.retrieval.engine.RetrievalType.RDatabaseType;
 import frame.base.core.util.JdbcUtil;
+import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 
 public class DatabaseController extends BaseController<Database> {

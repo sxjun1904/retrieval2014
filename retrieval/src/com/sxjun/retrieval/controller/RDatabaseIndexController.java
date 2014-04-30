@@ -25,11 +25,11 @@ import com.sxjun.retrieval.pojo.InitField;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
+import frame.base.core.util.JdbcUtil;
+import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
 import frame.retrieval.task.quartz.JustBaseSchedule;
 import frame.retrieval.task.quartz.JustBaseSchedulerManage;
-import frame.base.core.util.JdbcUtil;
-import frame.base.core.util.StringClass;
 
 /**
  * 索引设置Controller

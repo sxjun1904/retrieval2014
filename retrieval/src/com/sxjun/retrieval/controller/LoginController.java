@@ -1,8 +1,5 @@
 package com.sxjun.retrieval.controller;
 
-import javax.servlet.http.HttpSession;
-
-import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.sxjun.retrieval.pojo.User;
 

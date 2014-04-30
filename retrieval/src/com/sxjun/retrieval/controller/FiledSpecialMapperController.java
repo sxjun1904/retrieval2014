@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import org.apache.commons.lang.StringUtils;
+
 import com.jfinal.core.Controller;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.pojo.FiledSpecialMapper;

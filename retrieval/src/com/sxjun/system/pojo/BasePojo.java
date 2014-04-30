@@ -2,8 +2,6 @@ package com.sxjun.system.pojo;
 
 import java.io.Serializable;
 
-import com.jfinal.plugin.activerecord.Model;
-
 public class BasePojo implements Serializable{
 	private static final long serialVersionUID = -7868855862441569281L;
 	/**

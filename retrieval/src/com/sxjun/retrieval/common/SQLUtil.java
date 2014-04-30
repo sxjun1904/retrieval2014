@@ -4,8 +4,8 @@ import java.sql.Connection;
 
 import com.sxjun.retrieval.pojo.Database;
 
-import frame.retrieval.engine.RetrievalType.RDatabaseType;
 import frame.base.core.util.JdbcUtil;
+import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 public class SQLUtil {
 	public  static final String INDEX_TRIGGER_RECORD= "index_trigger_record";

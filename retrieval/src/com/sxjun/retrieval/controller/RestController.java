@@ -1,9 +1,5 @@
 package com.sxjun.retrieval.controller;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-
 import com.jfinal.core.Controller;
 import com.sxjun.retrieval.pojo.User;
 

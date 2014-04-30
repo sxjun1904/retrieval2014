@@ -1,7 +1,5 @@
 package com.sxjun.retrieval.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,18 +18,18 @@ import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
 import com.sxjun.retrieval.pojo.SimpleQuery;
 
+import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType;
 import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
 import frame.retrieval.engine.RetrievalType.RDocItemSpecialName;
+import frame.retrieval.engine.context.ApplicationContext;
+import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.query.item.QueryItem;
 import frame.retrieval.helper.RetrievalPage;
 import frame.retrieval.helper.RetrievalPageQuery;
 import frame.retrieval.helper.RetrievalPageQueryHelper;
 import frame.retrieval.helper.RetrievalPages;
 import frame.retrieval.oth.mapper.MapperUtil;
-import frame.base.core.util.StringClass;
-import frame.retrieval.engine.context.ApplicationContext;
-import frame.retrieval.engine.context.RetrievalApplicationContext;
 
 
 public class SearchController extends Controller {
