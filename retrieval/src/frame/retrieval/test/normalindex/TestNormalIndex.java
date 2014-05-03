@@ -1,16 +1,12 @@
 package frame.retrieval.test.normalindex;
 
-import frame.retrieval.test.init.TestInit;
-import frame.retrieval.engine.context.RFacade;
-import frame.retrieval.engine.context.RetrievalApplicationContext;
-import frame.retrieval.engine.facade.IRDocOperatorFacade;
-import frame.retrieval.engine.index.doc.NormalIndexDocument;
-import frame.retrieval.engine.index.doc.internal.RDocItem;
+import frame.retrieval.engine.facade.NormalIndexOperatorFacade;
+import frame.retrieval.test.fileindexall.FileIndexAllItemImpl;
 
 public class TestNormalIndex {
 	public static void main(String[] args) {
 
-		RetrievalApplicationContext retrievalApplicationContext=TestInit.getApplicationContent();
+		/*RetrievalApplicationContext retrievalApplicationContext=TestInit.getApplicationContent();
 		TestInit.initIndex();
 		
 		RFacade facade=retrievalApplicationContext.getFacade();
@@ -31,10 +27,17 @@ public class TestNormalIndex {
 		docItem3.setContent("哦瓦尔卡及讨论热离开家");
 		docItem3.setName("CONTENT_FIELD");
 		normalIndexDocument.addContent(docItem3);
+		
+		normalIndexDocument.setIndexInfoType("图片");
+		normalIndexDocument.setIndexPathType("picture");
+		normalIndexDocument.setId(UUID.randomUUID().toString());
 
 		IRDocOperatorFacade docOperatorFacade=facade.createDocOperatorFacade();
 		
-		docOperatorFacade.create(normalIndexDocument);
+		docOperatorFacade.create(normalIndexDocument);*/
+		
+		NormalIndexOperatorFacade indexAll = new NormalIndexOperatorFacade(new NormalImageImpl());
+		indexAll.indexAll();
 		
 	}
 }

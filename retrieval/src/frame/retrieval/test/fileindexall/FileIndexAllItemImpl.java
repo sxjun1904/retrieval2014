@@ -31,7 +31,7 @@ public class FileIndexAllItemImpl implements ICreateIndexAllItem{
 		fileIndexAllItem.setIndexInfoType("SFILE");
 		
 //		fileIndexAllItem.setFileBasePath("D:\\workspace\\resources\\docs");
-		fileIndexAllItem.setFileBasePath("D:\\a");
+		fileIndexAllItem.setFileBasePath("D:\\img");
 		fileIndexAllItem.setIncludeSubDir(true);
 		fileIndexAllItem.setPageSize(100);
 		fileIndexAllItem.setIndexAllFileInterceptor(new TestFileIndexAllInterceptor());

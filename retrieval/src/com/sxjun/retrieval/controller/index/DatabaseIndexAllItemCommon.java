@@ -9,7 +9,7 @@ import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.FiledMapper;
 import com.sxjun.retrieval.pojo.FiledSpecialMapper;
-import com.sxjun.retrieval.pojo.IndexCagetory;
+import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.retrieval.engine.RetrievalType;
@@ -33,7 +33,7 @@ public class DatabaseIndexAllItemCommon {
 		transObj.put("id", rdI.getId());
 		transObj.put("nowTime", nowTime);
 		
-		IndexCagetory ic = commonService.get(IndexCagetory.class.getSimpleName(),rdI.getIndexPath_id());
+		IndexCategory ic = rdI.getIndexCategory();
 		databaseIndexAllItem.setIndexPathType(ic.getIndexPath());
 		databaseIndexAllItem.setIndexInfoType(ic.getIndexInfoType());
 		databaseIndexAllItem.setIndexOperatorType("0".endsWith(rdI.getIndexOperatorType())?RetrievalType.RIndexOperatorType.INSERT:RetrievalType.RIndexOperatorType.UPDATE);

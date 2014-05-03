@@ -10,7 +10,7 @@ import com.sxjun.system.pojo.BasePojo;
  * @author sxjun
  * @version 2014-01-14
  */
-public class IndexCagetory extends BasePojo{
+public class IndexCategory extends BasePojo{
 	/**
 	 * 如：知识库、信息发布、停电信息
 	 */

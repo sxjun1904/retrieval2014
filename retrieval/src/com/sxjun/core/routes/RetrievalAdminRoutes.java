@@ -19,7 +19,7 @@ public class RetrievalAdminRoutes extends Routes {
 		add(Global.adminPath+"/theme", ThemeController.class);
 		add(Global.adminPath+"/filedMapper", FiledMapperController.class,"retrieval/filedMapper");
 		add(Global.adminPath+"/filedSpecialMapper", FiledSpecialMapperController.class,"retrieval/filedSpecialMapper");
-		add(Global.adminPath+"/indexCagetory", IndexCagetoryController.class,"retrieval/indexCagetory");
+		add(Global.adminPath+"/indexCategory", IndexCagetoryController.class,"retrieval/indexCategory");
 		add(Global.adminPath+"/rDatabaseIndex", RDatabaseIndexController.class,"retrieval/rDatabaseIndex");
 	}
 }

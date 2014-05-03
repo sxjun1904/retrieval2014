@@ -16,11 +16,13 @@ import com.jfinal.kit.StringKit;
 import com.sxjun.core.plugin.redis.RedisKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
+import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DataaseIndexJob0;
+import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.FiledMapper;
 import com.sxjun.retrieval.pojo.FiledSpecialMapper;
-import com.sxjun.retrieval.pojo.IndexCagetory;
+import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.InitField;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
@@ -37,6 +39,7 @@ import frame.retrieval.task.quartz.JustBaseSchedulerManage;
  * @version 2014-03-11
  */
 public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
+	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
 	private final static String cachename = RDatabaseIndex.class.getSimpleName();
 
 	public void list() {
@@ -101,6 +104,8 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			justList.add(getJustSchedule(fsm));
 		}
 		
+		IndexCategory ic = commonService.get(IndexCategory.class.getSimpleName(),rdI.getIndexPath_id());
+		rdI.setIndexCategory(ic);
 		
 		Database db = RedisKit.get(Database.class.getSimpleName(), rdI.getDatabase_id());
 		rdI.setFiledMapperLsit(fmList);
@@ -118,7 +123,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			JustBaseSchedulerManage jbsm = new JustBaseSchedulerManage(jbs);
 			jbsm.startUpJustScheduler(dij);
 		}*/
-		save(checkRDatabaseIndex(rdI));
+		save(rdI);
 	}
 	
 	/**
@@ -141,6 +146,8 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	}
 	
 	public RDatabaseIndex checkRDatabaseIndex(RDatabaseIndex rdI){
+		IndexCategory ic = rdI.getIndexCategory();
+		String ipt = DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, ic.getIndexPathType());//DB/FILE/IMAGE
 		String iserror = "0";
 		String error = "成功";
 		if(StringKit.isBlank(rdI.getDatabase_id())){
@@ -158,9 +165,12 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		}else if(StringKit.isBlank(rdI.getDefaultTitleFieldName())){
 			iserror = "1";
 			error = "未选择标题";
-		}else if(StringKit.isBlank(rdI.getDefaultResumeFieldName())){
+		}else if(StringKit.isBlank(rdI.getDefaultResumeFieldName())&& (DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.DB.getValue())).endsWith(ipt)){
 			iserror = "1";
 			error = "未选择摘要";
+		}else if(StringKit.isBlank(rdI.getBinaryField())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
+			iserror = "1";
+			error = "未填写图片字段";
 		}
 		
 		if(StringKit.isBlank(rdI.getIndexTriggerRecord())){
@@ -197,10 +207,16 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			}
 			sql = sql.substring(0,sql.length()-1);
 		}
-		String trigsql = "select b."+rdI.getKeyField()+",b."+rdI.getDefaultTitleFieldName()+",b."+rdI.getDefaultResumeFieldName()+",b."+ sql.replace(",", ",b.") +" from "+SQLUtil.INDEX_TRIGGER_RECORD+
+		
+		String resume = rdI.getDefaultResumeFieldName();
+		if((DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
+			resume=rdI.getBinaryField();
+		}
+			
+		String trigsql = "select b."+rdI.getKeyField()+",b."+rdI.getDefaultTitleFieldName()+",b."+resume+",b."+ sql.replace(",", ",b.") +" from "+SQLUtil.INDEX_TRIGGER_RECORD+
 				" a left join "+rdI.getTableName()+" b on a.columnvalue=b."+rdI.getKeyField()+" where 1=1 ";
 		
-		sql = "select "+rdI.getKeyField()+","+rdI.getDefaultTitleFieldName()+","+rdI.getDefaultResumeFieldName()+","+ sql +" from "+rdI.getTableName()+" where 1=1 ";
+		sql = "select "+rdI.getKeyField()+","+rdI.getDefaultTitleFieldName()+","+resume+","+ sql +" from "+rdI.getTableName()+" where 1=1 ";
 		
 		if(rdI.getFiledSpecialMapperLsit()!=null&&iserror.equals("0")){
 			for(FiledSpecialMapper fsm :rdI.getFiledSpecialMapperLsit()){
@@ -280,9 +296,9 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * 获取索引路径
 	 */
 	public void indexPathes(){
-		List<IndexCagetory> ics = RedisKit.getObjs(IndexCagetory.class.getSimpleName());
+		List<IndexCategory> ics = RedisKit.getObjs(IndexCategory.class.getSimpleName());
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
-		for(IndexCagetory ic : ics){
+		for(IndexCategory ic : ics){
 			Map<String,String> m = new HashMap<String,String>();
  			m.put("index_name",ic.getId()+";"+ic.getIndexInfoType());
 			l.add(m);
@@ -319,6 +335,12 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		String id = getPara("id");
 		dbFields((Database)RedisKit.get(Database.class.getSimpleName(),id),table);
 		
+	}
+	
+	public void indexPathType(){
+		String id = getPara("id");
+		IndexCategory ic = commonService.get(IndexCategory.class.getSimpleName(),id);
+		renderJson("pathtype",DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, ic.getIndexPathType()));
 	}
 	
 	/**

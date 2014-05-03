@@ -79,6 +79,7 @@ public class RIndexOperator implements IRIndexOperator{
 			
 			documents.get(i).createId();
 			documentIdList.add(documents.get(i).getId());
+			documentIdList.add("1");
 		}
 		
 		writeDocument.setDocument(documents);

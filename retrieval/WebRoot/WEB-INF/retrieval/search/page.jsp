@@ -10,9 +10,9 @@
 	<link href="${ctxStatic}/jPaginate/css/style.css" type="text/css" rel="stylesheet" />
 	<link href="${ctxStatic}/images-hover/css/images_hover_move.css" type="text/css" rel="stylesheet" />
 	<style type="text/css">
-		body{
+		/* body{
 			overflow: hidden;
-		}
+		} */
 		a:link {
 		color:'#0000d5';
 		text-decoration:underline;
@@ -66,7 +66,7 @@
          }
          .main{
          	height:90%;
-         	overflow-y: auto;
+         	/* overflow-y: auto; */
          }
 	</style>
 	<script type="text/javascript">

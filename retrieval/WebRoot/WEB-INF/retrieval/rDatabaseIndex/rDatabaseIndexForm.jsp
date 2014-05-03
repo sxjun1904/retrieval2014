@@ -35,6 +35,7 @@
 			    	
 			    	if($("#indexPath").val() !=null && $("#indexPath").val() !=""){
 			    		$("#indexPathCate").val($("#indexPath").val());
+			    		changePathCate();
 			    	}
 			    },
 			    cache: false
@@ -151,7 +152,25 @@
 				    },
 				    cache: false
 				});
-			}; 
+			};
+			
+			var changePathCate = function(){
+				var param=$("#indexPathCate").children('option:selected').val();//这就是selected的值 
+				if(param!=null&&param!="");
+				$.ajax({
+				    url: 'indexPathType?id='+param,
+				    success: function (_data) {
+				    	if("IMAGE"==_data.pathtype){
+				    		$(".c_1").css("display", "none");
+				    		$(".c_2").css("display", "block");
+				    	}else{
+				    		$(".c_1").css("display", "block");
+				    		$(".c_2").css("display", "none");
+				    	}
+				    },
+				    cache: false
+				});
+			}
 			
 			$('#database').change(function(){ 
 				changetables();
@@ -159,6 +178,10 @@
 			
 			$('#tableName').change(function(){ 
 				changeTableName();
+			});
+			
+			$('#indexPathCate').change(function(){ 
+				changePathCate();
 			});
 			
 			
@@ -287,20 +310,29 @@
 				<select id="defaultTitleFieldName" name="rDatabaseIndex.defaultTitleFieldName"></select> 
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="control-group c_1">
 			<label class="control-label">摘要:</label>
 			<div class="controls">
 				<input type="hidden" id="database_defaultResumeFieldName" value="${rDatabaseIndex.defaultResumeFieldName}"></input>
 				<select id="defaultResumeFieldName" name="rDatabaseIndex.defaultResumeFieldName"></select> 
 			</div>
 		</div>
+		
+		<div class="control-group c_2">
+			<label class="control-label">图片字段:</label>
+			<div class="controls" >
+				 <input  type="text" name="rDatabaseIndex.binaryField" id="binaryField" value="${rDatabaseIndex.binaryField}"/>
+			</div>
+		</div>
+		
 		<div class="control-group">
 			<label class="control-label">查询条件:</label>
 			<div class="controls" >
-				 <input  type="text" name="rDatabaseIndex.condtion" id="condtion" value="${rDatabaseIndex.condtion}">
+				 <input  type="text" name="rDatabaseIndex.condtion" id="condtion" value="${rDatabaseIndex.condtion}"/>
 			</div>
 		</div>
-		<div class="control-group">
+		
+		<div class="control-group c_1">
 			<label class="control-label">是否去重复:</label>
 			<div class="controls">
 				<input type="hidden" id="database_rmDuplicate" value="${rDatabaseIndex.rmDuplicate}" />
@@ -308,6 +340,7 @@
 				<input type="radio" id="rmDuplicate_1" name="rDatabaseIndex.rmDuplicate" value="1" />否
 			</div>
 		</div>
+		
 		<div class="control-group">
 			<label class="control-label">操作类型:</label>
 			<div class="controls">
@@ -316,13 +349,14 @@
 				<input type="radio" id="indexOperatorType_1" name="rDatabaseIndex.indexOperatorType" value="1" />更新
 			</div>
 		</div>
+		
 		<div class="control-group">
 			<label class="control-label">触发器表:</label>
 			<div class="controls">
 				 <input type="text" name="rDatabaseIndex.indexTriggerRecord" id="indexTriggerRecord" value="${rDatabaseIndex.indexTriggerRecord}">
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="control-group c_1">
 			<label class="control-label">拦截器:</label>
 			<div class="controls">
 				 <input type="text" name="rDatabaseIndex.databaseRecordInterceptor" id="databaseRecordInterceptor" value="${rDatabaseIndex.databaseRecordInterceptor}">

@@ -6,15 +6,15 @@ package com.sxjun.retrieval.controller;
 import java.util.Map;
 
 import com.sxjun.retrieval.common.DictUtils;
-import com.sxjun.retrieval.pojo.IndexCagetory;
+import com.sxjun.retrieval.pojo.IndexCategory;
 
 /**
  * 索引分类Controller
  * @author sxjun
  * @version 2014-01-14
  */
-public class IndexCagetoryController extends BaseController<IndexCagetory> {
-	private final static String cachename = IndexCagetory.class.getSimpleName();
+public class IndexCagetoryController extends BaseController<IndexCategory> {
+	private final static String cachename = IndexCategory.class.getSimpleName();
 	
 	public void list() {
 		list(cachename);
@@ -28,7 +28,7 @@ public class IndexCagetoryController extends BaseController<IndexCagetory> {
 	}
 	
 	public void save(){
-		save(getModel(IndexCagetory.class));
+		save(getModel(IndexCategory.class));
 	}
 	
 	public void delete(){

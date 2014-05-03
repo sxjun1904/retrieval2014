@@ -103,6 +103,10 @@ public abstract class RDocument implements Serializable{
 	 * @param id
 	 */
 	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public void createId(String id ){
 		RDocItem docItem=new RDocItem();
 		docItem.setItemType(RetrievalType.RDocItemType.KEYWORD);
 		docItem.setContent(id);
@@ -240,7 +244,7 @@ public abstract class RDocument implements Serializable{
 	 * 生成一个唯一索引ID
 	 */
 	public void createId(){
-		setId(RetrievalUtil.getIndexId());
+		createId(RetrievalUtil.getIndexId());
 	}
 
 	/**

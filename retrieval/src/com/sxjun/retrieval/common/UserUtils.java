@@ -93,7 +93,7 @@ public class UserUtils{
 		menu9.setIsShow("1");
 		menu9.setName("索引分类");
 		menu9.setParentid("3");
-		menu9.setHref("/indexCagetory/list");
+		menu9.setHref("/indexCategory/list");
 		menu9.setSort(27);
 		
 		Menu menu3 = new Menu();

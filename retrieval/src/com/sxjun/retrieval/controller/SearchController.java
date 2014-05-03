@@ -13,7 +13,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.kit.StringKit;
 import com.sxjun.core.plugin.redis.RedisKit;
 import com.sxjun.retrieval.common.Page;
-import com.sxjun.retrieval.pojo.IndexCagetory;
+import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
 import com.sxjun.retrieval.pojo.SimpleQuery;
@@ -36,7 +36,7 @@ public class SearchController extends Controller {
 private RetrievalApplicationContext retrievalApplicationContext = ApplicationContext.getApplicationContent();
 
 	public String[] getIndexCategory(){
-		List<IndexCagetory> l = RedisKit.getObjs(IndexCagetory.class.getSimpleName());
+		List<IndexCategory> l = RedisKit.getObjs(IndexCategory.class.getSimpleName());
 		String[] ils = new String[l.size()];
 		for(int i=0;i<l.size();i++){
 			ils[i] = l.get(i).getIndexPath();
@@ -66,6 +66,10 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 
 	public void index() {
 		render("index.jsp");
+	}
+	
+	public void image(){
+		render("image.jsp");
 	}
 	
 	

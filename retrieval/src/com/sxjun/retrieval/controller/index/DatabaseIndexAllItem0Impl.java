@@ -11,6 +11,7 @@ import org.quartz.Job;
 import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
+import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DataaseIndexJob1;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
@@ -40,7 +41,6 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 	public DatabaseIndexAllItem0Impl(RDatabaseIndex rDatabaseIndex){
 		rDatabaseIndexList = new ArrayList<RDatabaseIndex>();
 		rDatabaseIndexList.add(rDatabaseIndex);
-		this.rDatabaseIndexList = rDatabaseIndexList;
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 		
 		List <RDatabaseIndexAllItem> l = new ArrayList<RDatabaseIndexAllItem>();
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
-			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
+			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&!(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				
 				rdI.setIsInit("2");
 				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);

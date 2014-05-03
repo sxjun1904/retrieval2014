@@ -54,21 +54,21 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx_a}/indexCagetory/list">索引分类列表</a></li>
-		<li class="active"><a href="${ctx_a}/indexCagetory/form?id=${indexCagetory.id}">${not empty indexCagetory.id?'修改':'添加'}索引分类</a></li>
+		<li><a href="${ctx_a}/indexCategory/list">索引分类列表</a></li>
+		<li class="active"><a href="${ctx_a}/indexCategory/form?id=${indexCategory.id}">${not empty indexCategory.id?'修改':'添加'}索引分类</a></li>
 	</ul><br/>
-	<form id="inputForm" modelAttribute="indexCagetory" action="${ctx_a}/indexCagetory/save" method="post" class="form-horizontal">
+	<form id="inputForm" modelAttribute="indexCategory" action="${ctx_a}/indexCategory/save" method="post" class="form-horizontal">
 		<div class="control-group">
 			<label class="control-label">索引分类:</label>
 			<div class="controls">
-				<input id="indexInfoType" name="indexCagetory.indexInfoType" value=${indexCagetory.indexInfoType}>
-				<input id="id" type="hidden"  name="indexCagetory.id" value=${indexCagetory.id}>
+				<input id="indexInfoType" name="indexCategory.indexInfoType" value=${indexCategory.indexInfoType}>
+				<input id="id" type="hidden"  name="indexCategory.id" value=${indexCategory.id}>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">路径类型:</label>
 			<div class="controls">
-				<input id="indexPathType" type="hidden" name="indexCagetory.indexPathType" value="${indexCagetory.indexPathType}">
+				<input id="indexPathType" type="hidden" name="indexCategory.indexPathType" value="${indexCategory.indexPathType}">
 				<c:forEach items="${indexPathTypes}" var="indexPathType">
 				<input type="radio" name="indexPathType" value="${indexPathType.key}" />${indexPathType.value}
 				</c:forEach>
@@ -77,7 +77,7 @@
 		<div class="control-group">
 			<label class="control-label">路径:</label>
 			<div class="controls">
-				<input id="indexPath" name="indexCagetory.indexPath" value=${indexCagetory.indexPath}>
+				<input id="indexPath" name="indexCategory.indexPath" value=${indexCategory.indexPath}>
 			</div>
 		</div>
 		<div class="form-actions">

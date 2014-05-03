@@ -5,23 +5,33 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 import com.sxjun.retrieval.controller.index.DatabaseIndexAllItem0Impl;
+import com.sxjun.retrieval.controller.index.NormalImageIndex0Impl;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.retrieval.engine.facade.DBIndexOperatorFacade;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;
+import frame.retrieval.engine.facade.NormalIndexOperatorFacade;
 import frame.retrieval.task.quartz.QuartzManager;
 
 public class DataaseIndexJob0 implements Job {
-	private ICreateIndexAllItem iciai= null;
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
+		ICreateIndexAllItem iciai0 = null;
+		ICreateIndexAllItem iciai1 = null;
 		RDatabaseIndex rDatabaseIndex = (RDatabaseIndex) arg0.getJobDetail().getJobDataMap().get(QuartzManager.JUST_SCHEDULE_RETURN);
 		if(rDatabaseIndex!=null)
-			iciai = new DatabaseIndexAllItem0Impl(rDatabaseIndex);
+			iciai0 = new DatabaseIndexAllItem0Impl(rDatabaseIndex);
 		else
-			iciai = new DatabaseIndexAllItem0Impl();
-		DBIndexOperatorFacade indexAll = new DBIndexOperatorFacade(iciai);
+			iciai0 = new DatabaseIndexAllItem0Impl();
+		DBIndexOperatorFacade indexAll = new DBIndexOperatorFacade(iciai0);
 		indexAll.indexAll(indexAll.INDEX_BY_THREAD);
+		
+		if(rDatabaseIndex!=null)
+			iciai1 = new NormalImageIndex0Impl(rDatabaseIndex);
+		else	
+			iciai1 = new NormalImageIndex0Impl();
+		NormalIndexOperatorFacade imageIndexAll = new NormalIndexOperatorFacade(iciai1);
+		imageIndexAll.indexAll();
 	}
 	
 }

@@ -1,12 +1,16 @@
 package frame.retrieval.engine.facade;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.lucene.index.IndexWriter;
 
 import frame.base.core.util.StringClass;
 import frame.retrieval.engine.context.ApplicationContext;
+import frame.retrieval.engine.context.RFacade;
+import frame.retrieval.engine.index.doc.NormalIndexDocument;
 import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
+import frame.retrieval.engine.index.doc.internal.RDocItem;
 
 /**
  * 索引操作接口
@@ -117,4 +121,5 @@ public class DBIndexOperatorFacade extends AbstractIndexBaseOperator{
 		}
 		return 0;
 	}
+
 }

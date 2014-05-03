@@ -18,20 +18,20 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx_a}/indexCagetory/list">索引分类列表</a></li>
-		<li><a href="${ctx_a}/indexCagetory/form">索引分类添加</a></li>
+		<li class="active"><a href="${ctx_a}/indexCategory/list">索引分类列表</a></li>
+		<li><a href="${ctx_a}/indexCategory/form">索引分类添加</a></li>
 	</ul>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead><tr><th>索引分类</th><th>路径类型</th><th>类型</th><th>操作</th></tr></thead>
 		<tbody>
-		<c:forEach items="${indexCagetory}" var="indexCagetory">
+		<c:forEach items="${indexCategory}" var="indexCategory">
 			<tr>
-				<td><a href="${ctx_a}/indexCagetory/form?id=${indexCagetory.id}">${indexCagetory.indexInfoType}</a></td>
-				<td>${fns:getDictMapByKey(3,indexCagetory.indexPathType)}</td>
-				<td>${indexCagetory.indexPath}</td>
+				<td><a href="${ctx_a}/indexCategory/form?id=${indexCategory.id}">${indexCategory.indexInfoType}</a></td>
+				<td>${fns:getDictMapByKey(3,indexCategory.indexPathType)}</td>
+				<td>${indexCategory.indexPath}</td>
 				<td>
-    				<a href="${ctx_a}/indexCagetory/form?id=${indexCagetory.id}">修改</a>
-					<a href="${ctx_a}/indexCagetory/delete/${indexCagetory.id}" onclick="return confirm('确认要删除该索引分类吗？', this.href)">删除</a>
+    				<a href="${ctx_a}/indexCategory/form?id=${indexCategory.id}">修改</a>
+					<a href="${ctx_a}/indexCategory/delete/${indexCategory.id}" onclick="return confirm('确认要删除该索引分类吗？', this.href)">删除</a>
 				</td>
 			</tr>
 		</c:forEach>

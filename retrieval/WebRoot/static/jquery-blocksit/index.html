@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="JS代码,焦点图,JS广告代码,JS特效代码" />
+<meta name="description" content="国外瀑布流网页布局jQuery代码" />
+<title>国外瀑布流网页布局jQuery代码</title> 
+<link rel='stylesheet' href='style.css' media='screen' />
+<script src="jquery.min.js"></script>
+<!--[if lt IE 9]>
+<script src="html5.js"></script>
+<![endif]-->
+<script src="blocksit.min.js"></script>
+<script>
+$(document).ready(function() {
+
+	$(window).on("scroll",function(){
+		if($(document).height() == $(window).scrollTop()+$(window).height()){
+		//当最短的ul的高度比窗口滚出去的高度+浏览器高度大时加载新图片
+			alert("The next page");
+		}
+	})
+
+	//blocksit define
+	$(window).load( function() {
+		$('#container').BlocksIt({
+			numOfCol: 5,
+			offsetX: 8,
+			offsetY: 8
+		});
+	});
+	
+	//window resize
+	var currentWidth = 1100;
+	$(window).resize(function() {
+		var winWidth = $(window).width();
+		var conWidth;
+		if(winWidth < 660) {
+			conWidth = 440;
+			col = 2
+		} else if(winWidth < 880) {
+			conWidth = 660;
+			col = 3
+		} else if(winWidth < 1100) {
+			conWidth = 880;
+			col = 4;
+		} else {
+			conWidth = 1100;
+			col = 5;
+		}
+		
+		if(conWidth != currentWidth) {
+			currentWidth = conWidth;
+			$('#container').width(conWidth);
+			$('#container').BlocksIt({
+				numOfCol: col,
+				offsetX: 8,
+				offsetY: 8
+			});
+		}
+	});
+});
+</script>
+</head>
+<body>
+
+
+
+<div id="container">
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img27.jpg" />
+		</div>
+		<strong>日落湖</strong>
+		<p>和平日落景观......</p>
+		<div class="meta">2013年6月6日</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img26.jpg" />
+		</div>
+		<strong>天国的桥梁</strong>
+		<p>桥在哪里？</p>
+		<div class="meta">by SigitEko</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img15.jpg" />
+		</div>
+		<strong>秋</strong>
+		<p>秋天的树...</p>
+		<div class="meta">by Lars van de Goor</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img23.jpg" />
+		</div>
+		<strong>冬季耳语</strong>
+		<p>冬天的感觉...</p>
+		<div class="meta">by Andrea Andrade</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img17.jpg" />
+		</div>
+		<strong>Light</strong>
+		<p>The only shinning light...</p>
+		<div class="meta">by Lars van de Goor</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img22.jpg" />
+		</div>
+		<strong>Rooster's Ranch</strong>
+		<p>Rooster's ranch landscape...</p>
+		<div class="meta">by Andrea Andrade</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img16.jpg" />
+		</div>
+		<strong>Autumn Light</strong>
+		<p>Sun shinning into forest...</p>
+		<div class="meta">by Lars van de Goor</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img21.jpg" />
+		</div>
+		<strong>Yellow cloudy</strong>
+		<p>It is yellow cloudy...</p>
+		<div class="meta">by Zsolt Zsigmond</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img28.jpg" />
+		</div>
+		<strong>Herringfleet Mill</strong>
+		<p>Just a herringfleet mill...</p>
+		<div class="meta">by Ian Flindt</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img2.jpg" />
+		</div>
+		<strong>Battle Field</strong>
+		<p>Battle Field for you...</p>
+		<div class="meta">by Andrea Andrade</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img24.jpg" />
+		</div>
+		<strong>Sundays Sunset</strong>
+		<p>Beach view sunset...</p>
+		<div class="meta">by Robert Strachan</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img19.jpg" />
+		</div>
+		<strong>Sun Flower</strong>
+		<p>Good Morning Sun flower...</p>
+		<div class="meta">by Zsolt Zsigmond</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img5.jpg" />
+		</div>
+		<strong>Beach</strong>
+		<p>Something on beach...</p>
+		<div class="meta">by unknown</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img25.jpg" />
+		</div>
+		<strong>Flowers</strong>
+		<p>Hello flowers...</p>
+		<div class="meta">by R A Stanley</div>
+	</div>
+	<div class="grid">
+		<div class="imgholder">
+			<img src="images/img20.jpg" />
+		</div>
+		<strong>Alone</strong>
+		<p>Lonely plant...</p>
+		<div class="meta">by Zsolt Zsigmond</div>
+	</div> <!---->
+</div>
+
+
+</body>
+</html>

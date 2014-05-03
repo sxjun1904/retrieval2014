@@ -16,10 +16,8 @@ public class RDatabaseIndex extends BasePojo{
 	private static final long serialVersionUID = -8540192254583468758L;
 	private Database database;//数据源
 	private String database_id;//数据源id
-	private String indexPath_id;//索引路径
-	//private String justSchedule;//任务
-	//private FiledMapper filedMapper;//字段映射
-	//private FiledSpecialMapper filedSpecialMapper;//特殊字段映射
+	private IndexCategory indexCategory;//索引分类
+	private String indexPath_id;//索引
 	private String tableName;//数据表名
 	private String keyField;//主键字段
 	private String sql;//Sql查询语句
@@ -30,8 +28,6 @@ public class RDatabaseIndex extends BasePojo{
 	private String rmDuplicate = "0";//是否要去除重复标题正文字段；默认为true
 	private String databaseRecordInterceptor;//设置拦截器
 	private String isOn;//是否启用 0:启动 1:关闭
-	private String createTimeField;//创建时间字段
-	private String updateTimeField;//修改时间字段
 	private String isError;//是否存在错误
 	private String error;//错误信息
 	private String condtion;//查询条件
@@ -41,6 +37,7 @@ public class RDatabaseIndex extends BasePojo{
 	private String style ;//风格  0:rest 1:复合
 	private String indexTriggerRecord;//触发器表
 	private String isInit = "0";//是否初始化 0：否，1：是,2：零时
+	private String binaryField;
 	
 	public Database getDatabase() {
 		return database;
@@ -114,18 +111,6 @@ public class RDatabaseIndex extends BasePojo{
 	public void setIsOn(String isOn) {
 		this.isOn = isOn;
 	}
-	public String getCreateTimeField() {
-		return createTimeField;
-	}
-	public void setCreateTimeField(String createTimeField) {
-		this.createTimeField = createTimeField;
-	}
-	public String getUpdateTimeField() {
-		return updateTimeField;
-	}
-	public void setUpdateTimeField(String updateTimeField) {
-		this.updateTimeField = updateTimeField;
-	}
 	public List<FiledSpecialMapper> getFiledSpecialMapperLsit() {
 		return filedSpecialMapperLsit;
 	}
@@ -172,6 +157,12 @@ public class RDatabaseIndex extends BasePojo{
 	public List<JustSchedule> getJustScheduleList() {
 		return justScheduleList;
 	}
+	public String getBinaryField() {
+		return binaryField;
+	}
+	public void setBinaryField(String binaryField) {
+		this.binaryField = binaryField;
+	}
 	public void setJustScheduleList(List<JustSchedule> justScheduleList) {
 		this.justScheduleList = justScheduleList;
 	}
@@ -186,6 +177,12 @@ public class RDatabaseIndex extends BasePojo{
 	}
 	public void setTrigSql(String trigSql) {
 		this.trigSql = trigSql;
+	}
+	public IndexCategory getIndexCategory() {
+		return indexCategory;
+	}
+	public void setIndexCategory(IndexCategory indexCategory) {
+		this.indexCategory = indexCategory;
 	}
 	
 }
