@@ -1,13 +1,13 @@
 package frame.retrieval.engine.facade;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import frame.base.core.util.StringClass;
-import frame.base.core.util.file.FileHelper;
 import frame.retrieval.engine.context.ApplicationContext;
 import frame.retrieval.engine.context.RFacade;
 import frame.retrieval.engine.index.doc.NormalIndexDocument;
-import frame.retrieval.engine.index.doc.file.RFileIndexAllItem;
 
 /**
  * 索引操作接口
@@ -31,6 +31,7 @@ public class NormalIndexOperatorFacade extends AbstractIndexBaseOperator{
 		}
 		IRDocOperatorFacade docOperatorFacade=facade.createDocOperatorFacade();
 		docOperatorFacade.createNormalIndexs(normalIndexDocumentList);
+		afterDeal(normalIndexDocumentList);
 		return normalIndexDocumentList.size();
 	}
 }

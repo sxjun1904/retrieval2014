@@ -1,6 +1,8 @@
 package frame.retrieval.test.query;
 
+import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType;
+import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
 import frame.retrieval.engine.query.RQuery;
 import frame.retrieval.engine.query.item.QueryItem;
 import frame.retrieval.engine.query.item.QuerySort;
@@ -70,8 +72,9 @@ public class TestNormalQuery {
 	}
 	
 	public QueryResult[] getQueryResults(String[] indexPathTypes,QueryItem queryItem){
+		indexPathTypes=ApplicationContext.getLocalIndexPathTypes(indexPathTypes);
 		RQuery query=queryFacade.createRQuery(indexPathTypes);
-		QueryResult[] queryResults=query.getQueryResults(queryItem);
+		QueryResult[] queryResults=query.getQueryResults(queryItem,0,15);
 		query.close();
 		return queryResults;
 	}
@@ -89,13 +92,13 @@ public class TestNormalQuery {
 	}
 	
 	public void testAllQuery(){
-		QueryItem queryItem0=createQueryItem(RetrievalType.RDocItemType.CONTENT,"TITLE_FIELD","速度");
+		QueryItem queryItem0=createQueryItem(RetrievalType.RDocItemType.CONTENT,StringClass.getString(RDatabaseDefaultDocItemType._TITLE),"中国");
 
 		QueryItem queryItem=queryItem0;
 
 		System.out.println(queryItem.getQueryWrap().getQuery());
 		
-		QueryResult[] queryResult2=getQueryResults(new String[]{"PICTURE_1"}, queryItem);
+		QueryResult[] queryResult2=getQueryResults(new String[]{"JAVA/TEST_IMAGE"}, queryItem);
 		
 		if(queryResult2!=null){
 			int length=queryResult2.length;
@@ -103,7 +106,7 @@ public class TestNormalQuery {
 			for(int i=0;i<length;i++){
 				System.out.println("========================================================================");
 				System.out.println("queryResult2["+i+"]="+queryResult2[i].getQueryResultMap());
-				System.out.println("CONTENT_FIELD="+queryResult2[i].getHighlighterResult("CONTENT_FIELD", 1000));
+				System.out.println("_RESUME="+queryResult2[i].getHighlighterResult(StringClass.getString(RDatabaseDefaultDocItemType._RESUME), 1000));
 			}
 		}
 

@@ -35,6 +35,31 @@ public class BigDataOperator implements IBigDataOperator {
 		}
 		return blobStr;
 	}
+	
+	@Override
+	public byte[] getByteFromBlob(Blob blob) {
+		String blobStr = "";
+		InputStream inStream = null;
+		byte[] bytes = null;
+		try {
+			inStream = blob.getBinaryStream();
+			bytes = new byte[inStream.available()];
+			inStream.read(bytes);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (inStream != null) {
+				try {
+					inStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return bytes;
+	}
 
 	@Override
 	public String getStringFromClob(Clob clob) {
@@ -65,6 +90,11 @@ public class BigDataOperator implements IBigDataOperator {
 	@Override
 	public String getStringFromBlob(byte[] bytes) {
 		return new String(bytes);
+	}
+	
+	@Override
+	public byte[] getByteFromBlob(byte[] bytes) {
+		return bytes;
 	}
 
 	@Override

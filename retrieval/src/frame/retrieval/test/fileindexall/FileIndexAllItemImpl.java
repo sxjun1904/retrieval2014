@@ -50,7 +50,7 @@ public class FileIndexAllItemImpl implements ICreateIndexAllItem{
 	}
 
 	@Override
-	public void afterDeal(RDatabaseIndexAllItem databaseIndexAllItem) {
+	public void afterDeal(Object databaseIndexAllItem) {
 		// TODO Auto-generated method stub
 		
 	}

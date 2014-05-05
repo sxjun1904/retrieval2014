@@ -20,7 +20,7 @@ import frame.retrieval.engine.index.all.database.DatabaseLink;
 import frame.retrieval.engine.index.all.database.IIndexAllDatabaseRecordInterceptor;
 import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
 
-public class DatabaseIndexAllItemCommon {
+public class DatabaseIndexAllItemCommon extends IndexCommon{
 	
 	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
 	
@@ -29,8 +29,8 @@ public class DatabaseIndexAllItemCommon {
 		String keyField = rdI.getKeyField();
 		RDatabaseIndexAllItem databaseIndexAllItem = retrievalApplicationContext.getFacade().createDatabaseIndexAllItem(false);
 		
-		Map<String,String> transObj = new HashMap<String,String>();
-		transObj.put("id", rdI.getId());
+		Map<String,Object> transObj = new HashMap<String,Object>();
+		transObj.put("rdI", rdI);
 		transObj.put("nowTime", nowTime);
 		
 		IndexCategory ic = rdI.getIndexCategory();

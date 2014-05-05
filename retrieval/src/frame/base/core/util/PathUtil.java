@@ -78,6 +78,12 @@ public class PathUtil {
 		return file.getPath()+File.separator+"index";
 	}
 	
+	public static String getDefaultTempImgPath(){ 
+		String classPath = getPath();
+		File file = new File(classPath).getParentFile();
+		return file.getPath()+File.separator+"img";
+	}
+	
 	public static String getDefaultRedisPath(){ 
 		String classPath = getPath();
 		File file = new File(classPath).getParentFile();

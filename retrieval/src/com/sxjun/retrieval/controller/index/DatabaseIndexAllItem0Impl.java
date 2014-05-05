@@ -54,39 +54,13 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 				
 				//删除触发器表中记录
-				String nowTime =  new DateTime().getNowDateTime();
-				Database db =  rdI.getDatabase();
-				String delsql = " delete from "+SQLUtil.INDEX_TRIGGER_RECORD+" where 1=1 and operatetype in('I','U') and tablename ='"+rdI.getTableName()+"' ";
-				RDatabaseType databaseType = DictUtils.changeToRDatabaseType(db.getDatabaseType());
-				if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.ORACLE)) {
-					delsql += " and insertdate< to_date(" + "'" + nowTime + "'" + ",'yyyy-MM-dd HH24:mi:ss') ";;
-				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.SQLSERVER)) {
-					delsql += " and insertdate<convert(datetime,'"+nowTime+"')";
-				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
-					delsql += " and insertdate<'"+nowTime+"' ";
-				}
-				String url = JdbcUtil.getConnectionURL(databaseType, db.getIp(), db.getPort(), db.getDatabaseName());
-				Connection conn =JdbcUtil.getConnection(databaseType, url, db.getUser(), db.getPassword());
-				JdbcUtil.executeSql(conn, delsql, true);
+				delAllTrigRecord(rdI);
 				
-				//启动定时任务
 				String sql = rdI.getSql();
 				l.add(create(retrievalApplicationContext,rdI,sql,null));
-				List<JustSchedule>  scheduleList = rdI.getJustScheduleList();
-				for(JustSchedule js : scheduleList){
-					Job dij = new DataaseIndexJob1();
-					JustBaseSchedule jbs = new JustBaseSchedule();
-					jbs.setScheduleID(js.getId());
-					jbs.setScheduleName(js.getScheduleName());
-					JustBaseSchedulerManage jbsm = new JustBaseSchedulerManage(jbs);
-					if(StringKit.notBlank(js.getFrequency())){
-						jbs.setFrequency(js.getFrequency());
-						jbs.setFrequencyUnits(js.getFrequencyUnits());
-						jbsm.startUpJustScheduler(dij,QuartzManager.SCHEDULE_TYPE_TRIGGER_SIMPLE);
-					}else{
-						jbs.setExpression(js.getExpression());
-						jbsm.startUpJustScheduler(dij,QuartzManager.SCHEDULE_TYPE_TRIGGER_CRON);
-					}
+				//启动定时任务
+				if("1".equals(rdI.getStyle())){//复合风格
+					sechdule(rdI,new DataaseIndexJob1());
 				}
 			}
 		}
@@ -94,9 +68,9 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 	}
 
 	@Override
-	public void afterDeal(RDatabaseIndexAllItem databaseIndexAllItem) {
-		Map<String,String> transObj = (Map<String, String>) databaseIndexAllItem.getTransObject();
-		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class.getSimpleName(), transObj.get("id"));
+	public void afterDeal(Object databaseIndexAllItem) {
+		Map<String,Object> transObj = (Map<String, Object>) ((RDatabaseIndexAllItem)databaseIndexAllItem).getTransObject();
+		RDatabaseIndex rdI = (RDatabaseIndex) transObj.get("rdI");
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 	}

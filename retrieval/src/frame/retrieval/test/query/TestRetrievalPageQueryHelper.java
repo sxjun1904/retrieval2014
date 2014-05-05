@@ -24,7 +24,7 @@ public class TestRetrievalPageQueryHelper {
 	}
 	
 	public List<RetrievalPage> getRetrievalPage(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
-		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,new String[]{"DB/B/TEST_WEB","DB/B/VIEW_THREAD_CASE"},queryItem);
+		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,new String[]{"JAVA/TEST_IMAGE"},queryItem);
 		System.out.println("retrievalApplicationContext:"+retrievalApplicationContext);
 		return retrievalPageQueryHelper.getResults(retrievalPageQuery);
 	}
@@ -42,7 +42,7 @@ public class TestRetrievalPageQueryHelper {
 		retrievalPageQuery.setNowStartPage(0);
 		retrievalPageQuery.setQueryFields(new String[]{"PAGE_URL"});
 		
-		QueryItem queryItem0=testInternalRetrievalQueryHelper.createQueryItem(RetrievalType.RDocItemType.CONTENT,"_RESUME","宿迁北站有到沭阳的车吗",100f);
+		QueryItem queryItem0=testInternalRetrievalQueryHelper.createQueryItem(RetrievalType.RDocItemType.CONTENT,"_TITLE","中国",100f);
 //		QueryItem queryItem1=testInternalRetrievalQueryHelper.createQueryItem(RetrievalType.RDocItemType.CONTENT,"TITLE","哦",null);
 //		QueryItem queryItem2=testInternalRetrievalQueryHelper.createQueryItem(RetrievalType.RDocItemType.CONTENT,"CONTENT","城镇化健康发展需要新的制度变革",null);
 //		QueryItem queryItem3=testInternalRetrievalQueryHelper.createQueryItem(RetrievalType.RDocItemType.CONTENT,"CONTENT","地方");

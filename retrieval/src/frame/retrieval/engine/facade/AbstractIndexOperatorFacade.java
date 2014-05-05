@@ -15,5 +15,5 @@ import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
 public abstract class AbstractIndexOperatorFacade implements IIndexOperatorFacade{
 	public RetrievalApplicationContext retrievalApplicationContext = ApplicationContext.getApplicationContent();
 	public abstract <T> List<T> deal(RetrievalApplicationContext retrievalApplicationContext);
-	public abstract void afterDeal(RDatabaseIndexAllItem databaseIndexAllItem);
+	public abstract void afterDeal(Object o);
 }

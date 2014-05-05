@@ -91,6 +91,12 @@ public class DefaultRetrievalProperties {
 	private static final String DEFAULT_MOVE_FILE_AFTER_INDEX_FOLDER = "DEFAULT_MOVE_FILE_AFTER_INDEX_FOLDER";
 	private static String default_move_file_after_index_folder = PathUtil.getDefaultMoveFileAfterIndexFolderPath();
 	
+	/**
+	 * 零时图片路径
+	 */
+	private static final String DEFAULT_TEMP_IMAGE_FOLDER = "DEFAULT_TEMP_IMAGE_FOLDER";
+	private static String default_temp_image_folder = PathUtil.getDefaultTempImgPath();
+	
 	public DefaultRetrievalProperties(){
 		
 		ReadProperties readProperties=new ReadProperties();
@@ -164,6 +170,11 @@ public class DefaultRetrievalProperties {
 			taskparam = StringClass.getString(readProperties.readValue(DEFAULT_MOVE_FILE_AFTER_INDEX_FOLDER));
 			if(!taskparam.equals("")){
 				default_move_file_after_index_folder=taskparam;
+			}
+			
+			taskparam = StringClass.getString(readProperties.readValue(DEFAULT_TEMP_IMAGE_FOLDER));
+			if(!taskparam.equals("")){
+				default_temp_image_folder=taskparam;
 			}
 			readProperties.close();
 		}
@@ -280,5 +291,15 @@ public class DefaultRetrievalProperties {
 			String default_move_file_after_index_folder) {
 		DefaultRetrievalProperties.default_move_file_after_index_folder = default_move_file_after_index_folder;
 	}
+
+	public static String getDefault_temp_image_folder() {
+		return default_temp_image_folder;
+	}
+
+	public static void setDefault_temp_image_folder(String default_temp_image_folder) {
+		DefaultRetrievalProperties.default_temp_image_folder = default_temp_image_folder;
+	}
+	
+	
 
 }

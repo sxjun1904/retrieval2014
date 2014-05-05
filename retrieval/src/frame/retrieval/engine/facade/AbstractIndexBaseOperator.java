@@ -17,7 +17,7 @@ public abstract class AbstractIndexBaseOperator extends AbstractIndexOperatorFac
 	}
 	
 	@Override
-	public void afterDeal(RDatabaseIndexAllItem databaseIndexAllItem){
-		createIndexAllItem.afterDeal(databaseIndexAllItem);
+	public void afterDeal(Object o){
+		createIndexAllItem.afterDeal(o);
 	}
 }

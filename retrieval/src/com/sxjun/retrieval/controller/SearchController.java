@@ -11,8 +11,10 @@ import org.apache.lucene.search.BooleanClause;
 
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StringKit;
-import com.sxjun.core.plugin.redis.RedisKit;
+import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.Page;
+import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
+import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
@@ -24,7 +26,10 @@ import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
 import frame.retrieval.engine.RetrievalType.RDocItemSpecialName;
 import frame.retrieval.engine.context.ApplicationContext;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
+import frame.retrieval.engine.facade.IRQueryFacade;
+import frame.retrieval.engine.query.RQuery;
 import frame.retrieval.engine.query.item.QueryItem;
+import frame.retrieval.engine.query.result.QueryResult;
 import frame.retrieval.helper.RetrievalPage;
 import frame.retrieval.helper.RetrievalPageQuery;
 import frame.retrieval.helper.RetrievalPageQueryHelper;
@@ -34,12 +39,52 @@ import frame.retrieval.oth.mapper.MapperUtil;
 
 public class SearchController extends Controller {
 private RetrievalApplicationContext retrievalApplicationContext = ApplicationContext.getApplicationContent();
-
+	public boolean isImg(String indexPathType){
+		return DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue()).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, indexPathType));
+		
+	}
+	/**
+	 * 获取索引分类
+	 * @return
+	 */
 	public String[] getIndexCategory(){
-		List<IndexCategory> l = RedisKit.getObjs(IndexCategory.class.getSimpleName());
-		String[] ils = new String[l.size()];
+		CommonService<IndexCategory> commonService = new CommonService<IndexCategory>();
+		List<IndexCategory> l = commonService.getObjs(IndexCategory.class.getSimpleName());
+		int image = 0;
+		for(IndexCategory ic : l){
+			if(isImg(ic.getIndexPathType()))
+				image++;
+		}
+		String[] ils = new String[l.size()-image];
+		int count=0;
 		for(int i=0;i<l.size();i++){
-			ils[i] = l.get(i).getIndexPath();
+			IndexCategory icc = l.get(i);
+			if(!isImg(icc.getIndexPathType())){
+				ils[count++] = icc.getIndexPath();
+			}
+		}
+		return ils;
+	}
+	
+	/**
+	 * 获取图片分类
+	 * @return
+	 */
+	public String[] getImgCategory(){
+		CommonService<IndexCategory> commonService = new CommonService<IndexCategory>();
+		List<IndexCategory> l = commonService.getObjs(IndexCategory.class.getSimpleName());
+		int image = 0;
+		for(IndexCategory ic : l){
+			if(isImg(ic.getIndexPathType()))
+				image++;
+		}
+		String[] ils = new String[image];
+		int count=0;
+		for(int i=0;i<l.size();i++){
+			IndexCategory icc = l.get(i);
+			if(isImg(icc.getIndexPathType())){
+				ils[count++] = icc.getIndexPath();
+			}
 		}
 		return ils;
 	}
@@ -49,8 +94,25 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		return queryItem;
 	}
 	
+	/**
+	 * 普通搜索
+	 * @param retrievalPageQuery
+	 * @param queryItem
+	 * @return
+	 */
 	public List<RetrievalPage> getRetrievalPage(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
 		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,getIndexCategory(),queryItem);
+		return retrievalPageQueryHelper.getResults(retrievalPageQuery);
+	}
+	
+	/**
+	 * 图片搜索
+	 * @param retrievalPageQuery
+	 * @param queryItem
+	 * @return
+	 */
+	public List<RetrievalPage> getRetrievalImgPage(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
+		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,getImgCategory(),queryItem);
 		return retrievalPageQueryHelper.getResults(retrievalPageQuery);
 	}
 	
@@ -63,15 +125,69 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,getIndexCategory(),queryItem);
 		return retrievalPageQueryHelper.getResultCount(retrievalPageQuery,true);
 	}
+	
+	/**
+	 * 获取图片搜搜相关的页面需要的搜索信息
+	 * @return
+	 */
+	public List<String> getImgCommonQueryFields(){
+		List<String> _queryFields = new ArrayList<String>();
+		_queryFields.add("PAGE_URL");
+		_queryFields.add("CREATETIME");
+		_queryFields.add(StringClass.getString(RDocItemSpecialName._IBT));
+		_queryFields.add(StringClass.getString(RDatabaseDefaultDocItemType._PATH));
+		return _queryFields;
+	}
+	
+	/**
+	 * 获取蒲绒搜索的页面需要的搜索信息
+	 * @return
+	 */
+	public List<String> getCommonQueryFields(){
+		List<String> _queryFields = new ArrayList<String>();
+		_queryFields.add("PAGE_URL");
+		_queryFields.add("CREATETIME");
+		_queryFields.add(StringClass.getString(RDocItemSpecialName._IBT));
+		return _queryFields;
+	}
 
 	public void index() {
 		render("index.jsp");
 	}
 	
 	public void image(){
+		SimpleQuery simpleQuery = getModel(SimpleQuery.class);
+		if(StringKit.isBlank(simpleQuery.getKeyword())){
+			simpleQuery = getSimpleQuery();
+			if(StringKit.isBlank(simpleQuery.getKeyword())){
+				index();
+				return;
+			}
+		}
+		List<String> queryFields = simpleQuery.getQueryFields();
+		List<SimpleItem> simpleItems = simpleQuery.getSimpleItems();
+		//需要附带查询出的字段
+		
+		if(queryFields==null||queryFields.size()==0){
+			simpleQuery.setQueryFields(getImgCommonQueryFields());
+		}
+		//默认标题和摘要字段
+		if(simpleItems==null||simpleItems.size()==0){
+			SimpleItem titleItem = new SimpleItem(RDatabaseDefaultDocItemType._TITLE.toString());
+			simpleItems.add(titleItem);
+			SimpleItem resumeItem = new SimpleItem(RDatabaseDefaultDocItemType._RESUME.toString());
+			simpleItems.add(resumeItem);
+		}
+		Page<RetrievalPage> page = new Page<RetrievalPage>(getRequest(), getResponse());
+		long startTime = System.currentTimeMillis();
+		page = searchImg(simpleQuery,page);
+		long endTime = System.currentTimeMillis();
+		String time = String.format("%.3f",(double)(endTime-startTime)/1000);
+		setAttr("page", page);
+		setAttr("time",time);
+		setAttr("simpleQuery", simpleQuery);
 		render("image.jsp");
 	}
-	
 	
 	public void page(){
 		searchFor(Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -91,7 +207,7 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	 * 中国;^南京-0-新闻
 	 * @return
 	 */
-	public SimpleQuery getSimoleQuery(){
+	public SimpleQuery getSimpleQuery(){
 		
 		SimpleQuery sq = new SimpleQuery();
 		//获取关键字
@@ -173,16 +289,45 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	 * @return
 	 */
 	public RetrievalPages getCommonPages(){
-		SimpleQuery simpleQuery = getSimoleQuery();
+		SimpleQuery simpleQuery = getSimpleQuery();
 		Integer pageNum = getParaToInt("pageNum");
 		Integer pageSize = getParaToInt("pageSize");
 		if(pageNum!=null)
 			simpleQuery.setNowStartPage(pageNum);
 		if(pageSize!=null)
 			simpleQuery.setPageSize(pageSize);
+		List<String> queryFields = simpleQuery.getQueryFields();
+		if(queryFields==null||queryFields.size()==0){
+			simpleQuery.setQueryFields(getCommonQueryFields());
+		}
 		RetrievalPages pages = null;
 		long startTime = System.currentTimeMillis();
 		pages = search(simpleQuery);
+		long endTime = System.currentTimeMillis();
+		String time = String.format("%.3f",(double)(endTime-startTime)/1000);
+		pages.setTime(time);
+		return pages;
+	}
+	
+	/**
+	 * 获取xml/json搜索信息
+	 * @return
+	 */
+	public RetrievalPages getCommonImgPages(){
+		SimpleQuery simpleQuery = getSimpleQuery();
+		Integer pageNum = getParaToInt("pageNum");
+		Integer pageSize = getParaToInt("pageSize");
+		if(pageNum!=null)
+			simpleQuery.setNowStartPage(pageNum);
+		if(pageSize!=null)
+			simpleQuery.setPageSize(pageSize);
+		List<String> queryFields = simpleQuery.getQueryFields();
+		if(queryFields==null||queryFields.size()==0){
+			simpleQuery.setQueryFields(getImgCommonQueryFields());
+		}
+		RetrievalPages pages = null;
+		long startTime = System.currentTimeMillis();
+		pages = searchImg(simpleQuery);
 		long endTime = System.currentTimeMillis();
 		String time = String.format("%.3f",(double)(endTime-startTime)/1000);
 		pages.setTime(time);
@@ -219,10 +364,23 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		}
 	}
 	
+	/**
+	 * 返回json格式的图片搜索结果
+	 */
+	public void jsonImg(){
+		RetrievalPages pages = getCommonImgPages();
+		try {
+			String json = new MapperUtil().toJson(pages);
+			renderJson(json);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void searchFor(String methodName) {
 		SimpleQuery simpleQuery = getModel(SimpleQuery.class);
 		if(StringKit.isBlank(simpleQuery.getKeyword())){
-			simpleQuery = getSimoleQuery();
+			simpleQuery = getSimpleQuery();
 			if(StringKit.isBlank(simpleQuery.getKeyword())){
 				index();
 				return;
@@ -232,11 +390,7 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		List<SimpleItem> simpleItems = simpleQuery.getSimpleItems();
 		//需要附带查询出的字段
 		if(queryFields==null||queryFields.size()==0){
-			List<String> _queryFields = new ArrayList<String>();
-			_queryFields.add("PAGE_URL");
-			_queryFields.add("CREATETIME");
-			_queryFields.add(StringClass.getString(RDocItemSpecialName._IBT));
-			simpleQuery.setQueryFields(_queryFields);
+			simpleQuery.setQueryFields(getCommonQueryFields());
 		}
 		//默认标题和摘要字段
 		if(simpleItems==null||simpleItems.size()==0){
@@ -255,7 +409,28 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		setAttr("simpleQuery", simpleQuery);
 		render(methodName+".jsp");
 }
+	/**
+	 * 图片搜索
+	 * @param simpleQuery
+	 * @param page
+	 * @return
+	 */
+	public Page<RetrievalPage> searchImg(SimpleQuery simpleQuery, Page<RetrievalPage> page){
+		simpleQuery.setPageSize(page.getPageSize());
+		simpleQuery.setNowStartPage(page.getPageNo());
+		RetrievalPages retrievalPages = searchImg(simpleQuery);
+		page.setCount(retrievalPages.getCount());
+		page.setList(retrievalPages.getRetrievalPageList());
+		page.setGroup(retrievalPages.getGroup());
+		return page;
+	}
 	
+	/**
+	 * 普通搜索
+	 * @param simpleQuery
+	 * @param page
+	 * @return
+	 */
 	public Page<RetrievalPage> search(SimpleQuery simpleQuery, Page<RetrievalPage> page){
 		simpleQuery.setPageSize(page.getPageSize());
 		simpleQuery.setNowStartPage(page.getPageNo());
@@ -264,6 +439,24 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		page.setList(retrievalPages.getRetrievalPageList());
 		page.setGroup(retrievalPages.getGroup());
 		return page;
+	}
+	
+	/**
+	 * 搜索图片
+	 * @param simpleQuery
+	 * @return
+	 */
+	public RetrievalPages searchImg(SimpleQuery simpleQuery){
+		RetrievalPageQuery retrievalPageQuery = generateRetrievalPageQuery(simpleQuery);
+		QueryItem queryItem = composeQuerys(simpleQuery);
+		RetrievalPages retrievalPages = new RetrievalPages();
+		if(queryItem!=null){
+			List<RetrievalPage> retrievalPageList = searchImgBody(retrievalPageQuery, queryItem);
+			int count = getRetrievalCount(retrievalPageQuery, queryItem);
+			retrievalPages.setRetrievalPageList(retrievalPageList);
+			retrievalPages.setCount(count);
+		}
+		return retrievalPages;
 	}
 	
 	/**
@@ -286,6 +479,17 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 			
 		}
 		return retrievalPages;
+	}
+	
+	/**
+	 * 搜索图片主体
+	 * @param retrievalPageQuery
+	 * @param queryItem
+	 * @return
+	 */
+	public List<RetrievalPage> searchImgBody(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
+		List<RetrievalPage> retrievalPageList = getRetrievalImgPage(retrievalPageQuery, queryItem);
+		return retrievalPageList;
 	}
 	
 	/**

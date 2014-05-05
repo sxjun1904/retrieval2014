@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/include/taglib.jsp"%>
 <html>
 <head>
-	<title>普通搜索</title>
+	<title>图片搜索</title>
 	<meta name="decorator" content="default"/>
 	<link href="${ctxStatic}/jquery-blocksit/style.css" type="text/css" rel="stylesheet" media='screen'/>
 	<script src="${ctxStatic}/jquery-blocksit/jquery.min.js" type="text/javascript"></script>
@@ -25,6 +25,16 @@
 			width:450px;
 			height:30px;
 			margin-left:15px;
+		}
+		.info{
+			width:100%;
+			height:30px;
+			line-height:30px;
+			background-color:#D6E7EE;
+            font-family: verdana;
+			letter-spacing:2px;
+			font-size:13px;
+			padding-left:15px;
 		}
 		font{
 		size:3;
@@ -81,9 +91,30 @@
 			//alert($(window).scrollTop()+$(window).height());
 			if($(document).height() <= $(window).scrollTop()+$(window).height()+1){
 			//当最短的ul的高度比窗口滚出去的高度+浏览器高度大时加载新图片
-				alert("The next page");
+				var kw = $("#keyword").val();
+				var pz = $("#pageSize").val();
+				var pn = Number($("#pageNo").val())+1;
+				$.ajax({
+				    url: '/f/search/jsonImg/'+kw+'?pageSize='+pz+'&pageNum='+pn,
+				    success: function (data) {
+				    	var retrievalPageList = data.retrievalPageList;
+				    	for(var i=0;i<retrievalPageList.length;i++){
+				    		$("#container").append('<div class="grid">'+
+									'<div class="imgholder">'+
+										'<img src="${ctxStatic}/'+retrievalPageList[i].retrievalResultFields._PATH+'" />'+
+									'</div>'+
+									'<strong>'+retrievalPageList[i].title+'</strong>'+
+									'<p>'+retrievalPageList[i].content+'</p>'+
+									'<div class="meta">'+retrievalPageList[i].retrievalResultFields.CREATETIME+'</div>'+
+								'</div>').BlocksIt('reload'); 
+				    	}
+				    	$("#pageSize").val(pz);
+				    	$("#pageNo").val(pn);
+				    },
+				    cache: false
+				});
 			}
-		})
+		});
 
 		//blocksit define
 		$(window).load( function() {
@@ -125,12 +156,6 @@
 		});
 		
 	});
-	function page(n,s){
-		//$("#pageNo").val(n);
-		//$("#pageSize").val(s);
-		$("#searchForm").submit();
-    	return false;
-    }
 	</script>
 </head>
 <body>
@@ -148,7 +173,7 @@
 				<input id="btnSubmit" class="searchBtn" type="submit" value="搜索" /><br>
 			</form>
 		</div>
-		<div class="container">
+		<div class="info">
 			<span>找到约 <font color="red">${page.count}</font>条结果，用时<font color="red">${time}</font>秒
 				 	<c:forEach items="${page.group}" var="group">
 				 		<a href="#" onclick="javascript:alert('${group.key}');return false;">${group.key}</a>(${group.value})
@@ -159,126 +184,17 @@
 	<div class="main">
 		<div style="float:left">
 			<div id="container">
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img27.jpg" />
+				<c:forEach items="${page.list}" var="retrievalPage">
+					<div class="grid">
+						<div class="imgholder">
+							<img src="${ctxStatic}/${retrievalPage.retrievalResultFields['_PATH']}" />
+						</div>
+						<strong>${retrievalPage.title}</strong>
+						<p>${retrievalPage.content}</p>
+						<div class="meta">${retrievalPage.retrievalResultFields['CREATETIME']}</div>
 					</div>
-					<strong>日落湖</strong>
-					<p>和平日落景观,是我想起了天国的桥梁......</p>
-					<div class="meta">2013年6月6日</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img26.jpg" />
-					</div>
-					<strong>天国的桥梁</strong>
-					<p>桥在哪里？</p>
-					<div class="meta">by SigitEko</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img15.jpg" />
-					</div>
-					<strong>秋</strong>
-					<p>秋天的树...</p>
-					<div class="meta">by Lars van de Goor</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img23.jpg" />
-					</div>
-					<strong>冬季耳语</strong>
-					<p>冬天的感觉...</p>
-					<div class="meta">by Andrea Andrade</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img17.jpg" />
-					</div>
-					<strong>Light</strong>
-					<p>The only shinning light...</p>
-					<div class="meta">by Lars van de Goor</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img22.jpg" />
-					</div>
-					<strong>Rooster's Ranch</strong>
-					<p>Rooster's ranch landscape...</p>
-					<div class="meta">by Andrea Andrade</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img16.jpg" />
-					</div>
-					<strong>Autumn Light</strong>
-					<p>Sun shinning into forest...</p>
-					<div class="meta">by Lars van de Goor</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img21.jpg" />
-					</div>
-					<strong>Yellow cloudy</strong>
-					<p>It is yellow cloudy...</p>
-					<div class="meta">by Zsolt Zsigmond</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img28.jpg" />
-					</div>
-					<strong>Herringfleet Mill</strong>
-					<p>Just a herringfleet mill...</p>
-					<div class="meta">by Ian Flindt</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img2.jpg" />
-					</div>
-					<strong>Battle Field</strong>
-					<p>Battle Field for you...</p>
-					<div class="meta">by Andrea Andrade</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img24.jpg" />
-					</div>
-					<strong>Sundays Sunset</strong>
-					<p>Beach view sunset...</p>
-					<div class="meta">by Robert Strachan</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img19.jpg" />
-					</div>
-					<strong>Sun Flower</strong>
-					<p>Good Morning Sun flower...</p>
-					<div class="meta">by Zsolt Zsigmond</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img5.jpg" />
-					</div>
-					<strong>Beach</strong>
-					<p>Something on beach...</p>
-					<div class="meta">by unknown</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img25.jpg" />
-					</div>
-					<strong>Flowers</strong>
-					<p>Hello flowers...</p>
-					<div class="meta">by R A Stanley</div>
-				</div>
-				<div class="grid">
-					<div class="imgholder">
-						<img src="../../static/jquery-blocksit/images/img20.jpg" />
-					</div>
-					<strong>Alone</strong>
-					<p>Lonely plant...</p>
-					<div class="meta">by Zsolt Zsigmond</div>
-				</div> <!---->
+				</c:forEach>
+				<!---->
 			</div>
 		</div>
 	</div>

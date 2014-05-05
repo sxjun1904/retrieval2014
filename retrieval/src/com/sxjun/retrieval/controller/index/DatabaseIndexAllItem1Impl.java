@@ -61,8 +61,8 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 	 * 删除触发器表
 	 */
 	@Override
-	public void afterDeal(RDatabaseIndexAllItem databaseIndexAllItem) {
-		Map<String,String> transObj = (Map<String, String>) databaseIndexAllItem.getTransObject();
+	public void afterDeal(Object databaseIndexAllItem) {
+		Map<String,String> transObj = (Map<String, String>) ((RDatabaseIndexAllItem)databaseIndexAllItem).getTransObject();
 		String nowTime = transObj.get("nowTime");
 		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class.getSimpleName(), transObj.get("id"));
 		Database db =  rdI.getDatabase();

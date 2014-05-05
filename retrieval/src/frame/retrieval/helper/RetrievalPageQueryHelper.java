@@ -172,16 +172,6 @@ public class RetrievalPageQueryHelper {
 			
 			retrievalPage.setRetrievalDatabasePage(retrievalDatabasePage);
 			
-			/******add by sxjun******/
-			String[] queryFields = retrievalQuery.getQueryFields();
-			if(null!=queryFields){
-				int queryFieldLength = retrievalQuery.getQueryFields().length;
-				for(String singlefield : queryFields){
-					retrievalPage.getRetrievalResultFields().put(singlefield, queryResult.getResult(StringClass.getString(singlefield)));
-				}
-			}
-			/******add by sxjun******/
-			
 			query=queryFacade.createRQuery(indexPathTypes);
 			FileQueryResult[] fileQueryResults=query.getFileQueryResultArray(tableName, recordId);
 			
@@ -238,6 +228,16 @@ public class RetrievalPageQueryHelper {
 			}
 			
 		}
+		
+		/******add by sxjun******/
+		String[] queryFields = retrievalQuery.getQueryFields();
+		if(null!=queryFields){
+			int queryFieldLength = retrievalQuery.getQueryFields().length;
+			for(String singlefield : queryFields){
+				retrievalPage.getRetrievalResultFields().put(singlefield, queryResult.getResult(StringClass.getString(singlefield)));
+			}
+		}
+		/******add by sxjun******/
 
 		retrievalPage.setTitle(title);
 		retrievalPage.setContent(content);

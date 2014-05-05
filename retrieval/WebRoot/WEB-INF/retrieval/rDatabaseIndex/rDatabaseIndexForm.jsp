@@ -310,7 +310,7 @@
 				<select id="defaultTitleFieldName" name="rDatabaseIndex.defaultTitleFieldName"></select> 
 			</div>
 		</div>
-		<div class="control-group c_1">
+		<div class="control-group">
 			<label class="control-label">摘要:</label>
 			<div class="controls">
 				<input type="hidden" id="database_defaultResumeFieldName" value="${rDatabaseIndex.defaultResumeFieldName}"></input>

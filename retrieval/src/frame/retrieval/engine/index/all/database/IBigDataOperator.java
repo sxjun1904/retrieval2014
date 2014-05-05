@@ -11,7 +11,11 @@ public interface IBigDataOperator {
 
 	public String getStringFromBlob(Blob blob);
 	
+	public byte[] getByteFromBlob(Blob blob);
+	
 	public String getStringFromBlob(byte[] bytes);
+	
+	public byte[] getByteFromBlob(byte[] bytes);
 
 	public String getStringFromClob(Clob clob);
 	

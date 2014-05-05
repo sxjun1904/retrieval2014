@@ -174,8 +174,8 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		}
 		
 		if(StringKit.isBlank(rdI.getIndexTriggerRecord())){
-			if(StringKit.notBlank(rdI.getDatabase().getDatabaseName()))
-				rdI.setIndexTriggerRecord(rdI.getDatabase().getDatabaseName());
+			if(StringKit.notBlank(rdI.getTableName()))
+				rdI.setIndexTriggerRecord(rdI.getTableName());
 		}
 		
 		//创建触发器
@@ -209,14 +209,16 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		}
 		
 		String resume = rdI.getDefaultResumeFieldName();
+		String binaryF1 = "",binaryF2="";
 		if((DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
-			resume=rdI.getBinaryField();
+			binaryF1 = ",b."+rdI.getBinaryField();
+			binaryF2 = ","+rdI.getBinaryField();
 		}
 			
-		String trigsql = "select b."+rdI.getKeyField()+",b."+rdI.getDefaultTitleFieldName()+",b."+resume+",b."+ sql.replace(",", ",b.") +" from "+SQLUtil.INDEX_TRIGGER_RECORD+
+		String trigsql = "select b."+rdI.getKeyField()+",b."+rdI.getDefaultTitleFieldName()+",b."+resume+binaryF1+",b."+ sql.replace(",", ",b.") +" from "+SQLUtil.INDEX_TRIGGER_RECORD+
 				" a left join "+rdI.getTableName()+" b on a.columnvalue=b."+rdI.getKeyField()+" where 1=1 ";
 		
-		sql = "select "+rdI.getKeyField()+","+rdI.getDefaultTitleFieldName()+","+resume+","+ sql +" from "+rdI.getTableName()+" where 1=1 ";
+		sql = "select "+rdI.getKeyField()+","+rdI.getDefaultTitleFieldName()+","+resume+binaryF2+","+ sql +" from "+rdI.getTableName()+" where 1=1 ";
 		
 		if(rdI.getFiledSpecialMapperLsit()!=null&&iserror.equals("0")){
 			for(FiledSpecialMapper fsm :rdI.getFiledSpecialMapperLsit()){

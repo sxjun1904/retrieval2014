@@ -3,44 +3,55 @@ package com.sxjun.retrieval.controller.index;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.quartz.Job;
 
-import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
-import com.sxjun.retrieval.controller.job.DataaseIndexJob1;
-import com.sxjun.retrieval.controller.job.NormalImageIndexJob1;
 import com.sxjun.retrieval.controller.service.CommonService;
-import com.sxjun.retrieval.pojo.JustSchedule;
+import com.sxjun.retrieval.pojo.Database;
+import com.sxjun.retrieval.pojo.FiledMapper;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
+import frame.base.core.util.DateTime;
+import frame.base.core.util.ImageUtil;
 import frame.base.core.util.JdbcUtil;
+import frame.base.core.util.PathUtil;
+import frame.base.core.util.StringClass;
+import frame.base.core.util.UtilTool;
+import frame.base.core.util.file.FileHelper;
+import frame.retrieval.engine.RetrievalType;
+import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
+import frame.retrieval.engine.RetrievalType.RDatabaseDocItemType;
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
+import frame.retrieval.engine.context.RFacade;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;
+import frame.retrieval.engine.index.all.database.IBigDataOperator;
+import frame.retrieval.engine.index.all.database.IIndexAllDatabaseRecordInterceptor;
+import frame.retrieval.engine.index.all.database.impl.BigDataOperator;
 import frame.retrieval.engine.index.doc.NormalIndexDocument;
-import frame.retrieval.task.quartz.JustBaseSchedule;
-import frame.retrieval.task.quartz.JustBaseSchedulerManage;
-import frame.retrieval.task.quartz.QuartzManager;
+import frame.retrieval.engine.index.doc.internal.RDocItem;
 
-public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
+public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
 	private List<RDatabaseIndex> rDatabaseIndexList;
 	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
 	private RetrievalApplicationContext retrievalApplicationContext;
 
-	public NormalImageIndex0Impl(){
+	public NormalImageIndex1Impl(){
 		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
 	}
 	
-	public NormalImageIndex0Impl(RDatabaseIndex rDatabaseIndex){
+	public NormalImageIndex1Impl(RDatabaseIndex rDatabaseIndex){
 		rDatabaseIndexList = new ArrayList<RDatabaseIndex>();
 		rDatabaseIndexList.add(rDatabaseIndex);
 	}
@@ -48,7 +59,6 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 	@Override
 	public List<NormalIndexDocument> deal(RetrievalApplicationContext retrievalApplicationContext) {
 		this.retrievalApplicationContext = retrievalApplicationContext;
-		
 		List<NormalIndexDocument> l = null;
 		
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
@@ -56,15 +66,18 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 				rdI.setIsInit("2");
 				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 				
-				//删除触发器表中记录
-				delAllTrigRecord(rdI);
-				
-				String sql = rdI.getSql();
-				l = create(retrievalApplicationContext,rdI,sql,null);
-				//启动定时任务
-				if("1".equals(rdI.getStyle())){//复合风格
-					sechdule(rdI,new NormalImageIndexJob1());
+				String nowTime = new DateTime().getNowDateTime();
+				String sql = rdI.getTrigSql();
+				RDatabaseType databaseType = DictUtils.changeToRDatabaseType(rdI.getDatabase().getDatabaseType());
+				if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.ORACLE)) {
+					sql +=  " and a.insertdate< to_date(" + "'" + nowTime + "'" + ",'yyyy-MM-dd HH24:mi:ss') ";;
+				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.SQLSERVER)) {
+					sql +=  " and a.insertdate<convert(datetime,'"+nowTime+"')";
+				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
+					sql +=  " and a.insertdate<'"+nowTime+"' ";
 				}
+				sql +=  " and a.operatetype in('I','U') order by a.insertdate asc";
+				l = create(retrievalApplicationContext,rdI,sql,nowTime);
 			}
 		}
 		return l;
@@ -78,33 +91,5 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 		RDatabaseIndex rdI = (RDatabaseIndex) m.get("rdI");
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
-	}
-
-	public static void testBlob() throws Exception{
-		RDatabaseType databaseType = DictUtils.changeToRDatabaseType("0");
-		String url = JdbcUtil.getConnectionURL(databaseType, "127.0.0.1" ,"3306", "jeecg");
-		Connection conn =JdbcUtil.getConnection(databaseType, url, "root", "11111");
-		
-        String sql="insert into image (binaryField) values(?)";
-        for(int i=1;i<29;i++){
-        	File file=new File("D:/images/img"+String.valueOf(i)+".jpg");
-        	if(file.exists()){
-	            byte[] b=new byte[(int)file.length()];
-	            InputStream in=new FileInputStream(file);
-	            in.read(b);
-	            SerialBlob blob=new SerialBlob(b);
-	            QueryRunner runner=new QueryRunner();
-	            runner.update(conn,sql,blob);
-        	}
-        }
-        
-    }
-	
-	public static void main(String[] args) {
-		try {
-			testBlob();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 }

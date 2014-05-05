@@ -254,7 +254,11 @@ public class RetrievalType implements Serializable {
 		/**
 		 * 摘要
 		 */
-		_RESUME;
+		_RESUME,
+		/**
+		 * 路径
+		 */
+		_PATH;
 	}
 	
 	public enum RDatabaseDriver implements Serializable {

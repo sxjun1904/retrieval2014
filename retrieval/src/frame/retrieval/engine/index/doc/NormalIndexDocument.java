@@ -18,6 +18,8 @@ public class NormalIndexDocument extends AbstractIndexDocument implements Serial
 	
 	private RDefaultDocument rDocument=null;
 	
+	private Object transObject;
+	
 	public NormalIndexDocument(boolean fullContentFlag){
 		rDocument=new RDefaultDocument(fullContentFlag);
 	}
@@ -25,5 +27,15 @@ public class NormalIndexDocument extends AbstractIndexDocument implements Serial
 	public RDefaultDocument getRDocument() {
 		return rDocument;
 	}
+
+	public Object getTransObject() {
+		return transObject;
+	}
+
+	public void setTransObject(Object transObject) {
+		this.transObject = transObject;
+	}
+	
+	
 	
 }

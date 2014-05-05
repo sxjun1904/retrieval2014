@@ -7,5 +7,5 @@ import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
 
 public interface ICreateIndexAllItem{
 	public <T> List<T> deal(RetrievalApplicationContext retrievalApplicationContext);
-	public void afterDeal(RDatabaseIndexAllItem databaseIndexAllItem);
+	public void afterDeal(Object o);
 }
