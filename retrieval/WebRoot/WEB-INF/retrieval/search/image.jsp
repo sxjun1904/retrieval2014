@@ -5,9 +5,11 @@
 	<title>图片搜索</title>
 	<meta name="decorator" content="default"/>
 	<link href="${ctxStatic}/jquery-blocksit/style.css" type="text/css" rel="stylesheet" media='screen'/>
+	<link href="${ctxStatic}/jquery-bigautocomplete/css/jquery.bigautocomplete.css" type="text/css" rel="stylesheet" />
 	<script src="${ctxStatic}/jquery-blocksit/jquery.min.js" type="text/javascript"></script>
 	<script src="${ctxStatic}/jquery-blocksit/html5.js" type="text/javascript"></script>
 	<script src="${ctxStatic}/jquery-blocksit/blocksit.min.js" type="text/javascript"></script>
+	<script src="${ctxStatic}/jquery-bigautocomplete/js/jquery.bigautocomplete.js" type="text/javascript"></script>
 	<style type="text/css">
 		/* body{
 			overflow: hidden;
@@ -61,31 +63,6 @@
 	</style>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		/* window.onload = function() { 
-			var totalCount= $('#totalCount').val();
-			var pageSize = Math.ceil(totalCount/$('#pageSize').val());
-			var pageNo = $('#pageNo').val();
-			
-			$("#pages").paginate({
-				count 		: pageSize,
-				start 		: pageNo,
-				display     : 10,
-				border					: true,
-				border_color			: '#C2D5E3',
-				text_color  			: '#1E63A0',
-				background_color    	: 'white',	
-				border_hover_color		: '#1E63A0',
-				text_hover_color  		: 'red',
-				background_hover_color	: '#CFE2ED', 
-				//rotate      : false,
-				images		: true,
-				mouse		: 'press',
-				onChange : function(page){
-					$("#pageNo").val(page);
-					$("#searchForm").submit();
-				}
-			});
-		}; */
 		
 		$(window).on("scroll",function(){
 			//alert($(window).scrollTop()+$(window).height());
@@ -155,7 +132,39 @@
 			}
 		});
 		
+		$("#btnSubmit").click(function(){
+			location.href ="/f/search/image/"+$("#keyword").val();
+		});
+		
+		$("#keyword").bigAutocomplete({
+			width:380,
+			data:[{title:"中国好声音"},
+					{title:"中国移动网上营业厅"},
+					{title:"中国银行"},
+					{title:"中国移动"},
+					{title:"中国好声音第三期"},
+					{title:"中国好声音 第一期"},
+					{title:"中国电信网上营业厅"},
+					{title:"中国工商银行"},
+					{title:"中国好声音第二期"},
+					{title:"中国地图"}] ,
+			callback:function(data){
+				location.href ="/f/search/image/"+data.title;
+			}
+		});
+		/* $('#keyword').bind('keypress', function(event){
+			   if (event.keyCode=="13"){
+			     return false;
+			   }
+		});
+		
+		$('#keyword').bind('keyup', function(event){
+			   if (event.keyCode=="13"){
+				   location.href ="/f/search/image/"+$("#keyword").val();
+			   }
+		}); */
 	});
+	
 	</script>
 </head>
 <body>
@@ -164,13 +173,12 @@
 			<a href="${ctx_f}/search/index">返回首页</a>
 		</div>
 		<div>
-			<form id="searchForm" action="${ctx_f}/search/image" method="post" class="breadcrumb form-search">
+			<form id="searchForm" action="${ctx_f}/search/image" method="post" >
 				<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 				<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-				<input id="totalCount" name="totalCount" type="hidden" value="${page.count}"/>
 				<div style="margin-top:5px;font-size:25px;font-weight:normal;font-familiy:Helvetica, Georgia, Arial, sans-serif, 黑体;float:left">${fns:getConfig('productName')}</div>
-				<input id="keyword" name="simpleQuery.keyword" type="text" maxlength="200" class="input-medium" value="${simpleQuery.keyword}"/>
-				<input id="btnSubmit" class="searchBtn" type="submit" value="搜索" /><br>
+				<input id="keyword" name="simpleQuery.keyword" type="text" maxlength="200" class="input-medium" value="${simpleQuery.keyword}" />
+				<input id="btnSubmit" class="searchBtn" type="button" value="搜索" />
 			</form>
 		</div>
 		<div class="info">

@@ -256,6 +256,14 @@ public class RetrievalType implements Serializable {
 		 */
 		_RESUME,
 		/**
+		 * 跳转地址
+		 */
+		PAGE_URL,
+		/**
+		 * 创建时间
+		 */
+		CREATETIME,
+		/**
 		 * 路径
 		 */
 		_PATH;

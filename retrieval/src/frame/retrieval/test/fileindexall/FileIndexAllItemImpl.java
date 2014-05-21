@@ -45,12 +45,13 @@ public class FileIndexAllItemImpl implements ICreateIndexAllItem{
 		fileIndexAllItem.addFileType("txt");
 		fileIndexAllItem.addFileType("xls");
 		fileIndexAllItem.addFileType("xlsx");
+		fileIndexAllItem.addFileType("pdf");
 		l.add(fileIndexAllItem);
 		return l;
 	}
 
 	@Override
-	public void afterDeal(Object databaseIndexAllItem) {
+	public void afterDeal(Object o) {
 		// TODO Auto-generated method stub
 		
 	}

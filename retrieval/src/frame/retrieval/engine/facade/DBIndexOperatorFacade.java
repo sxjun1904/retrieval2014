@@ -62,7 +62,7 @@ public class DBIndexOperatorFacade extends AbstractIndexBaseOperator{
 			}
 			
 		}
-		System.out.println("TABLE1 耗时："+ (((System.currentTimeMillis() - startTime) / 1000))+ " 秒,共完成：" + indexCount + " 条索引");
+		System.out.println("TABLE耗时："+ (((System.currentTimeMillis() - startTime) / 1000))+ " 秒,共完成：" + indexCount + " 条索引");
 		return indexCount;
 	}
 	

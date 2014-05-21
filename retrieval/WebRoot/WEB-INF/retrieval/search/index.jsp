@@ -30,20 +30,31 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#c").selectbox();
+		
 		$("#btnSubmit").click(function(){
 			if($("#keyword").val()!=''){
-				$("#searchForm").submit();
+				search();
 			}
 		});
+		
 		var $inp = $('input'); //所有的input元素
 		$inp.keypress(function (e) { //这里给function一个事件参数命名为e，叫event也行，随意的，e就是IE窗口发生的事件。
 		    var key = e.which; //e.which是按键的值
 		    if (key == 13) {
-		    	if($("#keyword").val()!=''){
-					$("#searchForm").submit();
-				}
+		    	search();
 		    }
 		});
+		
+		
+		var search = function(){
+			if($("#keyword").val()!=''){
+	    		var type=$("#c").children('option:selected').val();
+	    		if(type==0)
+	    			location.href ="/f/search/page/"+$("#keyword").val();
+	    		else if(type==1)
+	    			location.href ="/f/search/image/"+$("#keyword").val();
+			}
+		}
 	});
 	</script>
 </head>
@@ -54,11 +65,13 @@
 			<div class="searchBar">
 				<div class="select">
 					<select id="c" style="display:none;">
-						<option value="1" selected="selected">生活信息</option>
+						<!-- <option value="1" selected="selected">生活信息</option>
 						<option value="2">店铺商家</option>
 						<option value="3">新闻资讯</option>
 						<option value="4">团购活动</option>
-						<option value="5">招聘信息</option>
+						<option value="5">招聘信息</option> -->
+						<option value="0">新闻</option>
+						<option value="1">图片</option>
 					</select>
 				</div>
 				<div style="float:left;margin-top:0px">

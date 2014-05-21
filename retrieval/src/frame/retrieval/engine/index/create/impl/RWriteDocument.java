@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.Fieldable;
+import org.apache.lucene.document.NumericField;
 import org.apache.lucene.index.IndexWriter;
 
 import frame.base.core.util.UtilTool;
@@ -66,7 +68,7 @@ public class RWriteDocument implements IRWriteDocument{
 		}
 		int length=docItemList.size();
 		for(int i=0;i<length;i++){
-			Field field=createField(docItemList.get(i));
+			Fieldable field=createField(docItemList.get(i));
 			luceneDocument.add(field);
 		}
 		
@@ -78,16 +80,17 @@ public class RWriteDocument implements IRWriteDocument{
 	 * @param docItem
 	 * @return
 	 */
-	private Field createField(RDocItem docItem){
+	private Fieldable createField(RDocItem docItem){
 
-		Field field=null;
+		Fieldable field=null;
 		
 		if(docItem.getItemType()==RetrievalType.RDocItemType.KEYWORD){
 			field=new Field(docItem.getName(),docItem.getContent(),Field.Store.YES,Field.Index.NOT_ANALYZED);
 		}else if(docItem.getItemType()==RetrievalType.RDocItemType.DATE){
 			field=new Field(docItem.getName(),docItem.getContent(),Field.Store.YES,Field.Index.NOT_ANALYZED);
 		}else if(docItem.getItemType()==RetrievalType.RDocItemType.NUMBER){
-			field=new Field(docItem.getName(),docItem.getContent(),Field.Store.YES,Field.Index.NOT_ANALYZED);
+//			field=new Field(docItem.getName(),docItem.getContent(),Field.Store.YES,Field.Index.NOT_ANALYZED);
+			field = new NumericField(docItem.getName(), Field.Store.YES,true).setLongValue(Long.valueOf(docItem.getContent()));
 		}else if(docItem.getItemType()==RetrievalType.RDocItemType.STORE_ONLY){
 			field=new Field(docItem.getName(),docItem.getContent(),Field.Store.YES,Field.Index.NO);
 		}else if(docItem.getItemType()==RetrievalType.RDocItemType.PROPERTY){

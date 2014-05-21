@@ -30,6 +30,22 @@ public class RedisKit {
         return redisManager;
     }
 
+    public static void bgsave() {
+        RedisManager.getJedisCache("", redisManager).bgsave();
+    }
+    
+    public static void lpush(String cacheName, Object key, String value) {
+    	RedisManager.getJedisCache(cacheName, redisManager).lpush(key,value);
+    }
+    
+    public static void ltrim(String cacheName, Object key, long start,long end) {
+    	RedisManager.getJedisCache(cacheName, redisManager).ltrim(key,start,end);
+    }
+    
+    public static <T> List<T> lrange(String cacheName, Object key,int start,int end) {
+        return (List<T>) RedisManager.getJedisCache(cacheName, redisManager).lrange(key, start, end);
+    }
+
 
     public static void put(String cacheName, Object key, Object value) {
         RedisManager.getJedisCache(cacheName, redisManager).put(key,value);
@@ -116,8 +132,12 @@ public class RedisKit {
         RedisKit.remove("user", "name");
         String name1 = RedisKit.get("user", "name");
         System.out.println(name1);*/
-        RedisKit.get("Database", "name");
-        List name = RedisKit.getKeys("Database");
+       /* RedisKit.get("Database", "name");
+        List name = RedisKit.getKeys("Database");*/
+        //RedisKit.lpush("PINYIN", "hanzi", "汉子");
+        List<String> l = RedisKit.lrange("PINYIN", "hanzi", 0, -1);
+        System.out.println(l.size());
+        RedisKit.ltrim("PINYIN", "hanzi", 0, 1);
     }
 
 }

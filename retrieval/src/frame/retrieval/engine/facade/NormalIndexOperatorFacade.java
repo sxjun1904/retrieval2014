@@ -22,16 +22,22 @@ public class NormalIndexOperatorFacade extends AbstractIndexBaseOperator{
 	
 	@Override
 	public long indexAll() {
+		long startTime = System.currentTimeMillis();
 		RFacade facade=retrievalApplicationContext.getFacade();
 		List<NormalIndexDocument> normalIndexDocumentList = deal(retrievalApplicationContext);
-		for(NormalIndexDocument normalIndexDocument:normalIndexDocumentList){
-			String indexPathType = StringClass.getFormatPath(normalIndexDocument.getIndexPathType());
-			indexPathType = ApplicationContext.initIndexSet(indexPathType);
-			normalIndexDocument.setIndexPathType(indexPathType);
+		if(normalIndexDocumentList!=null){
+			for(NormalIndexDocument normalIndexDocument:normalIndexDocumentList){
+				String indexPathType = StringClass.getFormatPath(normalIndexDocument.getIndexPathType());
+				indexPathType = ApplicationContext.initIndexSet(indexPathType);
+				normalIndexDocument.setIndexPathType(indexPathType);
+			}
+			IRDocOperatorFacade docOperatorFacade=facade.createDocOperatorFacade();
+			docOperatorFacade.createNormalIndexs(normalIndexDocumentList);
+			afterDeal(normalIndexDocumentList);
+			System.out.println("PICTURE耗时："+ (((System.currentTimeMillis() - startTime) / 1000))+ " 秒,共完成：" + normalIndexDocumentList.size() + " 条索引");
+			return normalIndexDocumentList.size();
+		}else{
+			return 0;
 		}
-		IRDocOperatorFacade docOperatorFacade=facade.createDocOperatorFacade();
-		docOperatorFacade.createNormalIndexs(normalIndexDocumentList);
-		afterDeal(normalIndexDocumentList);
-		return normalIndexDocumentList.size();
 	}
 }

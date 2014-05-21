@@ -1,8 +1,11 @@
 package frame.retrieval.test.query;
 
+import com.sxjun.retrieval.controller.index.DatabaseIndexAllItem0Impl;
+
 import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType;
 import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
+import frame.retrieval.engine.RetrievalType.RDatabaseDocItemType;
 import frame.retrieval.engine.query.RQuery;
 import frame.retrieval.engine.query.item.QueryItem;
 import frame.retrieval.engine.query.item.QuerySort;
@@ -111,6 +114,12 @@ public class TestNormalQuery {
 		}
 
 		System.out.println("===============================Complete=========================================");
+		QueryItem queryItem3=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DT,"TEST_WEB");
+		QueryItem queryItem1=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DID,"891");
+		QueryItem queryItem2=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DK,"GUID");
+		QueryItem queryItem4=queryItem3.must(QueryItem.MUST,queryItem1).must(QueryItem.MUST,queryItem2);
+		QueryResult[] queryResult3=getQueryResults(new String[]{"JAVA/TEST_WEB"}, queryItem4);
+		System.out.println(queryResult3.length);
 	}
 	
 	public static void main(String[] args) {

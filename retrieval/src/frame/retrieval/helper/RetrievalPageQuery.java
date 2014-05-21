@@ -18,6 +18,8 @@ public class RetrievalPageQuery implements Serializable{
 	
 	private String orderByFieldName;
 	
+	private Integer sortFieldType;
+	
 	private boolean ascFlag;
 	
 	private int pageSize=10;
@@ -169,6 +171,13 @@ public class RetrievalPageQuery implements Serializable{
 	public void setQueryFields(String[] queryFields) {
 		this.queryFields = queryFields;
 	}
-	
+
+	public Integer getSortFieldType() {
+		return sortFieldType;
+	}
+
+	public void setSortFieldType(Integer sortFieldType) {
+		this.sortFieldType = sortFieldType;
+	}
 	
 }

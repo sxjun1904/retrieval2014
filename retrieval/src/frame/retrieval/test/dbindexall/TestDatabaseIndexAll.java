@@ -17,7 +17,7 @@ public class TestDatabaseIndexAll {
 	
 	public void create() {
 		DBIndexOperatorFacade indexAll = new DBIndexOperatorFacade(new DatabaseIndexAllItemTestImpl());
-		indexAll.indexAll(indexAll.INDEX_BY_THREAD);
+		indexAll.indexAll(indexAll.INDEX_BY_SIMPLE);
 
 	}
 	

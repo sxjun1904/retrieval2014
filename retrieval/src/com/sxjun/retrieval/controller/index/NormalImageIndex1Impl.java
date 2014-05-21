@@ -45,7 +45,6 @@ import frame.retrieval.engine.index.doc.internal.RDocItem;
 public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
 	private List<RDatabaseIndex> rDatabaseIndexList;
 	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
-	private RetrievalApplicationContext retrievalApplicationContext;
 
 	public NormalImageIndex1Impl(){
 		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
@@ -65,18 +64,8 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				rdI.setIsInit("2");
 				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
-				
 				String nowTime = new DateTime().getNowDateTime();
-				String sql = rdI.getTrigSql();
-				RDatabaseType databaseType = DictUtils.changeToRDatabaseType(rdI.getDatabase().getDatabaseType());
-				if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.ORACLE)) {
-					sql +=  " and a.insertdate< to_date(" + "'" + nowTime + "'" + ",'yyyy-MM-dd HH24:mi:ss') ";;
-				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.SQLSERVER)) {
-					sql +=  " and a.insertdate<convert(datetime,'"+nowTime+"')";
-				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
-					sql +=  " and a.insertdate<'"+nowTime+"' ";
-				}
-				sql +=  " and a.operatetype in('I','U') order by a.insertdate asc";
+				String sql = getIndexTriggerSql(rdI,nowTime,false);
 				l = create(retrievalApplicationContext,rdI,sql,nowTime);
 			}
 		}
@@ -85,10 +74,24 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 	
 	@Override
 	public void afterDeal(Object o) {
-		fh.delFolder(retrievalApplicationContext.getDefaultRetrievalProperties().getDefault_temp_image_folder());
 		List<NormalIndexDocument> l = (List<NormalIndexDocument>) o;
 		Map<String,Object>  m = (Map<String,Object>) l.get(0).getTransObject();
 		RDatabaseIndex rdI = (RDatabaseIndex) m.get("rdI");
+		//删除图片
+		String nowTime = (String) m.get("nowTime");
+		long time = new DateTime().getStrig2Long(nowTime);
+		ArrayList<String> fileList = fh.getFileList(retrievalApplicationContext.getDefaultRetrievalProperties().getDefault_temp_image_folder());
+		for(String s : fileList){
+			File f = new File(s);
+			long f_time = f.lastModified();
+			if(f_time<time)
+				fh.deleteFile(s);
+		}
+		//删除索引
+		if("1".endsWith(rdI.getIndexOperatorType())){
+			judgeAndDelIndexRecord(rdI,nowTime);
+		}
+		delAllTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 	}

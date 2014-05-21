@@ -30,6 +30,7 @@ public class FileContentParserManager implements IFileContentParserManager{
 		parseMap.put("PDF", new PDFFileContentParser());
 		parseMap.put("RTF", new RTFFileContentParser());
 		parseMap.put("DOC", new WordFileContentParser());
+		parseMap.put("DOCX", new WordFileContentParser());
 		parseMap.put("XLS", new ExcelFileContentParser());
 	}
 	

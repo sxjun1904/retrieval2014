@@ -87,6 +87,7 @@ public class RetrievalPageQueryHelper {
 	 */
 	public List<RetrievalPage> getResults(RetrievalPageQuery retrievalQuery) {
 		String orderFieldName=StringClass.getString(retrievalQuery.getOrderByFieldName());
+		Integer orderFieldType = retrievalQuery.getSortFieldType();
 		boolean ascFlag=retrievalQuery.isAscFlag();
 		int pageSize=retrievalQuery.getPageSize();
 		int nowPage=retrievalQuery.getNowStartPage();
@@ -98,7 +99,10 @@ public class RetrievalPageQueryHelper {
 			if(orderFieldName.equalsIgnoreCase(RetrievalConstant.DEFAULT_INDEX_QUERY_SORT_CREATETIME_NAME)){
 				querySort=new QuerySort(QueryUtil.createCreateTimeSort(ascFlag));
 			}else{
-				querySort=new QuerySort(orderFieldName,ascFlag);
+				if(orderFieldType!=null)
+					querySort=new QuerySort(orderFieldName,orderFieldType,ascFlag);
+				else
+					querySort=new QuerySort(orderFieldName,ascFlag);
 			}
 		}
 		

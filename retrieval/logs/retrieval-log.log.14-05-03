@@ -1,0 +1,21 @@
+2014-05-03 16:44:17 Server [INFO] jetty-8.y.z-SNAPSHOT
+2014-05-03 16:44:23 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-05-03 16:44:23 ContextHandler [INFO] started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}
+2014-05-03 16:44:25 AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:80
+2014-05-03 16:44:36 CacheKit [WARN] Could not find cache config [dictMap], using default.
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.Dict loaded by WebAppClassLoader=retrieval@18488ef
+2014-05-03 16:51:47 ELContextCleaner [INFO] removed
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class java.util.HashMap$Entry loaded by null
+2014-05-03 16:51:47 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@18488efclazz's classloader=null
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@18488ef
+2014-05-03 16:51:47 ELContextCleaner [INFO] removed
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249
+2014-05-03 16:51:47 ELContextCleaner [INFO] not removed: contextclassloader=WebAppClassLoader=retrieval@18488efclazz's classloader=sun.misc.Launcher$AppClassLoader@126b249
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class frame.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@18488ef
+2014-05-03 16:51:47 ELContextCleaner [INFO] removed
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@18488ef
+2014-05-03 16:51:47 ELContextCleaner [INFO] removed
+2014-05-03 16:51:47 ELContextCleaner [INFO] Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@18488ef
+2014-05-03 16:51:47 ELContextCleaner [INFO] removed
+2014-05-03 16:51:47 ELContextCleaner [INFO] javax.el.BeanELResolver purged
+2014-05-03 16:51:47 ContextHandler [INFO] stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}

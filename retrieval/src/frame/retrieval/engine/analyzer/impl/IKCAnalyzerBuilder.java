@@ -9,6 +9,7 @@ import org.apache.lucene.util.Version;
 import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import frame.retrieval.engine.analyzer.IRAnalyzerBuilder;
+import frame.retrieval.engine.query.similarity.MySimilarity;
 
 /**
  * IKCAnalyzer分词Builder
@@ -52,7 +53,8 @@ public class IKCAnalyzerBuilder implements IRAnalyzerBuilder {
 	 */
 	public Similarity createSimilarity() {
 //		return new IKSimilarity();
-		return Similarity.getDefault();
+//		return Similarity.getDefault();
+		return new MySimilarity();
 	}
 
 	/**
@@ -77,7 +79,8 @@ public class IKCAnalyzerBuilder implements IRAnalyzerBuilder {
 	public Query createQuery(String fieldName, String queryContent, Float score) {
 		Query query = null;
 		QueryParser parser = new QueryParser(luceneVersion, fieldName, createQueryAnalyzer());
-		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
+//		parser.setDefaultOperator(QueryParser.AND_OPERATOR);
+//		parser.setAllowLeadingWildcard(true);
 		try {
 			query = parser.parse(queryContent);
 			if(score!=null)

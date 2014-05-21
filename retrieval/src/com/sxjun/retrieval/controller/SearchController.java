@@ -2,6 +2,7 @@ package com.sxjun.retrieval.controller;
 
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,26 +15,27 @@ import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.Page;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
+import com.sxjun.retrieval.controller.oth.pinyin.PinyinHanziUtil;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
 import com.sxjun.retrieval.pojo.SimpleQuery;
 
+import frame.base.core.util.DateTime;
 import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType;
 import frame.retrieval.engine.RetrievalType.RDatabaseDefaultDocItemType;
 import frame.retrieval.engine.RetrievalType.RDocItemSpecialName;
 import frame.retrieval.engine.context.ApplicationContext;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
-import frame.retrieval.engine.facade.IRQueryFacade;
-import frame.retrieval.engine.query.RQuery;
 import frame.retrieval.engine.query.item.QueryItem;
-import frame.retrieval.engine.query.result.QueryResult;
+import frame.retrieval.engine.query.item.QuerySort;
 import frame.retrieval.helper.RetrievalPage;
 import frame.retrieval.helper.RetrievalPageQuery;
 import frame.retrieval.helper.RetrievalPageQueryHelper;
 import frame.retrieval.helper.RetrievalPages;
+import frame.retrieval.oth.ik.IKWordsUtil;
 import frame.retrieval.oth.mapper.MapperUtil;
 
 
@@ -43,6 +45,23 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		return DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue()).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, indexPathType));
 		
 	}
+	
+	public void pinYinHanzi(){
+		String pyhz = getDecod(getPara("pyhz")).toLowerCase();
+		List<String> pyhzList =PinyinHanziUtil.getRangeWords(pyhz);
+//		String json = "{\"data\":["; 
+		String json = "["; 
+		for(String s :pyhzList){
+			json += "{\"title\":\""+s+"\"},";
+		}
+		if(pyhzList!=null&&pyhzList.size()>0)
+		json = json.substring(0,json.length()-1);
+//		json += "]}";
+		json += "]";
+		System.out.println("关键字："+pyhz+";json:"+json);
+		renderJson(json);
+	}
+	
 	/**
 	 * 获取索引分类
 	 * @return
@@ -121,8 +140,25 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		return retrievalPageQueryHelper.getGroupResult(retrievalPageQuery,retrievalPages);
 	}
 	
+	/**
+	 * 获取普通索引数
+	 * @param retrievalPageQuery
+	 * @param queryItem
+	 * @return
+	 */
 	public int getRetrievalCount(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
 		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,getIndexCategory(),queryItem);
+		return retrievalPageQueryHelper.getResultCount(retrievalPageQuery,true);
+	}
+	
+	/**
+	 * 获取图片数
+	 * @param retrievalPageQuery
+	 * @param queryItem
+	 * @return
+	 */
+	public int getRetrievalImgCount(RetrievalPageQuery retrievalPageQuery,QueryItem queryItem){
+		RetrievalPageQueryHelper retrievalPageQueryHelper=new RetrievalPageQueryHelper(retrievalApplicationContext,getImgCategory(),queryItem);
 		return retrievalPageQueryHelper.getResultCount(retrievalPageQuery,true);
 	}
 	
@@ -132,8 +168,8 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	 */
 	public List<String> getImgCommonQueryFields(){
 		List<String> _queryFields = new ArrayList<String>();
-		_queryFields.add("PAGE_URL");
-		_queryFields.add("CREATETIME");
+		_queryFields.add(StringClass.getString(RDatabaseDefaultDocItemType.PAGE_URL));
+		_queryFields.add(StringClass.getString(RDatabaseDefaultDocItemType.CREATETIME));
 		_queryFields.add(StringClass.getString(RDocItemSpecialName._IBT));
 		_queryFields.add(StringClass.getString(RDatabaseDefaultDocItemType._PATH));
 		return _queryFields;
@@ -145,8 +181,10 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	 */
 	public List<String> getCommonQueryFields(){
 		List<String> _queryFields = new ArrayList<String>();
-		_queryFields.add("PAGE_URL");
-		_queryFields.add("CREATETIME");
+		_queryFields.add(StringClass.getString(RDatabaseDefaultDocItemType.PAGE_URL));
+		_queryFields.add(StringClass.getString("IMAGEURL"));//phone
+		_queryFields.add(StringClass.getString("ORIGINALURL"));//phone
+		_queryFields.add(StringClass.getString(RDatabaseDefaultDocItemType.CREATETIME));
 		_queryFields.add(StringClass.getString(RDocItemSpecialName._IBT));
 		return _queryFields;
 	}
@@ -210,33 +248,64 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	public SimpleQuery getSimpleQuery(){
 		
 		SimpleQuery sq = new SimpleQuery();
+		boolean isTitleSearch = false;
+		
+		//获取全文检索或标题检索
+		Integer p1 = getParaToInt(1);
+		if(p1!=null&&p1==1)
+			isTitleSearch = true;	
+		
+		//判断是否按时间排序
+		Integer p2 = getParaToInt(2);
+		if(p2!=null&&(p2==1||p2==2)){
+			sq.setSortField(StringClass.getString(RDatabaseDefaultDocItemType.CREATETIME));
+			sq.setSortFieldType(QuerySort.SortField_LONG);
+			if(p2==1){
+				sq.setAscFlag(true);
+			}else if(p2==2){
+				sq.setAscFlag(false);
+			}
+		}
+		
 		//获取关键字
 		String p0 = getPara(0);
 		if(p0!=null){
 			p0=getDecod(p0);
-			String[] kwds = p0.split(";");
+			String[] kwds = p0.split("&");
 			for(String k : kwds){
 				int eq = k.indexOf("=");
 				int lt = k.indexOf("<");
 				int gt = k.indexOf(">");
 				
 				int no = k.indexOf("^");
-				int like = k.indexOf("~");
+				int at = k.indexOf("~");
 				
-				if(eq<0&&lt<0&&gt<0){
+				if(eq<0&&lt<0&&gt<0&&at<0){
 					if(no>-1){
 						SimpleItem titleItem = new SimpleItem(RDatabaseDefaultDocItemType._TITLE.toString(),k.substring(1));
 						titleItem.setRelationType(QueryType.NOT.getValue());
-						SimpleItem resumeItem = new SimpleItem(RDatabaseDefaultDocItemType._RESUME.toString(),k.substring(1));
-						resumeItem.setRelationType(QueryType.NOT.getValue());
 						sq.getSimpleItems().add(titleItem);
-						sq.getSimpleItems().add(resumeItem);
+						if(!isTitleSearch){
+							SimpleItem resumeItem = new SimpleItem(RDatabaseDefaultDocItemType._RESUME.toString(),k.substring(1));
+							resumeItem.setRelationType(QueryType.NOT.getValue());
+							sq.getSimpleItems().add(resumeItem);
+						}
 					}else{
-						sq.setKeyword(p0.replace(";", ""));
+						//处理词
+						if(IKWordsUtil.isExists(k)&&k.length()>1){
+							PinyinHanziUtil.add(k);
+						}
+							
+						if(StringKit.isBlank(sq.getKeyword()))
+							sq.setKeyword(k);
+						else 
+							sq.setKeyword(sq.getKeyword()+" "+k);
 						SimpleItem titleItem = new SimpleItem(RDatabaseDefaultDocItemType._TITLE.toString(),k);
 						sq.getSimpleItems().add(titleItem);
-						SimpleItem resumeItem = new SimpleItem(RDatabaseDefaultDocItemType._RESUME.toString(),k);
-						sq.getSimpleItems().add(resumeItem);
+						if(!isTitleSearch){
+							SimpleItem resumeItem = new SimpleItem(RDatabaseDefaultDocItemType._RESUME.toString(),k);
+							sq.getSimpleItems().add(resumeItem);
+						}
 					}
 				}else if(eq>0){
 					String[] ss = k.split("=");
@@ -250,37 +319,30 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 						si.setKeyword(ss[1]);
 					}
 					sq.getSimpleItems().add(si);
+				}else if(gt>0){
+					String[] ss = k.split(">");
+					SimpleItem si = new SimpleItem();
+					si.setField(StringClass.getString(ss[0]));
+					si.setRelationType(QueryType.GT.getValue());
+					si.setKeyword(ss[1]);
+					sq.getSimpleItems().add(si);
 				}else if(lt>0){
-				}else if(lt>0){
+					String[] ss = k.split("<");
+					SimpleItem si = new SimpleItem();
+					si.setField(StringClass.getString(ss[0]));
+					si.setRelationType(QueryType.LT.getValue());
+					si.setKeyword(ss[1]);
+					sq.getSimpleItems().add(si);
+				}else if(at>0){
+					String[] ss = k.split("~");
+					SimpleItem si = new SimpleItem();
+					si.setField(StringClass.getString(ss[0]));
+					si.setRelationType(QueryType.AT.getValue());
+					si.setKeyword(ss[1]);
+					sq.getSimpleItems().add(si);
 				}
 			}
 		}
-			
-		//获取全文检索或标题检索
-		Integer p1 = getParaToInt(1);
-		if(p1!=null&&p1==1)
-			sq.setResumeField("");
-		
-		//获取分类
-		String p2 = getPara(2);
-		if(p2!=null){
-			p2=getDecod(p2);
-			String[] cates = p2.split(";");
-			for(String c : cates){
-				int no = c.indexOf("^");
-				SimpleItem si = new SimpleItem();
-				si.setField(StringClass.getString(RetrievalType.RDocItemSpecialName._IC));
-				if(no>-1){
-					si.setKeyword(c.substring(1).trim());
-					si.setRelationType(QueryType.NOT.getValue());
-				}else{
-					si.setKeyword(c.trim());
-					si.setRelationType(QueryType.AND.getValue());
-				}
-				sq.getSimpleItems().add(si);
-			}
-		}
-		
 		return sq;
 	}
 	
@@ -402,6 +464,15 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		Page<RetrievalPage> page = new Page<RetrievalPage>(getRequest(), getResponse());
 		long startTime = System.currentTimeMillis();
 		page = search(simpleQuery,page);
+		/*List<RetrievalPage> l = page.getList();
+		List<RetrievalPage> l1 = new ArrayList<RetrievalPage>();
+		
+		for(RetrievalPage r:l){
+			r.setContent(r.getContent().replace("型号", "<br/>型号").replace("报价", "<br/>报价").replace("主屏尺寸", "<br/>主屏尺寸").replace("参数", "<br/>参数")
+			.replace("屏幕分辨", "<br/>屏幕分辨").replace("系统", "<br/>系统").replace("电池容量", "<br/>电池容量").replace("CPU", "<br/>CPU"));
+			l1.add(r);
+		}
+		page.setList(l1);*/
 		long endTime = System.currentTimeMillis();
 		String time = String.format("%.3f",(double)(endTime-startTime)/1000);
 		setAttr("page", page);
@@ -452,7 +523,7 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 		RetrievalPages retrievalPages = new RetrievalPages();
 		if(queryItem!=null){
 			List<RetrievalPage> retrievalPageList = searchImgBody(retrievalPageQuery, queryItem);
-			int count = getRetrievalCount(retrievalPageQuery, queryItem);
+			int count = getRetrievalImgCount(retrievalPageQuery, queryItem);
 			retrievalPages.setRetrievalPageList(retrievalPageList);
 			retrievalPages.setCount(count);
 		}
@@ -532,6 +603,13 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 			retrievalPageQuery.setResumeFieldName(simpleQuery.getResumeField());
 			retrievalPageQuery.setResumeLength(simpleQuery.getResumeLength());
 		}
+		if(!StringUtils.isBlank(simpleQuery.getSortField())){
+			retrievalPageQuery.setOrderByFieldName(simpleQuery.getSortField());
+			retrievalPageQuery.setAscFlag(simpleQuery.isAscFlag());
+		}
+		if(simpleQuery.getSortFieldType()!=null){
+			retrievalPageQuery.setSortFieldType(simpleQuery.getSortFieldType());
+		}
 		retrievalPageQuery.setPageSize(simpleQuery.getPageSize());
 		retrievalPageQuery.setNowStartPage(simpleQuery.getNowStartPage()-1);
 		if(simpleQuery.getQueryFields()!=null){
@@ -543,11 +621,39 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	}
 	
 	/**
+	 * 获取时间
+	 * @param kw
+	 * @return
+	 */
+	public String getTimeFormat(String kw){
+		int len = kw.length();
+		if(len<6){
+			int left = 6-len;
+			for(int i=0;i<left-1;i++)
+				kw +="0";
+			kw +="101000000";
+		}else if(len<8){
+			kw +="1000000";
+		}else if(len<14){
+			int left = 14-len;
+			for(int i=0;i<left;i++)
+				kw +="0";
+		}
+		return kw;
+	}
+	
+	/**
 	 * 查询语句
 	 * @param simpleQuery
 	 * @return
 	 */
 	public QueryItem composeQuerys(SimpleQuery simpleQuery){
+		int len = 14;
+		long start = Long.valueOf("19000101000000");
+		long end = Long.valueOf(new DateTime().parseString(new Date(),"yyyyMMddHHmmss"));
+		String datefeild = StringClass.getString(RDatabaseDefaultDocItemType.CREATETIME);
+		boolean isRangeQuery = false;
+		
 		List<SimpleItem> simpleItems = simpleQuery.getSimpleItems();
 		QueryItem queryitem = null;
 		BooleanClause.Occur upRelationType = null;
@@ -562,6 +668,10 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 						kw = simpleQuery.getKeyword();
 					if(!StringUtils.isBlank(kw)){
 						QueryItem q = createQueryItem(item.getFieldType(),item.getField(),kw,null);
+						if(item.getField().equals(RDatabaseDefaultDocItemType._TITLE.toString())||item.getField().equals(RDatabaseDefaultDocItemType._TITLE.toString())||item.getField().equals(RDatabaseDefaultDocItemType._RESUME.toString())||item.getField().equals(RDatabaseDefaultDocItemType._RESUME.toString()))
+							upRelationType = QueryItem.SHOULD;
+						else
+							upRelationType = QueryItem.MUST;
 						if(queryitem!=null){
 							if(QueryType.OR.getValue().equals(item.getRelationType()))
 								queryitem.should(upRelationType,q);
@@ -569,16 +679,35 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 								queryitem.must(upRelationType,q);
 							else if(QueryType.NOT.getValue().equals(item.getRelationType()))
 								queryitem.mustNot(upRelationType,q);
-							else
+							else if(QueryType.GT.getValue().equals(item.getRelationType())||QueryType.LT.getValue().equals(item.getRelationType())){
+								if(QueryType.GT.getValue().equals(item.getRelationType())){
+									kw = getTimeFormat(kw);
+									start = Long.valueOf(kw);
+								}else if(QueryType.LT.getValue().equals(item.getRelationType())){
+									kw = getTimeFormat(kw);
+									end = Long.valueOf(kw);
+								}
+								isRangeQuery = true;
+								datefeild = item.getField();
+							}else if(QueryType.AT.getValue().equals(item.getRelationType())){
+								q = createQueryItem(item.getFieldType(),item.getField(),"*"+kw+"*",null);
+								queryitem.must(upRelationType,q);
+							}else
 								queryitem.should(upRelationType,q);
 						}else{
 							queryitem = q;
 						}
 //						upRelationType = item.getClauseRelationType();
-						upRelationType = QueryItem.SHOULD;
+						/*if(item.getField().equals("_TITLE")||item.getField().equals("_RESUME"))
+							upRelationType = QueryItem.SHOULD;
+						else
+							upRelationType = QueryItem.MUST;*/
 					}
 				}
 			}
+		}
+		if(isRangeQuery){
+			queryitem.range(start, end, datefeild);
 		}
 		return queryitem;
 	}

@@ -8,6 +8,7 @@ import org.apache.lucene.search.function.CustomScoreProvider;
 import org.apache.lucene.search.function.CustomScoreQuery;
 
 import frame.retrieval.engine.RetrievalType;
+import frame.retrieval.engine.query.score.oth.MyScoreProvider;
 
 public class ScoreQuery  extends CustomScoreQuery{
 //	private String timefield = "time";//2-----------
@@ -24,7 +25,8 @@ public class ScoreQuery  extends CustomScoreQuery{
 
 	 @Override  
      protected CustomScoreProvider getCustomScoreProvider(IndexReader reader) throws IOException {  
-       return super.getCustomScoreProvider(reader);  
+//       return super.getCustomScoreProvider(reader);  
+         return new MyScoreProvider(reader,"SCORE","PAGERANK");  
 //         return new TimeScoreProvider(reader,timefield);  
      } 
 }

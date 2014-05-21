@@ -13,7 +13,6 @@ import java.util.UUID;
 import org.quartz.Job;
 
 import com.jfinal.kit.StringKit;
-import com.sxjun.core.plugin.redis.RedisKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
@@ -39,8 +38,12 @@ import frame.retrieval.task.quartz.JustBaseSchedulerManage;
  * @version 2014-03-11
  */
 public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
 	private final static String cachename = RDatabaseIndex.class.getSimpleName();
+
+	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
+	private CommonService<Database> dbCommonService = new CommonService<Database>();
+	private CommonService<IndexCategory> idCommonService = new CommonService<IndexCategory>();
+	private CommonService<InitField> ifCommonService = new CommonService<InitField>();
 
 	public void list() {
 		list(cachename);
@@ -107,7 +110,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		IndexCategory ic = commonService.get(IndexCategory.class.getSimpleName(),rdI.getIndexPath_id());
 		rdI.setIndexCategory(ic);
 		
-		Database db = RedisKit.get(Database.class.getSimpleName(), rdI.getDatabase_id());
+		Database db = dbCommonService.get(Database.class.getSimpleName(), rdI.getDatabase_id());
 		rdI.setFiledMapperLsit(fmList);
 		rdI.setFiledSpecialMapperLsit(fsmList);
 		rdI.setJustScheduleList(justList);
@@ -260,16 +263,16 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	
 	public void delete(){
 		String id=getPara();
-		RDatabaseIndex rdI = RedisKit.get(cachename, id);
+		RDatabaseIndex rdI = commonService.get(cachename, id);
 		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "C");
 		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "U");
 		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "D");
-		RedisKit.remove(cachename, id);
+		commonService.remove(cachename, id);
 		list();
 	}
 
 	/*public void databases(){
-		List<Database> dbs = RedisKit.getObjs(Database.class.getSimpleName());
+		List<Database> dbs = dbCommonService.getObjs(Database.class.getSimpleName());
 		List<AdminDBs> AdminDBsList = new ArrayList<AdminDBs>();
 		for(Database db : dbs){
 			AdminDBs a = new AdminDBs();
@@ -284,7 +287,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * 获取redis中配置的数据库
 	 */
 	public void databases(){
-		List<Database> dbs = RedisKit.getObjs(Database.class.getSimpleName());
+		List<Database> dbs = dbCommonService.getObjs(Database.class.getSimpleName());
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		for(Database db : dbs){
 			Map<String,String> m = new HashMap<String,String>();
@@ -298,7 +301,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * 获取索引路径
 	 */
 	public void indexPathes(){
-		List<IndexCategory> ics = RedisKit.getObjs(IndexCategory.class.getSimpleName());
+		List<IndexCategory> ics = idCommonService.getObjs(IndexCategory.class.getSimpleName());
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		for(IndexCategory ic : ics){
 			Map<String,String> m = new HashMap<String,String>();
@@ -313,7 +316,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * @return
 	 */
 	public List<Map<String,String>> findFields(){
-		List<InitField> ifds = RedisKit.getObjs(InitField.class.getSimpleName());
+		List<InitField> ifds = ifCommonService.getObjs(InitField.class.getSimpleName());
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		for(InitField ifd : ifds){
 			Map<String,String> m = new HashMap<String,String>();
@@ -329,13 +332,13 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	
 	public void tables(){
 		String id = getPara("id");
-		dbTables((Database)RedisKit.get(Database.class.getSimpleName(),id));
+		dbTables((Database)dbCommonService.get(Database.class.getSimpleName(),id));
 	}
 	
 	public void fields(){
 		String table = getPara("table");
 		String id = getPara("id");
-		dbFields((Database)RedisKit.get(Database.class.getSimpleName(),id),table);
+		dbFields((Database)dbCommonService.get(Database.class.getSimpleName(),id),table);
 		
 	}
 	

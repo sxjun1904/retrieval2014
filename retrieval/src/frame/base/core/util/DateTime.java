@@ -451,6 +451,26 @@ public class DateTime {
     }
     
     /**
+     * 时间转换字符串
+     * @param datestring
+     * @param theformat
+     * @return Date
+     */
+    public String parseString(Date date,String theformat){
+    	if(theformat==null){
+    		theformat="yyyy-MM-dd HH:mm:ss";
+    	}
+    	SimpleDateFormat format = new SimpleDateFormat(theformat);
+    	String _date=null;
+    	try{
+    		_date = format.format(date);
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	return _date;
+    }
+    
+    /**
      * 判断是不是正确的日期
      * @param datestring
      * @param theformat
@@ -675,5 +695,22 @@ public class DateTime {
     	DateTime dateTime=new DateTime();
     	float days=dateTime.timeCalculate("2004-05-11","2005-12-05");
     	System.out.println("days="+days);
+    }
+    
+    
+    public Date getStrig2Date(String time){
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	Date date=null;
+		try {
+			date = sdf.parse(time);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	return date;
+    }
+    
+    public long getStrig2Long(String time){
+    	Date date = getStrig2Date(time);
+    	return date.getTime();
     }
 }

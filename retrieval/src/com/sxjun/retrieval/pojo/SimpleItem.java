@@ -44,7 +44,7 @@ public class SimpleItem {
 	}
 	
 	public enum QueryType {
-		AND("+"), OR(""), NOT("-");
+		AND("+"), OR(""), NOT("-"),GT(">"),LT("<"),AT("~");
 		private final String value;
 		QueryType(String value) {
 			this.value = value;

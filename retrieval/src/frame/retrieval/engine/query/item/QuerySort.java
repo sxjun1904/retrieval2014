@@ -16,6 +16,12 @@ public class QuerySort implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1704989704340181056L;
+	
+	public static final int SortField_STRING = SortField.STRING;
+	public static final int SortField_LONG = SortField.LONG;
+	public static final int SortField_FLOAT = SortField.FLOAT;
+	public static final int SortField_DOUBLE = SortField.DOUBLE;
+	public static final int SortField_INT = SortField.INT;
 
 	private String fieldName;
 	private boolean ascFlag=true;

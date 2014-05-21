@@ -34,22 +34,10 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 		List <RDatabaseIndexAllItem> l = new ArrayList<RDatabaseIndexAllItem>();
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
 			if("0".endsWith(rdI.getIsError())&&"1".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
-				
 				rdI.setIsInit("2");
 				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
-				
 				String nowTime = new DateTime().getNowDateTime();
-				String sql = rdI.getTrigSql();
-				RDatabaseType databaseType = DictUtils.changeToRDatabaseType(rdI.getDatabase().getDatabaseType());
-				if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.ORACLE)) {
-					sql +=  " and a.insertdate< to_date(" + "'" + nowTime + "'" + ",'yyyy-MM-dd HH24:mi:ss') ";;
-				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.SQLSERVER)) {
-					sql +=  " and a.insertdate<convert(datetime,'"+nowTime+"')";
-				} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
-					sql +=  " and a.insertdate<'"+nowTime+"' ";
-				}
-				sql +=  " and a.operatetype in('I','U') order by a.insertdate asc";
-				
+				String sql = getIndexTriggerSql(rdI,nowTime,false);
 				l.add(create(retrievalApplicationContext,rdI,sql,nowTime));
 			}
 		}
@@ -65,19 +53,11 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 		Map<String,String> transObj = (Map<String, String>) ((RDatabaseIndexAllItem)databaseIndexAllItem).getTransObject();
 		String nowTime = transObj.get("nowTime");
 		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class.getSimpleName(), transObj.get("id"));
-		Database db =  rdI.getDatabase();
-		String delsql = " delete from "+SQLUtil.INDEX_TRIGGER_RECORD+" where 1=1 and operatetype in('I','U') and tablename ='"+rdI.getTableName()+"' ";
-		RDatabaseType databaseType = DictUtils.changeToRDatabaseType(db.getDatabaseType());
-		if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.ORACLE)) {
-			delsql += " and insertdate< to_date(" + "'" + nowTime + "'" + ",'yyyy-MM-dd HH24:mi:ss') ";;
-		} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.SQLSERVER)) {
-			delsql += " and insertdate<convert(datetime,'"+nowTime+"')";
-		} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
-			delsql += " and insertdate<'"+nowTime+"' ";
+		//删除索引
+		if("1".endsWith(rdI.getIndexOperatorType())){
+			judgeAndDelIndexRecord(rdI,nowTime);
 		}
-		String url = JdbcUtil.getConnectionURL(databaseType, db.getIp(), db.getPort(), db.getDatabaseName());
-		Connection conn =JdbcUtil.getConnection(databaseType, url, db.getUser(), db.getPassword());
-		JdbcUtil.executeSql(conn, delsql, true);
+		delAllTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 	}

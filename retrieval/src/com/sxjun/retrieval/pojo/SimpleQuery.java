@@ -27,6 +27,12 @@ public class SimpleQuery {
 	
 	private int nowStartPage=1;
 	
+	private String sortField;
+	
+	private Integer sortFieldType;
+	
+	private boolean ascFlag;
+	
 	/**
 	 * 关键字
 	 * @return
@@ -90,6 +96,24 @@ public class SimpleQuery {
 	}
 	public void setNowStartPage(int nowStartPage) {
 		this.nowStartPage = nowStartPage;
+	}
+	public String getSortField() {
+		return sortField;
+	}
+	public void setSortField(String sortField) {
+		this.sortField = sortField;
+	}
+	public boolean isAscFlag() {
+		return ascFlag;
+	}
+	public void setAscFlag(boolean ascFlag) {
+		this.ascFlag = ascFlag;
+	}
+	public Integer getSortFieldType() {
+		return sortFieldType;
+	}
+	public void setSortFieldType(Integer sortFieldType) {
+		this.sortFieldType = sortFieldType;
 	}
 	
 }

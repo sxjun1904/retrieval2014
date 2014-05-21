@@ -176,7 +176,9 @@ public abstract class AbstractRDatabaseIndexAll implements IRDatabaseIndexAll{
 		
 		for(int j=0;j<len;j++){
 			String name=StringClass.getString(objects[j][0]).toUpperCase();
-			String type=StringClass.getString((fieldTypeMap.get(name)));
+			String type="";
+			if(fieldTypeMap!=null)
+				type = StringClass.getString((fieldTypeMap.get(name)));
 			//替换数据库字段
 			if(fieldMapper!=null&&!fieldMapper.isEmpty()){
 				if(fieldMapper.get(name)!=null)

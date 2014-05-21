@@ -22,11 +22,16 @@ import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
+import frame.base.core.util.DateTime;
 import frame.base.core.util.JdbcUtil;
+import frame.retrieval.engine.RetrievalType;
+import frame.retrieval.engine.RetrievalType.RDatabaseDocItemType;
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;
 import frame.retrieval.engine.index.doc.NormalIndexDocument;
+import frame.retrieval.engine.query.item.QueryItem;
+import frame.retrieval.engine.query.result.QueryResult;
 import frame.retrieval.task.quartz.JustBaseSchedule;
 import frame.retrieval.task.quartz.JustBaseSchedulerManage;
 import frame.retrieval.task.quartz.QuartzManager;
@@ -34,7 +39,6 @@ import frame.retrieval.task.quartz.QuartzManager;
 public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
 	private List<RDatabaseIndex> rDatabaseIndexList;
 	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
-	private RetrievalApplicationContext retrievalApplicationContext;
 
 	public NormalImageIndex0Impl(){
 		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
@@ -56,11 +60,12 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 				rdI.setIsInit("2");
 				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 				
+				String nowTime =  new DateTime().getNowDateTime();
 				//删除触发器表中记录
-				delAllTrigRecord(rdI);
+				delAllTrigRecord(rdI,nowTime);
 				
 				String sql = rdI.getSql();
-				l = create(retrievalApplicationContext,rdI,sql,null);
+				l = create(retrievalApplicationContext,rdI,sql,nowTime);
 				//启动定时任务
 				if("1".equals(rdI.getStyle())){//复合风格
 					sechdule(rdI,new NormalImageIndexJob1());
@@ -74,8 +79,10 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 	public void afterDeal(Object o) {
 		fh.delFolder(retrievalApplicationContext.getDefaultRetrievalProperties().getDefault_temp_image_folder());
 		List<NormalIndexDocument> l = (List<NormalIndexDocument>) o;
-		Map<String,Object>  m = (Map<String,Object>) l.get(0).getTransObject();
-		RDatabaseIndex rdI = (RDatabaseIndex) m.get("rdI");
+		Map<String,Object>  transObj = (Map<String,Object>) l.get(0).getTransObject();
+		RDatabaseIndex rdI = (RDatabaseIndex) transObj.get("rdI");
+		String nowTime = (String) transObj.get("nowTime");
+		judgeAndDelTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
 	}

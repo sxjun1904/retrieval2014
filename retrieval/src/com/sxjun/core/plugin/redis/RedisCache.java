@@ -40,9 +40,30 @@ public class RedisCache {
     	return p;
     }
     
+    public void bgsave(){
+    	cache.bgsave();
+    	RedisManager.getJedisPool().returnResource(cache);
+    }
+    
     public void pipelineSync(Pipeline p){
     	p.sync();
     	RedisManager.getJedisPool().returnResource(cache);
+    }
+    
+    public void lpush(Object key,String value) {
+    	cache.lpush(cacheName+":"+String.valueOf(key), value == null ? "" : value);
+        RedisManager.getJedisPool().returnResource(cache);
+    }
+    
+    public void ltrim(Object key,long start,long end) {
+    	cache.ltrim(cacheName+":"+String.valueOf(key), start, end);
+    	RedisManager.getJedisPool().returnResource(cache);
+    }
+    
+    public List<String> lrange(Object key,int start,int end){
+    	List<String> lr = cache.lrange(cacheName+":"+String.valueOf(key), start, end);
+    	RedisManager.getJedisPool().returnResource(cache);
+    	return lr;
     }
     
     public Object _get(Object key){
@@ -51,6 +72,7 @@ public class RedisCache {
          byte[] b = cache.get((cacheName+":"+String.valueOf(key)).getBytes());
          return b == null ? null : SerializationUtils.deserialize(b);
     }
+    
     public Object get(Object key) {
         Object o = _get(key);
         RedisManager.getJedisPool().returnResource(cache);

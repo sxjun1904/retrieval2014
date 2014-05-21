@@ -31,7 +31,7 @@ public class RSAUtil {
 	
 	public static void main(String[] args) {
 		System.out.println(PathUtil.getPath());
-    	String deadline = "2014-5-27 19:28:00";
+    	String deadline = "2016-5-27 19:28:00";
     	String pathlic = PathUtil.getPath()+lic;
     	String pathkey = PathUtil.getPath()+key;
     	String productname = "全文检索";

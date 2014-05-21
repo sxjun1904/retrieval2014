@@ -21,5 +21,17 @@ public class CommonService<T> {
 	public List<T> getObjs(String t) {
 		return RedisKit.getObjs(t);
 	}
+	
+	public void lpush(String cacheName, String pinyin,String hanzi){
+		RedisKit.lpush(cacheName, pinyin, hanzi);
+	}
+	
+	public void ltrim(String cacheName, String pinyin,long start,long end){
+		RedisKit.ltrim(cacheName, pinyin, start, end);
+	}
+	
+	public List<String> lrange(String cacheName, String pinyin,int start,int end){
+		return RedisKit.lrange(cacheName, pinyin, start,end);
+	}
 
 }

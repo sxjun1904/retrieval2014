@@ -1,5 +1,6 @@
 package com.sxjun.retrieval.controller.index;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,11 +8,14 @@ import java.util.Map;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.InitField;
 
+import frame.base.core.util.DateTime;
+import frame.base.core.util.StringClass;
 import frame.retrieval.engine.index.all.database.IIndexAllDatabaseRecordInterceptor;
 
 public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterceptor{
 	
 	private CommonService<InitField> commonService = new CommonService<InitField>();
+	private static DateTime dt= new DateTime();
 
 	/**
 	 * 将数据库中查询中的记录进行加工处理
@@ -22,6 +26,12 @@ public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterce
 	public Map interceptor(Map record) {
 		
 //		record.put("DOC_CREATE_TIME", String.valueOf(System.currentTimeMillis()));
+//		String s =  StringClass.getString(record.get("UpdateTime"));//phone modify by sxjun
+		String s =  StringClass.getString(record.get("CREATETIME"));
+		Date date = dt.parseDate(s,null);
+		record.put("CREATETIME",dt.parseString(date,"yyyyMMddHHmmss"));
+//		Map<String,Double> pagerank = DatabaseIndexAllItem0Impl.pagerank;
+//		record.put("pagerank",String.valueOf(pagerank.get(record.get("OriginalURL"))));
 		return record;
 	}
 

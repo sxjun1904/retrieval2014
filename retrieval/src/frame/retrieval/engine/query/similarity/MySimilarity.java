@@ -23,7 +23,6 @@ public class MySimilarity extends Similarity{
 	    return (float)(1.0D / Math.sqrt(sumOfSquaredWeights));
 	  }
 	  
-	
 	  public float tf(float freq)
 	  {
 	    return (float)Math.sqrt(freq);
