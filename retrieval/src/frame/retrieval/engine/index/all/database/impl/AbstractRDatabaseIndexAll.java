@@ -144,10 +144,12 @@ public abstract class AbstractRDatabaseIndexAll implements IRDatabaseIndexAll{
 	@SuppressWarnings("unchecked")
 	protected DatabaseIndexDocument createDatabaseIndexDocument(Map map){
 		IIndexAllDatabaseRecordInterceptor databaseRecordInterceptor=databaseIndexAllItem.getDatabaseRecordInterceptor();
-
+		Map<String,String> fieldMapper = databaseIndexAllItem.getFieldMapper();
+		
 		Map fieldTypeMap=null;
 		if(databaseRecordInterceptor!=null){
-			map=(Map)databaseRecordInterceptor.interceptor(map);
+//			map=(Map)databaseRecordInterceptor.interceptor(map);
+			map=(Map)databaseRecordInterceptor.interceptor(map,fieldMapper);
 			fieldTypeMap=databaseRecordInterceptor.getFieldsType();
 		}
 		
@@ -172,18 +174,18 @@ public abstract class AbstractRDatabaseIndexAll implements IRDatabaseIndexAll{
 		Object[][] objects=UtilTool.getMapKeyValue(map);
 		int len=objects.length;
 		
-		Map<String,String> fieldMapper = databaseIndexAllItem.getFieldMapper();
+		
 		
 		for(int j=0;j<len;j++){
-			String name=StringClass.getString(objects[j][0]).toUpperCase();
+			String name=StringClass.getString(objects[j][0]);
 			String type="";
-			if(fieldTypeMap!=null)
-				type = StringClass.getString((fieldTypeMap.get(name)));
 			//替换数据库字段
 			if(fieldMapper!=null&&!fieldMapper.isEmpty()){
 				if(fieldMapper.get(name)!=null)
 					name =  fieldMapper.get(name);
 			}
+			if(fieldTypeMap!=null)
+				type = StringClass.getString((fieldTypeMap.get(name)));
 			String content=StringClass.getString(objects[j][1]);
 			RDocItem docItem=new RDocItem();
 			docItem.setName(name);

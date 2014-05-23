@@ -74,7 +74,7 @@ public class DatabaseIndexAllItemCommon extends IndexCommon{
 		for(FiledMapper f : fm){
 			String[] ss = f.getSqlField().split(";");
 			for(String s : ss){
-				fieldMapper.put(f.getIndexField(), s);
+				fieldMapper.put(s,f.getIndexField());
 			}
 		}
 		databaseIndexAllItem.setFieldMapper(fieldMapper);

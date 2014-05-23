@@ -17,6 +17,8 @@ public interface IIndexAllDatabaseRecordInterceptor {
 	 */
 	public Map<String,Object> interceptor(Map<String,Object> record);
 	
+	public Map<String,Object> interceptor(Map<String,Object> record,Map<String,String> fieldMapper);
+	
 	/**
 	 * 获取每个字段类型
 	 * @return

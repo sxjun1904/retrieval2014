@@ -2,8 +2,10 @@ package com.sxjun.retrieval.controller.index;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.InitField;
@@ -22,12 +24,12 @@ public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterce
 	 * @param record
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@Override
 	public Map interceptor(Map record) {
 		
 //		record.put("DOC_CREATE_TIME", String.valueOf(System.currentTimeMillis()));
-//		String s =  StringClass.getString(record.get("UpdateTime"));//phone modify by sxjun
-		String s =  StringClass.getString(record.get("CREATETIME"));
+		String s =  StringClass.getString(record.get("UpdateTime"));//phone modify by sxjun
+//		String s =  StringClass.getString(record.get("CREATETIME"));
 		Date date = dt.parseDate(s,null);
 		record.put("CREATETIME",dt.parseString(date,"yyyyMMddHHmmss"));
 //		Map<String,Double> pagerank = DatabaseIndexAllItem0Impl.pagerank;
@@ -35,7 +37,7 @@ public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterce
 		return record;
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public Map getFieldsType() {
 		List<InitField> ifs = commonService.getObjs(InitField.class.getSimpleName());
 		Map<String,String> m = new HashMap<String,String>();
@@ -43,6 +45,21 @@ public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterce
 			m.put(_if.getField(),_if.getFieldType());
 		}
 		return m;
+	}
+
+	@Override
+	public Map<String, Object> interceptor(Map<String, Object> record,Map<String, String> fieldMapper) {
+		Set<Map.Entry<String, String>> set = fieldMapper.entrySet();
+        for (Iterator<Map.Entry<String, String>> it = set.iterator(); it.hasNext();) {
+            Map.Entry<String, String> entry = (Map.Entry<String, String>) it.next();
+            if("CREATETIME".endsWith(entry.getValue())){
+            	String s =  StringClass.getString(record.get(entry.getKey()));
+        		Date date = dt.parseDate(s,null);
+        		record.put("CREATETIME",dt.parseString(date,"yyyyMMddHHmmss"));
+        		break;
+            }
+        }
+		return record;
 	}
 
 }

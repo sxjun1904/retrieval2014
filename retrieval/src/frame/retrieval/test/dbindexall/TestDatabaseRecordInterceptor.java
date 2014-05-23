@@ -26,4 +26,10 @@ public class TestDatabaseRecordInterceptor implements IIndexAllDatabaseRecordInt
 		return null;
 	}
 
+	@Override
+	public Map<String, Object> interceptor(Map<String, Object> record,
+			Map<String, String> fieldMapper) {
+		return record;
+	}
+
 }
