@@ -1,7 +1,7 @@
-package com.sxjun.retrieval.controller;
+package com.sxjun.system.controller;
 
 import com.jfinal.core.Controller;
-import com.sxjun.retrieval.pojo.User;
+import com.sxjun.system.pojo.User;
 
 public class LoginController extends Controller{
 	public void index(){

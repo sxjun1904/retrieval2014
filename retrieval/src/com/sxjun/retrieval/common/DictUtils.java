@@ -21,7 +21,7 @@ import com.sxjun.retrieval.constant.DefaultConstant.DatabaseType;
 import com.sxjun.retrieval.constant.DefaultConstant.FieldType;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.constant.DefaultConstant.ItemType;
-import com.sxjun.retrieval.pojo.Dict;
+import com.sxjun.system.pojo.Dict;
 
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
 

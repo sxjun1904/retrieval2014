@@ -63,7 +63,7 @@
 	</style>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		
+		var ctx = $('#ctx').val();
 		$(window).on("scroll",function(){
 			//alert($(window).scrollTop()+$(window).height());
 			if($(document).height() <= $(window).scrollTop()+$(window).height()+1){
@@ -72,7 +72,7 @@
 				var pz = $("#pageSize").val();
 				var pn = Number($("#pageNo").val())+1;
 				$.ajax({
-				    url: '/f/search/jsonImg/'+kw+'?pageSize='+pz+'&pageNum='+pn,
+				    url: '/'+ctx+'/search/jsonImg/'+kw+'?pageSize='+pz+'&pageNum='+pn,
 				    success: function (data) {
 				    	var retrievalPageList = data.retrievalPageList;
 				    	for(var i=0;i<retrievalPageList.length;i++){
@@ -133,7 +133,7 @@
 		});
 		
 		$("#btnSubmit").click(function(){
-			location.href ="/f/search/image/"+$("#keyword").val();
+			location.href ="/"+ctx+"/search/image/"+$("#keyword").val();
 		});
 		
 		$("#keyword").bigAutocomplete({
@@ -149,7 +149,7 @@
 					{title:"中国好声音第二期"},
 					{title:"中国地图"}] ,
 			callback:function(data){
-				location.href ="/f/search/image/"+data.title;
+				location.href ="/"+ctx+"/search/image/"+data.title;
 			}
 		});
 		/* $('#keyword').bind('keypress', function(event){
@@ -174,6 +174,7 @@
 		</div>
 		<div>
 			<form id="searchForm" action="${ctx_f}/search/image" method="post" >
+				<input id="ctx" name="ctx" type="hidden" value="${ctx_f}"/>
 				<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 				<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 				<div style="margin-top:5px;font-size:25px;font-weight:normal;font-familiy:Helvetica, Georgia, Arial, sans-serif, 黑体;float:left">${fns:getConfig('productName')}</div>

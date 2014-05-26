@@ -1,7 +1,7 @@
 package com.sxjun.retrieval.controller;
 
 import com.jfinal.core.Controller;
-import com.sxjun.retrieval.pojo.User;
+import com.sxjun.system.pojo.User;
 
 public class RestController extends Controller {
 	public void index(){

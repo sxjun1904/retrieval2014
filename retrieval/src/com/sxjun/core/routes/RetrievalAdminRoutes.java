@@ -8,9 +8,9 @@ import com.sxjun.retrieval.controller.FiledMapperController;
 import com.sxjun.retrieval.controller.FiledSpecialMapperController;
 import com.sxjun.retrieval.controller.IndexCagetoryController;
 import com.sxjun.retrieval.controller.InitFieldController;
-import com.sxjun.retrieval.controller.LoginController;
 import com.sxjun.retrieval.controller.RDatabaseIndexController;
-import com.sxjun.retrieval.controller.ThemeController;
+import com.sxjun.system.controller.LoginController;
+import com.sxjun.system.controller.ThemeController;
 
 public class RetrievalAdminRoutes extends Routes {
 	public void config() {

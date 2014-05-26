@@ -8,7 +8,7 @@ import com.jfinal.aop.Interceptor;
 import com.jfinal.core.ActionInvocation;
 import com.jfinal.core.Controller;
 import com.sxjun.retrieval.common.Global;
-import com.sxjun.retrieval.pojo.User;
+import com.sxjun.system.pojo.User;
 
 import frame.base.core.util.RSAUtil;
 
