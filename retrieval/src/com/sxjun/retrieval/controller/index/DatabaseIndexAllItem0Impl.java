@@ -41,7 +41,7 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 		List <RDatabaseIndexAllItem> l = new ArrayList<RDatabaseIndexAllItem>();
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
 			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&!(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
-				List<HtmlEntity> he = getPageRank(rdI);
+				//List<HtmlEntity> he = getPageRank(rdI);
 				/*for(HtmlEntity h :he){
 					pagerank.put(h.getPath(), h.getPr());
 				}*/

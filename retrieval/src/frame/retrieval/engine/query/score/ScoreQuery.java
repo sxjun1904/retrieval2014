@@ -25,8 +25,8 @@ public class ScoreQuery  extends CustomScoreQuery{
 
 	 @Override  
      protected CustomScoreProvider getCustomScoreProvider(IndexReader reader) throws IOException {  
-//       return super.getCustomScoreProvider(reader);  
-         return new MyScoreProvider(reader,"SCORE","PAGERANK");  
+       return super.getCustomScoreProvider(reader);  
+//         return new MyScoreProvider(reader,"SCORE","PAGERANK");  
 //         return new TimeScoreProvider(reader,timefield);  
      } 
 }

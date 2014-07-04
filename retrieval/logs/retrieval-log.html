@@ -11,7 +11,7 @@ th {background: #336699; color: #FFFFFF; text-align: left;}
 </head>
 <body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
 <hr size="1" noshade>
-Log session start time Sun May 25 20:37:11 CST 2014<br>
+Log session start time Fri Jul 04 12:31:05 CST 2014<br>
 <br>
 <table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
 <tr>
@@ -24,183 +24,56 @@ Log session start time Sun May 25 20:37:11 CST 2014<br>
 
 <tr>
 <td>0</td>
-<td title="qtp14600371-19 thread">qtp14600371-19</td>
-<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
-<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
-<td title="Message">Could not find cache config [dictMap], using default.</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 1 started.</td>
 </tr>
 
 <tr>
-<td>37231</td>
-<td title="qtp14600371-19 thread">qtp14600371-19</td>
-<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
-<td title="com.sxjun.core.plugin.redis.RedisManager category">com.sxjun.core.plugin.redis.RedisManager</td>
-<td title="Message">get redis from pool fail</td>
+<td>50</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 2 started.</td>
 </tr>
-<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.util.Pool.getResource(Pool.java:22)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.plugin.redis.RedisManager.getJedisCache(RedisManager.java:32)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:83)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.service.CommonService.getObjs(CommonService.java:22)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:52)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:43)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.InitFieldController.list(InitFieldController.java:12)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.Connection.connect(Connection.java:134)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1665)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.JedisPool$JedisFactory.makeObject(JedisPool.java:72)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1148)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.util.Pool.getResource(Pool.java:20)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 38 more
-<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.net.ConnectException: Connection refused: connect
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.socketConnect(Native Method)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.Socket.connect(Socket.java:519)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.Connection.connect(Connection.java:129)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 43 more
-</td></tr>
 
 <tr>
-<td>38271</td>
-<td title="qtp14600371-19 thread">qtp14600371-19</td>
-<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
-<td title="com.sxjun.core.plugin.redis.RedisManager category">com.sxjun.core.plugin.redis.RedisManager</td>
-<td title="Message">create redis0fail</td>
+<td>51</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 3 started.</td>
 </tr>
-<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.Connection.connect(Connection.java:134)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.Connection.sendCommand(Connection.java:79)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.BinaryClient.select(BinaryClient.java:148)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.Jedis.select(Jedis.java:328)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.plugin.redis.RedisManager.getJedisCache(RedisManager.java:42)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:83)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.service.CommonService.getObjs(CommonService.java:22)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:52)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:43)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.InitFieldController.list(InitFieldController.java:12)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;Caused by: java.net.ConnectException: Connection refused: connect
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.socketConnect(Native Method)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.net.Socket.connect(Socket.java:519)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at redis.clients.jedis.Connection.connect(Connection.java:129)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	... 42 more
-</td></tr>
 
 <tr>
-<td>38330</td>
-<td title="qtp14600371-19 thread">qtp14600371-19</td>
-<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
-<td title="com.jfinal.core.ActionHandler category">com.jfinal.core.ActionHandler</td>
-<td title="Message">/a/initField/list</td>
+<td>52</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 4 started.</td>
 </tr>
-<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.lang.NullPointerException
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.plugin.redis.RedisKit.getObjs(RedisKit.java:83)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.service.CommonService.getObjs(CommonService.java:22)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:52)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.BaseController.list(BaseController.java:43)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.InitFieldController.list(InitFieldController.java:12)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
-</td></tr>
+
+<tr>
+<td>53</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 5 started.</td>
+</tr>
+
+<tr>
+<td>54</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 6 started.</td>
+</tr>
+
+<tr>
+<td>55</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="frame.crawler4j.crawler.CrawlController category">frame.crawler4j.crawler.CrawlController</td>
+<td title="Message">Crawler 7 started.</td>
+</tr>

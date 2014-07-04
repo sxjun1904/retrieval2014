@@ -1,11 +1,8 @@
 package org.apache.activemq.web;
 
 import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
 import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.ObjectMessage;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
@@ -13,11 +10,9 @@ import javax.jms.TopicConnection;
 import javax.jms.TopicConnectionFactory;
 import javax.jms.TopicPublisher;
 import javax.jms.TopicSession;
-import javax.naming.NamingException;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.eclipse.jetty.util.StringUtil;
  
  
 /**
@@ -36,9 +31,9 @@ public class TopicSender {
     // 发送次数
     public static final int SEND_NUM = 1;
     // tcp 地址
-    public static final String BROKER_URL = "tcp://localhost:61616";
+    public static final String BROKER_URL = "failover:(tcp://192.168.200.117:61616)";
     // 目标，在ActiveMQ管理员控制台创建 http://localhost:8161/admin/queues.jsp
-    public static final String DESTINATION = "testTopic";
+    public static final String DESTINATION = "EpointMessagePush";
     
     /**
      * <b>function:</b> 发送消息
@@ -57,7 +52,7 @@ public class TopicSender {
             map.setLong("time", System.currentTimeMillis());
             System.out.println(map);*/
             TextMessage msg = session.createTextMessage();
-            msg.setStringProperty("clientId", "1062");
+            msg.setStringProperty("clientId", "sxjun");
             msg.setText(message);
             /*ObjectMessage tm = session.createObjectMessage();
 	        tm.setStringProperty("test", message);
@@ -72,7 +67,7 @@ public class TopicSender {
         TopicSession session = null;
         try {
             // 创建链接工厂
-            TopicConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
+            TopicConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, "failover://tcp://localhost:61616");
             // 通过工厂创建一个连接
             connection = factory.createTopicConnection();
             // 启动连接
@@ -103,6 +98,20 @@ public class TopicSender {
     }
     
     public static void main(String[] args) throws Exception {
+    	/*Connection connection = null;
+	    	for(int i=2000;i<3000;i++){
+	    		 ConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, "tcp://192.168.200.117:61616");
+	            
+	    		 // 通过工厂创建一个连接
+	             connection = factory.createConnection();
+	             connection.setClientID(String.valueOf(i));
+	             // 启动连接
+	             connection.start();
+	             System.out.println(i);
+	//             connection.stop();
+	//             connection.close();
+	    			
+	    	}*/
         TopicSender.run();
     	/*TopicSender sm = new TopicSender();
         sm.setupQueueConnection("58.213.119.196", "jmsQueueba20a55a1e7947b7bb97a1b3f50df013");

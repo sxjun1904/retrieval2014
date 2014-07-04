@@ -99,8 +99,10 @@
 			title_background_color: '#CCC',
 			background_color: '#f5f5f5'
 		}); */
-		var ctx = $('#ctx').val();
+		
+		var ctx_f = $('#ctx_f').val();
 		window.onload = function() { 
+			
 			var totalCount= $('#totalCount').val();
 			var pageSize = Math.ceil(totalCount/$('#pageSize').val());
 			var pageNo = $('#pageNo').val();
@@ -122,19 +124,19 @@
 				onChange : function(page){
 					/* $("#pageNo").val(page);
 					$("#searchForm").submit(); */
-					location.href ="/"+ctx+"/search/page/"+$("#keyword").val()+"?pageNo="+page;
+					location.href =ctx_f+"/search/page/"+$("#keyword").val()+"?pageNo="+page;
 				}
 			});
 		};
 		
 		$("#btnSubmit").click(function(){
-			location.href ="/"+ctx+"/search/page/"+$("#keyword").val();
+			location.href =ctx_f+"/search/page/"+$("#keyword").val();
 			/* var path = "/f/search/page/"+$("#keyword").val();
 			$('#searchForm').attr("action", path).submit();;  */
 		});
 		
 		$('.cateGroup').click(function(){
-			location.href = "/"+ctx+"/search/page/"+$("#keyword").val()+"&_IBT="+$(this).text();
+			location.href = ctx_f+"/search/page/"+$("#keyword").val()+"&_IBT="+$(this).text();
 			return false;
 		});
 		
@@ -154,9 +156,9 @@
 		
 		$("#keyword").bigAutocomplete({
 			width:450,
-			url:'/"+ctx+"/search/pinYinHanzi?pyhz=',
+			url:ctx_f+'/search/pinYinHanzi?pyhz=',
 			callback:function(data){
-				location.href ="/"+ctx+"/search/page/"+data.title;
+				location.href =ctx_f+"/search/page/"+data.title;
 			}
 		}); 
 		
@@ -169,7 +171,7 @@
 		
 		$('#keyword').bind('keyup', function(event){
 			   if (event.keyCode=="13"){
-				   location.href ="/"+ctx+"/search/page/"+$("#keyword").val();
+				   location.href =ctx_f+"/search/page/"+$("#keyword").val();
 			   }
 		});
 	});
@@ -187,7 +189,7 @@
 	</div>
 	<div>
 		<form id="searchForm" action="${ctx_f}/search/page" method="post" class="breadcrumb form-search">
-			<input id="ctx" name="ctx" type="hidden" value="${ctx_f}"/>
+			<input id="ctx_f" name="ctx_f" type="hidden" value="${ctx_f}"/>
 			<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 			<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 			<input id="totalCount" name="totalCount" type="hidden" value="${page.count}"/>

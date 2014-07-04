@@ -28,8 +28,8 @@ public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterce
 	public Map interceptor(Map record) {
 		
 //		record.put("DOC_CREATE_TIME", String.valueOf(System.currentTimeMillis()));
-		String s =  StringClass.getString(record.get("UpdateTime"));//phone modify by sxjun
-//		String s =  StringClass.getString(record.get("CREATETIME"));
+//		String s =  StringClass.getString(record.get("UpdateTime"));//phone modify by sxjun
+		String s =  StringClass.getString(record.get("CREATETIME"));
 		Date date = dt.parseDate(s,null);
 		record.put("CREATETIME",dt.parseString(date,"yyyyMMddHHmmss"));
 //		Map<String,Double> pagerank = DatabaseIndexAllItem0Impl.pagerank;
