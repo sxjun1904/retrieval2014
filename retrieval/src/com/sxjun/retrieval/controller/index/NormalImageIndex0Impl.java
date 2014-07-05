@@ -18,6 +18,7 @@ import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DataaseIndexJob1;
 import com.sxjun.retrieval.controller.job.NormalImageIndexJob1;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
@@ -38,10 +39,10 @@ import frame.retrieval.task.quartz.QuartzManager;
 
 public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
 	private List<RDatabaseIndex> rDatabaseIndexList;
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
+	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
 
 	public NormalImageIndex0Impl(){
-		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
+		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class);
 	}
 	
 	public NormalImageIndex0Impl(RDatabaseIndex rDatabaseIndex){
@@ -58,7 +59,7 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
 			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				rdI.setIsInit("2");
-				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				
 				String nowTime =  new DateTime().getNowDateTime();
 				//删除触发器表中记录
@@ -84,7 +85,7 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 		String nowTime = (String) transObj.get("nowTime");
 		judgeAndDelTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
-		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 
 	public static void testBlob() throws Exception{

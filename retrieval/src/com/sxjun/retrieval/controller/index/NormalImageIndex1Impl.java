@@ -17,6 +17,7 @@ import org.apache.commons.dbutils.QueryRunner;
 
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.FiledMapper;
@@ -44,10 +45,10 @@ import frame.retrieval.engine.index.doc.internal.RDocItem;
 
 public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
 	private List<RDatabaseIndex> rDatabaseIndexList;
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
+	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
 
 	public NormalImageIndex1Impl(){
-		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
+		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class);
 	}
 	
 	public NormalImageIndex1Impl(RDatabaseIndex rDatabaseIndex){
@@ -63,7 +64,7 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
 			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				rdI.setIsInit("2");
-				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				String nowTime = new DateTime().getNowDateTime();
 				String sql = getIndexTriggerSql(rdI,nowTime,false);
 				l = create(retrievalApplicationContext,rdI,sql,nowTime);
@@ -93,6 +94,6 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 		}
 		delAllTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
-		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 }

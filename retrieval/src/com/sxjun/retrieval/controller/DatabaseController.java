@@ -7,6 +7,7 @@ import java.util.Map;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.Page;
 import com.sxjun.retrieval.common.SQLUtil;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
 
@@ -15,12 +16,11 @@ import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 
 public class DatabaseController extends BaseController<Database> {
-	private final static String cachename = Database.class.getSimpleName();
-	CommonService<Database> commonService = new CommonService<Database>();
+	CommonService<Database> commonService = new ServiceProxy<Database>().getproxy();
 	
 	public void list() {
 		Page<Database> page = new Page<Database>(super.getRequest(), super.getResponse());
-		List<Database> objs = commonService.getObjs(cachename);
+		List<Database> objs = commonService.getObjs(Database.class);
 		page.setList(objs);
 		setAttr("page",page);
 		render("databaseList.jsp");
@@ -29,7 +29,7 @@ public class DatabaseController extends BaseController<Database> {
 	public void form(){
 		Map<String,String> dt = DictUtils.getDictMap(DictUtils.DATABASE_TYPE);
 		setAttr("databaseTypes",dt);
-		form(cachename);
+		form(Database.class);
 	}
 	
 	
@@ -45,7 +45,7 @@ public class DatabaseController extends BaseController<Database> {
 	}
 	
 	public void delete(){
-		delete(cachename);
+		delete(Database.class);
 	}
 	
 	public void databaseTest(){

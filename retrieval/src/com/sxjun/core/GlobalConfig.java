@@ -12,6 +12,7 @@ import com.jfinal.kit.StringKit;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.render.ViewType;
 import com.sxjun.core.interceptor.SessionInterceptor;
+import com.sxjun.core.plugin.berkeley.BerkeleyPlugin;
 import com.sxjun.core.plugin.redis.RedisPlugin;
 import com.sxjun.core.routes.RetrievalAdminRoutes;
 import com.sxjun.core.routes.RetrievalFrontRoutes;
@@ -32,6 +33,7 @@ public class GlobalConfig extends JFinalConfig {
 		Global.frontPath = getProperty("frontPath","f");
 	    Global.adminPath = getProperty("adminPath","a");
 	    Global.urlSuffix = getProperty("urlSuffix");
+	    Global.databasetype = getProperty("databaseType");
 	    Global.licenseInfo = RSAUtil.getLicenceInfo();
 	    
 		if (isLocal) {
@@ -48,13 +50,17 @@ public class GlobalConfig extends JFinalConfig {
 		me.add(new SystemRoutes());
 	}
 	public void configPlugin(Plugins me) {
+		me.add(new EhCachePlugin());
+		
 		String host,port,dbIndex;
 		host = getProperty("host", "127.0.0.1");
 		port = getProperty("port", "6379");
 		dbIndex = getProperty("dbIndex", "0");
-		me.add(new EhCachePlugin());
 		RedisPlugin redisPlugin = new RedisPlugin(host,Integer.parseInt(port),Integer.parseInt(dbIndex));
 		me.add(redisPlugin);
+		
+		BerkeleyPlugin berkeleyPlugin = new BerkeleyPlugin();
+		me.add(berkeleyPlugin);
 	}
 	public void configInterceptor(Interceptors me) {
 		me.add(new SessionInterceptor());

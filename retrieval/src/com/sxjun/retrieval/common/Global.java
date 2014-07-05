@@ -22,6 +22,7 @@ public class Global {
 	public static String frontPath;
 	public static String urlSuffix;
 	public static Map<String,Object> licenseInfo;
+	public static String databasetype;
 	
 	public static Properties properties;
 	
@@ -38,6 +39,9 @@ public class Global {
 		return licenseInfo;
 	}
 	
+	public static String getDatabasetype() {
+		return databasetype;
+	}
 	/**
 	 * 获取配置
 	 */

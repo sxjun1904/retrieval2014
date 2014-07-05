@@ -17,6 +17,7 @@ import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DataaseIndexJob0;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.FiledMapper;
@@ -38,20 +39,19 @@ import frame.retrieval.task.quartz.JustBaseSchedulerManage;
  * @version 2014-03-11
  */
 public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
-	private final static String cachename = RDatabaseIndex.class.getSimpleName();
 
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
-	private CommonService<Database> dbCommonService = new CommonService<Database>();
-	private CommonService<IndexCategory> idCommonService = new CommonService<IndexCategory>();
-	private CommonService<InitField> ifCommonService = new CommonService<InitField>();
+	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
+	private CommonService<Database> dbCommonService = new ServiceProxy<Database>().getproxy();
+	private CommonService<IndexCategory> idCommonService = new ServiceProxy<IndexCategory>().getproxy();
+	private CommonService<InitField> ifCommonService = new ServiceProxy<InitField>().getproxy();
 
 	public void list() {
-		list(cachename);
+		list(RDatabaseIndex.class);
 	}
 	
 	public void form(){
 		setAttr("initFields", findFields());
-		form(cachename);
+		form(RDatabaseIndex.class);
 	}
 	
 	public void init(){
@@ -107,10 +107,10 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			justList.add(getJustSchedule(fsm));
 		}
 		
-		IndexCategory ic = commonService.get(IndexCategory.class.getSimpleName(),rdI.getIndexPath_id());
+		IndexCategory ic = commonService.get(IndexCategory.class,rdI.getIndexPath_id());
 		rdI.setIndexCategory(ic);
 		
-		Database db = dbCommonService.get(Database.class.getSimpleName(), rdI.getDatabase_id());
+		Database db = dbCommonService.get(Database.class, rdI.getDatabase_id());
 		rdI.setFiledMapperLsit(fmList);
 		rdI.setFiledSpecialMapperLsit(fsmList);
 		rdI.setJustScheduleList(justList);
@@ -263,16 +263,16 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	
 	public void delete(){
 		String id=getPara();
-		RDatabaseIndex rdI = commonService.get(cachename, id);
+		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class, id);
 		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "C");
 		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "U");
 		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "D");
-		commonService.remove(cachename, id);
+		commonService.remove(RDatabaseIndex.class, id);
 		list();
 	}
 
 	/*public void databases(){
-		List<Database> dbs = dbCommonService.getObjs(Database.class.getSimpleName());
+		List<Database> dbs = dbCommonService.getObjs(Database.class);
 		List<AdminDBs> AdminDBsList = new ArrayList<AdminDBs>();
 		for(Database db : dbs){
 			AdminDBs a = new AdminDBs();
@@ -287,7 +287,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * 获取redis中配置的数据库
 	 */
 	public void databases(){
-		List<Database> dbs = dbCommonService.getObjs(Database.class.getSimpleName());
+		List<Database> dbs = dbCommonService.getObjs(Database.class);
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		for(Database db : dbs){
 			Map<String,String> m = new HashMap<String,String>();
@@ -301,7 +301,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * 获取索引路径
 	 */
 	public void indexPathes(){
-		List<IndexCategory> ics = idCommonService.getObjs(IndexCategory.class.getSimpleName());
+		List<IndexCategory> ics = idCommonService.getObjs(IndexCategory.class);
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		for(IndexCategory ic : ics){
 			Map<String,String> m = new HashMap<String,String>();
@@ -316,7 +316,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	 * @return
 	 */
 	public List<Map<String,String>> findFields(){
-		List<InitField> ifds = ifCommonService.getObjs(InitField.class.getSimpleName());
+		List<InitField> ifds = ifCommonService.getObjs(InitField.class);
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		for(InitField ifd : ifds){
 			Map<String,String> m = new HashMap<String,String>();
@@ -332,19 +332,19 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	
 	public void tables(){
 		String id = getPara("id");
-		dbTables((Database)dbCommonService.get(Database.class.getSimpleName(),id));
+		dbTables((Database)dbCommonService.get(Database.class,id));
 	}
 	
 	public void fields(){
 		String table = getPara("table");
 		String id = getPara("id");
-		dbFields((Database)dbCommonService.get(Database.class.getSimpleName(),id),table);
+		dbFields((Database)dbCommonService.get(Database.class,id),table);
 		
 	}
 	
 	public void indexPathType(){
 		String id = getPara("id");
-		IndexCategory ic = commonService.get(IndexCategory.class.getSimpleName(),id);
+		IndexCategory ic = commonService.get(IndexCategory.class,id);
 		renderJson("pathtype",DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, ic.getIndexPathType()));
 	}
 	

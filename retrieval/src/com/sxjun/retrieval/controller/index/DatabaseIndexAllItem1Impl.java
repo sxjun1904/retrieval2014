@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
@@ -22,10 +23,10 @@ import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
 public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implements ICreateIndexAllItem{
 	
 	private List<RDatabaseIndex> rDatabaseIndexList;
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
+	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
 	
 	public DatabaseIndexAllItem1Impl(){
-		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
+		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class);
 	}
 	
 	@Override
@@ -35,7 +36,7 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
 			if("0".endsWith(rdI.getIsError())&&"1".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
 				rdI.setIsInit("2");
-				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				String nowTime = new DateTime().getNowDateTime();
 				String sql = getIndexTriggerSql(rdI,nowTime,false);
 				l.add(create(retrievalApplicationContext,rdI,sql,nowTime));
@@ -52,14 +53,14 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 	public void afterDeal(Object databaseIndexAllItem) {
 		Map<String,String> transObj = (Map<String, String>) ((RDatabaseIndexAllItem)databaseIndexAllItem).getTransObject();
 		String nowTime = transObj.get("nowTime");
-		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class.getSimpleName(), transObj.get("id"));
+		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class, transObj.get("id"));
 		//删除索引
 		if("1".endsWith(rdI.getIndexOperatorType())){
 			judgeAndDelIndexRecord(rdI,nowTime);
 		}
 		delAllTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
-		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 
 }

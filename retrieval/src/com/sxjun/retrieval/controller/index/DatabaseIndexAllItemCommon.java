@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.FiledMapper;
 import com.sxjun.retrieval.pojo.FiledSpecialMapper;
@@ -22,7 +23,7 @@ import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
 
 public class DatabaseIndexAllItemCommon extends IndexCommon{
 	
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
+	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
 	
 	public RDatabaseIndexAllItem create(RetrievalApplicationContext retrievalApplicationContext,RDatabaseIndex rdI,String sql,String nowTime){
 		String tableName = rdI.getTableName();

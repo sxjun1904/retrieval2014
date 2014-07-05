@@ -14,17 +14,16 @@ import com.sxjun.retrieval.pojo.IndexCategory;
  * @version 2014-01-14
  */
 public class IndexCagetoryController extends BaseController<IndexCategory> {
-	private final static String cachename = IndexCategory.class.getSimpleName();
 	
 	public void list() {
-		list(cachename);
+		list(IndexCategory.class);
 	}
 	
 	public void form(){
 		
 		Map<String,String> indexPathTypes = DictUtils.getDictMap(DictUtils.INDEXPATH_TYPE);
 		setAttr("indexPathTypes",indexPathTypes);
-		form(cachename);
+		form(IndexCategory.class);
 	}
 	
 	public void save(){
@@ -32,7 +31,7 @@ public class IndexCagetoryController extends BaseController<IndexCategory> {
 	}
 	
 	public void delete(){
-		delete(cachename);
+		delete(IndexCategory.class);
 	}
 	
 	/*public List<IndexCagetory> getIndexCagetoryList(){

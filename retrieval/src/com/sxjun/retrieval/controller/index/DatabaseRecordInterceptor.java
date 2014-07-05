@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.InitField;
+import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.DateTime;
 import frame.base.core.util.StringClass;
@@ -16,7 +18,7 @@ import frame.retrieval.engine.index.all.database.IIndexAllDatabaseRecordIntercep
 
 public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterceptor{
 	
-	private CommonService<InitField> commonService = new CommonService<InitField>();
+	private CommonService<InitField> commonService = new ServiceProxy<InitField>().getproxy();
 	private static DateTime dt= new DateTime();
 
 	/**
@@ -39,7 +41,7 @@ public class DatabaseRecordInterceptor implements IIndexAllDatabaseRecordInterce
 
 	@Override
 	public Map getFieldsType() {
-		List<InitField> ifs = commonService.getObjs(InitField.class.getSimpleName());
+		List<InitField> ifs = commonService.getObjs(InitField.class);
 		Map<String,String> m = new HashMap<String,String>();
 		for(InitField _if:ifs){
 			m.put(_if.getField(),_if.getFieldType());

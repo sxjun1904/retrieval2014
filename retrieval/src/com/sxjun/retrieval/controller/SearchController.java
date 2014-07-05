@@ -16,8 +16,10 @@ import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.Page;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.oth.pinyin.PinyinHanziUtil;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.IndexCategory;
+import com.sxjun.retrieval.pojo.InitField;
 import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
 import com.sxjun.retrieval.pojo.SimpleQuery;
@@ -41,6 +43,7 @@ import frame.retrieval.oth.mapper.MapperUtil;
 
 public class SearchController extends Controller {
 private RetrievalApplicationContext retrievalApplicationContext = ApplicationContext.getApplicationContent();
+private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<IndexCategory>().getproxy();
 	public boolean isImg(String indexPathType){
 		return DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue()).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, indexPathType));
 		
@@ -67,8 +70,7 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	 * @return
 	 */
 	public String[] getIndexCategory(){
-		CommonService<IndexCategory> commonService = new CommonService<IndexCategory>();
-		List<IndexCategory> l = commonService.getObjs(IndexCategory.class.getSimpleName());
+		List<IndexCategory> l = indexCategoryService.getObjs(IndexCategory.class);
 		int image = 0;
 		for(IndexCategory ic : l){
 			if(isImg(ic.getIndexPathType()))
@@ -90,8 +92,7 @@ private RetrievalApplicationContext retrievalApplicationContext = ApplicationCon
 	 * @return
 	 */
 	public String[] getImgCategory(){
-		CommonService<IndexCategory> commonService = new CommonService<IndexCategory>();
-		List<IndexCategory> l = commonService.getObjs(IndexCategory.class.getSimpleName());
+		List<IndexCategory> l = indexCategoryService.getObjs(IndexCategory.class);
 		int image = 0;
 		for(IndexCategory ic : l){
 			if(isImg(ic.getIndexPathType()))

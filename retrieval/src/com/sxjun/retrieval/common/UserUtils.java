@@ -63,7 +63,7 @@ public class UserUtils{
 		menu2.setId("3");
 		menu2.setIcon("user");
 		menu2.setIsShow("1");
-		menu2.setName("全局设置");
+		menu2.setName("检索设置");
 		menu2.setParentid("2");
 		//menu2.setHref("/database/list");
 		menu2.setSort(1);
@@ -72,7 +72,7 @@ public class UserUtils{
 		menu4.setId("5");
 		menu4.setIcon("user");
 		menu4.setIsShow("1");
-		menu4.setName("索引设置");
+		menu4.setName("爬虫设置");
 		menu4.setParentid("2");
 		menu4.setHref("/database/list");
 		menu4.setSort(23);

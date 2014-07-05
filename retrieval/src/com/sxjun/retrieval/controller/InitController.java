@@ -3,12 +3,14 @@ package com.sxjun.retrieval.controller;
 import java.util.UUID;
 
 import com.jfinal.core.Controller;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
+import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.InitField;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 public class InitController extends Controller {
-	private CommonService<InitField> commonService = new CommonService<InitField>();
+	private CommonService<InitField> commonService = new ServiceProxy<InitField>().getproxy();
 	public void index(){
 		
 	}
@@ -28,8 +30,8 @@ public class InitController extends Controller {
     	if1.setDefaultValue("null");
     	if1.setFieldType("KEYWORD");
     	if1.setDescription("跳转地址");
-		commonService.put(InitField.class.getSimpleName(), if0.getId(), if0);
-		commonService.put(InitField.class.getSimpleName(), if1.getId(), if1);
+		commonService.put(InitField.class, if0.getId(), if0);
+		commonService.put(InitField.class, if1.getId(), if1);
 		////////////////////////////////////////////////////////////
     } 
 }

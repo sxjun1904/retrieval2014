@@ -2,21 +2,22 @@ package com.sxjun.retrieval.controller;
 
 import java.util.Map;
 
+import com.jfinal.aop.Before;
+import com.sxjun.core.interceptor.BerkeleyInterceptor;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.pojo.InitField;
 
 public class InitFieldController  extends BaseController<InitField> {
-	private final static String cachename = InitField.class.getSimpleName();
 	
 	public void list() {
-		list(cachename);
+		list(InitField.class);
 	}
 	
 	public void form(){
 		Map<String,String> itemTypes = DictUtils.getDictMap(DictUtils.ITEMTYPE_TYPE);
 		setAttr("itemTypes",itemTypes);
 		
-		form(cachename);
+		form(InitField.class);
 	}
 	
 	public void save(){
@@ -24,7 +25,7 @@ public class InitFieldController  extends BaseController<InitField> {
 	}
 	
 	public void delete(){
-		delete(cachename);
+		delete(InitField.class);
 	}
 	
 	/*public List<InitField> getInitFieldList(){

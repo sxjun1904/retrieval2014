@@ -8,7 +8,9 @@ import java.util.Map;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DataaseIndexJob1;
+import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
+import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.DateTime;
@@ -20,12 +22,12 @@ import frame.retrieval.engine.query.pagerank.HtmlEntity;
 public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implements ICreateIndexAllItem{
 	
 	private List<RDatabaseIndex> rDatabaseIndexList;
-	private CommonService<RDatabaseIndex> commonService = new CommonService<RDatabaseIndex>();
+	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
 	
 //	public static Map<String,Double> pagerank= new HashMap<String,Double>();
 	
 	public DatabaseIndexAllItem0Impl(){
-		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class.getSimpleName());
+		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class);
 		
 	}
 	
@@ -47,7 +49,7 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 				}*/
 				
 				rdI.setIsInit("2");
-				commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				
 				String nowTime =  new DateTime().getNowDateTime();
 				//删除触发器表中记录
@@ -72,7 +74,7 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 		String nowTime = (String) transObj.get("nowTime");
 		judgeAndDelTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
-		commonService.put(RDatabaseIndex.class.getSimpleName(), rdI.getId(), rdI);
+		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 	
 }
