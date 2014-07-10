@@ -5,9 +5,9 @@ import java.util.Collection;
 
 import org.apache.lucene.search.CachingCollector;
 import org.apache.lucene.search.Collector;
-import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.MultiCollector;
 import org.apache.lucene.search.Query;
+import org.apache.lucene.search.Searcher;
 import org.apache.lucene.search.Sort;
 import org.apache.lucene.search.grouping.GroupDocs;
 import org.apache.lucene.search.grouping.SearchGroup;
@@ -26,7 +26,7 @@ import frame.retrieval.helper.RetrievalPages;
  */
 public class Grouping
 {
-    public static RetrievalPages groupBy(IndexSearcher searcher, Query query, Sort groupSort, String groupField,RetrievalPages retrievalPages) throws IOException {
+    public static RetrievalPages groupBy(Searcher searcher, Query query, Sort groupSort, String groupField,RetrievalPages retrievalPages) throws IOException {
         int topNGroups = 30; // 每页需要多少个组
         int groupOffset = 0; // 起始的组
         boolean fillFields = true;

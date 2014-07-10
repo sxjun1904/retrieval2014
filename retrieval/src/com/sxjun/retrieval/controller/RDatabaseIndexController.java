@@ -16,7 +16,7 @@ import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
-import com.sxjun.retrieval.controller.job.DataaseIndexJob0;
+import com.sxjun.retrieval.controller.job.DatabaseIndexJob0;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.Database;
@@ -55,7 +55,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	}
 	
 	public void init(){
-		Job dij = new DataaseIndexJob0();
+		Job dij = new DatabaseIndexJob0();
 		JustBaseSchedule jbs = new JustBaseSchedule();
 		jbs.setScheduleID(UUID.randomUUID().toString());
 		jbs.setExecCount("1");
@@ -102,7 +102,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			if(scheduleNames!=null&&StringKit.notBlank(scheduleNames[i]))
 				fsm.setScheduleName(scheduleNames[i]);
 			else
-				fsm.setScheduleName(rdI.getTableName()+fsm.getId());
+				fsm.setScheduleName(rdI.getTableName()+"#"+fsm.getId());
 			fsm.setExpression(expression[i].trim());
 			justList.add(getJustSchedule(fsm));
 		}
@@ -187,12 +187,19 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		}
 		
 		//判断触发器是否存在，不存在的话就添加
-		if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"C"))
+		/*if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"C"))
 			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "C");
 		if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"U"))
 			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "U");
 		if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"D"))
-			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "D");
+			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "D");*/
+		//直接删除后创建触发器
+		deleteTrigger(rdI.getDatabase(),rdI.getIndexTriggerRecord(),"C");
+		deleteTrigger(rdI.getDatabase(),rdI.getIndexTriggerRecord(),"U");
+		deleteTrigger(rdI.getDatabase(),rdI.getIndexTriggerRecord(),"D");
+		createTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), rdI.getKeyField(), "C");
+		createTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), rdI.getKeyField(), "U");
+		createTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), rdI.getKeyField(), "D");
 		
 		String sql = "";
 		if(rdI.getFiledMapperLsit()!=null&&iserror.equals("0")){
@@ -228,7 +235,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 				String sf = fsm.getSqlField();
 				String[] f = sf.split(";");
 				for(String s : f){
-					if(sql.indexOf(s)<0){
+					if(sql.toUpperCase().indexOf(s.toUpperCase())<0){
 						iserror = "1";
 						error = "特殊字段映射不匹配";
 						break;

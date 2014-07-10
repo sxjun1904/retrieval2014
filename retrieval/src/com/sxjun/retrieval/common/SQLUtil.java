@@ -8,7 +8,7 @@ import frame.base.core.util.JdbcUtil;
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 public class SQLUtil {
-	public  static final String INDEX_TRIGGER_RECORD= "index_trigger_record";
+	public  static final String INDEX_TRIGGER_RECORD= "INDEX_TRIGGER_RECORD";
 	
 	public static String getTestSql(RDatabaseType databaseType) {
 		String sql = null;
@@ -28,11 +28,11 @@ public class SQLUtil {
 		String sql = null;
 		if(databaseType!=null){
 			if(RDatabaseType.MYSQL.equals(databaseType))
-				sql = "select table_name from information_schema.tables where table_schema='"+databaseName+"' union select table_name from information_schema.views where table_schema='"+databaseName+"'";
+				sql = "select TABLE_NAME from information_schema.tables where table_schema='"+databaseName+"' union select table_name from information_schema.views where table_schema='"+databaseName+"'";
 			else if(RDatabaseType.ORACLE.equals(databaseType))
-				sql = "select  tname  from  (select table_name as tname from user_tables  union select view_name as tname from  user_views) order by tname asc";
+				sql = "select  tname as TABLE_NAME from  (select table_name as tname from user_tables  union select view_name as tname from  user_views) order by tname asc";
 			else if(RDatabaseType.SQLSERVER.equals(databaseType))
-				sql = "select Name from SysObjects where XType='U' or xtype='V' order by Name";
+				sql = "select Name as TABLE_NAME from SysObjects where XType='U' or xtype='V' order by Name";
 			
 		}
 		return sql;
@@ -44,9 +44,9 @@ public class SQLUtil {
 			if(RDatabaseType.MYSQL.equals(databaseType))
 				sql = "SELECT COLUMN_NAME,COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '"+table+"'  AND table_schema = '"+databaseName+"'";
 			else if(RDatabaseType.ORACLE.equals(databaseType))
-				sql = "select column_name,data_type from user_tab_columns where table_name = '"+table+"' order by column_name asc";
+				sql = "select COLUMN_NAME,DATA_TYPE from user_tab_columns where table_name = '"+table+"' order by column_name asc";
 			else if(RDatabaseType.SQLSERVER.equals(databaseType))
-				sql = "select Name,type from SysColumns where id=Object_Id('"+table+"') order by Name";
+				sql = "select Name as COLUMN_NAME,type as DATA_TYPE from SysColumns where id=Object_Id('"+table+"') order by Name";
 			
 		}
 		return sql;
@@ -135,7 +135,9 @@ public class SQLUtil {
 				}else if(type.equals("U")){
 					sql+=triggername+" AFTER UPDATE on "
 					+tablename+" FOR EACH ROW "
-					+" BEGIN INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
+					+" BEGIN "
+					+" delete from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=old."+primaryKey+" and Operatetype='U';"
+					+" INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" VALUES(uuid(),'"+tablename
 						+"','"+primaryKey+"',old."+primaryKey
@@ -143,11 +145,16 @@ public class SQLUtil {
 				}else{
 					sql+=triggername+" AFTER DELETE on "
 					+tablename+" FOR EACH ROW "
-					+" BEGIN INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
+					+" BEGIN "
+					+" declare insertcount int;"
+					+" select count(*) into insertcount from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=old."+primaryKey+" and Operatetype='I';"
+					+" Delete from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=old."+primaryKey+";"
+					+" if(insertcount=0) then"
+					+" INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" VALUES(uuid(),'"+tablename
 						+"','"+primaryKey+"',old."+primaryKey
-						+",sysdate(),'D'); end;";
+						+",sysdate(),'D');end if; end;";
 				}
 			}else if(RDatabaseType.ORACLE.equals(databaseType)){
 				sql = "CREATE OR REPLACE TRIGGER ";
@@ -166,7 +173,9 @@ public class SQLUtil {
 				}else if(type.equals("U")){
 					sql+=triggername+" AFTER UPDATE on "
 					+tablename+" FOR EACH ROW "
-					+" BEGIN INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
+					+" BEGIN "
+					+" delete from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=:NEW."+primaryKey+" and Operatetype='U';"
+					+" INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" VALUES(DBMS_RANDOM.STRING ('X',32),'"+tablename
 						+"','"+primaryKey+"',:old."+primaryKey
@@ -174,11 +183,16 @@ public class SQLUtil {
 				}else{
 					sql+=triggername+" AFTER DELETE on "
 					+tablename+" FOR EACH ROW "
-					+" BEGIN INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
+					+" declare insertcount int;"
+					+" BEGIN "
+					+" select count(*) into insertcount from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=:NEW."+primaryKey+" and Operatetype='I';"
+					+" Delete from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=:NEW."+primaryKey+";"
+					+" if insertcount=0 then "
+					+" INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" VALUES(DBMS_RANDOM.STRING ('X',32),'"+tablename
 						+"','"+primaryKey+"',:old."+primaryKey
-						+",sysdate,'D'); end;";
+						+",sysdate,'D');end if; end;";
 				}
 			}
 			else if(RDatabaseType.SQLSERVER.equals(databaseType)){
@@ -186,33 +200,39 @@ public class SQLUtil {
 				String triggername = getTriggerName(tablename,type);
 				if(type.equals("C")){ //
 					sql+=triggername+" on "
-					+tablename+" AFTER INSERT AS "
+					+tablename+" AFTER INSERT AS Begin"
 					+"  INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" (select newid(),'"+tablename
 						+"','"+primaryKey+"', "+primaryKey+" "
-						+",getdate(),'I' from Inserted); ";
+						+",getdate(),'I' from Inserted); end;";
 					
 					
 				}else if(type.equals("U")){
 					sql+=triggername+" on "
-					+tablename+" AFTER UPDATE AS "
+					+tablename+" AFTER UPDATE AS Begin "
+					+" delete from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=(select "+primaryKey+" from Inserted)  and Operatetype='U';"
 					+"  INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" (select newid(),'"+tablename
 						+"','"+primaryKey+"', "+primaryKey+" "
-						+",getdate(),'U' from Inserted); "; 
+						+",getdate(),'U' from Inserted);end; "; 
 				}else{
 					sql+=triggername+" on "
-					+tablename+" AFTER DELETE AS "
+					+tablename+" AFTER DELETE AS" 
+					+" declare insertcount int;"
+					+" Begin"
+					
+					+" select insertcount = count(*) from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=(select "+primaryKey+" from Inserted) and Operatetype='I';"
+					+" Delete from "+INDEX_TRIGGER_RECORD+" where TABLENAME='"+tablename+"' and COLUMNNAME='"+primaryKey+"' and Columnvalue=(select "+primaryKey+" from Inserted);"
+					+" if (insertcount=0) begin "
 					+"  INSERT INTO "+INDEX_TRIGGER_RECORD+"(ROWGUID,TABLENAME," +
 						"COLUMNNAME,Columnvalue,INSERTDATE, Operatetype)" +
 						" (select newid(),'"+tablename
 						+"','"+primaryKey+"', "+primaryKey+" "
-						+",getdate(),'D' from Deleted); ";
+						+",getdate(),'D' from Deleted);end; end;";
 				}
 			}
-			
 		}
 		return sql;
 	}

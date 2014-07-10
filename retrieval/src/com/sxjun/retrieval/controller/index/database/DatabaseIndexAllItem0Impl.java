@@ -1,23 +1,20 @@
-package com.sxjun.retrieval.controller.index;
+package com.sxjun.retrieval.controller.index.database;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
-import com.sxjun.retrieval.controller.job.DataaseIndexJob1;
+import com.sxjun.retrieval.controller.job.DatabaseIndexJob1;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
-import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.DateTime;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;
 import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
-import frame.retrieval.engine.query.pagerank.HtmlEntity;
 
 public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implements ICreateIndexAllItem{
 	
@@ -53,13 +50,13 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 				
 				String nowTime =  new DateTime().getNowDateTime();
 				//删除触发器表中记录
-				delAllTrigRecord(rdI,nowTime);
+				delAllTrigRecord(rdI,nowTime,false);
 				
 				String sql = rdI.getSql();
 				l.add(create(retrievalApplicationContext,rdI,sql,nowTime));
 				//启动定时任务
 				if("1".equals(rdI.getStyle())){//复合风格
-					sechdule(rdI,new DataaseIndexJob1());
+					sechdule(rdI,new DatabaseIndexJob1());
 				}
 			}
 		}

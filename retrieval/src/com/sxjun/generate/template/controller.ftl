@@ -16,14 +16,13 @@ import ${packageName}.${moduleName}.pojo${subModuleName}.${ClassName};
  * @version ${classVersion}
  */
 public class ${ClassName}Controller extends BaseController<${ClassName}> {
-	private final static String cachename = ${ClassName}.class.getSimpleName();
 
 	public void list() {
-		list(cachename);
+		list(${ClassName}.class);
 	}
 	
 	public void form(){
-		form(cachename);
+		form(${ClassName}.class);
 	}
 	
 	public void save(){
@@ -31,7 +30,7 @@ public class ${ClassName}Controller extends BaseController<${ClassName}> {
 	}
 	
 	public void delete(){
-		delete(cachename);
+		delete(${ClassName}.class);
 	}
 
 	public List<${ClassName}> get${ClassName}List(){

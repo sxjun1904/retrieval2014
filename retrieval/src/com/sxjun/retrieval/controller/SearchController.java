@@ -13,6 +13,7 @@ import org.apache.lucene.search.BooleanClause;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.retrieval.common.Global;
 import com.sxjun.retrieval.common.Page;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.oth.pinyin.PinyinHanziUtil;
@@ -50,19 +51,23 @@ private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<Ind
 	}
 	
 	public void pinYinHanzi(){
-		String pyhz = getDecod(getPara("pyhz")).toLowerCase();
-		List<String> pyhzList =PinyinHanziUtil.getRangeWords(pyhz);
-//		String json = "{\"data\":["; 
-		String json = "["; 
-		for(String s :pyhzList){
-			json += "{\"title\":\""+s+"\"},";
+		if(StringKit.notBlank(Global.getDatabasetype())&&ServiceProxy.REDIS_PROXY.equals(Global.getDatabasetype())){
+			String pyhz = getDecod(getPara("pyhz")).toLowerCase();
+			List<String> pyhzList =PinyinHanziUtil.getRangeWords(pyhz);
+	//		String json = "{\"data\":["; 
+			String json = "["; 
+			for(String s :pyhzList){
+				json += "{\"title\":\""+s+"\"},";
+			}
+			if(pyhzList!=null&&pyhzList.size()>0)
+			json = json.substring(0,json.length()-1);
+	//		json += "]}";
+			json += "]";
+			System.out.println("关键字："+pyhz+";json:"+json);
+			renderJson(json);
+		}else{
+			renderJson("{}");
 		}
-		if(pyhzList!=null&&pyhzList.size()>0)
-		json = json.substring(0,json.length()-1);
-//		json += "]}";
-		json += "]";
-		System.out.println("关键字："+pyhz+";json:"+json);
-		renderJson(json);
 	}
 	
 	/**

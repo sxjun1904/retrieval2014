@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import com.jfinal.plugin.ehcache.IDataLoader;
 import com.sxjun.system.pojo.User;
 
+import frame.base.core.util.MD5Util;
+
 
 /**
  * User: sxjun
@@ -93,10 +95,10 @@ public class BerkeleyKit {
     	 * 添加
     	 */
     	User u = new User();
-    	u.setId("2");
-    	u.setUsername("admin2");
-    	u.setPassword("junjun2");
-    	BerkeleyKit.put(User.class, "user:2", u);
+    	u.setId("1");
+    	u.setUsername("admin");
+    	u.setPassword(MD5Util.GetMD5Code("11111"));
+    	BerkeleyKit.put(User.class, "user:1", u);
     	
     	/*
     	 * 删除

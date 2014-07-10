@@ -17,10 +17,15 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.Searcher;
 import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.TopFieldCollector;
 
+import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType;
+import frame.retrieval.engine.analyzer.IRAnalyzerFactory;
+import frame.retrieval.engine.common.RetrievalUtil;
 import frame.retrieval.engine.pool.proxy.IndexReaderProxy;
 import frame.retrieval.engine.query.formatter.IHighlighterFactory;
 import frame.retrieval.engine.query.item.QueryItem;
@@ -31,9 +36,6 @@ import frame.retrieval.engine.query.result.DatabaseQueryResult;
 import frame.retrieval.engine.query.result.FileQueryResult;
 import frame.retrieval.engine.query.result.QueryResult;
 import frame.retrieval.engine.query.score.ScoreQuery;
-import frame.base.core.util.StringClass;
-import frame.retrieval.engine.analyzer.IRAnalyzerFactory;
-import frame.retrieval.engine.common.RetrievalUtil;
 
 /**
  * 索引查询对象
@@ -587,7 +589,8 @@ public class RQuery {
 
 		QueryWrap queryWrap = new QueryWrap(query);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(queryWrap.getQuery(),null,null,null);
 
 		if (hits != null) {
 			int length = hits.length;
@@ -619,7 +622,8 @@ public class RQuery {
 	 */
 	public int getQueryResultsCount(Query query) {
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
 
 		int length = 0;
 
@@ -642,7 +646,8 @@ public class RQuery {
 
 		QueryWrap queryWrap = new QueryWrap(query);
 
-		ScoreDoc[] hits = getHits(query, querySort.getSort());
+		//ScoreDoc[] hits = getHits(query, querySort.getSort());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,querySort.getSort(),null,null);
 
 		if (hits != null) {
 			int length = hits.length;
@@ -679,7 +684,8 @@ public class RQuery {
 
 		QueryWrap queryWrap = new QueryWrap(query);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
 
 		List<Document> documents = getPageDocuments(hits, query, startIndex,
 				endIndex);
@@ -723,7 +729,8 @@ public class RQuery {
 
 		QueryWrap queryWrap = new QueryWrap(query);
 
-		ScoreDoc[] hits = getHits(query, querySort.getSort());
+		//ScoreDoc[] hits = getHits(query, querySort.getSort());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
 
 		List<Document> documents = getPageDocuments(hits, query, startIndex,
 				endIndex);
@@ -947,7 +954,8 @@ public class RQuery {
 		QueryResult[] queryResults = null;
 
 		QueryWrap queryWrap = queryItem.getQueryWrap();
-		ScoreDoc[] hits = getHits(queryWrap.getQuery());
+		//ScoreDoc[] hits = getHits(queryWrap.getQuery());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(queryWrap.getQuery(),null,null,null);
 
 		if (hits != null) {
 			int length = hits.length;
@@ -1009,7 +1017,8 @@ public class RQuery {
 		QueryResult[] queryResults = null;
 
 		QueryWrap queryWrap = queryItem.getQueryWrap();
-		ScoreDoc[] hits = getHits(queryWrap.getQuery(), querySort.getSort());
+		//ScoreDoc[] hits = getHits(queryWrap.getQuery(), querySort.getSort());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(queryWrap.getQuery(),querySort.getSort(),null,null);
 
 		if (hits != null) {
 			int length = hits.length;
@@ -1032,6 +1041,7 @@ public class RQuery {
 
 		return queryResults;
 	}
+	
 
 	/**
 	 * 根据QueryItem获取分页查询结果
@@ -1047,8 +1057,9 @@ public class RQuery {
 		QueryResult[] queryResults = null;
 
 		QueryWrap queryWrap = queryItem.getQueryWrap();
-
-		ScoreDoc[] hits = getHits(queryWrap.getQuery());
+		
+		//ScoreDoc[] hits = getHits(queryWrap.getQuery());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(queryWrap.getQuery(),null,startIndex,endIndex);
 		List<Document> documents = getPageDocuments(hits, queryWrap.getQuery(),
 				startIndex, endIndex);
 
@@ -1090,7 +1101,8 @@ public class RQuery {
 
 		QueryWrap queryWrap = queryItem.getQueryWrap();
 
-		ScoreDoc[] hits = getHits(queryWrap.getQuery(), querySort.getSort());
+		//ScoreDoc[] hits = getHits(queryWrap.getQuery(), querySort.getSort());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(queryWrap.getQuery(),querySort.getSort(),startIndex,endIndex);
 
 		List<Document> documents = getPageDocuments(hits, queryWrap.getQuery(),
 				startIndex, endIndex);
@@ -1180,6 +1192,35 @@ public class RQuery {
 		}
 
 		return queryResult;
+	}
+	
+	/**
+	 * 通过Query获取Hits
+	 * @param query
+	 * @param startIndex
+	 * @param endIndex
+	 * @return
+	 */
+	public ScoreDoc[] getHits(Query query, Sort sort,Integer startIndex,Integer endIndex){
+		TopDocs hits = null;
+		try {
+			if(sort==null)
+				sort = new Sort(new SortField[] {SortField.FIELD_SCORE});
+			if(startIndex==null)
+				startIndex=0;
+			if(endIndex==null)
+				endIndex=searcher.maxDoc();
+			TopFieldCollector collector = TopFieldCollector.create(sort,searcher.maxDoc(), false, true, false, false);
+			searcher.search(query, collector);
+			hits = collector.topDocs(startIndex, endIndex);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		if (hits != null) {
+			return hits.scoreDocs;
+		} else {
+			return null;
+		}
 	}
 
 	/**

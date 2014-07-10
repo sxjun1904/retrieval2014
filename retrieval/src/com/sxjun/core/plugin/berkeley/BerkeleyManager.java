@@ -22,16 +22,16 @@ import com.sleepycat.je.VersionMismatchException;
  */
 public class BerkeleyManager {
 	private static final Logger logger = Logger.getLogger(BerkeleyManager.class);
-	private Environment env;
-	private Database database;
+	public static Environment env;
+	private static Database database;
 	public BerkeleyManager() {}
 
-	public BerkeleyCache getBerkeleyCache(Class clazz) {
+	public static BerkeleyCache getBerkeleyCache(Class clazz) {
 		BerkeleyCache cache = null;
 		try {
 			DatabaseConfig dbConfig = new DatabaseConfig();
 			dbConfig.setAllowCreate(true);
-			dbConfig.setTransactional(true);
+			dbConfig.setTransactional(false);
 			dbConfig.setDeferredWrite(false);
 			database = env.openDatabase(null,clazz.getSimpleName(), dbConfig); 
 			cache = new BerkeleyCache(clazz,env,database);
@@ -98,4 +98,5 @@ public class BerkeleyManager {
 			e.printStackTrace();
 		}
 	}
+
 }

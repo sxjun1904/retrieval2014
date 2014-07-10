@@ -2,10 +2,13 @@ package frame.retrieval.task.quartz;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.quartz.Job;
+import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
+import org.quartz.Trigger;
 
 public class JustBaseSchedulerManage {
 	
@@ -101,6 +104,15 @@ public class JustBaseSchedulerManage {
 	/**
 	 * 停止定时任务
 	 */
+	public void shutDownJustScheduler() {
+		for(JustBaseSchedule js : justSchedulelist){
+			stopJustScheduler(js);
+		}
+	}
+	
+	/**
+	 * 停止定时任务
+	 */
 	public void stopJustScheduler(JustBaseSchedule js){
 		QuartzManager qm = new QuartzManager();
 		qm.setJustSchedule(js);
@@ -114,9 +126,12 @@ public class JustBaseSchedulerManage {
 	/**
 	 * 停止定时任务
 	 */
-	public void shutDownJustScheduler() {
-		for(JustBaseSchedule js : justSchedulelist){
-			stopJustScheduler(js);
+	public void stopJustScheduler(String jobName){
+		QuartzManager qm = new QuartzManager();
+		try {
+			qm.removeJob(jobName);
+		} catch (SchedulerException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -127,5 +142,95 @@ public class JustBaseSchedulerManage {
 		for(JustBaseSchedule js : jslist){
 			stopJustScheduler(js);
 		}
+	}
+	
+	/**
+	 * 暂停触发器
+	 */
+	public void pauseJustScheduler(){
+		for(JustBaseSchedule js : justSchedulelist){
+			pauseJustScheduler(js);
+		}
+	}
+	
+	/**
+	 * 暂停触发器
+	 */
+	public void pauseJustScheduler(JustBaseSchedule js){
+		QuartzManager qm = new QuartzManager();
+		try {
+			qm.setJustSchedule(js);
+			qm.pauseTrigger();
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 暂停触发器
+	 */
+	public void pauseJustScheduler(String triggerName){
+		QuartzManager qm = new QuartzManager();
+		try {
+			qm.pauseTrigger(triggerName);
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 重启触发器
+	 */
+	public void resumeJustScheduler(){
+		for(JustBaseSchedule js : justSchedulelist){
+			resumeJustScheduler(js);
+		}
+	}
+	
+	/**
+	 * 重启触发器
+	 */
+	public void resumeJustScheduler(JustBaseSchedule js){
+		QuartzManager qm = new QuartzManager();
+		try {
+			qm.setJustSchedule(js);
+			qm.resumeTrigger();
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 重启触发器
+	 */
+	public void resumeJustScheduler(String triggerName){
+		QuartzManager qm = new QuartzManager();
+		try {
+			qm.resumeTrigger(triggerName);
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 获取触发器列表
+	 * @return
+	 */
+	public List<Trigger> getTriggers(){
+		List<Trigger> tgList = new ArrayList<Trigger>();
+		try {
+			Scheduler scheduler = QuartzManager.sf.getScheduler();
+			String[] triggerGroups = scheduler.getTriggerGroupNames();
+			for (int i = 0; i < triggerGroups.length; i++) {
+				String[] triggers = scheduler.getTriggerNames(triggerGroups[i]);
+				for (int j = 0; j < triggers.length; j++) {
+					Trigger tg = scheduler.getTrigger(triggers[j],triggerGroups[i]);
+					tgList.add(tg);
+				}
+			}
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+		return tgList;
 	}
 }

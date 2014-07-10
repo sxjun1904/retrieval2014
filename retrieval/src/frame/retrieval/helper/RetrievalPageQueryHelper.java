@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Searcher;
 
 import frame.retrieval.engine.RetrievalConstant;
 import frame.retrieval.engine.RetrievalType;
@@ -75,7 +76,7 @@ public class RetrievalPageQueryHelper {
 	public RetrievalPages getGroupResult(RetrievalPageQuery retrievalQuery,RetrievalPages retrievalPages){
 		retrievalPages.setRetrievalPageList(getResults(retrievalQuery));
 		try {
-			retrievalPages = Grouping.groupBy((IndexSearcher)query.getSearcher(), queryItem.getQuery(), new QuerySort(StringClass.getString(RetrievalType.RDocItemSpecialName._IC),true).getSort(), StringClass.getString(RetrievalType.RDocItemSpecialName._IBT), retrievalPages);
+			retrievalPages = Grouping.groupBy((Searcher)query.getSearcher(), queryItem.getQuery(), new QuerySort(StringClass.getString(RetrievalType.RDocItemSpecialName._IC),true).getSort(), StringClass.getString(RetrievalType.RDocItemSpecialName._IBT), retrievalPages);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

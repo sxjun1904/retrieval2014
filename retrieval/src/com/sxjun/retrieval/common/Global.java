@@ -23,6 +23,7 @@ public class Global {
 	public static String urlSuffix;
 	public static Map<String,Object> licenseInfo;
 	public static String databasetype;
+	public static String initClazz;
 	
 	public static Properties properties;
 	
@@ -42,13 +43,17 @@ public class Global {
 	public static String getDatabasetype() {
 		return databasetype;
 	}
+	
+	public static String getInitClazz() {
+		return initClazz;
+	}
+	
+	
 	/**
 	 * 获取配置
 	 */
 	public static String getConfig(String key) {
 		return properties.getProperty(key);
 	}
-	
-	
 	
 }

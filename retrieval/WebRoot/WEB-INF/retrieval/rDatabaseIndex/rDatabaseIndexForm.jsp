@@ -106,7 +106,7 @@
 				    	clearAll();
 				    	addAll();
 				    	for(var i = 0;i<len;i++){
-				    		$("#tableName").append('<option value="'+_data.tables[i].table_name+'">'+_data.tables[i].table_name+'</option>');
+				    		$("#tableName").append('<option value="'+_data.tables[i].TABLE_NAME+'">'+_data.tables[i].TABLE_NAME+'</option>');
 				    	}
 				    	if($("#database_tableName").val() !=null && $("#database_tableName").val() !=""){
 					    	$("#tableName").val($("#database_tableName").val());

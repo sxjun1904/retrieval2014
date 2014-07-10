@@ -1,5 +1,4 @@
-package frame.crawler4j.test.test2;
-
+package frame.crawler4j.test.collectionthreads;
 /**
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -17,58 +16,53 @@ package frame.crawler4j.test.test2;
  * limitations under the License.
  */
 
+import java.util.List;
+
 import frame.crawler4j.crawler.CrawlConfig;
 import frame.crawler4j.crawler.CrawlController;
 import frame.crawler4j.fetcher.PageFetcher;
 import frame.crawler4j.robotstxt.RobotstxtConfig;
 import frame.crawler4j.robotstxt.RobotstxtServer;
 
-/**
- * @author Yasser Ganjisaffar <lastname at gmail dot com>
- */
-
-/*
- * IMPORTANT: Make sure that you update crawler4j.properties file and set
- * crawler.include_images to true
- */
-
-public class ImageCrawlController {
+public class LocalDataCollectorController {
 
         public static void main(String[] args) throws Exception {
-                if (args.length < 3) {
+                if (args.length != 2) {
                         System.out.println("Needed parameters: ");
                         System.out.println("\t rootFolder (it will contain intermediate crawl data)");
                         System.out.println("\t numberOfCralwers (number of concurrent threads)");
-                        System.out.println("\t storageFolder (a folder for storing downloaded images)");
                         return;
                 }
                 String rootFolder = args[0];
                 int numberOfCrawlers = Integer.parseInt(args[1]);
-                String storageFolder = args[2];
 
                 CrawlConfig config = new CrawlConfig();
-
                 config.setCrawlStorageFolder(rootFolder);
-
-                /*
-                 * Since images are binary content, we need to set this parameter to
-                 * true to make sure they are included in the crawl.
-                 */
-                config.setIncludeBinaryContentInCrawling(true);
-
-                String[] crawlDomains = new String[] { "http://uci.edu/" };
+                config.setMaxPagesToFetch(10);
+                config.setPolitenessDelay(1000);
 
                 PageFetcher pageFetcher = new PageFetcher(config);
                 RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
                 RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
                 CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
-                for (String domain : crawlDomains) {
-                        controller.addSeed(domain);
+
+                controller.addSeed("http://www.ics.uci.edu/");
+                controller.start(LocalDataCollectorCrawler.class, numberOfCrawlers);
+
+                List<Object> crawlersLocalData = controller.getCrawlersLocalData();
+                long totalLinks = 0;
+                long totalTextSize = 0;
+                int totalProcessedPages = 0;
+                for (Object localData : crawlersLocalData) {
+                        CrawlStat stat = (CrawlStat) localData;
+                        totalLinks += stat.getTotalLinks();
+                        totalTextSize += stat.getTotalTextSize();
+                        totalProcessedPages += stat.getTotalProcessedPages();
                 }
-
-                ImageCrawler.configure(crawlDomains, storageFolder);
-
-                controller.start(ImageCrawler.class, numberOfCrawlers);
+                System.out.println("Aggregated Statistics:");
+                System.out.println("   Processed Pages: " + totalProcessedPages);
+                System.out.println("   Total Links found: " + totalLinks);
+                System.out.println("   Total Text Size: " + totalTextSize);
         }
 
 }

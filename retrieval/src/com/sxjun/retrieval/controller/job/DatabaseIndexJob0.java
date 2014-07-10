@@ -4,8 +4,8 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import com.sxjun.retrieval.controller.index.DatabaseIndexAllItem0Impl;
-import com.sxjun.retrieval.controller.index.NormalImageIndex0Impl;
+import com.sxjun.retrieval.controller.index.database.DatabaseIndexAllItem0Impl;
+import com.sxjun.retrieval.controller.index.image.NormalImageIndex0Impl;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.retrieval.engine.facade.DBIndexOperatorFacade;
@@ -13,7 +13,7 @@ import frame.retrieval.engine.facade.ICreateIndexAllItem;
 import frame.retrieval.engine.facade.NormalIndexOperatorFacade;
 import frame.retrieval.task.quartz.QuartzManager;
 
-public class DataaseIndexJob0 implements Job {
+public class DatabaseIndexJob0 implements Job {
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
 		ICreateIndexAllItem iciai0 = null;
@@ -24,7 +24,7 @@ public class DataaseIndexJob0 implements Job {
 		else
 			iciai0 = new DatabaseIndexAllItem0Impl();
 		DBIndexOperatorFacade indexAll = new DBIndexOperatorFacade(iciai0);
-		indexAll.indexAll(indexAll.INDEX_BY_THREAD);
+		indexAll.indexAll(indexAll.INDEX_BY_SIMPLE);
 		
 		if(rDatabaseIndex!=null)
 			iciai1 = new NormalImageIndex0Impl(rDatabaseIndex);

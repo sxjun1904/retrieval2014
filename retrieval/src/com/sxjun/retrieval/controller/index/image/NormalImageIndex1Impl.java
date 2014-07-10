@@ -1,4 +1,4 @@
-package com.sxjun.retrieval.controller.index;
+package com.sxjun.retrieval.controller.index.image;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -90,9 +90,10 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 		}
 		//删除索引
 		if("1".endsWith(rdI.getIndexOperatorType())){
-			judgeAndDelIndexRecord(rdI,nowTime);
+			int delcount = judgeAndDelIndexRecord(rdI,nowTime);
+			System.out.println("删除"+delcount+"条记录");
 		}
-		delAllTrigRecord(rdI,nowTime);
+		delAllTrigRecord(rdI,nowTime,true);
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}

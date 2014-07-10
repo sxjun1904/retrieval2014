@@ -1,4 +1,4 @@
-package com.sxjun.retrieval.controller.index;
+package com.sxjun.retrieval.controller.index.image;
 
 import java.io.File;
 import java.sql.Blob;
@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.retrieval.controller.index.IndexCommon;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.FiledMapper;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;

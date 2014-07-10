@@ -34,6 +34,7 @@ public class GlobalConfig extends JFinalConfig {
 	    Global.adminPath = getProperty("adminPath","a");
 	    Global.urlSuffix = getProperty("urlSuffix");
 	    Global.databasetype = getProperty("databaseType");
+	    Global.initClazz = getProperty("initClazz");
 	    Global.licenseInfo = RSAUtil.getLicenceInfo();
 	    
 		if (isLocal) {

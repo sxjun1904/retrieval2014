@@ -49,7 +49,7 @@ public class UserUtils{
 		menu1.setSort(1);
 		
 		Menu menu0 = new Menu();
-		menu0.setId("100");
+		menu0.setId("10");
 		menu0.setIcon("user");
 		menu0.setIsShow("1");
 		menu0.setName("其他设置");
@@ -76,6 +76,14 @@ public class UserUtils{
 		menu4.setParentid("2");
 		menu4.setHref("/database/list");
 		menu4.setSort(23);
+		
+		Menu menu10 = new Menu();
+		menu10.setId("11");
+		menu10.setIcon("user");
+		menu10.setIsShow("1");
+		menu10.setName("信息设置");
+		menu10.setParentid("10");
+		menu10.setSort(2);
 		
 ////////////////////////////////////////////////
 		Menu menu8 = new Menu();
@@ -105,8 +113,6 @@ public class UserUtils{
 		menu3.setHref("/database/list");
 		menu3.setSort(2);
 		
-		
-		
 		Menu menu5 = new Menu();
 		menu5.setId("5");
 		menu5.setIcon("briefcase");
@@ -115,6 +121,15 @@ public class UserUtils{
 		menu5.setParentid("3");
 		menu5.setHref("/rDatabaseIndex/list");
 		menu5.setSort(23);
+		
+		Menu menu12 = new Menu();
+		menu12.setId("13");
+		menu12.setIcon("briefcase");
+		menu12.setIsShow("1");
+		menu12.setName("线程监控");
+		menu12.setParentid("3");
+		menu12.setHref("/triggerView/list");
+		menu12.setSort(23);
 		
 		
 		Menu menu6 = new Menu();
@@ -135,7 +150,14 @@ public class UserUtils{
 		menu7.setHref("/filedSpecialMapper/list");
 		menu7.setSort(25);
 		
-		
+		Menu menu11 = new Menu();
+		menu11.setId("12");
+		menu11.setIcon("user");
+		menu11.setIsShow("1");
+		menu11.setName("用户管理");
+		menu11.setParentid("11");
+		menu11.setHref("/user/list");
+		menu11.setSort(2);
 		
 		
 		l.add(menu1);
@@ -145,9 +167,12 @@ public class UserUtils{
 		l.add(menu3);
 		l.add(menu4);
 		l.add(menu5);
+		l.add(menu12);
 		l.add(menu6);
 		l.add(menu7);
 		l.add(menu0);
+		l.add(menu10);
+		l.add(menu11);
 		return l;
 	}
 }

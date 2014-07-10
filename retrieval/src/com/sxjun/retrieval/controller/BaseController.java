@@ -103,7 +103,7 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 		list();
 	}
 	
-	abstract void list();
-	abstract void save();
+	public abstract void list();
+	public abstract void save();
 	
 }

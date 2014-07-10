@@ -1,4 +1,4 @@
-package com.sxjun.retrieval.controller.index;
+package com.sxjun.retrieval.controller.index.database;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.retrieval.controller.index.IndexCommon;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.FiledMapper;
@@ -63,7 +64,7 @@ public class DatabaseIndexAllItemCommon extends IndexCommon{
 						m_n[i]=m[i];
 					}
 					m_n[m.length] = Integer.parseInt(fs.getSpecialType());
-					sqlSpecialFieldMapper.put(s, m);
+					sqlSpecialFieldMapper.put(s, m_n);
 				}
 			}
 		}

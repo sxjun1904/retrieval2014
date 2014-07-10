@@ -34,6 +34,7 @@ import org.eclipse.jetty.util.log.Log;
  	public boolean dispatch(MessageReference node, MessageEvaluationContext msgContext, List<Subscription> consumers) throws Exception {
  
  		Object _clientId = node.getMessage().getProperty(ptpClientId);
+ 		if (_clientId == null) super.dispatch(node, msgContext, consumers);
  		ActiveMQDestination _destination = node.getMessage().getDestination();
  
  		int count = 0;
@@ -48,7 +49,7 @@ import org.eclipse.jetty.util.log.Log;
  				continue;
  			}
  			//add by sxjun 2014-6-4 start
- 			Log.debug("sxjun=>_clientId:"+_clientId+";sub.getContext().getClientId():"+sub.getContext().getClientId());
+ 			Log.info("sxjun=>_clientId:"+_clientId+";sub.getContext().getClientId():"+sub.getContext().getClientId());
  			if (_clientId != null && _destination.isTopic() &&(sub.getContext().getClientId()).startsWith(((String) _clientId))
  					&& _destination.getQualifiedName().endsWith(this.ptpSuffix)) {
 				sub.add(node);
@@ -58,14 +59,14 @@ import org.eclipse.jetty.util.log.Log;
  			}
  			//add by sxjun 2014-6-4 end
  			
-/* 			if (_clientId != null && _destination.isTopic() && _clientId.equals(sub.getContext().getClientId())
+ 			/*if (_clientId != null && _destination.isTopic() && _clientId.equals(sub.getContext().getClientId())
  					&& _destination.getQualifiedName().endsWith(this.ptpSuffix)) {
  				sub.add(node);
  				count++;
  			} else {
  				sub.unmatched(node);
- 			}
-*/ 		}
+ 			}*/
+ 		}
  
  		return count > 0;
  	}

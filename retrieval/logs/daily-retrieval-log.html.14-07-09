@@ -1,0 +1,686 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 09 09:36:49 CST 2014<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.server.Server category">org.eclipse.jetty.server.Server</td>
+<td title="Message">jetty-8.y.z-SNAPSHOT</td>
+</tr>
+
+<tr>
+<td>31299</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.server.handler.ContextHandler category">org.eclipse.jetty.server.handler.ContextHandler</td>
+<td title="Message">started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}</td>
+</tr>
+
+<tr>
+<td>31300</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.server.handler.ContextHandler category">org.eclipse.jetty.server.handler.ContextHandler</td>
+<td title="Message">started o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}</td>
+</tr>
+
+<tr>
+<td>35203</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.server.AbstractConnector category">org.eclipse.jetty.server.AbstractConnector</td>
+<td title="Message">Started SelectChannelConnector@0.0.0.0:80</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 09 09:37:21 CST 2014<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [User], using default.</td>
+</tr>
+
+<tr>
+<td>5235</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [dictMap], using default.</td>
+</tr>
+
+<tr>
+<td>23400</td>
+<td title="qtp27890503-24 thread">qtp27890503-24</td>
+<td title="Level">INFO</td>
+<td title="com.sxjun.system.controller.LoginController category">com.sxjun.system.controller.LoginController</td>
+<td title="Message">用户：admin登录成功</td>
+</tr>
+
+<tr>
+<td>24843</td>
+<td title="qtp27890503-30 thread">qtp27890503-30</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [InitField], using default.</td>
+</tr>
+
+<tr>
+<td>27146</td>
+<td title="qtp27890503-25 thread">qtp27890503-25</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [RDatabaseIndex], using default.</td>
+</tr>
+
+<tr>
+<td>30653</td>
+<td title="qtp27890503-29 thread">qtp27890503-29</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [IndexCategory], using default.</td>
+</tr>
+
+<tr>
+<td>30662</td>
+<td title="qtp27890503-29 thread">qtp27890503-29</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [Database], using default.</td>
+</tr>
+
+<tr>
+<td>30875</td>
+<td title="qtp27890503-31 thread">qtp27890503-31</td>
+<td title="Level"><font color="#993300"><strong>WARN</strong></font></td>
+<td title="com.jfinal.plugin.ehcache.CacheKit category">com.jfinal.plugin.ehcache.CacheKit</td>
+<td title="Message">Could not find cache config [dicN_3], using default.</td>
+</tr>
+
+<tr>
+<td>36767</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="frame.base.core.util.JdbcUtil category">frame.base.core.util.JdbcUtil</td>
+<td title="Message">sql异常</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLException: ORA-04080: 触发器 'TG_DISCUSSION_THREAD_ADD' 不存在
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Query: drop trigger TG_discussion_thread_ADD Parameters: []
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.rethrow(QueryRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:599)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:559)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at frame.base.core.util.JdbcUtil.executeSql(JdbcUtil.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.deleteTrigger(RDatabaseIndexController.java:415)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:197)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:118)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+</td></tr>
+
+<tr>
+<td>36845</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="frame.base.core.util.JdbcUtil category">frame.base.core.util.JdbcUtil</td>
+<td title="Message">sql异常</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLException: ORA-04080: 触发器 'TG_DISCUSSION_THREAD_UPDATE' 不存在
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Query: drop trigger TG_discussion_thread_UPDATE Parameters: []
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.rethrow(QueryRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:599)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:559)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at frame.base.core.util.JdbcUtil.executeSql(JdbcUtil.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.deleteTrigger(RDatabaseIndexController.java:415)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:198)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:118)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+</td></tr>
+
+<tr>
+<td>36919</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="frame.base.core.util.JdbcUtil category">frame.base.core.util.JdbcUtil</td>
+<td title="Message">sql异常</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLException: ORA-04080: 触发器 'TG_DISCUSSION_THREAD_DELETE' 不存在
+<br>&nbsp;&nbsp;&nbsp;&nbsp; Query: drop trigger TG_discussion_thread_DELETE Parameters: []
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.rethrow(QueryRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:599)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:559)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at frame.base.core.util.JdbcUtil.executeSql(JdbcUtil.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.deleteTrigger(RDatabaseIndexController.java:415)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:199)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:118)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+</td></tr>
+
+<tr>
+<td>36994</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="frame.base.core.util.JdbcUtil category">frame.base.core.util.JdbcUtil</td>
+<td title="Message">sql异常</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLException: 索引中丢失  IN 或 OUT 参数:: 1 Query: CREATE OR REPLACE TRIGGER TG_discussion_thread_ADD AFTER INSERT on discussion_thread FOR EACH ROW  BEGIN INSERT INTO INDEX_TRIGGER_RECORD(ROWGUID,TABLENAME,COLUMNNAME,Columnvalue,INSERTDATE, Operatetype) VALUES(DBMS_RANDOM.STRING ('X',32),'discussion_thread','ROWGUID',:NEW.ROWGUID,sysdate,'I'); end; Parameters: []
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.rethrow(QueryRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:599)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:559)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at frame.base.core.util.JdbcUtil.executeSql(JdbcUtil.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.createTrigger(RDatabaseIndexController.java:401)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:200)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:118)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+</td></tr>
+
+<tr>
+<td>37057</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="frame.base.core.util.JdbcUtil category">frame.base.core.util.JdbcUtil</td>
+<td title="Message">sql异常</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLException: 索引中丢失  IN 或 OUT 参数:: 1 Query: CREATE OR REPLACE TRIGGER TG_discussion_thread_UPDATE AFTER UPDATE on discussion_thread FOR EACH ROW  BEGIN  delete from INDEX_TRIGGER_RECORD where TABLENAME='discussion_thread' and COLUMNNAME='ROWGUID' and Columnvalue=:NEW.ROWGUID and Operatetype='U'; INSERT INTO INDEX_TRIGGER_RECORD(ROWGUID,TABLENAME,COLUMNNAME,Columnvalue,INSERTDATE, Operatetype) VALUES(DBMS_RANDOM.STRING ('X',32),'discussion_thread','ROWGUID',:old.ROWGUID,sysdate,'U'); end; Parameters: []
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.rethrow(QueryRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:599)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:559)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at frame.base.core.util.JdbcUtil.executeSql(JdbcUtil.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.createTrigger(RDatabaseIndexController.java:401)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:201)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:118)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+</td></tr>
+
+<tr>
+<td>37127</td>
+<td title="qtp27890503-28 thread">qtp27890503-28</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="frame.base.core.util.JdbcUtil category">frame.base.core.util.JdbcUtil</td>
+<td title="Message">sql异常</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLException: 索引中丢失  IN 或 OUT 参数:: 1 Query: CREATE OR REPLACE TRIGGER TG_discussion_thread_DELETE AFTER DELETE on discussion_thread FOR EACH ROW  declare insertcount int; BEGIN  select count(*) into insertcount from INDEX_TRIGGER_RECORD where TABLENAME='discussion_thread' and COLUMNNAME='ROWGUID' and Columnvalue=:NEW.ROWGUID and Operatetype='I'; Delete from INDEX_TRIGGER_RECORD where TABLENAME='discussion_thread' and COLUMNNAME='ROWGUID' and Columnvalue=:NEW.ROWGUID; if insertcount=0 then  INSERT INTO INDEX_TRIGGER_RECORD(ROWGUID,TABLENAME,COLUMNNAME,Columnvalue,INSERTDATE, Operatetype) VALUES(DBMS_RANDOM.STRING ('X',32),'discussion_thread','ROWGUID',:old.ROWGUID,sysdate,'D');end if; end; Parameters: []
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.rethrow(QueryRunner.java:542)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:599)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.apache.commons.dbutils.QueryRunner.update(QueryRunner.java:559)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at frame.base.core.util.JdbcUtil.executeSql(JdbcUtil.java:139)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.createTrigger(RDatabaseIndexController.java:401)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.checkRDatabaseIndex(RDatabaseIndexController.java:202)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.retrieval.controller.RDatabaseIndexController.save(RDatabaseIndexController.java:118)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.reflect.Method.invoke(Method.java:597)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.sxjun.core.interceptor.SessionInterceptor.intercept(SessionInterceptor.java:29)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at java.lang.Thread.run(Thread.java:619)
+</td></tr>
+
+<tr>
+<td>3533378</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.system.pojo.Dict loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class java.util.HashMap$Entry loaded by null</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">not removed: contextclassloader=WebAppClassLoader=retrieval@1980630clazz's classloader=null</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class org.eclipse.jetty.server.Request loaded by sun.misc.Launcher$AppClassLoader@126b249</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">not removed: contextclassloader=WebAppClassLoader=retrieval@1980630clazz's classloader=sun.misc.Launcher$AppClassLoader@126b249</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.RDatabaseIndex loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533403</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.FiledSpecialMapper loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.FiledMapper loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.common.Page loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class frame.retrieval.helper.RetrievalPage loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class org.apache.jasper.runtime.PageContextImpl loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533404</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.InitField loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533405</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533405</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.SimpleQuery loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533405</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533405</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.retrieval.pojo.Database loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533405</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533405</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">Clazz: class com.sxjun.system.pojo.Menu loaded by WebAppClassLoader=retrieval@1980630</td>
+</tr>
+
+<tr>
+<td>3533406</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">removed</td>
+</tr>
+
+<tr>
+<td>3533406</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.servlet.listener.ELContextCleaner category">org.eclipse.jetty.servlet.listener.ELContextCleaner</td>
+<td title="Message">javax.el.BeanELResolver purged</td>
+</tr>
+
+<tr>
+<td>3621953</td>
+<td title="JFinal-Scanner thread">JFinal-Scanner</td>
+<td title="Level">INFO</td>
+<td title="org.eclipse.jetty.server.handler.ContextHandler category">org.eclipse.jetty.server.handler.ContextHandler</td>
+<td title="Message">stopped o.e.j.w.WebAppContext{/,file:/D:/GitHub/retrieval2014/retrieval/WebRoot/}</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Thu Jul 10 08:27:52 CST 2014<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>

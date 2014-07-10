@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package frame.crawler4j.test.test1;
+package frame.crawler4j.test.basic;
 
 import frame.crawler4j.crawler.CrawlConfig;
 import frame.crawler4j.crawler.CrawlController;

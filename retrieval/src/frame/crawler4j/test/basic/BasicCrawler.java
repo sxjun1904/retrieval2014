@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package frame.crawler4j.test.test1;
+package frame.crawler4j.test.basic;
 
 import java.util.List;
 import java.util.regex.Pattern;

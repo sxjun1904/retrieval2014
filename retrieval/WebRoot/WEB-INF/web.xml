@@ -3,8 +3,8 @@
   <display-name>retrieval</display-name>
   
    <servlet> 
-    <servlet-name>InitConnServlet</servlet-name> 
-    <servlet-class>org.apache.activemq.web.InitConnServlet</servlet-class> 
+    <servlet-name>InitClazzServlet</servlet-name> 
+    <servlet-class>com.sxjun.core.init.InitClazzServlet</servlet-class> 
     <!-- 如果需要自动加载，加下面一句 --> 
     <load-on-startup>1</load-on-startup> 
  </servlet> 

@@ -23,7 +23,7 @@ import org.quartz.impl.StdSchedulerFactory;
  */
 
 public class QuartzManager {
-	   private static SchedulerFactory sf = new StdSchedulerFactory();
+	   public static SchedulerFactory sf = new StdSchedulerFactory();
 	   private static String JOB_GROUP_NAME = "JobGroup";
 	   private static String TRIGGER_GROUP_NAME = "TriggerGroup";
 	   public final static String JUST_SCHEDULE_RETURN = "justSchedule";
@@ -174,6 +174,62 @@ public class QuartzManager {
 		public void setJustSchedule(JustBaseSchedule justSchedule) {
 			this.justSchedule = justSchedule;
 			this.triggerManager = new TriggerManager(justSchedule);
+		}
+		
+		/**
+		 * 暂停触发器
+		 * @throws SchedulerException
+		 */
+		public void pauseTrigger() throws SchedulerException{	
+			pauseTrigger(justSchedule.getScheduleName(),TRIGGER_GROUP_NAME);
+		}
+		
+		/**
+		 * 暂停触发器
+		 * @param triggerName
+		 * @throws SchedulerException
+		 */
+		public void pauseTrigger(String triggerName) throws SchedulerException{	
+			pauseTrigger(triggerName,TRIGGER_GROUP_NAME);
+		}
+		
+		/**
+		 * 暂停触发器
+		 * @param triggerName
+		 * @param group
+		 * @throws SchedulerException
+		 */
+		public void pauseTrigger(String triggerName,String group) throws SchedulerException{	
+			Scheduler sched = sf.getScheduler();
+			sched.pauseTrigger(triggerName, group);//停止触发器
+		}
+		
+		/**
+		 * 重启触发器
+		 * @throws SchedulerException
+		 */
+		public void resumeTrigger() throws SchedulerException{	
+			resumeTrigger(justSchedule.getScheduleName(),TRIGGER_GROUP_NAME);
+		}
+		
+		/**
+		 * 重启触发器
+		 * @param triggerName
+		 * @throws SchedulerException
+		 */
+		public void resumeTrigger(String triggerName) throws SchedulerException{	
+			resumeTrigger(triggerName,TRIGGER_GROUP_NAME);
+		}
+		
+		/**
+		 * 重启触发器
+		 * @param triggerName
+		 * @param group
+		 * @throws SchedulerException
+		 */
+		public void resumeTrigger(String triggerName,String group) throws SchedulerException{		
+			Scheduler sched = sf.getScheduler();
+			sched.resumeTrigger(triggerName, group);//重启触发器
 		}
 	   
 }

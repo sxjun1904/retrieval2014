@@ -12,7 +12,7 @@ public interface CommonService<T> {
 
 	public <T> T get(Class clazz, String id) ;
 
-	public List<T> getObjs(Class t);
+	public List<T> getObjs(Class clazz);
 	
 	public void lpush(String cacheName, String pinyin,String hanzi);
 	

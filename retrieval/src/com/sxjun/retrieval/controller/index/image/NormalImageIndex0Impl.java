@@ -1,4 +1,4 @@
-package com.sxjun.retrieval.controller.index;
+package com.sxjun.retrieval.controller.index.image;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,31 +11,20 @@ import java.util.Map;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.quartz.Job;
 
-import com.jfinal.kit.StringKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
-import com.sxjun.retrieval.controller.job.DataaseIndexJob1;
 import com.sxjun.retrieval.controller.job.NormalImageIndexJob1;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
-import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.DateTime;
 import frame.base.core.util.JdbcUtil;
-import frame.retrieval.engine.RetrievalType;
-import frame.retrieval.engine.RetrievalType.RDatabaseDocItemType;
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;
 import frame.retrieval.engine.index.doc.NormalIndexDocument;
-import frame.retrieval.engine.query.item.QueryItem;
-import frame.retrieval.engine.query.result.QueryResult;
-import frame.retrieval.task.quartz.JustBaseSchedule;
-import frame.retrieval.task.quartz.JustBaseSchedulerManage;
-import frame.retrieval.task.quartz.QuartzManager;
 
 public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICreateIndexAllItem{
 	private List<RDatabaseIndex> rDatabaseIndexList;
@@ -63,7 +52,7 @@ public class NormalImageIndex0Impl extends NormalImageIndexCommon implements ICr
 				
 				String nowTime =  new DateTime().getNowDateTime();
 				//删除触发器表中记录
-				delAllTrigRecord(rdI,nowTime);
+				delAllTrigRecord(rdI,nowTime,false);
 				
 				String sql = rdI.getSql();
 				l = create(retrievalApplicationContext,rdI,sql,nowTime);

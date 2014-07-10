@@ -1,6 +1,6 @@
 package frame.retrieval.test.query;
 
-import com.sxjun.retrieval.controller.index.DatabaseIndexAllItem0Impl;
+import com.sxjun.retrieval.controller.index.database.DatabaseIndexAllItem0Impl;
 
 import frame.base.core.util.StringClass;
 import frame.retrieval.engine.RetrievalType;

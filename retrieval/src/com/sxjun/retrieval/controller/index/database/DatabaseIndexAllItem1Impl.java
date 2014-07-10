@@ -1,4 +1,4 @@
-package com.sxjun.retrieval.controller.index;
+package com.sxjun.retrieval.controller.index.database;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -51,14 +51,15 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 	 */
 	@Override
 	public void afterDeal(Object databaseIndexAllItem) {
-		Map<String,String> transObj = (Map<String, String>) ((RDatabaseIndexAllItem)databaseIndexAllItem).getTransObject();
-		String nowTime = transObj.get("nowTime");
-		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class, transObj.get("id"));
+		Map<String,Object> transObj = (Map<String, Object>) ((RDatabaseIndexAllItem)databaseIndexAllItem).getTransObject();
+		String nowTime = (String) transObj.get("nowTime");
+		//RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class, transObj.get("id"));
+		RDatabaseIndex rdI = (RDatabaseIndex) transObj.get("rdI");
 		//删除索引
 		if("1".endsWith(rdI.getIndexOperatorType())){
 			judgeAndDelIndexRecord(rdI,nowTime);
 		}
-		delAllTrigRecord(rdI,nowTime);
+		delAllTrigRecord(rdI,nowTime,true);
 		rdI.setIsInit("1");
 		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}

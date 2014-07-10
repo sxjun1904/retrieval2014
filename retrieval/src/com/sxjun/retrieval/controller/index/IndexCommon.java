@@ -17,6 +17,7 @@ import frame.base.core.util.JdbcUtil;
 import frame.retrieval.engine.RetrievalType;
 import frame.retrieval.engine.RetrievalType.RDatabaseDocItemType;
 import frame.retrieval.engine.RetrievalType.RDatabaseType;
+import frame.retrieval.engine.RetrievalType.RDocItemSpecialName;
 import frame.retrieval.engine.context.ApplicationContext;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.facade.IRDocOperatorFacade;
@@ -32,7 +33,7 @@ import frame.retrieval.task.quartz.QuartzManager;
 
 public class IndexCommon {
 	
-	protected RetrievalApplicationContext retrievalApplicationContext;
+	protected static RetrievalApplicationContext retrievalApplicationContext = ApplicationContext.getApplicationContent();;
 	
 	public QueryItem createQueryItem(RetrievalType.RDocItemType docItemType,Object name,String value){
 		QueryItem queryItem=retrievalApplicationContext.getFacade().createQueryItem(docItemType, String.valueOf(name), value);
@@ -87,7 +88,7 @@ public class IndexCommon {
 	 * 删除触发器表中的记录
 	 * @param rdI
 	 */
-	public void delAllTrigRecord(RDatabaseIndex rdI,String nowTime){
+	public void delAllTrigRecord(RDatabaseIndex rdI,String nowTime,boolean isDel){
 		//删除触发器表中记录
 		Database db =  rdI.getDatabase();
 		RDatabaseType databaseType = DictUtils.changeToRDatabaseType(db.getDatabaseType());
@@ -102,7 +103,8 @@ public class IndexCommon {
 		} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
 			delsql += " and insertdate<'"+nowTime+"' ";
 		}
-		
+		if(!isDel)
+			delsql += " and operatetype in('I','U')";
 		JdbcUtil.executeSql(conn, delsql, true);
 	}
 	
@@ -171,8 +173,18 @@ public class IndexCommon {
 		sql += " and a.operatetype in(";
 		if(!isDel)
 			sql += "'I','U'";
-		else
-			sql += "'D'";
+		else{
+			sql = "select a.columnname,a.columnvalue,a.tablename from INDEX_TRIGGER_RECORD a  where 1=1";
+			if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.ORACLE)) {
+				sql +=  " and a.insertdate< to_date(" + "'" + nowTime + "'" + ",'yyyy-MM-dd HH24:mi:ss') ";;
+			} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.SQLSERVER)) {
+				sql +=  " and a.insertdate<convert(datetime,'"+nowTime+"')";
+			} else if (databaseType != null && databaseType.equals(RetrievalType.RDatabaseType.MYSQL)) {
+				sql +=  " and a.insertdate<'"+nowTime+"' ";
+			}
+			sql +=" and a.operatetype in('D'";
+		}
+			
 		sql += ") order by a.insertdate asc";
 		return sql;
 	}
@@ -182,7 +194,7 @@ public class IndexCommon {
 	 * @param rdI
 	 * @param nowTime
 	 */
-	public void judgeAndDelIndexRecord(RDatabaseIndex rdI,String nowTime){
+	public int judgeAndDelIndexRecord(RDatabaseIndex rdI,String nowTime){
 		IRDocOperatorFacade docOperatorFacade=retrievalApplicationContext.getFacade().createDocOperatorFacade();
 		String sql = getIndexTriggerSql(rdI,nowTime,true);
 		Database db =  rdI.getDatabase();
@@ -191,18 +203,25 @@ public class IndexCommon {
 		Connection conn =JdbcUtil.getConnection(databaseType, url, db.getUser(), db.getPassword());
 		
 		List<Map<String,String>> selectRecord = (List<Map<String,String>>) JdbcUtil.getMapList(conn, sql,true);
-		if(selectRecord!=null)
-		for(Map<String,String> m : selectRecord){
-			QueryItem queryItem0=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DT,m.get("tablename").toUpperCase());
-			QueryItem queryItem1=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DID,m.get("columnvalue"));
-			QueryItem queryItem2=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DK,m.get("columnname").toUpperCase());
-			QueryItem queryItem=queryItem0.must(QueryItem.MUST,queryItem1).must(QueryItem.MUST,queryItem2);
-			QueryResult[] queryResult=getQueryResults(new String[]{rdI.getIndexCategory().getIndexPath()}, queryItem);
-			if(queryResult!=null)
-			for(QueryResult qr: queryResult){
+		if(selectRecord!=null){
+			for(Map<String,String> m : selectRecord){
+				QueryItem queryItem0=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DT,m.get("tablename").toUpperCase());
+				QueryItem queryItem1=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DID,m.get("columnvalue"));
+				QueryItem queryItem2=createQueryItem(RetrievalType.RDocItemType.KEYWORD,RDatabaseDocItemType._DK,m.get("columnname").toUpperCase());
+				QueryItem queryItem=queryItem0.must(QueryItem.MUST,queryItem1).must(QueryItem.MUST,queryItem2);
+				QueryResult[] queryResult=getQueryResults(new String[]{rdI.getIndexCategory().getIndexPath()}, queryItem);
+				if(queryResult!=null)
+				for(QueryResult qr: queryResult){
+					String documntId = qr.getQueryResultMap().get(String.valueOf(RetrievalType.RDocItemSpecialName._IID));
+					String[] indexPathTypes=ApplicationContext.getLocalIndexPathTypes(new String[]{rdI.getIndexCategory().getIndexPath()});
+					for(String indexPathType :indexPathTypes)
+						docOperatorFacade.delete(indexPathType, documntId);
+				}
+				
 			}
-			
-		}
+			return selectRecord.size();
+		}else
+			return 0;
 	}
 	
 	public List<HtmlEntity> getPageRank(RDatabaseIndex rdI){

@@ -4,7 +4,7 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import com.sxjun.retrieval.controller.index.NormalImageIndex1Impl;
+import com.sxjun.retrieval.controller.index.image.NormalImageIndex1Impl;
 
 import frame.retrieval.engine.facade.DBIndexOperatorFacade;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;

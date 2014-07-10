@@ -123,4 +123,14 @@ public class BerkeleyCache {
 			e.printStackTrace();
 		}
 	}
+
+	public Class getClazz() {
+		return clazz;
+	}
+
+	public Database getDatabase() {
+		return database;
+	}
+	
+	
 }
