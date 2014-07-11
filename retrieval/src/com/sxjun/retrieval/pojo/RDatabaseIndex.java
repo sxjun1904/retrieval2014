@@ -38,6 +38,7 @@ public class RDatabaseIndex extends BasePojo{
 	private String indexTriggerRecord;//触发器表
 	private String isInit = "0";//是否初始化 0：否，1：是,2：零时
 	private String binaryField;
+	private String mediacyTime;
 	
 	public Database getDatabase() {
 		return database;
@@ -183,6 +184,12 @@ public class RDatabaseIndex extends BasePojo{
 	}
 	public void setIndexCategory(IndexCategory indexCategory) {
 		this.indexCategory = indexCategory;
+	}
+	public String getMediacyTime() {
+		return mediacyTime;
+	}
+	public void setMediacyTime(String mediacyTime) {
+		this.mediacyTime = mediacyTime;
 	}
 	
 }

@@ -271,9 +271,9 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	public void delete(){
 		String id=getPara();
 		RDatabaseIndex rdI = commonService.get(RDatabaseIndex.class, id);
-		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "C");
-		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "U");
-		deleteTrigger(rdI.getDatabase(), rdI.getTableName(), "D");
+		deleteTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), "C");
+		deleteTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), "U");
+		deleteTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), "D");
 		commonService.remove(RDatabaseIndex.class, id);
 		list();
 	}

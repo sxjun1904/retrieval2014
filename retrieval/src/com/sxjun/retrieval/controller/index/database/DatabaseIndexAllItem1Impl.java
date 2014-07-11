@@ -1,21 +1,15 @@
 package com.sxjun.retrieval.controller.index.database;
 
-import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.sxjun.retrieval.common.DictUtils;
-import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
-import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
-import frame.retrieval.engine.RetrievalType;
-import frame.retrieval.engine.RetrievalType.RDatabaseType;
 import frame.base.core.util.DateTime;
-import frame.base.core.util.JdbcUtil;
 import frame.retrieval.engine.context.RetrievalApplicationContext;
 import frame.retrieval.engine.facade.ICreateIndexAllItem;
 import frame.retrieval.engine.index.doc.database.RDatabaseIndexAllItem;
@@ -34,8 +28,9 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 		
 		List <RDatabaseIndexAllItem> l = new ArrayList<RDatabaseIndexAllItem>();
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
-			if("0".endsWith(rdI.getIsError())&&"1".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
+			if("0".equals(rdI.getIsError())&&"1".equals(rdI.getIsInit())&&"0".equals(rdI.getIsOn())){
 				rdI.setIsInit("2");
+				rdI.setMediacyTime(new DateTime().parseString(new Date(), null));
 				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				String nowTime = new DateTime().getNowDateTime();
 				String sql = getIndexTriggerSql(rdI,nowTime,false);
@@ -61,6 +56,7 @@ public class DatabaseIndexAllItem1Impl extends DatabaseIndexAllItemCommon implem
 		}
 		delAllTrigRecord(rdI,nowTime,true);
 		rdI.setIsInit("1");
+		rdI.setMediacyTime("");
 		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 

@@ -126,9 +126,9 @@ public class UserUtils{
 		menu12.setId("13");
 		menu12.setIcon("briefcase");
 		menu12.setIsShow("1");
-		menu12.setName("线程监控");
+		menu12.setName("数据监控");
 		menu12.setParentid("3");
-		menu12.setHref("/triggerView/list");
+		menu12.setHref("/monitorView/listTrigger");
 		menu12.setSort(23);
 		
 		

@@ -78,29 +78,42 @@ public class SQLUtil {
 		int len = tablename.length();
 		if(type.equals("C")){ //
 			if(len<=24)
-				triggername="TG_"+tablename+"_ADD";
+				triggername="LG_"+tablename+"_ADD";
 			else if(len<26&&len>24)
-				triggername="T_"+tablename+"_A";
+				triggername="L_"+tablename+"_A";
 			else 
-				triggername="T_"+tablename.substring(0,26)+"_A";
+				triggername="L_"+tablename.substring(0,26)+"_A";
 			
 		}else if(type.equals("U")){
 			if(len<=20)
-				triggername="TG_"+tablename+"_UPDATE";
+				triggername="LG_"+tablename+"_UPDATE";
 			else if(len<26&&len>20)
-				triggername="T_"+tablename+"_U";
+				triggername="L_"+tablename+"_U";
 			else 
-				triggername="T_"+tablename.substring(0,26)+"_U";
+				triggername="L_"+tablename.substring(0,26)+"_U";
 		}else{
 			if(len<=20)
-				triggername="TG_"+tablename+"_DELETE";
+				triggername="LG_"+tablename+"_DELETE";
 			else if(len<26&&len>20)
-				triggername="T_"+tablename+"_D";
+				triggername="L_"+tablename+"_D";
 			else 
-				triggername="T_"+tablename.substring(0,26)+"_D";
+				triggername="L_"+tablename.substring(0,26)+"_D";
 		}
 		return triggername;
 	} 
+	
+	public static String getTriggerLike(RDatabaseType databaseType,String databaseName){
+		String sql = null;
+		if(databaseType!=null){
+			if(RDatabaseType.MYSQL.equals(databaseType))
+				sql = "SELECT trigger_name FROM information_schema.`TRIGGERS`where trigger_schema='"+databaseName+"' and (trigger_name like'LG_%_ADD' or trigger_name like'L_%_A' or trigger_name like'LG_%_UPDATE' or trigger_name like'L_%_U' or trigger_name like'LG_%_DELETE' or trigger_name like'L_%_D')";
+			else if(RDatabaseType.ORACLE.equals(databaseType))
+				sql = "select trigger_name from user_triggers where trigger_name like 'LG_%_ADD' or trigger_name like'L_%_A' or trigger_name like'LG_%_UPDATE' or trigger_name like'L_%_U' or trigger_name like'LG_%_DELETE' or trigger_name like'L_%_D';";
+			else if(RDatabaseType.SQLSERVER.equals(databaseType))
+				sql = "select name as trigger_name from sysobjects where (name like 'LG_%_ADD' or name like'L_%_A' or name like'LG_%_UPDATE' or name like'L_%_U' or name like'LG_%_DELETE' or name like'L_%_D') and objectproperty(id,N'IsTrigger')=1";
+		}
+		return sql;
+	}
 	
 	public static String getTriggerIsExist(RDatabaseType databaseType,String databaseName,String tablename,String type){
 		
@@ -110,9 +123,9 @@ public class SQLUtil {
 			if(RDatabaseType.MYSQL.equals(databaseType))
 				sql = "SELECT * FROM information_schema.`TRIGGERS`where trigger_schema='"+databaseName+"' and trigger_name='"+triggername+"'";
 			else if(RDatabaseType.ORACLE.equals(databaseType))
-				sql = "select * into from user_triggers where trigger_name = '"+triggername+"';";
+				sql = "select * from user_triggers where trigger_name = '"+triggername+"';";
 			else if(RDatabaseType.SQLSERVER.equals(databaseType))
-				sql = "select * from sysobjects where id=object_id(N'"+triggername+"') and objectproperty(id,N'IsTrigger')=1'";
+				sql = "select * from sysobjects where id=object_id(N'"+triggername+"') and objectproperty(id,N'IsTrigger')=1";
 			
 		}
 		return sql;
@@ -247,6 +260,15 @@ public class SQLUtil {
 			sql+=" IF EXISTS ";
 		}
 		String triggername = getTriggerName(tablename,type);
+		sql += triggername;
+		return sql;
+	}
+	
+	public static String getDeleteTriggerSql(RDatabaseType databaseType,String triggername){
+		String sql = "drop trigger ";
+		if(RDatabaseType.MYSQL.equals(databaseType)){
+			sql+=" IF EXISTS ";
+		}
 		sql += triggername;
 		return sql;
 	}

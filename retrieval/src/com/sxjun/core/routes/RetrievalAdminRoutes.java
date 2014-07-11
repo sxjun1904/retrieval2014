@@ -9,7 +9,7 @@ import com.sxjun.retrieval.controller.FiledSpecialMapperController;
 import com.sxjun.retrieval.controller.IndexCagetoryController;
 import com.sxjun.retrieval.controller.InitFieldController;
 import com.sxjun.retrieval.controller.RDatabaseIndexController;
-import com.sxjun.retrieval.controller.TriggerViewController;
+import com.sxjun.retrieval.controller.MonitorViewController;
 import com.sxjun.system.controller.ThemeController;
 
 public class RetrievalAdminRoutes extends Routes {
@@ -21,6 +21,6 @@ public class RetrievalAdminRoutes extends Routes {
 		add(Global.adminPath+"/filedSpecialMapper", FiledSpecialMapperController.class,"retrieval/filedSpecialMapper");
 		add(Global.adminPath+"/indexCategory", IndexCagetoryController.class,"retrieval/indexCategory");
 		add(Global.adminPath+"/rDatabaseIndex", RDatabaseIndexController.class,"retrieval/rDatabaseIndex");
-		add(Global.adminPath+"/triggerView", TriggerViewController.class,"retrieval/triggerView");
+		add(Global.adminPath+"/monitorView", MonitorViewController.class,"retrieval/monitorView");
 	}
 }

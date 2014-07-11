@@ -91,6 +91,7 @@ public class BerkeleyCache {
 		DatabaseEntry theData = new DatabaseEntry();
 		Transaction tnx = env.beginTransaction(null, null);
 		Cursor cursor = database.openCursor(tnx, null);
+//		Cursor cursor = database.openCursor(null, null);
 		result = cursor.getFirst(theKey, theData, null);
 
 		List list = null;

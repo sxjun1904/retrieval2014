@@ -31,8 +31,7 @@ public class BerkeleyManager {
 		try {
 			DatabaseConfig dbConfig = new DatabaseConfig();
 			dbConfig.setAllowCreate(true);
-			dbConfig.setTransactional(false);
-			dbConfig.setDeferredWrite(false);
+			dbConfig.setTransactional(true);
 			database = env.openDatabase(null,clazz.getSimpleName(), dbConfig); 
 			cache = new BerkeleyCache(clazz,env,database);
 		} catch (DatabaseNotFoundException e) {

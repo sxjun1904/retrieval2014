@@ -15,6 +15,7 @@ public class BerkeleyCommonService<T> implements CommonService<T>{
 	public void put(Class clazz,String id,T t ){
 		BerkeleyKit.put(clazz, id, t);
 		CacheKit.remove(clazz.getSimpleName(), clazz.getSimpleName());
+		CacheKit.remove(clazz.getSimpleName(), clazz.getSimpleName()+":"+id);
 		BerkeleyKit.close(clazz);
 	}
 	

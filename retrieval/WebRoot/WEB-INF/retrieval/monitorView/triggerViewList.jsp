@@ -19,10 +19,12 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx_a}/triggerView/list">线程监控列表</a></li>
+		<li class="active"><a href="${ctx_a}/monitorView/listTrigger">线程监控列表</a></li>
+		<li><a href="${ctx_a}/monitorView/listIsInit">状态监控列表</a></li>
+		<li><a href="${ctx_a}/monitorView/listDSTG">触发器列表</a></li>
 	</ul>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>触发器名称</th><th>任务类型</th><th>任务开始时间</th><th>下一次执行时间</th></tr></thead>
+		<thead><tr><th>线程名称</th><th>任务类型</th><th>任务开始时间</th><th>下一次执行时间</th></tr></thead>
 		<tbody>
 		<c:forEach items="${triggerView}" var="triggerView">
 			<tr>

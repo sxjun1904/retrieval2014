@@ -1,6 +1,7 @@
 package com.sxjun.retrieval.controller.index.database;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -39,13 +40,14 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 		
 		List <RDatabaseIndexAllItem> l = new ArrayList<RDatabaseIndexAllItem>();
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
-			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&!(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
+			if("0".equals(rdI.getIsError())&&"0".equals(rdI.getIsInit())&&"0".equals(rdI.getIsOn())&&!(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				//List<HtmlEntity> he = getPageRank(rdI);
 				/*for(HtmlEntity h :he){
 					pagerank.put(h.getPath(), h.getPr());
 				}*/
 				
 				rdI.setIsInit("2");
+				rdI.setMediacyTime(new DateTime().parseString(new Date(), null));
 				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				
 				String nowTime =  new DateTime().getNowDateTime();
@@ -71,6 +73,7 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 		String nowTime = (String) transObj.get("nowTime");
 		judgeAndDelTrigRecord(rdI,nowTime);
 		rdI.setIsInit("1");
+		rdI.setMediacyTime("");
 		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 	

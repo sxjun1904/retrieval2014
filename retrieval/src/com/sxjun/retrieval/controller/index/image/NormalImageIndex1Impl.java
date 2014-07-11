@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,8 +63,9 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 		List<NormalIndexDocument> l = null;
 		
 		for(RDatabaseIndex rdI:rDatabaseIndexList){
-			if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
+			if("0".equals(rdI.getIsError())&&"0".equals(rdI.getIsInit())&&"0".equals(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				rdI.setIsInit("2");
+				rdI.setMediacyTime(new DateTime().parseString(new Date(), null));
 				commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 				String nowTime = new DateTime().getNowDateTime();
 				String sql = getIndexTriggerSql(rdI,nowTime,false);
@@ -95,6 +97,7 @@ public class NormalImageIndex1Impl extends NormalImageIndexCommon implements ICr
 		}
 		delAllTrigRecord(rdI,nowTime,true);
 		rdI.setIsInit("1");
+		rdI.setMediacyTime("");
 		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
 	}
 }

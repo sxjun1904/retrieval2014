@@ -153,7 +153,9 @@ public class RQuery {
 		Query query = new TermQuery(new Term(StringClass
 				.getString(RetrievalType.RDocItemSpecialName._IID), indexId));
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -201,7 +203,9 @@ public class RQuery {
 		query.add(recordIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -247,7 +251,9 @@ public class RQuery {
 		query.add(recordIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -295,7 +301,9 @@ public class RQuery {
 		query.add(recordIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -342,7 +350,9 @@ public class RQuery {
 		query.add(fileIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -384,7 +394,9 @@ public class RQuery {
 		query.add(fileRelativePathQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -425,7 +437,9 @@ public class RQuery {
 		query.add(fileIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -469,7 +483,9 @@ public class RQuery {
 		query.add(fileRelativePathQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -518,7 +534,9 @@ public class RQuery {
 		query.add(recordIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
+
 
 		if (hits != null) {
 			int length = hits.length;
@@ -568,7 +586,8 @@ public class RQuery {
 		query.add(recordIdQuery, BooleanClause.Occur.MUST);
 		query.add(sourceIndexTypeQuery, BooleanClause.Occur.MUST);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
 
 		int length = 0;
 
@@ -807,7 +826,8 @@ public class RQuery {
 				.getString(RetrievalType.RDocItemSpecialName._IAC),
 				keyWord);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
 
 		int length = 0;
 
@@ -832,7 +852,8 @@ public class RQuery {
 				.getString(RetrievalType.RDocItemSpecialName._IAC),
 				keyWord);
 
-		ScoreDoc[] hits = getHits(query, querySort.getSort());
+		//ScoreDoc[] hits = getHits(query, querySort.getSort());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,querySort.getSort(),null,null);
 
 		if (hits != null) {
 			int length = hits.length;
@@ -871,7 +892,8 @@ public class RQuery {
 				.getString(RetrievalType.RDocItemSpecialName._IAC),
 				keyWord);
 
-		ScoreDoc[] hits = getHits(query);
+		//ScoreDoc[] hits = getHits(query);//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,null,null,null);
 
 		List<Document> documents = getPageDocuments(hits, query, startIndex,
 				endIndex);
@@ -917,7 +939,8 @@ public class RQuery {
 				.getString(RetrievalType.RDocItemSpecialName._IAC),
 				keyWord);
 
-		ScoreDoc[] hits = getHits(query, querySort.getSort());
+		//ScoreDoc[] hits = getHits(query, querySort.getSort());//remove by sxjun 2014-7-10
+		ScoreDoc[] hits = getHits(query,querySort.getSort(),null,null);
 
 		List<Document> documents = getPageDocuments(hits, query, startIndex,
 				endIndex);
@@ -991,9 +1014,10 @@ public class RQuery {
 	public int getQueryResultsCount(QueryItem queryItem,boolean flag) {
 		QueryWrap queryWrap = queryItem.getQueryWrap();
 		if(flag){
-			return getHitsCount(queryWrap.getQuery());
+			return getHitsCount(queryWrap.getQuery(),null);
 		}else{
-			ScoreDoc[] hits = getHits(queryWrap.getQuery());
+			//ScoreDoc[] hits = getHits(queryWrap.getQuery());//remove by sxjun 2014-7-10
+			ScoreDoc[] hits = getHits(queryWrap.getQuery(),null,null,null);
 
 			int length = 0;
 
@@ -1210,8 +1234,8 @@ public class RQuery {
 				startIndex=0;
 			if(endIndex==null)
 				endIndex=searcher.maxDoc();
-			TopFieldCollector collector = TopFieldCollector.create(sort,searcher.maxDoc(), false, true, false, false);
-			searcher.search(query, collector);
+			TopFieldCollector collector = TopFieldCollector.create(sort,searcher.maxDoc(), false, false, false, false);
+			searcher.search(new ScoreQuery(query), collector);
 			hits = collector.topDocs(startIndex, endIndex);
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -1220,6 +1244,24 @@ public class RQuery {
 			return hits.scoreDocs;
 		} else {
 			return null;
+		}
+	}
+	
+	private int getHitsCount(Query query,Sort sort) {
+		TopDocs hits = null;
+		try {
+			if(sort==null)
+				sort = new Sort(new SortField[] {SortField.FIELD_SCORE});
+			TopFieldCollector collector = TopFieldCollector.create(sort,searcher.maxDoc(), false, true, false, false);
+			searcher.search(new ScoreQuery(query), collector);
+			hits = collector.topDocs();
+		} catch (Exception e) {
+			throw new RetrievalQueryException(e);
+		}
+		if (hits != null) {
+			return hits.totalHits;
+		} else {
+			return 0;
 		}
 	}
 
@@ -1292,8 +1334,9 @@ public class RQuery {
 		List<Document> docs = null;
 		try {
 			docs = new ArrayList<Document>();
+			startIndex=0;//modify by sxjun 2014-7-11
 			if (endIndex >= hits.length) {
-				endIndex = hits.length - 1;
+				endIndex = hits.length - 1 ;
 			}
 			for (int i = startIndex; i <= endIndex; i++) {
 				Document doc = searcher.doc(hits[i].doc);

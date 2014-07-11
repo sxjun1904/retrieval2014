@@ -2,6 +2,7 @@ package frame.base.core.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
@@ -128,6 +129,29 @@ public class JdbcUtil {
 			log.error("删除数据异常", e);
 		}
 		closeConnection(conn, closeFlag);
+	}
+	
+	public static int executeJdbcSql(Connection conn, String sql,boolean closeFlag) {
+		int rnt = 0;
+		PreparedStatement ps = null;
+		 try {
+			ps = conn.prepareStatement(sql);
+			rnt = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			if(closeFlag){
+				try {
+					if(ps!=null)
+						ps.close();
+					if(conn!=null)
+						conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return rnt;
 	}
 
 	public static int executeSql(Connection conn, String sql, boolean closeFlag) {

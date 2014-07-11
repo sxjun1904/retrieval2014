@@ -22,7 +22,7 @@
 		<li><a href="${ctx_a}/indexCategory/form">索引分类添加</a></li>
 	</ul>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>索引分类</th><th>路径类型</th><th>类型</th><th>操作</th></tr></thead>
+		<thead><tr><th>索引分类</th><th>路径类型</th><th>路径</th><th>操作</th></tr></thead>
 		<tbody>
 		<c:forEach items="${indexCategory}" var="indexCategory">
 			<tr>
