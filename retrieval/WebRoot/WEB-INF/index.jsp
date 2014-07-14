@@ -52,10 +52,10 @@
 				    <!--[if lte IE 6]><script type="text/javascript">$('#themeSwitch').hide();</script><![endif]-->
 			     </li>
 			  	 <li class="dropdown">
-				    <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="个人信息">您好,管理员</a>
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="个人信息">您好,${user.realname}</a>
 				    <ul class="dropdown-menu">
-				      <li><a href="${ctx}/sys/user/info" target="mainFrame"><i class="icon-user"></i>&nbsp; 个人信息</a></li>
-				      <li><a href="${ctx}/sys/user/modifyPwd" target="mainFrame"><i class="icon-lock"></i>&nbsp;  修改密码</a></li>
+				      <li><a href="${ctx_a}/user/form?id=${user.id}" target="mainFrame"><i class="icon-user"></i>&nbsp; 个人信息</a></li>
+				      <li><a href="${ctx_a}/user/form?id=${user.id}" target="mainFrame"><i class="icon-lock"></i>&nbsp;  修改密码</a></li>
 				    </ul>
 			  	 </li>
 			  	 <li><a href="${ctx}/logout" title="退出登录">退出</a></li>

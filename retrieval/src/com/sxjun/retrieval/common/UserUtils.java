@@ -122,15 +122,23 @@ public class UserUtils{
 		menu5.setHref("/rDatabaseIndex/list");
 		menu5.setSort(23);
 		
+		Menu menu13 = new Menu();
+		menu13.setId("14");
+		menu13.setIcon("align-justify");
+		menu13.setIsShow("1");
+		menu13.setName("关键字过滤");
+		menu13.setParentid("3");
+		menu13.setHref("/keyWordFilter/list");
+		menu13.setSort(25);
+		
 		Menu menu12 = new Menu();
 		menu12.setId("13");
-		menu12.setIcon("briefcase");
+		menu12.setIcon("th");
 		menu12.setIsShow("1");
 		menu12.setName("数据监控");
 		menu12.setParentid("3");
 		menu12.setHref("/monitorView/listTrigger");
 		menu12.setSort(23);
-		
 		
 		Menu menu6 = new Menu();
 		menu6.setId("7");
@@ -167,6 +175,7 @@ public class UserUtils{
 		l.add(menu3);
 		l.add(menu4);
 		l.add(menu5);
+		l.add(menu13);
 		l.add(menu12);
 		l.add(menu6);
 		l.add(menu7);

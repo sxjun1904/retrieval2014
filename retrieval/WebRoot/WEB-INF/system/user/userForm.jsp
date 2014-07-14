@@ -50,6 +50,12 @@
 	</ul><br/>
 	<form id="inputForm" modelAttribute="user" action="${ctx_a}/user/save" method="post" class="form-horizontal">
 		<div class="control-group">
+			<label class="control-label">姓名:</label>
+			<div class="controls">
+				<input id="realname" name="user.realname" value="${user.realname}">
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label">用户名:</label>
 			<div class="controls">
 				<input id="id" name="user.id" type="hidden" value="${user.id}">

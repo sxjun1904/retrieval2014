@@ -16,12 +16,12 @@ public class LoginController extends Controller{
 	private CommonService<User> commonservice = new ServiceProxy<User>().getproxy();
 	public void index(){
 		User user = getModel(User.class);
-		
 		List<User> urList = commonservice.getObjs(User.class);
 		if(urList!=null){
 			boolean flag = false;
 			for(User u:urList){
 				if(u.getUsername().equals(user.getUsername())&&u.getPassword().equals(MD5Util.GetMD5Code(user.getPassword()))){
+					user = u;
 					flag = true;
 					break;
 				}

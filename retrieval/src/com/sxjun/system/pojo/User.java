@@ -6,6 +6,7 @@ public class User extends BasePojo{
 	
 	private String username;
 	private String password;
+	private String realname;
 	public String getUsername() {
 		return username;
 	}
@@ -18,5 +19,10 @@ public class User extends BasePojo{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	public String getRealname() {
+		return realname;
+	}
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
 }
