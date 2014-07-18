@@ -86,6 +86,7 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 			commonservice.put(t.getClass(), id, t);
 			msg = MSG_OK;
 		} catch (Exception e) {
+			msg = MSG_FAULT;
 			e.printStackTrace();
 		}
 		

@@ -68,13 +68,22 @@ public class UserUtils{
 		//menu2.setHref("/database/list");
 		menu2.setSort(1);
 		
+		Menu menu14 = new Menu();
+		menu14.setId("15");
+		menu14.setIcon("user");
+		menu14.setIsShow("1");
+		menu14.setName("高级设置");
+		menu14.setParentid("2");
+		//menu14.setHref("/database/list");
+		menu14.setSort(23);
+		
 		Menu menu4 = new Menu();
 		menu4.setId("5");
 		menu4.setIcon("user");
 		menu4.setIsShow("1");
 		menu4.setName("爬虫设置");
 		menu4.setParentid("2");
-		menu4.setHref("/database/list");
+		//menu4.setHref("/database/list");
 		menu4.setSort(23);
 		
 		Menu menu10 = new Menu();
@@ -122,12 +131,21 @@ public class UserUtils{
 		menu5.setHref("/rDatabaseIndex/list");
 		menu5.setSort(23);
 		
+		Menu menu15 = new Menu();
+		menu15.setId("16");
+		menu15.setIcon("briefcase");
+		menu15.setIsShow("1");
+		menu15.setName("分词工具");
+		menu15.setParentid("15");
+		menu15.setHref("/iKWords/list");
+		menu15.setSort(25);
+		
 		Menu menu13 = new Menu();
 		menu13.setId("14");
 		menu13.setIcon("align-justify");
 		menu13.setIsShow("1");
-		menu13.setName("关键字过滤");
-		menu13.setParentid("3");
+		menu13.setName("搜索过滤");
+		menu13.setParentid("15");
 		menu13.setHref("/keyWordFilter/list");
 		menu13.setSort(25);
 		
@@ -136,7 +154,7 @@ public class UserUtils{
 		menu12.setIcon("th");
 		menu12.setIsShow("1");
 		menu12.setName("数据监控");
-		menu12.setParentid("3");
+		menu12.setParentid("15");
 		menu12.setHref("/monitorView/listTrigger");
 		menu12.setSort(23);
 		
@@ -173,8 +191,10 @@ public class UserUtils{
 		l.add(menu8);
 		l.add(menu9);
 		l.add(menu3);
+		l.add(menu14);
 		l.add(menu4);
 		l.add(menu5);
+		l.add(menu15);
 		l.add(menu13);
 		l.add(menu12);
 		l.add(menu6);

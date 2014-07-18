@@ -22,7 +22,10 @@ public class InitClazzServlet extends HttpServlet {
 						String[] classAndMethod = clazz.split(":");
 						String className = classAndMethod[0];
 						String methodName = null;
-						methodName = classAndMethod[1];
+						if(classAndMethod.length>1)
+							methodName = classAndMethod[1];
+						else
+							methodName = "init";
 						// 反射调用
 						ReflectUtil.invokeMethod(className, methodName);
 					}

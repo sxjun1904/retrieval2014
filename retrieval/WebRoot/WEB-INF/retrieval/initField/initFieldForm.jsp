@@ -5,8 +5,17 @@
 	<title>添加索引字段</title>
 	<meta name="decorator" content="default"/>
 	<%@include file="/WEB-INF/include/head.jsp" %>
+	<link href="${ctxStatic}/jquery-Tooltip/stylesheets/jquery.tooltip/jquery.tooltip.css" type="text/css" rel="stylesheet" />
+	<script src="${ctxStatic}/jquery-Tooltip/javascripts/jquery.tooltip.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			$("div.item").tooltip();
+			$(".control-label").mouseover(function(){
+				$(this).css({"color":"#335A9F","font-weight":"bold"});
+			});
+			$(".control-label").mouseout(function(){
+				$(this).css({"color":"black","font-weight":"normal"});
+			});
 			var val = $("#fieldType").val();
 			$("input[name='fieldType']").each(function(){
 				if(val==$(this).val())
@@ -34,6 +43,9 @@
 			});
 		});
 	</script>
+	<style type="text/css">
+      div#item_1 { position: absolute; }
+    </style>
 </head>
 <body>
 	<ul class="nav nav-tabs">
@@ -42,20 +54,37 @@
 	</ul><br/>
 	<form id="inputForm" action="${ctx_a}/initField/save" method="post" class="form-horizontal">
 		<div class="control-group">
-			<label class="control-label">字段名:</label>
+			<div id="item_1" class="item">
+				<div class="tooltip_description" style="display:none" title="字段名">必须填写英文，例如“CREATETIMNE”、“PAGE_URL”、“REMARK”。<br/>
+				初始字段在每个索引表中都会存在，添加字段后，可以在“索引设置”中查看到，如下图：
+				<img src="${ctxStatic}/images/tip/field.ico"></img>
+				</div>
+				<label class="control-label">字段名:</label>
+			</div>
 			<div class="controls">
 				<input id="field" name="initField.field" value="${initField.field}">
 				<input id="idd" type="hidden" name="initField.id" value="${initField.id}">
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">默认值:</label>
+			<div id="item_1" class="item">
+				<div class="tooltip_description" style="display:none" title="默认值">非必填。<br/>当初始字段对应数据库字段为空时，设置一个默认值。
+				</div>
+				<label class="control-label">默认值:</label>
+			</div>
 			<div class="controls">
 				<input id="defaultValue" name="initField.defaultValue" value="${initField.defaultValue}">
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">字段类型:</label>
+			<div id="item_1" class="item">
+				<div class="tooltip_description" style="display:none" title="字段类型">字段类型,目前常用的有3种类型，如下:<br/>
+				KEYWORD：不分词，存储，适用于数据库主键字段、分类，用于“精确查询”，例如：用户主键字段，用户名，信息分类。<br/>
+				CONTENT：分词，存储。适用于内容、正文字段，用于全文检索。例如，标题，摘要、正文。<br/>
+				NUMBER：不分词，数据类型，存储。用于比较大小，例如：时间字段
+				</div>
+				<label class="control-label">字段类型:</label>
+			</div>
 			<div class="controls">
 				<input id="fieldType" type="hidden" name="initField.fieldType" value="${initField.fieldType}">
 				<c:forEach items="${itemTypes}" var="itemTypes">
@@ -64,7 +93,11 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">字段描述:</label>
+			<div id="item_1" class="item">
+				<div class="tooltip_description" style="display:none" title="字段描述">非必填。<br/>对初始字段的一个说明，例如：“时间字段”、“跳转地址”。
+				</div>
+				<label class="control-label">字段描述:</label>
+			</div>
 			<div class="controls">
 				<input id="description" name="initField.description" value="${initField.description}">
 			</div>

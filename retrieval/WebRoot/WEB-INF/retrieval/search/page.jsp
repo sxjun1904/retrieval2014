@@ -17,30 +17,38 @@
 		} */
 		a:link {
 		color:'#0000d5';
-		text-decoration:underline;
+		text-decoration:none;
 		front-style:normal;
 		font-family:arial;
-		font-size:normal;
-		font-weight:normal;
+		font-size:medium;
+		font-weight:bold;
+		}
+		a:hover {
+		text-decoration:underline;
+		
 		}
 		.input-medium{
 			font:16px/22px arial;
 			width:450px;
 			height:30px;
 			margin-left:15px;
+			border-radius:8px
 		}
 		font{
 		size:3;
 		}
 		.tcf{
 			margin-left:15px;
-			margin-top:10px;
+			margin-top:8px;
+			padding:5px;
 		}
 		.cont{
 			margin-top:3px;
 			margin-bottom:3px;
 			font-size:13px;
-			font-family:arial,sans-serif;
+         	font-family:arial;
+         	word-wrap:break-word;
+         	word-break:break-all;
 		}
 		.info{
 			width:100%;
@@ -64,7 +72,9 @@
          	width:65px;
          	height:30px;
          	margin-left:15px;
-         	background-color:
+         	border-radius:4px;
+         	background-color:#009FFB;
+         	font-Weight:bold;
          }
          .main{
          	height:90%;
@@ -174,6 +184,15 @@
 				   location.href =ctx_f+"/search/page/"+$("#keyword").val();
 			   }
 		});
+		
+		$(".tcf").mouseover(function(){
+			  $(this).css({"border-radius":"15px"});
+			  $(this).css({"background":"#D2F6F9"});
+		});
+		
+		$(".tcf").mouseout(function(){
+			  $(this).css("background","white");
+		});
 	});
 	function page(n,s){
 		//$("#pageNo").val(n);
@@ -184,26 +203,30 @@
 	</script>
 </head>
 <body>
-	<div style="float:right">
-		<a href="${ctx_f}/search/index">返回首页</a>
-	</div>
-	<div>
-		<form id="searchForm" action="${ctx_f}/search/page" method="post" class="breadcrumb form-search">
-			<input id="ctx_f" name="ctx_f" type="hidden" value="${ctx_f}"/>
-			<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
-			<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-			<input id="totalCount" name="totalCount" type="hidden" value="${page.count}"/>
-			<div style="margin-top:5px;font-size:25px;font-weight:normal;font-familiy:Helvetica, Georgia, Arial, sans-serif, 黑体;float:left">${fns:getConfig('productName')}</div>
-			<input id="keyword" name="simpleQuery.keyword" type="text" maxlength="200" class="input-medium" value="${simpleQuery.keyword}"/>
-			<input id="btnSubmit" class="searchBtn" type="button" value="搜索" /><br>
-		</form>
-	</div>
-	<div class="info">
+	<div >
+		<div style="float:right">
+			<a href="${ctx_f}/search/index">返回首页</a>
+		</div>
+		<div>
+			<form id="searchForm" action="${ctx_f}/search/page" method="post" class="breadcrumb form-search">
+				<input id="ctx_f" name="ctx_f" type="hidden" value="${ctx_f}"/>
+				<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
+				<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+				<input id="totalCount" name="totalCount" type="hidden" value="${page.count}"/>
+				<div style="margin-top:5px;font-size:25px;font-weight:normal;font-familiy:Helvetica, Georgia, Arial, sans-serif, 黑体;float:left">${fns:getConfig('productName')}</div>
+				<div>
+					<input id="keyword" name="simpleQuery.keyword" type="text" maxlength="200" class="input-medium" value="${simpleQuery.keyword}"/>
+					<input id="btnSubmit" class="searchBtn" type="button" value="搜 索" /><br>
+				</div>
+			</form>
+		</div>
+		<div class="info">
 		<span>找到约 <font color="red">${page.count}</font>条结果，用时<font color="red">${time}</font>秒
 			 	<c:forEach items="${page.group}" var="group">
 			 		<a href="#" class="cateGroup" >${group.key}</a>(${group.value})
 			 	</c:forEach>
 		</span>
+	</div>
 	</div>
 	<div class="main">
 		<div style="width:60%;float:left">
@@ -213,9 +236,11 @@
 					<tr>
 						<td>
 							<div class="tcf">
-								<div style="font-size:medium;font-weight:normal"><a href="${retrievalPage.retrievalResultFields['PAGE_URL']}" target="_blank">${retrievalPage.title}</a></div>
-								<div class="cont">${retrievalPage.content}</div>
-								<div><span style="color:#008000;font-size:11pt !important">${retrievalPage.retrievalResultFields['_IBT']} ${retrievalPage.retrievalResultFields['PAGE_URL']} ${retrievalPage.retrievalResultFields['CREATETIME']}</span></div>
+								<div>
+									<div style="font-size:medium;font-weight:normal"><a href="${retrievalPage.retrievalResultFields['PAGE_URL']}" target="_blank">${retrievalPage.title}</a></div>
+									<div class="cont">${retrievalPage.content}</div>
+									<div><span style="color:#008000;font-size:11pt !important">${retrievalPage.retrievalResultFields['_IBT']} ${retrievalPage.retrievalResultFields['PAGE_URL']} ${retrievalPage.retrievalResultFields['CREATETIME']}</span></div>
+								</div>
 							</div>
 						</td>
 					</tr>

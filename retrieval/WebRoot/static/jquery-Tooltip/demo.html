@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+      * { font-family: monaco; color: white; }
+      div.item { min-width:100px; min-height:50px; background-color: maroon; text-align:center; line-height:25px; padding:10px;}
+      div#item_1 { position: absolute; top: 50px; left: 50px; }
+      div#item_2 { position: absolute; top: 500px; left: 0px; }      
+      div#item_3 { position: absolute; top: 0px; left: 500px; }            
+      div#item_4 { position: absolute; top: 500px; left: 500px; }                  
+      div#item_5 { position: absolute; top: 800px; left: 500px; }
+    </style>
+    <link rel="stylesheet" href="stylesheets/jquery.tooltip/jquery.tooltip.css" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.tooltip.js"></script>
+    <script type="text/javascript">
+      $j = jQuery.noConflict();
+      $j(document).ready(function(){
+        $j("div.item").tooltip();
+      });
+    </script>
+  </head>
+
+  <body>
+
+      <div id="item_1" class="item">
+        Item 1
+        <div class="tooltip_description" style="display:none" title="Item 1 Description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+      </div>
+
+      <div id="item_2" class="item">
+        Item 2
+        <div class="tooltip_description" style="display:none" title="Item 2 Description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+      </div>
+
+      <div id="item_3" class="item">
+        Item 3
+        <div class="tooltip_description" style="display:none" title="Item 3 Description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+      </div>
+
+      <div id="item_4" class="item">
+        Item 4
+        <div class="tooltip_description" style="display:none" title="Item 4 Description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+      </div>
+
+      <div id="item_5" class="item tooltipleft">
+        Item 5 <br/> Force Left
+        <div class="tooltip_description" style="display:none" title="Item 4 Description">
+          Just add a CSS Class 'tooltipleft' to disable the auto-direction and have the tip come in from left with right-arrow.
+        </div>
+      </div>
+
+  </body>
+</html>

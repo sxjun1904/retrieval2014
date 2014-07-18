@@ -42,8 +42,8 @@ public class GlobalConfig extends JFinalConfig {
 		}
 		me.setViewType(ViewType.JSP);
 		me.setBaseViewPath("/WEB-INF/");
-		me.setError404View("/WEB-INF/error/404.html");
-		me.setError500View("/WEB-INF/error/500.html");
+		me.setError404View("/WEB-INF/error/404.jsp");
+		me.setError500View("/WEB-INF/error/500.jsp");
 	}
 	public void configRoute(Routes me) {
 		me.add(new RetrievalAdminRoutes());

@@ -1,4 +1,4 @@
-package com.sxjun.retrieval.controller.index.init;
+package com.sxjun.retrieval.controller.init;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,10 +18,10 @@ import com.sxjun.retrieval.pojo.RDatabaseIndex;
 import frame.retrieval.task.quartz.JustBaseSchedule;
 import frame.retrieval.task.quartz.JustBaseSchedulerManage;
 
-public class InitIndexAllItem extends IndexCommon{
+public class InitIndexAllItem extends IndexCommon implements InitBase {
 	private List<RDatabaseIndex> rDatabaseIndexList;
 	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
-	
+	@Override
 	public void init(){
 		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class);
 		//初始化状态为0的索引
