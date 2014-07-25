@@ -8,6 +8,7 @@ import com.sxjun.retrieval.controller.FiledMapperController;
 import com.sxjun.retrieval.controller.FiledSpecialMapperController;
 import com.sxjun.retrieval.controller.IKWordsController;
 import com.sxjun.retrieval.controller.IndexCagetoryController;
+import com.sxjun.retrieval.controller.IndexManagerController;
 import com.sxjun.retrieval.controller.InitFieldController;
 import com.sxjun.retrieval.controller.KeyWordFilterController;
 import com.sxjun.retrieval.controller.MonitorViewController;
@@ -26,5 +27,6 @@ public class RetrievalAdminRoutes extends Routes {
 		add(Global.adminPath+"/monitorView", MonitorViewController.class,"retrieval/monitorView");
 		add(Global.adminPath+"/iKWords", IKWordsController.class,"retrieval/iKWords");
 		add(Global.adminPath+"/keyWordFilter", KeyWordFilterController.class,"retrieval/keyWordFilter");
+		add(Global.adminPath+"/indexManager", IndexManagerController.class,"retrieval/indexManager");
 	}
 }

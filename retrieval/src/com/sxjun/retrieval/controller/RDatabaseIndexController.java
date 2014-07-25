@@ -12,7 +12,7 @@ import java.util.UUID;
 
 import org.quartz.Job;
 
-import com.jfinal.kit.StringKit;
+import com.jfinal.kit.StrKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
@@ -97,9 +97,9 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		if(expression!=null&&expression.length>0)
 		for(int i=0;i<expression.length;i++){
 			JustSchedule fsm = new JustSchedule();
-			if(StringKit.isBlank(fsm.getId()))
+			if(StrKit.isBlank(fsm.getId()))
 				fsm.setId(UUID.randomUUID().toString());
-			if(scheduleNames!=null&&StringKit.notBlank(scheduleNames[i]))
+			if(scheduleNames!=null&&StrKit.notBlank(scheduleNames[i]))
 				fsm.setScheduleName(scheduleNames[i]);
 			else
 				fsm.setScheduleName(rdI.getTableName()+"#"+fsm.getId());
@@ -137,7 +137,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 	
 	public JustSchedule getJustSchedule(JustSchedule js){
 		String exp = js.getExpression().trim();
-		if(StringKit.notBlank(exp)){
+		if(StrKit.notBlank(exp)){
 			String start = exp.substring(0,exp.length()-1);
 			String end = exp.substring(exp.length()-1);
 			if(StringClass.isNumeric(start)&&(end.equals("s")||end.equals("m")||end.equals("h"))){
@@ -153,31 +153,31 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		String ipt = DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, ic.getIndexPathType());//DB/FILE/IMAGE
 		String iserror = "0";
 		String error = "成功";
-		if(StringKit.isBlank(rdI.getDatabase_id())){
+		if(StrKit.isBlank(rdI.getDatabase_id())){
 			iserror = "1";
 			error = "未选择数据库";
-		}else if(StringKit.isBlank(rdI.getTableName())){
+		}else if(StrKit.isBlank(rdI.getTableName())){
 			iserror = "1";
 			error = "未选择表";
-		}else if(StringKit.isBlank(rdI.getKeyField())){
+		}else if(StrKit.isBlank(rdI.getKeyField())){
 			iserror = "1";
 			error = "未选择主键";
-		}else if(StringKit.isBlank(rdI.getIndexOperatorType())){
+		}else if(StrKit.isBlank(rdI.getIndexOperatorType())){
 			iserror = "1";
 			error = "未选择操作类型";
-		}else if(StringKit.isBlank(rdI.getDefaultTitleFieldName())){
+		}else if(StrKit.isBlank(rdI.getDefaultTitleFieldName())){
 			iserror = "1";
 			error = "未选择标题";
-		}else if(StringKit.isBlank(rdI.getDefaultResumeFieldName())&& (DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.DB.getValue())).endsWith(ipt)){
+		}else if(StrKit.isBlank(rdI.getDefaultResumeFieldName())&& (DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.DB.getValue())).endsWith(ipt)){
 			iserror = "1";
 			error = "未选择摘要";
-		}else if(StringKit.isBlank(rdI.getBinaryField())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
+		}else if(StrKit.isBlank(rdI.getBinaryField())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
 			iserror = "1";
 			error = "未填写图片字段";
 		}
 		
-		if(StringKit.isBlank(rdI.getIndexTriggerRecord())){
-			if(StringKit.notBlank(rdI.getTableName()))
+		if(StrKit.isBlank(rdI.getIndexTriggerRecord())){
+			if(StrKit.notBlank(rdI.getTableName()))
 				rdI.setIndexTriggerRecord(rdI.getTableName());
 		}
 		
@@ -204,7 +204,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		String sql = "";
 		if(rdI.getFiledMapperLsit()!=null&&iserror.equals("0")){
 			for(FiledMapper fm : rdI.getFiledMapperLsit()){
-				if(StringKit.isBlank(fm.getSqlField())){
+				if(StrKit.isBlank(fm.getSqlField())){
 					iserror = "1";
 					error = "字段映射未填不完整";
 					break;
@@ -246,7 +246,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			}
 		}
 		
-		if(StringKit.notBlank(rdI.getCondtion())){
+		if(StrKit.notBlank(rdI.getCondtion())){
 			String condtion = rdI.getCondtion().trim();
 			if(condtion.startsWith("and")){
 				sql += " "+condtion;
@@ -257,7 +257,7 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 			}
 		}	
 		
-		if(StringKit.isBlank(rdI.getDatabaseRecordInterceptor()))
+		if(StrKit.isBlank(rdI.getDatabaseRecordInterceptor()))
 			rdI.setDatabaseRecordInterceptor("com.sxjun.retrieval.controller.index.DatabaseRecordInterceptor");
 		
 		

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.jfinal.kit.StringKit;
+import com.jfinal.kit.StrKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.controller.index.IndexCommon;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
@@ -85,7 +85,7 @@ public class DatabaseIndexAllItemCommon extends IndexCommon{
 		databaseIndexAllItem.setRmDuplicate("0".endsWith(rdI.getRmDuplicate())?true:false);
 		
 		//是否有拦截器
-		if(StringKit.notBlank(rdI.getDatabaseRecordInterceptor())){
+		if(StrKit.notBlank(rdI.getDatabaseRecordInterceptor())){
 			try {
 				IIndexAllDatabaseRecordInterceptor iiadri = (IIndexAllDatabaseRecordInterceptor) Class.forName(rdI.getDatabaseRecordInterceptor()).newInstance();
 				databaseIndexAllItem.setDatabaseRecordInterceptor(iiadri);

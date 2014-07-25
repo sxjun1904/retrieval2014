@@ -12,7 +12,7 @@ import java.util.Map;
 import org.quartz.Trigger;
 
 import com.jfinal.core.Controller;
-import com.jfinal.kit.StringKit;
+import com.jfinal.kit.StrKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
@@ -54,7 +54,7 @@ public class MonitorViewController extends Controller {
 			isInitView.setMediacyTime(rdI.getMediacyTime());
 			isInitView.setTableName(rdI.getTableName());
 			String info = "正常";
-			if(StringKit.notBlank(rdI.getMediacyTime())){
+			if(StrKit.notBlank(rdI.getMediacyTime())){
 				Date date = new DateTime().parseDate(rdI.getMediacyTime(), null);
 				long diff = new Date().getTime() - date.getTime();
 				long minutes = diff / (1000 * 60);

@@ -15,6 +15,14 @@
 		/* body{
 			overflow: hidden;
 		} */
+		.sprite{
+			background-image:url(${ctxStatic}/images/pkg_comm_zf866467c.png)
+		}
+		#sprite{
+			width:16px;
+			height:16px;
+			background-position:-857px -35px
+		}
 		a:link {
 		color:'#0000d5';
 		text-decoration:none;
@@ -204,6 +212,7 @@
 </head>
 <body>
 	<div >
+	<!-- <div class="sprite" id="sprite"></div> -->
 		<div style="float:right">
 			<a href="${ctx_f}/search/index">返回首页</a>
 		</div>
@@ -251,21 +260,21 @@
 				<div id="pages" style="margin-left:60px"></div>
 			</div>
 		</div>
-		<div style="width:40%;float:right;margin-top:35px">
-			<!-- <div id="images_hover_move" class="images_hover_move">
+		<%-- <div style="width:40%;float:right;margin-top:35px">
+			<div id="images_hover_move" class="images_hover_move">
 				<ul>
-					<li><a href="#"><img src="../../static/images-hover/images/slideshow_large_1.jpg" title="title1"  height="194" /></a></li>
-					<li><a href="#"><img src="../../static/images-hover/images/slideshow_large_2.jpg" title="title2"  height="194" /></a></li>
-					<li><a href="#"><img src="../../static/images-hover/images/slideshow_large_3.jpg" title="title3"  height="203" /></a></li>
+					<li><a href="#"><img src="${ctxStatic}/images-hover/images/slideshow_large_1.jpg" title="title1"  height="194" /></a></li>
+					<li><a href="#"><img src="${ctxStatic}/images-hover/images/slideshow_large_2.jpg" title="title2"  height="194" /></a></li>
+					<li><a href="#"><img src="${ctxStatic}/images-hover/images/slideshow_large_3.jpg" title="title3"  height="203" /></a></li>
 				</ul>
 			</div>
 			<div id="images_hover_move1" class="images_hover_move">
 				<ul>
-					<li><a href="#"><img src="../../static/images-hover/images/slideshow_large_1.jpg" title="Navigation1"  height="194" /></a></li>
-					<li><a href="#"><img src="../../static/images-hover/images/slideshow_large_2.jpg" title="Navigation2"  height="194" /></a></li>
+					<li><a href="#"><img src="${ctxStatic}/images-hover/images/slideshow_large_1.jpg" title="Navigation1"  height="194" /></a></li>
+					<li><a href="#"><img src="${ctxStatic}/images-hover/images/slideshow_large_2.jpg" title="Navigation2"  height="194" /></a></li>
 				</ul>
-			</div> -->
-		</div>
+			</div>
+		</div> --%>
 	</div>
 </body>
 </html>

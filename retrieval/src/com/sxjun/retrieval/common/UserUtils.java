@@ -131,6 +131,15 @@ public class UserUtils{
 		menu5.setHref("/rDatabaseIndex/list");
 		menu5.setSort(23);
 		
+		Menu menu16 = new Menu();
+		menu16.setId("17");
+		menu16.setIcon("random");
+		menu16.setIsShow("1");
+		menu16.setName("索引工具");
+		menu16.setParentid("15");
+		menu16.setHref("/indexManager/list");
+		menu16.setSort(25);
+		
 		Menu menu15 = new Menu();
 		menu15.setId("16");
 		menu15.setIcon("briefcase");
@@ -194,6 +203,7 @@ public class UserUtils{
 		l.add(menu14);
 		l.add(menu4);
 		l.add(menu5);
+		l.add(menu16);
 		l.add(menu15);
 		l.add(menu13);
 		l.add(menu12);

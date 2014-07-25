@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.lucene.search.BooleanClause;
 
 import com.jfinal.core.Controller;
-import com.jfinal.kit.StringKit;
+import com.jfinal.kit.StrKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.Global;
 import com.sxjun.retrieval.common.Page;
@@ -20,7 +21,7 @@ import com.sxjun.retrieval.controller.oth.pinyin.PinyinHanziUtil;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.IndexCategory;
-import com.sxjun.retrieval.pojo.InitField;
+import com.sxjun.retrieval.pojo.KeyWordFilter;
 import com.sxjun.retrieval.pojo.SimpleItem;
 import com.sxjun.retrieval.pojo.SimpleItem.QueryType;
 import com.sxjun.retrieval.pojo.SimpleQuery;
@@ -43,15 +44,34 @@ import frame.retrieval.oth.mapper.MapperUtil;
 
 
 public class SearchController extends Controller {
+private static final Logger logger = Logger.getLogger(SearchController.class);
 private RetrievalApplicationContext retrievalApplicationContext = ApplicationContext.getApplicationContent();
 private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<IndexCategory>().getproxy();
+private CommonService<KeyWordFilter> keyWordFilterService = new ServiceProxy<KeyWordFilter>().getproxy();
 	public boolean isImg(String indexPathType){
 		return DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue()).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, indexPathType));
 		
 	}
+	/**
+	 * 替代过滤关键字
+	 * @param text
+	 * @return
+	 */
+	public String replaceWords(String text){
+		logger.info("搜素关键字："+text);
+		KeyWordFilter kf = keyWordFilterService.get(KeyWordFilter.class,KeyWordFilter.class.getSimpleName());
+		if(StrKit.notBlank(kf.getKeywords())){
+			String[] kfs = kf.getKeywords().split("|");
+			for(String _kf : kfs){
+				text.replace(_kf, "");
+			}
+			logger.debug("关键字过滤后："+text);
+		}
+		return text;
+	}
 	
 	public void pinYinHanzi(){
-		if(StringKit.notBlank(Global.getDatabasetype())&&ServiceProxy.REDIS_PROXY.equals(Global.getDatabasetype())){
+		if(StrKit.notBlank(Global.getDatabasetype())&&ServiceProxy.REDIS_PROXY.equals(Global.getDatabasetype())){
 			String pyhz = getDecod(getPara("pyhz")).toLowerCase();
 			List<String> pyhzList =PinyinHanziUtil.getRangeWords(pyhz);
 	//		String json = "{\"data\":["; 
@@ -201,9 +221,9 @@ private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<Ind
 	
 	public void image(){
 		SimpleQuery simpleQuery = getModel(SimpleQuery.class);
-		if(StringKit.isBlank(simpleQuery.getKeyword())){
+		if(StrKit.isBlank(simpleQuery.getKeyword())){
 			simpleQuery = getSimpleQuery();
-			if(StringKit.isBlank(simpleQuery.getKeyword())){
+			if(StrKit.isBlank(simpleQuery.getKeyword())){
 				index();
 				return;
 			}
@@ -274,8 +294,8 @@ private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<Ind
 		}
 		
 		//获取关键字
-		String p0 = getPara(0);
-		if(p0!=null){
+		String p0 = replaceWords(getPara(0));
+		if(StrKit.notBlank(p0)){
 			p0=getDecod(p0);
 			String[] kwds = p0.split("&");
 			for(String k : kwds){
@@ -302,7 +322,7 @@ private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<Ind
 							PinyinHanziUtil.add(k);
 						}
 							
-						if(StringKit.isBlank(sq.getKeyword()))
+						if(StrKit.isBlank(sq.getKeyword()))
 							sq.setKeyword(k);
 						else 
 							sq.setKeyword(sq.getKeyword()+" "+k);
@@ -447,9 +467,9 @@ private CommonService<IndexCategory> indexCategoryService = new ServiceProxy<Ind
 	
 	public void searchFor(String methodName) {
 		SimpleQuery simpleQuery = getModel(SimpleQuery.class);
-		if(StringKit.isBlank(simpleQuery.getKeyword())){
+		if(StrKit.isBlank(simpleQuery.getKeyword())){
 			simpleQuery = getSimpleQuery();
-			if(StringKit.isBlank(simpleQuery.getKeyword())){
+			if(StrKit.isBlank(simpleQuery.getKeyword())){
 				index();
 				return;
 			}

@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.quartz.Job;
 
-import com.jfinal.kit.StringKit;
+import com.jfinal.kit.StrKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.pojo.Database;
@@ -120,7 +120,7 @@ public class IndexCommon {
 			jbs.setScheduleID(js.getId());
 			jbs.setScheduleName(js.getScheduleName());
 			JustBaseSchedulerManage jbsm = new JustBaseSchedulerManage(jbs);
-			if(StringKit.notBlank(js.getFrequency())){
+			if(StrKit.notBlank(js.getFrequency())){
 				jbs.setFrequency(js.getFrequency());
 				jbs.setFrequencyUnits(js.getFrequencyUnits());
 				jbsm.startUpJustScheduler(dij,QuartzManager.SCHEDULE_TYPE_TRIGGER_SIMPLE);

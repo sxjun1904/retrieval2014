@@ -16,6 +16,7 @@
 			$(".control-label").mouseout(function(){
 				$(this).css({"color":"black","font-weight":"normal"});
 			});
+			
 			var num_1 = 0 ;
 			var initfieldstr = '<option value="">请选择</option>';
 			function addAll(){
@@ -64,6 +65,14 @@
 			    	
 			    	if($("#database_id").val() !=null && $("#database_id").val() !=""){
 			    		$("#database").val($("#database_id").val());
+				    	$("#tableName").append('<option value="'+$("#database_tableName").val()+'">'+$("#database_tableName").val()+'</option>');
+				    	$("#tableName").val($("#database_tableName").val());
+				    	$("#keyField").append('<option value="'+$("#database_keyField").val()+'">'+$("#database_keyField").val()+'</option>');
+				    	$("#keyField").val($("#database_keyField").val());
+				    	$("#defaultTitleFieldName").append('<option value="'+$("#database_defaultTitleFieldName").val()+'">'+$("#database_defaultTitleFieldName").val()+'</option>');
+				    	$("#defaultTitleFieldName").val($("#database_defaultTitleFieldName").val());
+				    	$("#defaultResumeFieldName").append('<option value="'+$("#database_defaultResumeFieldName").val()+'">'+$("#database_defaultResumeFieldName").val()+'</option>');
+				    	$("#defaultResumeFieldName").val($("#database_defaultResumeFieldName").val());
 				    	changetables();
 				    	if($("#database_rmDuplicate").val()==0)
 				    		$("#rmDuplicate_0").attr("checked",true);
@@ -318,7 +327,7 @@
 			</div>
 			<div class="controls">
 				<input type="hidden" id="indexPath" value="${rDatabaseIndex.indexPath_id}"></input>
-				<select id="indexPathCate" name="rDatabaseIndex.indexPath_id"></select> 
+				<select id="indexPathCate" name="rDatabaseIndex.indexPath_id" class="combobox"></select> 
 			</div>
 		</div>
 		<div class="control-group">
@@ -334,7 +343,7 @@
 				<div id="canvasDiv"></div> -->
 				<input type="hidden" id="id" name="rDatabaseIndex.id" value="${rDatabaseIndex.id}"></input>
 				<input type="hidden" id="database_id" value="${rDatabaseIndex.database_id}"></input>
-				<select id="database" name="rDatabaseIndex.database_id"></select> 
+				<select id="database" name="rDatabaseIndex.database_id" class="combobox"></select> 
 			</div>
 		</div>
 		<div class="control-group">
@@ -348,7 +357,7 @@
 			</div>
 			<div class="controls">
 				<input type="hidden" id="database_tableName" value="${rDatabaseIndex.tableName}"></input>
-				<select id="tableName" name="rDatabaseIndex.tableName"></select> 
+				<select id="tableName" name="rDatabaseIndex.tableName" class="combobox"></select> 
 			</div>
 		</div>
 		<div class="control-group">
@@ -360,7 +369,7 @@
 			</div>
 			<div class="controls">
 				<input type="hidden" id="database_keyField" value="${rDatabaseIndex.keyField}"></input>
-				<select id="keyField" name="rDatabaseIndex.keyField"></select> 
+				<select id="keyField" name="rDatabaseIndex.keyField" class="combobox"></select> 
 			</div>
 		</div>
 		<div class="control-group">
@@ -373,7 +382,7 @@
 			</div>
 			<div class="controls">
 				<input type="hidden" id="database_defaultTitleFieldName" value="${rDatabaseIndex.defaultTitleFieldName}"></input>
-				<select id="defaultTitleFieldName" name="rDatabaseIndex.defaultTitleFieldName"></select> 
+				<select id="defaultTitleFieldName" name="rDatabaseIndex.defaultTitleFieldName" class="combobox"></select> 
 			</div>
 		</div>
 		<div class="control-group">
@@ -386,7 +395,7 @@
 			</div>
 			<div class="controls">
 				<input type="hidden" id="database_defaultResumeFieldName" value="${rDatabaseIndex.defaultResumeFieldName}"></input>
-				<select id="defaultResumeFieldName" name="rDatabaseIndex.defaultResumeFieldName"></select> 
+				<select id="defaultResumeFieldName" name="rDatabaseIndex.defaultResumeFieldName" class="combobox"></select> 
 			</div>
 		</div>
 		

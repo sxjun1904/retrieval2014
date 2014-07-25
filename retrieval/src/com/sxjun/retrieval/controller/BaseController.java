@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.apache.commons.lang.StringUtils;
 
 import com.jfinal.core.Controller;
-import com.jfinal.kit.StringKit;
+import com.jfinal.kit.StrKit;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.system.pojo.BasePojo;
@@ -40,7 +40,7 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 	 * @param db
 	 */
 	public void list(Class clazz) {
-		String viewname = StringKit.firstCharToLowerCase(clazz.getSimpleName());
+		String viewname = StrKit.firstCharToLowerCase(clazz.getSimpleName());
 		list( clazz, viewname);
 	}
 	
@@ -64,7 +64,7 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 	}
 	
 	public void form(Class clazz){
-		 String viewname = StringKit.firstCharToLowerCase(clazz.getSimpleName());
+		 String viewname = StrKit.firstCharToLowerCase(clazz.getSimpleName());
 		 form(clazz ,viewname,null);
 	}
 	
