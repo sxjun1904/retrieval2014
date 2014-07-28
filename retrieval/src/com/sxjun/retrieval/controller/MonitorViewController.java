@@ -4,19 +4,28 @@
 package com.sxjun.retrieval.controller;
 
 import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.Element;
+import net.sf.ehcache.Statistics;
+
+import org.apache.log4j.Logger;
 import org.quartz.Trigger;
 
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
+import com.jfinal.plugin.ehcache.CacheKit;
 import com.sxjun.retrieval.common.DictUtils;
 import com.sxjun.retrieval.common.SQLUtil;
 import com.sxjun.retrieval.controller.proxy.ServiceProxy;
 import com.sxjun.retrieval.controller.service.CommonService;
+import com.sxjun.retrieval.pojo.CacheView;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.DstgView;
 import com.sxjun.retrieval.pojo.IsInitView;
@@ -34,15 +43,20 @@ import frame.retrieval.task.quartz.JustBaseSchedulerManage;
  * @version 2014-07-10
  */
 public class MonitorViewController extends Controller {
+	private static final Logger logger = Logger.getLogger(MonitorViewController.class);
 	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
 	CommonService<Database> dsCommonService = new ServiceProxy<Database>().getproxy();
-	
+	/**
+	 * 展示触发器
+	 */
 	public void listTrigger() {
 		List<TriggerView> list = getTriggerViewList();
 		setAttr("triggerView",list);
 		render("triggerViewList.jsp");
 	}
-	
+	/**
+	 * 展示状态
+	 */
 	public void listIsInit() {
 		List<RDatabaseIndex> list = commonService.getObjs(RDatabaseIndex.class);
 		List<IsInitView> isInitViewList = new ArrayList<IsInitView>();
@@ -71,7 +85,9 @@ public class MonitorViewController extends Controller {
 		setAttr("isInitView",isInitViewList);
 		render("isInitViewList.jsp");
 	}
-	
+	/**
+	 * 展示触发器
+	 */
 	public void listDSTG() {
 		List<Database> list = dsCommonService.getObjs(Database.class);
 		List<DstgView> dstgViewList = new ArrayList<DstgView>();
@@ -95,6 +111,9 @@ public class MonitorViewController extends Controller {
 		render("dstgViewList.jsp");
 	}
 	
+	/**
+	 * 删除触发器
+	 */
 	public void deleteDstg(){
 		String trigger = getPara();
 		String id = getPara("id");
@@ -107,6 +126,10 @@ public class MonitorViewController extends Controller {
 		listDSTG();
 	}
 	
+	/**
+	 * 获取触发器
+	 * @return
+	 */
 	public List<TriggerView> getTriggerViewList(){
 		JustBaseSchedulerManage jsm = new JustBaseSchedulerManage();
 		List<Trigger> tgList = jsm.getTriggers();
@@ -124,5 +147,70 @@ public class MonitorViewController extends Controller {
 			tgviewList.add(tgview);
 		}
 		return tgviewList;
+	}
+	
+	/**
+	 * 展示缓存
+	 */
+	public void listCache(){
+		DateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String[] cacheNames = CacheKit.getCacheManager().getCacheNames();
+		List<CacheView> cacheList = new ArrayList<CacheView>();
+		for(String cacheName : cacheNames){
+			CacheView  cacheView = new CacheView();
+			Cache cache = CacheKit.getCacheManager().getCache(cacheName);
+			cacheView.setCacheName(cacheName);
+			//缓存元素集合  
+	        logger.info("-----------------------"+cacheName+":缓存元素统计数据---------------------------------"); 
+			List keys = cache.getKeys();  
+	        for (Object key : keys) {  
+	            Element ele = cache.get(key);  
+	            logger.info("内容: " + ele.getValue());  
+	            cacheView.setValue(ele.getValue().toString());
+	            logger.info("创建时间: " + sf.format(ele.getCreationTime()));  
+	            cacheView.setCreationTime(sf.format(ele.getCreationTime()));
+	            logger.info("最后访问时间: " + sf.format(ele.getLastAccessTime()));  
+	            cacheView.setLastAccessTime(sf.format(ele.getLastAccessTime()));
+	            logger.info("过期时间: " + sf.format(ele.getExpirationTime()));  
+	            cacheView.setExpirationTime(sf.format(ele.getExpirationTime()));
+	            logger.info("最后更新时间: " + sf.format(ele.getLastUpdateTime()));  
+	            cacheView.setLastUpdateTime(sf.format(ele.getLastUpdateTime()));
+	            logger.info("命中次数: " + ele.getHitCount());  
+	            cacheView.setHitCount(Long.toString(ele.getHitCount()));
+	            logger.info("存活时间: " + ele.getTimeToLive() + "ms");  
+	            cacheView.setTimeToLive(ele.getTimeToLive() + "ms");
+	            logger.info("空闲时间: " + ele.getTimeToIdle() + "ms");  
+	            cacheView.setTimeToIdle(ele.getTimeToIdle() + "ms");
+	            cacheList.add(cacheView);
+	        } 
+	        logger.info("-----------------------"+cacheName+":缓存总统计数据---------------------------------");  
+	        long elementsInMemory1 = cache.getMemoryStoreSize();  
+	        logger.info("得到缓存对象占用内存的数量：" + elementsInMemory1);  
+	  
+	        long elementsInMemory2 = cache.getDiskStoreSize();  
+	        logger.info("得到缓存对对象占用磁盘的数量：" + elementsInMemory2);  
+	  
+	        //获取缓存统计对象  
+	        Statistics stat = cache.getStatistics();  
+	        long hits = stat.getCacheHits();  
+	        logger.info("得到缓存读取的命中次数：" + hits);  
+	  
+	        long memoryHits = stat.getInMemoryHits();  
+	        logger.info("得到内存中缓存读取的命中次数：" + memoryHits);  
+	  
+	        long diskHits = stat.getOnDiskHits();  
+	        logger.info("得到磁盘中缓存读取的命中次数：" + diskHits);  
+	  
+	        long cacheMisses = stat.getCacheMisses();  
+	        logger.info("得到缓存读取的丢失次数：" + cacheMisses);  
+	  
+	        long evictionCount = stat.getEvictionCount();  
+	        logger.info("得到缓存读取的已经被销毁的对象丢失次数：" + evictionCount);  
+	          
+	        logger.info("--------------------------------------------------------"); 
+	        
+	        setAttr("cacheView",cacheList);
+			render("cacheViewList.jsp");
+		}
 	}
 }

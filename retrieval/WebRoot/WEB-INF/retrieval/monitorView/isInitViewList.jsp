@@ -21,6 +21,7 @@
 	<ul class="nav nav-tabs">
 		<li><a href="${ctx_a}/monitorView/listTrigger">线程监控列表</a></li>
 		<li class="active"><a href="${ctx_a}/monitorView/listIsInit">状态监控列表</a></li>
+		<li><a href="${ctx_a}/monitorView/listCache">缓存监控列表</a></li>
 		<li><a href="${ctx_a}/monitorView/listDSTG">触发器列表</a></li>
 	</ul>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache updateCheck="false" name="ehcache">
 
-	<diskStore path="java.io.tmpdir/jeesite/ehcache" />
+	<diskStore path="java.io.tmpdir/retrieval/ehcache" />
 
 	<!-- DefaultCache setting.
 	1.maxElementsInMemory：缓存中允许创建的最大对象数 .

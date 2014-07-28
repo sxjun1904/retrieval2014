@@ -21,7 +21,6 @@ import com.sxjun.core.routes.RetrievalAdminRoutes;
 import com.sxjun.core.routes.RetrievalFrontRoutes;
 import com.sxjun.core.routes.SystemRoutes;
 import com.sxjun.retrieval.common.Global;
-import com.sxjun.retrieval.controller.init.InitIKWords;
 
 import frame.base.core.util.RSAUtil;
 
