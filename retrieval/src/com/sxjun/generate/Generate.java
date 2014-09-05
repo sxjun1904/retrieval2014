@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import com.google.common.collect.Maps;
-import com.sxjun.retrieval.common.DateUtils;
-import com.sxjun.retrieval.common.FileUtils;
-import com.sxjun.retrieval.common.FreeMarkers;
+import com.sxjun.common.utils.DateUtils;
+import com.sxjun.common.utils.FileUtils;
+import com.sxjun.common.utils.FreeMarkers;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

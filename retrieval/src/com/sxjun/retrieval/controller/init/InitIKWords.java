@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.sxjun.common.proxy.ServiceProxy;
+import com.sxjun.common.service.CommonService;
 import com.sxjun.core.interceptor.SessionInterceptor;
-import com.sxjun.retrieval.controller.proxy.ServiceProxy;
-import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.IKWords;
 
 import frame.retrieval.oth.ik.IKWordsUtil;

@@ -50,7 +50,11 @@ import org.eclipse.jetty.util.log.Log;
  			}
  			//add by sxjun 2014-6-4 start
  			Log.info("sxjun=>_clientId:"+_clientId+";sub.getContext().getClientId():"+sub.getContext().getClientId());
- 			if (_clientId != null && _destination.isTopic() &&(sub.getContext().getClientId()).startsWith(((String) _clientId))
+ 			if(_clientId != null && _destination.isTopic()&&(sub.getContext().getClientId()).startsWith(((String) _clientId)+"/")
+ 					&& _destination.getQualifiedName().endsWith(this.ptpSuffix)){
+ 				sub.add(node);
+	 			count++;
+ 			}else if (_clientId != null && _destination.isTopic() && _clientId.equals(sub.getContext().getClientId())
  					&& _destination.getQualifiedName().endsWith(this.ptpSuffix)) {
 				sub.add(node);
 	 			count++;

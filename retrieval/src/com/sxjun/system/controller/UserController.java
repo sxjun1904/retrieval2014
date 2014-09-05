@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.sxjun.retrieval.controller.BaseController;
+import com.sxjun.common.controller.BaseController;
 import com.sxjun.system.pojo.User;
 
 import frame.base.core.util.MD5Util;

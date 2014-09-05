@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
-import com.sxjun.retrieval.common.DictUtils;
-import com.sxjun.retrieval.common.Page;
-import com.sxjun.retrieval.common.SQLUtil;
-import com.sxjun.retrieval.controller.proxy.ServiceProxy;
-import com.sxjun.retrieval.controller.service.CommonService;
+import com.sxjun.common.controller.BaseController;
+import com.sxjun.common.proxy.ServiceProxy;
+import com.sxjun.common.service.CommonService;
+import com.sxjun.common.utils.DictUtils;
+import com.sxjun.common.utils.Page;
+import com.sxjun.common.utils.SQLUtil;
 import com.sxjun.retrieval.pojo.Database;
 
 import frame.base.core.util.JdbcUtil;

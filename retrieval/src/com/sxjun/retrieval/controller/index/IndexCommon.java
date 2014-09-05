@@ -7,8 +7,8 @@ import java.util.Map;
 import org.quartz.Job;
 
 import com.jfinal.kit.StrKit;
-import com.sxjun.retrieval.common.DictUtils;
-import com.sxjun.retrieval.common.SQLUtil;
+import com.sxjun.common.utils.DictUtils;
+import com.sxjun.common.utils.SQLUtil;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;

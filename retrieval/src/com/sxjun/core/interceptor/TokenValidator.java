@@ -8,7 +8,7 @@ public class TokenValidator extends Validator{
 
 	@Override
 	protected void validate(Controller c) {
-		validateToken("xxx", "msg", "token过期");
+		validateToken("tokenName", "msg", "token过期");
 	}
 
 	@Override

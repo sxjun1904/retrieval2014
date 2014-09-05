@@ -3,7 +3,7 @@ package com.sxjun.core.init;
 import javax.servlet.http.HttpServlet;
 
 import com.jfinal.kit.StrKit;
-import com.sxjun.retrieval.common.Global;
+import com.sxjun.common.utils.Global;
 
 import frame.base.core.util.ReflectUtil;
 

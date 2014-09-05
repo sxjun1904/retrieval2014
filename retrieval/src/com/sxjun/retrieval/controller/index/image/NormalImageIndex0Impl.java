@@ -13,11 +13,11 @@ import javax.sql.rowset.serial.SerialBlob;
 
 import org.apache.commons.dbutils.QueryRunner;
 
-import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.common.proxy.ServiceProxy;
+import com.sxjun.common.service.CommonService;
+import com.sxjun.common.utils.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.NormalImageIndexJob1;
-import com.sxjun.retrieval.controller.proxy.ServiceProxy;
-import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.DateTime;

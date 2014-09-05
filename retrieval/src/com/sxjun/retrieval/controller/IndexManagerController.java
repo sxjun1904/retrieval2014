@@ -8,11 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import com.jfinal.kit.StrKit;
-import com.sxjun.retrieval.common.DictUtils;
-import com.sxjun.retrieval.common.Page;
+import com.sxjun.common.controller.BaseController;
+import com.sxjun.common.proxy.ServiceProxy;
+import com.sxjun.common.service.CommonService;
+import com.sxjun.common.utils.DictUtils;
+import com.sxjun.common.utils.Page;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
-import com.sxjun.retrieval.controller.proxy.ServiceProxy;
-import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.IndexCategory;
 import com.sxjun.retrieval.pojo.IndexManager;
 import com.sxjun.retrieval.pojo.SimpleItem;

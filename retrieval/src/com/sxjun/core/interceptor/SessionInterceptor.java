@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.core.ActionInvocation;
 import com.jfinal.core.Controller;
-import com.sxjun.retrieval.common.Global;
-import com.sxjun.retrieval.controller.proxy.ServiceProxy;
-import com.sxjun.retrieval.controller.service.CommonService;
+import com.sxjun.common.proxy.ServiceProxy;
+import com.sxjun.common.service.CommonService;
+import com.sxjun.common.utils.Global;
 import com.sxjun.system.pojo.User;
 
 

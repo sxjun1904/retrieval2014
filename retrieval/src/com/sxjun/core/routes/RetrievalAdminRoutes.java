@@ -2,7 +2,7 @@ package com.sxjun.core.routes;
 
 
 import com.jfinal.config.Routes;
-import com.sxjun.retrieval.common.Global;
+import com.sxjun.common.utils.Global;
 import com.sxjun.retrieval.controller.DatabaseController;
 import com.sxjun.retrieval.controller.FiledMapperController;
 import com.sxjun.retrieval.controller.FiledSpecialMapperController;

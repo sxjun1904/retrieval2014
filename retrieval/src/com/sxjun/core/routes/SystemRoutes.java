@@ -1,7 +1,7 @@
 package com.sxjun.core.routes;
 
 import com.jfinal.config.Routes;
-import com.sxjun.retrieval.common.Global;
+import com.sxjun.common.utils.Global;
 import com.sxjun.retrieval.controller.RestController;
 import com.sxjun.system.controller.LoginController;
 import com.sxjun.system.controller.LogoutController;

@@ -1,6 +1,6 @@
 package com.sxjun.retrieval.pojo;
 
-import com.sxjun.retrieval.common.DictUtils;
+import com.sxjun.common.utils.DictUtils;
 import com.sxjun.system.pojo.BasePojo;
 
 public class InitField extends BasePojo{

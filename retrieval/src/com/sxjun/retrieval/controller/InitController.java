@@ -3,10 +3,10 @@ package com.sxjun.retrieval.controller;
 import java.util.UUID;
 
 import com.jfinal.core.Controller;
+import com.sxjun.common.proxy.ServiceProxy;
+import com.sxjun.common.service.CommonService;
 import com.sxjun.core.interceptor.SessionInterceptor;
 import com.sxjun.core.plugin.berkeley.BerkeleyKit;
-import com.sxjun.retrieval.controller.proxy.ServiceProxy;
-import com.sxjun.retrieval.controller.service.CommonService;
 import com.sxjun.retrieval.pojo.InitField;
 import com.sxjun.system.pojo.User;
 

@@ -31,9 +31,9 @@ public class TopicSender {
     // 发送次数
     public static final int SEND_NUM = 1;
     // tcp 地址
-    public static final String BROKER_URL = "failover:(tcp://192.168.200.117:61616)";
+    public static final String BROKER_URL = "failover://tcp://192.168.181.80:61616";
     // 目标，在ActiveMQ管理员控制台创建 http://localhost:8161/admin/queues.jsp
-    public static final String DESTINATION = "EpointMessagePush";
+    public static final String DESTINATION = "EpointMsgServerTopic";
     
     /**
      * <b>function:</b> 发送消息
@@ -45,14 +45,16 @@ public class TopicSender {
      */    
     public static void sendMessage(TopicSession session, TopicPublisher publisher) throws Exception {
 //        for (int i = 0; i < SEND_NUM; i++) {
-            String message = "{\"Users\":{\"Login\":{\"userid\":\"1062\",\"logintype\":\"2\"}}}";
+            String message = "{\"Users\":{\"Login\":{\"userid\":\"9988\",\"logintype\":\"2\"}}}";//上线
+//            String message = "{\"Users\":{\"Logout\":{\"userid\":\"9988\",\"logintype\":\"2\"}}}";//下线
+//            String message = "{\"Chat\":{\"SendMessage\":{\"msgid\":\"a36a0ad9-d1a0-4a09-a6e7-2aea787e41e6\",\"msgtype\":\"1\",\"content\":\"[Msg_Record]20140430161110_3-9b650daf30594d30b841849a73ddc437.mp3[/Msg_Record]\",\"sender_userid\":\"9988\",\"receiver_userid\":\"9987\",\"sendtime\":\"2014-04-30 16:11:14\"}}}";//下线
             
            /* MapMessage map = session.createMapMessage();
             map.setString("text", message);
             map.setLong("time", System.currentTimeMillis());
             System.out.println(map);*/
             TextMessage msg = session.createTextMessage();
-            msg.setStringProperty("clientId", "sxjun");
+            msg.setStringProperty("clientId", "EpointMsgServer");
             msg.setText(message);
             /*ObjectMessage tm = session.createObjectMessage();
 	        tm.setStringProperty("test", message);
@@ -67,7 +69,7 @@ public class TopicSender {
         TopicSession session = null;
         try {
             // 创建链接工厂
-            TopicConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, "failover://tcp://localhost:61616");
+            TopicConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
             // 通过工厂创建一个连接
             connection = factory.createTopicConnection();
             // 启动连接
@@ -79,7 +81,7 @@ public class TopicSender {
             // 创建消息发送者
             TopicPublisher publisher = session.createPublisher(topic);
             // 设置持久化模式
-            publisher.setDeliveryMode(DeliveryMode.PERSISTENT);
+            publisher.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
             sendMessage(session, publisher);
             // 提交会话
             session.commit();
@@ -112,7 +114,10 @@ public class TopicSender {
 	//             connection.close();
 	    			
 	    	}*/
+    	while(true){
         TopicSender.run();
+    	Thread.sleep(5000);
+    	}
     	/*TopicSender sm = new TopicSender();
         sm.setupQueueConnection("58.213.119.196", "jmsQueueba20a55a1e7947b7bb97a1b3f50df013");
         // sm.sendAMessage(args[0]);
@@ -208,7 +213,5 @@ public class TopicSender {
 //	    Connection connection = connectionFactory.createConnection();
 //	    return connection;
 //	}
-
-
 }
 

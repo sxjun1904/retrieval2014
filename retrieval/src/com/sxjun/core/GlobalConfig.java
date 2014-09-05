@@ -13,6 +13,7 @@ import com.jfinal.config.Routes;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.render.ViewType;
+import com.sxjun.common.utils.Global;
 import com.sxjun.core.init.InitClazz;
 import com.sxjun.core.interceptor.SessionInterceptor;
 import com.sxjun.core.plugin.berkeley.BerkeleyPlugin;
@@ -20,7 +21,6 @@ import com.sxjun.core.plugin.redis.RedisPlugin;
 import com.sxjun.core.routes.RetrievalAdminRoutes;
 import com.sxjun.core.routes.RetrievalFrontRoutes;
 import com.sxjun.core.routes.SystemRoutes;
-import com.sxjun.retrieval.common.Global;
 
 import frame.base.core.util.RSAUtil;
 
