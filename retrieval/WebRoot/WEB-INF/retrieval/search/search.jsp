@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <%@ include file="/WEB-INF/include/taglib.jsp"%>
 <html>
 <head>
@@ -7,7 +8,7 @@
 	<%@include file="/WEB-INF/include/head.jsp" %>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$("#field0").val("CONTENT");
+		//$("#field0").val("CONTENT");
 	});
 	function page(n,s){
 		$("#pageNo").val(n);
@@ -62,7 +63,9 @@
 					<div class="tcf">
 						<div style="font-size:medium;font-weight:normal"><a href="${retrievalPage.retrievalResultFields['PAGE_URL']}" target="_blank">${retrievalPage.title}</a></div>
 						<div>${retrievalPage.content}</div>
-						<div><font color="#008000">${retrievalPage.retrievalResultFields['PAGE_URL']} ${retrievalPage.retrievalResultFields['CREATETIME']}</font></div>
+						<div>
+							<font color="#008000">${retrievalPage.retrievalResultFields['PAGE_URL']} ${retrievalPage.retrievalResultFields['CREATETIME']}</font>
+						</div>
 					</div>
 				</td>
 			</tr>

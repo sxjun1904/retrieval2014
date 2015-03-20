@@ -3,6 +3,7 @@ package com.sxjun.retrieval.controller.job;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.StatefulJob;
 
 import com.sxjun.retrieval.controller.index.database.DatabaseIndexAllItem0Impl;
 import com.sxjun.retrieval.controller.index.image.NormalImageIndex0Impl;
@@ -13,7 +14,7 @@ import frame.retrieval.engine.facade.ICreateIndexAllItem;
 import frame.retrieval.engine.facade.NormalIndexOperatorFacade;
 import frame.retrieval.task.quartz.QuartzManager;
 
-public class DatabaseIndexJob0 implements Job {
+public class DatabaseIndexJob0 implements StatefulJob {
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
 		ICreateIndexAllItem iciai0 = null;

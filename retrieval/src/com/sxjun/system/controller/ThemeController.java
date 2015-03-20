@@ -3,7 +3,7 @@ package com.sxjun.system.controller;
 import org.apache.commons.lang.StringUtils;
 
 import com.jfinal.core.Controller;
-import com.sxjun.common.utils.CookieUtils;
+import com.sxjun.core.common.utils.CookieUtils;
 
 public class ThemeController extends Controller{
 	

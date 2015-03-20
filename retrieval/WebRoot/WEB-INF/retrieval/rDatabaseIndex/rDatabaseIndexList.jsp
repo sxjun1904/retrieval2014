@@ -29,14 +29,16 @@
 <body>
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="${ctx_a}/rDatabaseIndex/list">索引设置列表</a></li>
-		<li><a href="${ctx_a}/rDatabaseIndex/form">索引设置添加</a></li>
+		<li><a href="${ctx_a}/rDatabaseIndex/form">普通索引添加</a></li>
+		<li><a href="${ctx_a}/rDatabaseIndex/imageForm">图片索引添加</a></li>
 	</ul>
 	<button id="init" class="btn btn-primary">初始化索引</button>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>数据源</th><th>表名</th><th>主键字段</th><th>标题字段</th><th>摘要字段</th><th>是否去重</th><th>信息</th><th>启用状态</th><th>操作</th></tr></thead>
+		<thead><tr><th>分类</th><th>数据源</th><th>表名</th><th>主键字段</th><th>标题字段</th><th>摘要字段</th><th>是否去重</th><th>信息</th><th>启用状态</th><th>操作</th></tr></thead>
 		<tbody>
 		<c:forEach items="${rDatabaseIndex}" var="rDatabaseIndex">
 			<tr>
+			    <td>${rDatabaseIndex.indexCategory.indexInfoType}</td>
 				<td><a href="${ctx_a}/rDatabaseIndex/form?id=${rDatabaseIndex.id}">${rDatabaseIndex.database.databaseName}</a></td>
 				<td>${rDatabaseIndex.tableName}</td>
 				<td>${rDatabaseIndex.keyField}</td>
@@ -46,7 +48,7 @@
 				<td>${rDatabaseIndex.error}</td>
 				<td>${rDatabaseIndex.isOn}</td>
 				<td>
-    				<a href="${ctx_a}/rDatabaseIndex/form?id=${rDatabaseIndex.id}">修改</a>
+    				<a href="${ctx_a}/rDatabaseIndex/judgeForm?id=${rDatabaseIndex.id}&categoryid=${rDatabaseIndex.indexCategory.id}">修改</a>
 					<a href="${ctx_a}/rDatabaseIndex/delete/${rDatabaseIndex.id}" onclick="return confirmx('确认要删除该索引设置吗？', this.href)">删除</a>
 				</td>
 			</tr>

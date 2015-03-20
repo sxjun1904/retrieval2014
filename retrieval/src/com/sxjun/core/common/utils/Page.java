@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.sxjun.common.utils;
+package com.sxjun.core.common.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import org.apache.commons.lang3.StringUtils;
 public class Page<T> {
 	
 	private int pageNo = 1; // 当前页码
-	private int pageSize = Integer.valueOf(Global.pageSize); // 页面大小，设置为“-1”表示不进行分页（分页无效）
+	private int pageSize = 20;//Integer.valueOf(Global.pageSize); // 页面大小，设置为“-1”表示不进行分页（分页无效）
 	
 	private long count;// 总记录数，设置为“-1”表示不查询总数
 	
@@ -478,5 +478,7 @@ public class Page<T> {
 	public int getMaxResults(){
 		return getPageSize();
 	}
-	
+	public static void main(String[] args) {
+		System.out.println(new Page(1,1,1).toString());
+	}
 }

@@ -2,7 +2,7 @@ package com.sxjun.core.routes;
 
 
 import com.jfinal.config.Routes;
-import com.sxjun.common.utils.Global;
+import com.sxjun.core.common.utils.Global;
 import com.sxjun.retrieval.controller.InitController;
 import com.sxjun.retrieval.controller.SearchController;
 import com.sxjun.retrieval.controller.TokenController;

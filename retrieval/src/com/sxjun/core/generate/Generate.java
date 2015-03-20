@@ -2,7 +2,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.sxjun.generate;
+package com.sxjun.core.generate;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import com.google.common.collect.Maps;
-import com.sxjun.common.utils.DateUtils;
-import com.sxjun.common.utils.FileUtils;
-import com.sxjun.common.utils.FreeMarkers;
+import com.sxjun.core.common.utils.DateUtils;
+import com.sxjun.core.common.utils.FileUtils;
+import com.sxjun.core.common.utils.FreeMarkers;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

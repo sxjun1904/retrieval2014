@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.sxjun.common.utils;
+package com.sxjun.core.common.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,14 +77,14 @@ public class UserUtils{
 		//menu14.setHref("/database/list");
 		menu14.setSort(23);
 		
-		Menu menu4 = new Menu();
+		/*Menu menu4 = new Menu();
 		menu4.setId("5");
 		menu4.setIcon("user");
 		menu4.setIsShow("1");
 		menu4.setName("爬虫设置");
 		menu4.setParentid("2");
 		//menu4.setHref("/database/list");
-		menu4.setSort(23);
+		menu4.setSort(23);*/
 		
 		Menu menu10 = new Menu();
 		menu10.setId("11");
@@ -123,7 +123,7 @@ public class UserUtils{
 		menu3.setSort(2);
 		
 		Menu menu5 = new Menu();
-		menu5.setId("5");
+		menu5.setId("6");
 		menu5.setIcon("briefcase");
 		menu5.setIsShow("1");
 		menu5.setName("索引设置");
@@ -167,7 +167,7 @@ public class UserUtils{
 		menu12.setHref("/monitorView/listTrigger");
 		menu12.setSort(23);
 		
-		Menu menu6 = new Menu();
+		/*Menu menu6 = new Menu();
 		menu6.setId("7");
 		menu6.setIcon("th");
 		menu6.setIsShow("1");
@@ -183,7 +183,15 @@ public class UserUtils{
 		menu7.setName("字段处理");
 		menu7.setParentid("5");
 		menu7.setHref("/filedSpecialMapper/list");
-		menu7.setSort(25);
+		menu7.setSort(25);*/
+		Menu menu17 = new Menu();
+		menu17.setId("18");
+		menu17.setIcon("th");
+		menu17.setIsShow("1");
+		menu17.setName("爬虫设置");
+		menu17.setParentid("3");
+		menu17.setHref("/rCrawlerIndex/list");
+		menu17.setSort(24);
 		
 		Menu menu11 = new Menu();
 		menu11.setId("12");
@@ -200,15 +208,16 @@ public class UserUtils{
 		l.add(menu8);
 		l.add(menu9);
 		l.add(menu3);
+		//l.add(menu4);
 		l.add(menu14);
-		l.add(menu4);
 		l.add(menu5);
 		l.add(menu16);
 		l.add(menu15);
 		l.add(menu13);
 		l.add(menu12);
-		l.add(menu6);
-		l.add(menu7);
+//		l.add(menu6);
+//		l.add(menu7);
+		l.add(menu17);
 		l.add(menu0);
 		l.add(menu10);
 		l.add(menu11);

@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.quartz.Job;
 
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.utils.DictUtils;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.utils.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.index.IndexCommon;
 import com.sxjun.retrieval.controller.job.DatabaseIndexJob0;

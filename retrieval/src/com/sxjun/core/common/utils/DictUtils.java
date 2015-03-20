@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.sxjun.common.utils;
+package com.sxjun.core.common.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +100,7 @@ public class DictUtils {
 					m.put(IndexPathType.DB.getValue(),IndexPathType.DB.toString());
 					m.put(IndexPathType.FILE.getValue(),IndexPathType.FILE.toString());
 					m.put(IndexPathType.IMAGE.getValue(),IndexPathType.IMAGE.toString());
+					m.put(IndexPathType.CUSTOM.getValue(),IndexPathType.CUSTOM.toString());
 					break;
 				}
 				default:{

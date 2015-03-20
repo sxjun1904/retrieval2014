@@ -7,11 +7,12 @@ import java.util.Map;
 import org.quartz.Job;
 
 import com.jfinal.kit.StrKit;
-import com.sxjun.common.utils.DictUtils;
-import com.sxjun.common.utils.SQLUtil;
+import com.sxjun.core.common.utils.DictUtils;
+import com.sxjun.core.common.utils.SQLUtil;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.JustSchedule;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
+import com.sxjun.retrieval.pojo.RIndex;
 
 import frame.base.core.util.JdbcUtil;
 import frame.retrieval.engine.RetrievalType;
@@ -113,7 +114,7 @@ public class IndexCommon {
 	 * @param rdI
 	 * @param dij
 	 */
-	public void sechdule(RDatabaseIndex rdI,Job dij){
+	public void sechdule(RIndex rdI,Job dij){
 		List<JustSchedule>  scheduleList = rdI.getJustScheduleList();
 		for(JustSchedule js : scheduleList){
 			JustBaseSchedule jbs = new JustBaseSchedule();

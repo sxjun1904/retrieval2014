@@ -77,6 +77,7 @@ public class RetrievalPageQueryHelper {
 		retrievalPages.setRetrievalPageList(getResults(retrievalQuery));
 		try {
 			retrievalPages = Grouping.groupBy((Searcher)query.getSearcher(), queryItem.getQuery(), new QuerySort(StringClass.getString(RetrievalType.RDocItemSpecialName._IC),true).getSort(), StringClass.getString(RetrievalType.RDocItemSpecialName._IBT), retrievalPages);
+//			retrievalPages = Grouping.groupBy((Searcher)query.getSearcher(), queryItem.getQuery(), new QuerySort(StringClass.getString(RetrievalType.RDatabaseDefaultDocItemType.CREATETIME),true).getSort(), StringClass.getString(RetrievalType.RDocItemSpecialName._IBT), retrievalPages);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

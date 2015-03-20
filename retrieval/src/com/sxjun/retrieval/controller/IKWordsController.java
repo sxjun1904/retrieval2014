@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.UUID;
 import org.apache.commons.lang.StringUtils;
 import com.jfinal.core.Controller;
-import com.sxjun.common.controller.BaseController;
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
+import com.sxjun.core.common.controller.BaseController;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
 import com.sxjun.retrieval.pojo.IKWords;
 
 import frame.retrieval.oth.ik.IKWordsUtil;

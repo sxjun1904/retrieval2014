@@ -5,8 +5,8 @@ package com.sxjun.retrieval.controller;
 
 import java.util.Map;
 
-import com.sxjun.common.controller.BaseController;
-import com.sxjun.common.utils.DictUtils;
+import com.sxjun.core.common.controller.BaseController;
+import com.sxjun.core.common.utils.DictUtils;
 import com.sxjun.retrieval.pojo.IndexCategory;
 
 /**

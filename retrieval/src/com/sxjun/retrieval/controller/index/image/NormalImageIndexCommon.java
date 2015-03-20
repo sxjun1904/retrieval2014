@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.sxjun.common.utils.DictUtils;
+import com.sxjun.core.common.utils.DictUtils;
 import com.sxjun.retrieval.controller.index.IndexCommon;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.FiledMapper;

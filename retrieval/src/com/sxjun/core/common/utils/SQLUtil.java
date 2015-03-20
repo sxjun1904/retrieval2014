@@ -1,4 +1,4 @@
-package com.sxjun.common.utils;
+package com.sxjun.core.common.utils;
 
 import java.sql.Connection;
 
@@ -9,7 +9,11 @@ import frame.retrieval.engine.RetrievalType.RDatabaseType;
 
 public class SQLUtil {
 	public  static final String INDEX_TRIGGER_RECORD= "INDEX_TRIGGER_RECORD";
-	
+	/**
+	 * 获取测试sql
+	 * @param databaseType
+	 * @return
+	 */
 	public static String getTestSql(RDatabaseType databaseType) {
 		String sql = null;
 		if(databaseType!=null){
@@ -131,6 +135,13 @@ public class SQLUtil {
 		return sql;
 	}
 	
+	/**
+	 * @param databaseType 数据库类型：Oracle,SqlServer,MySql
+	 * @param tablename 表名
+	 * @param primaryKey：主键
+	 * @param type C:插入，U：更新，D:删除
+	 * @return
+	 */
 	public static String getCreateTriggerSql(RDatabaseType databaseType,String tablename,String primaryKey,String type) {
 		String sql = null;
 		if(databaseType!=null){
@@ -273,12 +284,16 @@ public class SQLUtil {
 		return sql;
 	}
 	
-	
+	/**
+	 * 创建触发器表表
+	 * @param databaseType
+	 * @return
+	 */
 	public static String getIndexTriggerSql(RDatabaseType databaseType){
 		String sql = "";
 		if(databaseType!=null){
 			if(RDatabaseType.MYSQL.equals(databaseType)){
-				sql+="CREATE TABLE `index_trigger_record` ("
+				sql+="CREATE TABLE `"+INDEX_TRIGGER_RECORD+"` ("
 				  +"`ROWGUID` varchar(50) NOT NULL,"
 				  +"`TABLENAME` varchar(50) DEFAULT NULL,"
 				  +"`COLUMNNAME` varchar(50) DEFAULT NULL,"
@@ -291,7 +306,7 @@ public class SQLUtil {
 				  +") ENGINE=MyISAM DEFAULT CHARSET=utf8;";
 			}
 			else if(RDatabaseType.ORACLE.equals(databaseType)){
-				sql+="create table INDEX_TRIGGER_RECORD"
+				sql+="create table "+INDEX_TRIGGER_RECORD
 				 +"("
 				 +" ROWGUID         NVARCHAR2(50) not null,"
 				 +" TABLENAME       NVARCHAR2(50),"
@@ -304,7 +319,7 @@ public class SQLUtil {
 				 +" )";
 			}
 			else if(RDatabaseType.SQLSERVER.equals(databaseType)){
-				sql+="CREATE TABLE [dbo].[INDEX_TRIGGER_RECORD] ("
+				sql+="CREATE TABLE [dbo].["+INDEX_TRIGGER_RECORD+"] ("
 						+"[ROWGUID] nvarchar(50) NOT NULL ,"
 						+"[TABLENAME] nvarchar(50) NULL ,"
 						+"[COLUMNNAME] nvarchar(50) NULL ,"
@@ -325,5 +340,22 @@ public class SQLUtil {
 		String url = JdbcUtil.getConnectionURL(type, db.getIp(), db.getPort(), db.getDatabaseName());
 		Connection conn =JdbcUtil.getConnection(type, url, db.getUser(), db.getPassword());
 		return conn;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("--ORACLE - OU_USER_TRIGGER_RECORD表触发器:");
+		System.out.println(getIndexTriggerSql(RDatabaseType.ORACLE));
+		System.out.println("--ORACLE - frame_user表触发器:");
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_user","userguid","C"));
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_user","userguid","U"));
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_user","userguid","D"));
+		System.out.println("--ORACLE - frame_ou表触发器:");
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_ou","ouguid","C"));
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_ou","ouguid","U"));
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_ou","ouguid","D"));
+		System.out.println("--ORACLE - frame_user_secondou表触发器:");
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_user_secondou","row_id","C"));
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_user_secondou","row_id","U"));
+		System.out.println(getCreateTriggerSql(RDatabaseType.ORACLE,"frame_user_secondou","row_id","D"));
 	}
 }

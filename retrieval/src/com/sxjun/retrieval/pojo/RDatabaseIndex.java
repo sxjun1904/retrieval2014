@@ -12,7 +12,7 @@ import com.sxjun.system.pojo.BasePojo;
  * @author sxjun
  * @version 2014-03-11
  */
-public class RDatabaseIndex extends BasePojo{
+public class RDatabaseIndex extends RIndex{
 	private static final long serialVersionUID = -8540192254583468758L;
 	private Database database;//数据源
 	private String database_id;//数据源id
@@ -33,7 +33,6 @@ public class RDatabaseIndex extends BasePojo{
 	private String condtion;//查询条件
 	private List<FiledMapper> filedMapperLsit;//字段映射
 	private List<FiledSpecialMapper> filedSpecialMapperLsit;//特殊字段映射
-	private List<JustSchedule> justScheduleList;//任务调度
 	private String style ;//风格  0:rest 1:复合
 	private String indexTriggerRecord;//触发器表
 	private String isInit = "0";//是否初始化 0：否，1：是,2：零时
@@ -155,17 +154,11 @@ public class RDatabaseIndex extends BasePojo{
 	public void setIsInit(String isInit) {
 		this.isInit = isInit;
 	}
-	public List<JustSchedule> getJustScheduleList() {
-		return justScheduleList;
-	}
 	public String getBinaryField() {
 		return binaryField;
 	}
 	public void setBinaryField(String binaryField) {
 		this.binaryField = binaryField;
-	}
-	public void setJustScheduleList(List<JustSchedule> justScheduleList) {
-		this.justScheduleList = justScheduleList;
 	}
 	public String getIndexPath_id() {
 		return indexPath_id;

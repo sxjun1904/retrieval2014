@@ -2,9 +2,9 @@ package com.sxjun.retrieval.controller.oth.pinyin;
 
 import java.util.List;
 
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.service.impl.RedisCommonService;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.service.impl.RedisCommonService;
 import com.sxjun.retrieval.constant.RKeyPrixConstant;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 

@@ -24,7 +24,7 @@
 			background-position:-857px -35px
 		}
 		a:link {
-		color:'#0000d5';
+		//color:'#0000d5';
 		text-decoration:none;
 		front-style:normal;
 		font-family:arial;
@@ -248,7 +248,7 @@
 								<div>
 									<div style="font-size:medium;font-weight:normal"><a href="${retrievalPage.retrievalResultFields['PAGE_URL']}" target="_blank">${retrievalPage.title}</a></div>
 									<div class="cont">${retrievalPage.content}</div>
-									<div><span style="color:#008000;font-size:11pt !important">${retrievalPage.retrievalResultFields['_IBT']} ${retrievalPage.retrievalResultFields['PAGE_URL']} ${retrievalPage.retrievalResultFields['CREATETIME']}</span></div>
+									<div><span style="color:#008000;font-size:11pt !important">${retrievalPage.retrievalResultFields['_IBT']} ${fn:substring(retrievalPage.retrievalResultFields['PAGE_URL'],0,45)}... ${fn:substring(retrievalPage.retrievalResultFields['CREATETIME'],0,14)}</span></div>
 								</div>
 							</div>
 						</td>

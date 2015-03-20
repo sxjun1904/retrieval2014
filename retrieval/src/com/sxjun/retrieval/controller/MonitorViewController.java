@@ -21,14 +21,15 @@ import org.quartz.Trigger;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.ehcache.CacheKit;
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.utils.DictUtils;
-import com.sxjun.common.utils.SQLUtil;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.utils.DictUtils;
+import com.sxjun.core.common.utils.SQLUtil;
 import com.sxjun.retrieval.pojo.CacheView;
 import com.sxjun.retrieval.pojo.Database;
 import com.sxjun.retrieval.pojo.DstgView;
 import com.sxjun.retrieval.pojo.IsInitView;
+import com.sxjun.retrieval.pojo.RCrawlerIndex;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
 import com.sxjun.retrieval.pojo.TriggerView;
 
@@ -45,6 +46,7 @@ import frame.retrieval.task.quartz.JustBaseSchedulerManage;
 public class MonitorViewController extends Controller {
 	private static final Logger logger = Logger.getLogger(MonitorViewController.class);
 	private CommonService<RDatabaseIndex> commonService = new ServiceProxy<RDatabaseIndex>().getproxy();
+	private CommonService<RCrawlerIndex> crawlerService = new ServiceProxy<RCrawlerIndex>().getproxy();
 	CommonService<Database> dsCommonService = new ServiceProxy<Database>().getproxy();
 	/**
 	 * 展示触发器
@@ -58,32 +60,55 @@ public class MonitorViewController extends Controller {
 	 * 展示状态
 	 */
 	public void listIsInit() {
-		List<RDatabaseIndex> list = commonService.getObjs(RDatabaseIndex.class);
+		List<RDatabaseIndex> commonlist = commonService.getObjs(RDatabaseIndex.class);
 		List<IsInitView> isInitViewList = new ArrayList<IsInitView>();
-		for(RDatabaseIndex rdI:list){
+		for(RDatabaseIndex rdI:commonlist){
 			IsInitView isInitView = new IsInitView();
-			isInitView.setDatabaseName(rdI.getDatabase().getDatabaseName());
+			isInitView.setDatabaseName("数据库:"+rdI.getDatabase().getDatabaseName());
 			isInitView.setIndexInfoType(rdI.getIndexCategory().getIndexInfoType());
 			isInitView.setIsInit(rdI.getIsInit());
 			isInitView.setMediacyTime(rdI.getMediacyTime());
 			isInitView.setTableName(rdI.getTableName());
-			String info = "正常";
-			if(StrKit.notBlank(rdI.getMediacyTime())){
-				Date date = new DateTime().parseDate(rdI.getMediacyTime(), null);
-				long diff = new Date().getTime() - date.getTime();
-				long minutes = diff / (1000 * 60);
-				if(10<minutes&&minutes<20)
-					info = "基本正常,继续观察";
-				else if(minutes<30&&minutes>=20)
-					info = "可能存在异常,请检查";
-				else if(minutes>=30)
-					info = "存在异常,请检查";
-			}
+			String info = getInfo(rdI.getMediacyTime());
+			isInitView.setInfo(info);
+			isInitViewList.add(isInitView);
+		}
+		List<RCrawlerIndex> crawlerlist = crawlerService.getObjs(RCrawlerIndex.class);
+		
+		for(RCrawlerIndex rdI:crawlerlist){
+			IsInitView isInitView = new IsInitView();
+			isInitView.setDatabaseName("名称:"+rdI.getName());
+			isInitView.setIndexInfoType(rdI.getIndexCategory().getIndexInfoType());
+			isInitView.setIsInit(rdI.getIsInit());
+			isInitView.setMediacyTime(rdI.getMediacyTime());
+			isInitView.setTableName("————");
+			String info = getInfo(rdI.getMediacyTime());
 			isInitView.setInfo(info);
 			isInitViewList.add(isInitView);
 		}
 		setAttr("isInitView",isInitViewList);
 		render("isInitViewList.jsp");
+	}
+	
+	/**
+	 * 获取状态
+	 * @param mediacyTime
+	 * @return
+	 */
+	public String getInfo(String mediacyTime){
+		String info = "正常";
+		if(StrKit.notBlank(mediacyTime)){
+			Date date = new DateTime().parseDate(mediacyTime, null);
+			long diff = new Date().getTime() - date.getTime();
+			long minutes = diff / (1000 * 60);
+			if(10<minutes&&minutes<20)
+				info = "基本正常,继续观察";
+			else if(minutes<30&&minutes>=20)
+				info = "可能存在异常,请检查";
+			else if(minutes>=30)
+				info = "存在异常,请检查";
+		}
+		return info;
 	}
 	/**
 	 * 展示触发器

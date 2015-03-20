@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.sxjun.common.utils;
+package com.sxjun.core.common.utils;
 
 import java.io.IOException;
 import java.io.StringReader;

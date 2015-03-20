@@ -13,11 +13,11 @@ import java.util.UUID;
 import org.quartz.Job;
 
 import com.jfinal.kit.StrKit;
-import com.sxjun.common.controller.BaseController;
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.utils.DictUtils;
-import com.sxjun.common.utils.SQLUtil;
+import com.sxjun.core.common.controller.BaseController;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.utils.DictUtils;
+import com.sxjun.core.common.utils.SQLUtil;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DatabaseIndexJob0;
 import com.sxjun.retrieval.pojo.Database;
@@ -50,9 +50,23 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		list(RDatabaseIndex.class);
 	}
 	
+	public void judgeForm(){
+		String categoryid = getPara("categoryid");
+		IndexCategory ic = idCommonService.get(IndexCategory.class, categoryid);
+		if(!IndexPathType.IMAGE.getValue().equals(ic.getIndexPathType()))
+			form();
+		else
+			imageForm();
+	}
+	
 	public void form(){
 		setAttr("initFields", findFields());
 		form(RDatabaseIndex.class);
+	}
+	
+	public void imageForm(){
+		setAttr("initFields", findFields());
+		form(RDatabaseIndex.class,StrKit.firstCharToLowerCase(RDatabaseIndex.class.getSimpleName()),"rImageIndex",null);
 	}
 	
 	public void init(){
@@ -305,17 +319,45 @@ public class RDatabaseIndexController extends BaseController<RDatabaseIndex> {
 		renderJson("dbs",l);
 	}
 	
+	public Map<String,String> addToMap(IndexCategory ic){
+		Map<String,String> m = new HashMap<String,String>();
+		m.put("index_name",ic.getId()+";"+ic.getIndexInfoType());
+		return m;
+	}
+	
 	/**
 	 * 获取索引路径
 	 */
 	public void indexPathes(){
+		Integer t = getParaToInt("t")!=null?getParaToInt("t"):0;
 		List<IndexCategory> ics = idCommonService.getObjs(IndexCategory.class);
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
-		for(IndexCategory ic : ics){
-			Map<String,String> m = new HashMap<String,String>();
- 			m.put("index_name",ic.getId()+";"+ic.getIndexInfoType());
-			l.add(m);
+		
+		switch (t) {
+			case 0:{
+				for(IndexCategory ic : ics){
+					if(ic.getIndexPathType().equals("0"))
+						l.add(addToMap(ic));
+				}
+				break;
+			}
+			case 1:{
+				for(IndexCategory ic : ics){
+					if(ic.getIndexPathType().equals("1"))
+						l.add(addToMap(ic));
+				}
+				break;
+			}
+			case 2:{
+				for(IndexCategory ic : ics){
+					if(ic.getIndexPathType().equals("2"))
+						l.add(addToMap(ic));
+				}
+				break;
+			}
 		}
+		
+		
 		renderJson("indexPathes",l);
 	}
 	

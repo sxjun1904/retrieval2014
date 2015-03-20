@@ -1,9 +1,9 @@
-package com.sxjun.common.proxy;
+package com.sxjun.core.common.proxy;
 
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.service.impl.BerkeleyCommonService;
-import com.sxjun.common.service.impl.RedisCommonService;
-import com.sxjun.common.utils.Global;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.service.impl.BerkeleyCommonService;
+import com.sxjun.core.common.service.impl.RedisCommonService;
+import com.sxjun.core.common.utils.Global;
 
 public class ServiceProxy<T> {
 	public static final String BERKELEY_PROXY = "0";

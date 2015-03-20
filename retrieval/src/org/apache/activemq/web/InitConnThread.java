@@ -46,7 +46,7 @@ public class InitConnThread  implements Runnable {
 		try {
 			while(true){
 				try {
-					LOG.info("开始循环=>");
+					LOG.debug("==>开始循环=>");
 					List<String> midList = new LinkedList<String>();
 					List<String> logoutList = new LinkedList<String>();
 					
@@ -56,11 +56,13 @@ public class InitConnThread  implements Runnable {
 						ConnectionViewMBean con = broker.getConnection(conName);
 						
 						if(con!=null){
-							LOG.info("[connectorName:"+connectorName+";conName:"+conName+";ClientId:"+con.getClientId()+";UserName:"+con.getUserName()+"]");	
-							midList.add(con.getClientId());//在线的clientId
+							if(isNumeric(con.getClientId())){
+								LOG.info("==>[connectorName:"+connectorName+";conName:"+conName+";ClientId:"+con.getClientId()+";UserName:"+con.getUserName()+"]");	
+								midList.add(con.getClientId());//在线的clientId
+							}
 						}
 						else
-							LOG.info("连接为空,conName:"+conName);
+							LOG.info("==>连接为空,conName:"+conName);
 					}
 					logoutList.addAll(loginList);
 					logoutList.removeAll(midList);//得到不在离线的用户
@@ -68,11 +70,9 @@ public class InitConnThread  implements Runnable {
 					//doing something start for logout users
 					if(logoutList!=null && logoutList.size()>0){
 						for(String logout : logoutList){
-							if(isNumeric(logout)){
-								LOG.info("检测到即时通讯下线的用户ID:"+logout);
-								String json = logout(logout);
-								send(json);
-							}
+							LOG.info("==>检测到即时通讯下线的用户ID:"+logout);
+							String json = logout(logout);
+							send(json);
 						}
 						LOG.debug("==>logout user num :"+logoutList.size());
 					}
@@ -123,6 +123,7 @@ public class InitConnThread  implements Runnable {
 		 TopicConnection connection = null;
 	        TopicSession session = null;
 	        try {
+	        	LOG.info("==>send message");
 	            // 创建链接工厂
 	            TopicConnectionFactory factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_USER, ActiveMQConnection.DEFAULT_PASSWORD, BROKER_URL);
 	            // 通过工厂创建一个连接
@@ -142,7 +143,8 @@ public class InitConnThread  implements Runnable {
 	            session.commit();
 	            
 	        } catch (Exception e) {
-	            throw e;
+	        	e.printStackTrace();
+	            //throw e;
 	        } finally {
 	            // 关闭释放资源
 	            if (session != null) {

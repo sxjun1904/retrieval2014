@@ -90,7 +90,11 @@ public class DefaultConstant {
 		/**
 		 * 图片
 		 */
-		IMAGE("2");
+		IMAGE("2"),
+		/**
+		 * 自定义
+		 */
+		CUSTOM("3");
 		private final String value;
 		IndexPathType(String value) {
 			this.value = value;

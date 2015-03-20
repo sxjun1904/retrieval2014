@@ -5,9 +5,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.utils.DictUtils;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.utils.DictUtils;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.job.DatabaseIndexJob1;
 import com.sxjun.retrieval.pojo.RDatabaseIndex;
@@ -26,7 +26,6 @@ public class DatabaseIndexAllItem0Impl extends DatabaseIndexAllItemCommon implem
 	
 	public DatabaseIndexAllItem0Impl(){
 		rDatabaseIndexList = commonService.getObjs(RDatabaseIndex.class);
-		
 	}
 	
 	public DatabaseIndexAllItem0Impl(RDatabaseIndex rDatabaseIndex){

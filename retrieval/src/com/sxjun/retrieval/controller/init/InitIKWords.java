@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
 import com.sxjun.core.interceptor.SessionInterceptor;
 import com.sxjun.retrieval.pojo.IKWords;
 

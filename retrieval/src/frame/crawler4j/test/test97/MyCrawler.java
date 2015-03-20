@@ -1,6 +1,10 @@
 package frame.crawler4j.test.test97;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import org.apache.http.Header;
@@ -26,7 +30,8 @@ public class MyCrawler extends WebCrawler {
     public boolean shouldVisit(WebURL url) {
             String href = url.getURL().toLowerCase();
             //return !FILTERS.matcher(href).matches() && href.startsWith("http://www.ics.uci.edu/");
-            return !FILTERS.matcher(href).matches() && href.startsWith("http://www.huangpuqu.sh.cn/");
+            //return !FILTERS.matcher(href).matches() && href.startsWith("http://www.jszj.com.cn/zaojia");
+            return !FILTERS.matcher(href).matches();
     }
 
     /**
@@ -58,7 +63,7 @@ public class MyCrawler extends WebCrawler {
                     List<WebURL> links = htmlParseData.getOutgoingUrls();
 
                     System.out.println("Text length: " + text.length());
-                    //System.out.println("Text: " + text);
+                    //System.out.println("Text: " + text.replaceAll("\n", "").replaceAll("\t", "").replaceAll(" ", ""));
                     System.out.println("Html length: " + html.length());
                     //System.out.println("Html: " + html);
                     System.out.println("Number of outgoing links: " + links.size());
@@ -68,6 +73,18 @@ public class MyCrawler extends WebCrawler {
     			System.out.println("Response headers:");
     			for (Header header : responseHeaders) {
     				System.out.println("\t" + header.getName() + ": " + header.getValue());
+    				if("Date".equals(header.getName())){
+    					try {
+							String dateString = header.getValue();
+							SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'",Locale.US);
+							Date date = sdf.parse(dateString);
+							sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+							String numDateStr = sdf.format(date);
+							System.out.println("Date Num:"+numDateStr);
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
+    				}
     			}
     		}
             System.out.println("==========================================================");

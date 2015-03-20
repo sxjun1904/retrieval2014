@@ -1,4 +1,4 @@
-package com.sxjun.common.service;
+package com.sxjun.core.common.service;
 
 import java.util.List;
 

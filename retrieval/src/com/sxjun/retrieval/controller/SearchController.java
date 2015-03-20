@@ -13,11 +13,11 @@ import org.apache.lucene.search.BooleanClause;
 
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
-import com.sxjun.common.utils.DictUtils;
-import com.sxjun.common.utils.Global;
-import com.sxjun.common.utils.Page;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
+import com.sxjun.core.common.utils.DictUtils;
+import com.sxjun.core.common.utils.Global;
+import com.sxjun.core.common.utils.Page;
 import com.sxjun.retrieval.constant.DefaultConstant.IndexPathType;
 import com.sxjun.retrieval.controller.oth.pinyin.PinyinHanziUtil;
 import com.sxjun.retrieval.pojo.IndexCategory;
@@ -60,7 +60,7 @@ private CommonService<KeyWordFilter> keyWordFilterService = new ServiceProxy<Key
 	public String replaceWords(String text){
 		logger.info("搜素关键字："+text);
 		KeyWordFilter kf = keyWordFilterService.get(KeyWordFilter.class,KeyWordFilter.class.getSimpleName());
-		if(StrKit.notBlank(kf.getKeywords())){
+		if(kf!=null&&StrKit.notBlank(kf.getKeywords())){
 			String[] kfs = kf.getKeywords().split("|");
 			for(String _kf : kfs){
 				text.replace(_kf, "");

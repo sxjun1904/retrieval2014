@@ -50,9 +50,9 @@
 			if($("#keyword").val()!=''){
 	    		var type=$("#c").children('option:selected').val();
 	    		if(type==0)
-	    			location.href ="/f/search/page/"+$("#keyword").val();
+	    			location.href ="/front/search/page/"+$("#keyword").val();
 	    		else if(type==1)
-	    			location.href ="/f/search/image/"+$("#keyword").val();
+	    			location.href ="/front/search/image/"+$("#keyword").val();
 			}
 		}
 	});

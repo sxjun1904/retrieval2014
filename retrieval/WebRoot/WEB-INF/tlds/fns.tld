@@ -14,28 +14,28 @@
   <function>
     <description>获取管理路径</description>
     <name>getAdminPath</name>
-    <function-class>com.sxjun.common.utils.Global</function-class>
+    <function-class>com.sxjun.core.common.utils.Global</function-class>
     <function-signature>java.lang.String getAdminPath()</function-signature>
     <example>${fns:getAdminPath()}</example>
   </function>
   <function>
     <description>获取网站路径</description>
     <name>getFrontPath</name>
-    <function-class>com.sxjun.common.utils.Global</function-class>
+    <function-class>com.sxjun.core.common.utils.Global</function-class>
     <function-signature>java.lang.String getFrontPath()</function-signature>
     <example>${fns:getFrontPath()}</example>
   </function>
   <function>
     <description>获取网站URL后缀</description>
     <name>getUrlSuffix</name>
-    <function-class>com.sxjun.common.utils.Global</function-class>
+    <function-class>com.sxjun.core.common.utils.Global</function-class>
     <function-signature>java.lang.String getUrlSuffix()</function-signature>
     <example>${fns:getUrlSuffix()}</example>
   </function>
   <function>
     <description>获取配置</description>
     <name>getConfig</name>
-    <function-class>com.sxjun.common.utils.Global</function-class>
+    <function-class>com.sxjun.core.common.utils.Global</function-class>
     <function-signature>java.lang.String getConfig(java.lang.String)</function-signature>
     <example>${fns:getConfig(key)}</example>
   </function>
@@ -44,7 +44,7 @@
   <function>
     <description>获取字典标签</description>
     <name>getDictLabel</name>
-    <function-class>com.sxjun.common.utils.DictUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictLabel(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictLabel(value, type, defaultValue)}</example>  
   </function>
@@ -52,7 +52,7 @@
   <function>
     <description>获取字典值</description>
     <name>getDictValue</name>
-    <function-class>com.sxjun.common.utils.DictUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictValue(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictValue(label, type, defaultValue)}</example>  
   </function>
@@ -60,7 +60,7 @@
   <function>
     <description>根据主键值获取字典值</description>
     <name>getDictMapByKey</name>
-    <function-class>com.sxjun.common.utils.DictUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictMapByKey(java.lang.Integer, java.lang.String)</function-signature>
     <example>${fns:getDictMapByKey(type,key)}</example>  
   </function>
@@ -68,7 +68,7 @@
   <function>
     <description>根据主键值获取字典值</description>
     <name>getDictMap</name>
-    <function-class>com.sxjun.common.utils.DictUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictMap(java.lang.Integer)</function-signature>
     <example>${fns:getDictMap(type)}</example>  
   </function>
@@ -76,7 +76,7 @@
   <function>
     <description>获取字典对象列表</description>
     <name>getDictList</name>
-    <function-class>com.sxjun.common.utils.DictUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DictUtils</function-class>
     <function-signature>java.util.List getDictList(java.lang.String)</function-signature>
     <example>${fns:getDictList(type)}</example>  
   </function>
@@ -85,28 +85,28 @@
   <function>
     <description>URL编码</description>
     <name>urlEncode</name>
-    <function-class>com.sxjun.common.utils.Encodes</function-class>
+    <function-class>com.sxjun.core.common.utils.Encodes</function-class>
     <function-signature>java.lang.String urlEncode(java.lang.String)</function-signature>
     <example>${fns:urlEncode(part)}</example>  
   </function>
   <function>
     <description>URL解码</description>
     <name>urlDecode</name>
-    <function-class>com.sxjun.common.utils.Encodes</function-class>
+    <function-class>com.sxjun.core.common.utils.Encodes</function-class>
     <function-signature>java.lang.String urlDecode(java.lang.String)</function-signature>
     <example>${fns:urlDecode(part)}</example>  
   </function>
   <function>
     <description>HTML编码</description>
     <name>escapeHtml</name>
-    <function-class>com.sxjun.common.utils.Encodes</function-class>
+    <function-class>com.sxjun.core.common.utils.Encodes</function-class>
     <function-signature>java.lang.String escapeHtml(java.lang.String)</function-signature>
     <example>${fns:escapeHtml(html)}</example>  
   </function>
   <function>
     <description>HTML解码</description>
     <name>unescapeHtml</name>
-    <function-class>com.sxjun.common.utils.Encodes</function-class>
+    <function-class>com.sxjun.core.common.utils.Encodes</function-class>
     <function-signature>java.lang.String unescapeHtml(java.lang.String)</function-signature>
     <example>${fns:unescapeHtml(html)}</example>  
   </function>
@@ -152,14 +152,14 @@
   <function>
     <description>获取当前日期</description>
     <name>getDate</name>
-    <function-class>com.sxjun.common.utils.DateUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DateUtils</function-class>
     <function-signature>java.lang.String getDate(java.lang.String)</function-signature>
     <example>${fns:getDate(pattern)}</example>  
   </function>
   <function>
     <description>获取过去的天数</description>
     <name>pastDays</name>
-    <function-class>com.sxjun.common.utils.DateUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.DateUtils</function-class>
     <function-signature>long pastDays(java.util.Date)</function-signature>
     <example>${fns:pastDays(date)}</example>  
   </function>
@@ -169,7 +169,7 @@
   <function>
     <description>获取当前用户的菜单对象列表</description>
     <name>getMenuList</name>
-    <function-class>com.sxjun.common.utils.UserUtils</function-class>
+    <function-class>com.sxjun.core.common.utils.UserUtils</function-class>
     <function-signature>java.util.List getMenuList()</function-signature>
     <example>${fns:getMenuList()}</example>  
   </function>

@@ -97,6 +97,9 @@ public class DefaultRetrievalProperties {
 	private static final String DEFAULT_TEMP_IMAGE_FOLDER = "DEFAULT_TEMP_IMAGE_FOLDER";
 	private static String default_temp_image_folder = PathUtil.getDefaultTempImgPath();
 	
+	private static final String DEFAULT_TEMP_CUSTOM_FOLDER = "DEFAULT_TEMP_CUSTOM_FOLDER";
+	private static String default_temp_custom_folder = PathUtil.getDefaultTempCustomPath();
+	
 	public DefaultRetrievalProperties(){
 		
 		ReadProperties readProperties=new ReadProperties();
@@ -175,6 +178,11 @@ public class DefaultRetrievalProperties {
 			taskparam = StringClass.getString(readProperties.readValue(DEFAULT_TEMP_IMAGE_FOLDER));
 			if(!taskparam.equals("")){
 				default_temp_image_folder=taskparam;
+			}
+			
+			taskparam = StringClass.getString(readProperties.readValue(DEFAULT_TEMP_CUSTOM_FOLDER));
+			if(!taskparam.equals("")){
+				default_temp_custom_folder=taskparam;
 			}
 			readProperties.close();
 		}
@@ -294,6 +302,10 @@ public class DefaultRetrievalProperties {
 
 	public static String getDefault_temp_image_folder() {
 		return default_temp_image_folder;
+	}
+	
+	public static String getDefault_temp_custom_folder() {
+		return default_temp_custom_folder;
 	}
 
 	public static void setDefault_temp_image_folder(String default_temp_image_folder) {

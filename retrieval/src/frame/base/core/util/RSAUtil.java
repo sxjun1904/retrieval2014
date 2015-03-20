@@ -19,6 +19,8 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.logging.Log;
 
+import com.jfinal.kit.PathKit;
+
 import sun.security.rsa.RSAPrivateCrtKeyImpl;
 import frame.retrieval.engine.common.RetrievalUtil;
 
@@ -30,10 +32,10 @@ public class RSAUtil {
 	private static final String key = "private.key";
 	
 	public static void main(String[] args) {
-		System.out.println(PathUtil.getPath());
-    	String deadline = "2016-5-27 19:28:00";
-    	String pathlic = PathUtil.getPath()+lic;
-    	String pathkey = PathUtil.getPath()+key;
+		System.out.println(PathKit.getWebRootPath());
+    	String deadline = "2015-3-29 19:28:00";
+    	String pathlic = PathKit.getWebRootPath()+File.separator+lic;
+    	String pathkey = PathKit.getWebRootPath()+File.separator+key;
     	String productname = "全文检索";
 		generateLicence(productname,deadline,pathlic,pathkey);
         checkLicence(pathlic,pathkey);
@@ -41,14 +43,14 @@ public class RSAUtil {
 	
 	
 	public static void generateLicence(String productname,String deadline){
-		String pathlic = PathUtil.getPath()+lic;
-    	String pathkey = PathUtil.getPath()+key;
+		String pathlic = PathKit.getWebRootPath()+File.separator+lic;
+    	String pathkey = PathKit.getWebRootPath()+File.separator+key;
     	generateLicence(productname,deadline,pathlic,pathkey);
 	}
 	
 	public static boolean checkLicence() {
-		String pathlic = PathUtil.getPath()+lic;
-    	String pathkey = PathUtil.getPath()+key;
+		String pathlic = PathKit.getWebRootPath()+File.separator+lic;
+    	String pathkey = PathKit.getWebRootPath()+File.separator+key;
 		return checkLicence(pathlic,pathkey);
 	}
 	
@@ -79,8 +81,8 @@ public class RSAUtil {
 	}
 	
 	public static Map<String,Object> getLicenceInfo(){
-		String pathlic = PathUtil.getPath()+lic;
-    	String pathkey = PathUtil.getPath()+key;
+		String pathlic = PathKit.getWebRootPath()+File.separator+lic;
+    	String pathkey = PathKit.getWebRootPath()+File.separator+key;
     	return getLicenceInfo(pathlic,pathkey);
 	}
 	

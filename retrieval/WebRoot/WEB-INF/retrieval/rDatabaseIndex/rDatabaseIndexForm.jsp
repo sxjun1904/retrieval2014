@@ -45,7 +45,7 @@
 			    	
 			    	if($("#indexPath").val() !=null && $("#indexPath").val() !=""){
 			    		$("#indexPathCate").val($("#indexPath").val());
-			    		changePathCate();
+			    		//changePathCate();
 			    	}
 			    },
 			    cache: false
@@ -174,7 +174,7 @@
 				});
 			};
 			
-			var changePathCate = function(){
+			/* var changePathCate = function(){
 				var param=$("#indexPathCate").children('option:selected').val();//这就是selected的值 
 				if(param!=null&&param!="");
 				$.ajax({
@@ -190,7 +190,7 @@
 				    },
 				    cache: false
 				});
-			}
+			} */
 			
 			$('#database').change(function(){ 
 				changetables();
@@ -200,9 +200,9 @@
 				changeTableName();
 			});
 			
-			$('#indexPathCate').change(function(){ 
+			/* $('#indexPathCate').change(function(){ 
 				changePathCate();
-			});
+			}); */
 			
 			
 			$("#name").focus();
@@ -267,6 +267,7 @@
 	<ul class="nav nav-tabs">
 		<li><a href="${ctx_a}/rDatabaseIndex/list">索引设置列表</a></li>
 		<li class="active"><a href="${ctx_a}/rDatabaseIndex/form?id=${rDatabaseIndex.id}">${not empty rDatabaseIndex.id?'修改':'添加'}索引设置</a></li>
+	    <li><a href="${ctx_a}/rDatabaseIndex/imageForm">图片索引添加</a></li>
 	</ul><br/>
 	<form id="inputForm" modelAttribute="rDatabaseIndex" action="${ctx_a}/rDatabaseIndex/save" method="post" class="form-horizontal">
 	<div style="float:left;width:40%;background-color:white">
@@ -399,7 +400,7 @@
 			</div>
 		</div>
 		
-		<div class="control-group c_2">
+		<%-- <div class="control-group c_2">
 			<div id="item_1" class="item">
 				<div class="tooltip_description" style="display:none" title="图片字段">
 				该字段必须为二进制图片字段，选择后会读取生成缩略图在工程的img路径下：<br/>
@@ -409,7 +410,7 @@
 			<div class="controls" >
 				 <input  type="text" name="rDatabaseIndex.binaryField" id="binaryField" value="${rDatabaseIndex.binaryField}"/>
 			</div>
-		</div>
+		</div> --%>
 		
 		<div class="control-group">
 			<div id="item_1" class="item">

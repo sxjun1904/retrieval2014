@@ -25,7 +25,7 @@
 		<li><a href="${ctx_a}/monitorView/listDSTG">触发器列表</a></li>
 	</ul>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>分类</th><th>数据源</th><th>表</th><th>状态</th><th>索引时间</th><th>建议</th></tr></thead>
+		<thead><tr><th>分类</th><th>数据源/名称</th><th>表</th><th>状态</th><th>索引时间</th><th>建议</th></tr></thead>
 		<tbody>
 		<c:forEach items="${isInitView}" var="isInitView">
 			<tr>

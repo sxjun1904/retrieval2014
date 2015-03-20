@@ -3,8 +3,8 @@ package com.sxjun.retrieval.controller;
 import java.util.Map;
 
 import com.jfinal.aop.Before;
-import com.sxjun.common.controller.BaseController;
-import com.sxjun.common.utils.DictUtils;
+import com.sxjun.core.common.controller.BaseController;
+import com.sxjun.core.common.utils.DictUtils;
 import com.sxjun.core.interceptor.BerkeleyInterceptor;
 import com.sxjun.retrieval.pojo.InitField;
 

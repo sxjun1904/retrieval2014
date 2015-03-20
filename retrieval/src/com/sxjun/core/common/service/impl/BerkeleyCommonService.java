@@ -1,4 +1,4 @@
-package com.sxjun.common.service.impl;
+package com.sxjun.core.common.service.impl;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.ehcache.CacheKit;
 import com.jfinal.plugin.ehcache.IDataLoader;
-import com.sxjun.common.service.CommonService;
+import com.sxjun.core.common.service.CommonService;
 import com.sxjun.core.interceptor.BerkeleyInterceptor;
 import com.sxjun.core.plugin.berkeley.BerkeleyKit;
 

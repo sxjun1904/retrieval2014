@@ -1,4 +1,4 @@
-package com.sxjun.common.controller;
+package com.sxjun.core.common.controller;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,8 +7,8 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
-import com.sxjun.common.proxy.ServiceProxy;
-import com.sxjun.common.service.CommonService;
+import com.sxjun.core.common.proxy.ServiceProxy;
+import com.sxjun.core.common.service.CommonService;
 import com.sxjun.system.pojo.BasePojo;
 
 public abstract class BaseController<T  extends BasePojo> extends Controller{
@@ -63,15 +63,23 @@ public abstract class BaseController<T  extends BasePojo> extends Controller{
 		 form(t.getClass(),viewname,null);
 	}
 	
+	public void form(Class clazz,String viewname){
+		form(clazz,viewname,null);
+	}
+	
 	public void form(Class clazz){
 		 String viewname = StrKit.firstCharToLowerCase(clazz.getSimpleName());
 		 form(clazz ,viewname,null);
 	}
 	
 	public void form(Class clazz ,String viewname,String key){
+		form(clazz,viewname,viewname,key);
+	}
+	
+	public void form(Class clazz ,String attrname,String viewname,String key){
 		String id = getPara(key==null?"id":key);
 		if(StringUtils.isNotBlank(id))
-			setAttr(viewname,commonservice.get(clazz, id));
+			setAttr(attrname,commonservice.get(clazz, id));
 		render(viewname+"Form.jsp");
 	}
 	
