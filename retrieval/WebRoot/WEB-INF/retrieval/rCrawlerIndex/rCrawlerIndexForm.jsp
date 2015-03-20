@@ -35,21 +35,22 @@
 			    		//changePathCate();
 			    	}
 			    	
-			    	if($("#database_isInit").val()==0)
+			    	if($("#database_isInit").val()=='0')
 			    		$("#isInit_0").attr("checked",true);
-			    	else if($("#database_isInit").val()==1)
+			    	else if($("#database_isInit").val()=='1')
 			    		$("#isInit_1").attr("checked",true);
-			    	else if($("#database_isInit").val()==2)
+			    	else if($("#database_isInit").val()=='2')
 			    		$("#isInit_2").attr("checked",true);
 			    	
-			    	if($("#database_isOn").val()==0)
+			    	if($("#database_isOn").val()=='0')
 			    		$("#isOn_0").attr("checked",true);
-			    	else if($("#database_isOn").val()==1)
+			    	else if($("#database_isOn").val()=='1')
 			    		$("#isOn_1").attr("checked",true);
 			    	
-			    	if($("#database_indexOperatorType").val()==0)
+			    	if($("#database_indexOperatorType").val()=='0'){
 			    		$("#indexOperatorType_0").attr("checked",true);
-			    	else if($("#database_indexOperatorType").val()==1)
+			    	}
+			    	else if($("#database_indexOperatorType").val()=='1')
 			    		$("#indexOperatorType_1").attr("checked",true);
 			    },
 			    cache: false

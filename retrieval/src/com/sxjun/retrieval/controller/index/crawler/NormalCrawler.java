@@ -13,7 +13,6 @@ import com.jfinal.kit.StrKit;
 import com.sxjun.core.common.proxy.ServiceProxy;
 import com.sxjun.core.common.service.CommonService;
 import com.sxjun.retrieval.pojo.RCrawlerIndex;
-import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.StringClass;
 import frame.crawler4j.crawler.Page;
@@ -186,6 +185,6 @@ public class NormalCrawler extends WebCrawler {
 		dbIndexOperatorHelper.optimize();
 		rdI.setIsInit("1");
 		rdI.setMediacyTime("");
-		commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
+		commonService.put(RCrawlerIndex.class, rdI.getId(), rdI);
 	}
 }

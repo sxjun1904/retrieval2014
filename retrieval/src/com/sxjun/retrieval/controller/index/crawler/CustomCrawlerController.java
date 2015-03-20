@@ -1,14 +1,15 @@
 package com.sxjun.retrieval.controller.index.crawler;
 
+import java.io.File;
 import java.util.Date;
 
 import com.jfinal.kit.StrKit;
 import com.sxjun.core.common.proxy.ServiceProxy;
 import com.sxjun.core.common.service.CommonService;
 import com.sxjun.retrieval.pojo.RCrawlerIndex;
-import com.sxjun.retrieval.pojo.RDatabaseIndex;
 
 import frame.base.core.util.DateTime;
+import frame.base.core.util.PathUtil;
 import frame.base.core.util.StringClass;
 import frame.crawler4j.crawler.CrawlConfig;
 import frame.crawler4j.crawler.CrawlController;
@@ -34,7 +35,7 @@ public class CustomCrawlerController {
 	
 	public void indexAll(){
 		try {
-			String crawlStorageFolder = "/data/crawl/"+StringClass.getFormatPath(rdI.getIndexCategory().getIndexPath());
+			String crawlStorageFolder = PathUtil.getWorkspaceParentPath()+File.separator+"data"+File.separator+"crawler"+File.separator+StringClass.getFormatPath(rdI.getIndexCategory().getIndexPath());
 			int numberOfCrawlers = Integer.valueOf(rdI.getNumberOfCrawlers());
 			int maxDepthOfCrawling = Integer.valueOf(rdI.getMaxDepthOfCrawling());
 			CrawlConfig config = new CrawlConfig();
@@ -52,7 +53,7 @@ public class CustomCrawlerController {
 			CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
 			rdI.setIsInit("2");
 			rdI.setMediacyTime(new DateTime().parseString(new Date(), null));
-			commonService.put(RDatabaseIndex.class, rdI.getId(), rdI);
+			commonService.put(RCrawlerIndex.class, rdI.getId(), rdI);
 			
 			String [] urls = rdI.getUrl().split(";");
 			for(String url : urls)

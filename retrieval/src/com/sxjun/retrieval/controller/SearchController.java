@@ -1,5 +1,6 @@
 package com.sxjun.retrieval.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Date;
@@ -58,7 +59,7 @@ private CommonService<KeyWordFilter> keyWordFilterService = new ServiceProxy<Key
 	 * @return
 	 */
 	public String replaceWords(String text){
-		logger.info("搜素关键字："+text);
+		logger.info("搜索关键字："+text);
 		KeyWordFilter kf = keyWordFilterService.get(KeyWordFilter.class,KeyWordFilter.class.getSimpleName());
 		if(kf!=null&&StrKit.notBlank(kf.getKeywords())){
 			String[] kfs = kf.getKeywords().split("|");
@@ -263,7 +264,13 @@ private CommonService<KeyWordFilter> keyWordFilterService = new ServiceProxy<Key
 	
 	
 	public String getDecod(String para){
-		return URLDecoder.decode(para);
+		System.out.println("解码前："+para);
+		try {
+			para = URLDecoder.decode(para,"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return para;
 	}
 	
 	/**
@@ -294,9 +301,9 @@ private CommonService<KeyWordFilter> keyWordFilterService = new ServiceProxy<Key
 		}
 		
 		//获取关键字
-		String p0 = replaceWords(getPara(0));
+		String p0 = getPara(0);
 		if(StrKit.notBlank(p0)){
-			p0=getDecod(p0);
+			p0=replaceWords(getDecod(p0));
 			String[] kwds = p0.split("&");
 			for(String k : kwds){
 				int eq = k.indexOf("=");
@@ -737,4 +744,5 @@ private CommonService<KeyWordFilter> keyWordFilterService = new ServiceProxy<Key
 		}
 		return queryitem;
 	}
+	
 }

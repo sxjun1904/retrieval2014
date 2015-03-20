@@ -15,6 +15,8 @@ import com.sleepycat.je.EnvironmentLockedException;
 import com.sleepycat.je.EnvironmentNotFoundException;
 import com.sleepycat.je.VersionMismatchException;
 
+import frame.base.core.util.PathUtil;
+
 /**
  * User: sxjun
  * Date: 14-07-04
@@ -53,8 +55,8 @@ public class BerkeleyManager {
 			envConfig.setAllowCreate(true);
 			envConfig.setTransactional(true);
 			envConfig.setLocking(true);
-
-			File envHome = new File("data/retrieval/frontier");
+			String path = PathUtil.getWorkspaceParentPath()+File.separator+"data"+File.separator+"retrieval"+File.separator+"frontier";
+			File envHome = new File(path);
 			if (!envHome.exists())
 			{
 				if (!envHome.mkdirs())

@@ -72,37 +72,39 @@ public class PathUtil {
 		return System.getProperty("user.dir");
 	}
 	
-	public static String getDefaultIndexPath(){ 
+	public static String getWorkspaceParentPath(){
+		String classPath = getPath();
+		File file = new File(classPath).getParentFile().getParentFile();
+		return file.getPath();
+	}
+	
+	public static String getWorkspacePath(){
 		String classPath = getPath();
 		File file = new File(classPath).getParentFile();
-		return file.getPath()+File.separator+"index";
+		return file.getPath();
+	}
+	
+	public static String getDefaultIndexPath(){ 
+		return getWorkspaceParentPath()+File.separator+"index";
 	}
 	
 	public static String getDefaultTempImgPath(){ 
-		String classPath = getPath();
-		File file = new File(classPath).getParentFile();
-		return file.getPath()+File.separator+"img";
+		return getWorkspaceParentPath()+File.separator+"img";
 	}
 	
 	public static String getDefaultTempCustomPath(){ 
-		String classPath = getPath();
-		File file = new File(classPath).getParentFile();
-		return file.getPath()+File.separator+"custom";
+		return getWorkspaceParentPath()+File.separator+"custom";
 	}
 	
 	public static String getDefaultRedisPath(){ 
-		String classPath = getPath();
-		File file = new File(classPath).getParentFile();
-		return file.getPath()+File.separator+"redis-2.4.5"+File.separator+"64bit"+File.separator+"redis-server.exe";
+		return getWorkspaceParentPath()+File.separator+"redis-2.4.5"+File.separator+"64bit"+File.separator+"redis-server.exe";
 	}
 	
 	public static String getDefaultMoveFileAfterIndexFolderPath(){ 
-		String classPath = getPath();
-		File file = new File(classPath).getParentFile();
-		return file.getPath()+File.separator+"filebak";
+		return getWorkspaceParentPath()+File.separator+"filebak";
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(getDefaultRedisPath());
+		System.out.println(getWorkspacePath());
 	}
 }

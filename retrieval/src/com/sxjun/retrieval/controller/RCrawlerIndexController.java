@@ -108,63 +108,6 @@ public class RCrawlerIndexController extends BaseController<RCrawlerIndex> {
 		renderJson(new String[]{"msg"});
 	}
 	
-//	public void save(){
-//		RCrawlerIndex rdI = getModel(RCrawlerIndex.class);
-//		String[] indexFields = getParaValues("filedMapper.indexField");
-//		String[] sqlFields = getParaValues("filedMapper.sqlField");
-//		List<FiledMapper> fmList = new ArrayList<FiledMapper>();
-//		for(int i=0;i<indexFields.length;i++){
-//			FiledMapper fm = new FiledMapper();
-//			fm.setId(UUID.randomUUID().toString());
-//			fm.setSqlField(sqlFields[i]);
-//			fm.setIndexField(indexFields[i]);
-//			fmList.add(fm);
-//		}
-//		
-//		String[] specialTypes = getParaValues("filedSpecialMapper.specialType");
-//		String[] sqlSpecialFields = getParaValues("filedSpecialMapper.sqlField");
-//		List<FiledSpecialMapper> fsmList = new ArrayList<FiledSpecialMapper>();
-//		for(int i=0;i<specialTypes.length;i++){
-//			FiledSpecialMapper fsm = new FiledSpecialMapper();
-//			fsm.setId(UUID.randomUUID().toString());
-//			fsm.setSqlField(sqlSpecialFields[i]);
-//			fsm.setSpecialType(specialTypes[i]);
-//			fsmList.add(fsm);
-//		}
-//		//定时任务
-//		String[] scheduleNames = getParaValues("justSchedule.scheduleName");
-//		String[] expression = getParaValues("justSchedule.expression");
-//		List<JustSchedule> justList = new ArrayList<JustSchedule>();
-//		if(expression!=null&&expression.length>0)
-//		for(int i=0;i<expression.length;i++){
-//			JustSchedule fsm = new JustSchedule();
-//			if(StrKit.isBlank(fsm.getId()))
-//				fsm.setId(UUID.randomUUID().toString());
-//			if(scheduleNames!=null&&StrKit.notBlank(scheduleNames[i]))
-//				fsm.setScheduleName(scheduleNames[i]);
-//			else
-//				fsm.setScheduleName(rdI.getTableName()+"#"+fsm.getId());
-//			fsm.setExpression(expression[i].trim());
-//			justList.add(getJustSchedule(fsm));
-//		}
-//		
-//		IndexCategory ic = commonService.get(IndexCategory.class,rdI.getIndexPath_id());
-//		rdI.setIndexCategory(ic);
-//		
-//		rdI.setJustScheduleList(justList);
-//		rdI = checkRCrawlerIndex(rdI);
-//		/*if("0".endsWith(rdI.getIsError())&&"0".endsWith(rdI.getIsInit())&&"0".endsWith(rdI.getIsOn())){
-//			Job dij = new DataaseIndexJob0();
-//			JustBaseSchedule jbs = new JustBaseSchedule();
-//			jbs.setScheduleID(UUID.randomUUID().toString());
-//			jbs.setExecCount("1");
-//			jbs.setScheduleName(UUID.randomUUID().toString());
-//			jbs.setTransObject(rdI);
-//			JustBaseSchedulerManage jbsm = new JustBaseSchedulerManage(jbs);
-//			jbsm.startUpJustScheduler(dij);
-//		}*/
-//		save(rdI);
-//	}
 	
 	/**
 	 * h 小时；m 分；s 秒
@@ -214,125 +157,6 @@ public class RCrawlerIndexController extends BaseController<RCrawlerIndex> {
 		return rdI;
 	}
 	
-//	public RCrawlerIndex checkRCrawlerIndex(RCrawlerIndex rdI){
-//		IndexCategory ic = rdI.getIndexCategory();
-//		String ipt = DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, ic.getIndexPathType());//DB/FILE/IMAGE
-//		String iserror = "0";
-//		String error = "成功";
-//		if(StrKit.isBlank(rdI.getDatabase_id())){
-//			iserror = "1";
-//			error = "未选择数据库";
-//		}else if(StrKit.isBlank(rdI.getTableName())){
-//			iserror = "1";
-//			error = "未选择表";
-//		}else if(StrKit.isBlank(rdI.getKeyField())){
-//			iserror = "1";
-//			error = "未选择主键";
-//		}else if(StrKit.isBlank(rdI.getIndexOperatorType())){
-//			iserror = "1";
-//			error = "未选择操作类型";
-//		}else if(StrKit.isBlank(rdI.getDefaultTitleFieldName())){
-//			iserror = "1";
-//			error = "未选择标题";
-//		}else if(StrKit.isBlank(rdI.getDefaultResumeFieldName())&& (DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.DB.getValue())).endsWith(ipt)){
-//			iserror = "1";
-//			error = "未选择摘要";
-//		}else if(StrKit.isBlank(rdI.getBinaryField())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
-//			iserror = "1";
-//			error = "未填写图片字段";
-//		}
-//		
-//		if(StrKit.isBlank(rdI.getIndexTriggerRecord())){
-//			if(StrKit.notBlank(rdI.getTableName()))
-//				rdI.setIndexTriggerRecord(rdI.getTableName());
-//		}
-//		
-//		//创建触发器
-//		if(!isTableExist(rdI.getDatabase(),SQLUtil.INDEX_TRIGGER_RECORD)){
-//			createIndexTrigger(rdI.getDatabase());
-//		}
-//		
-//		//判断触发器是否存在，不存在的话就添加
-//		/*if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"C"))
-//			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "C");
-//		if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"U"))
-//			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "U");
-//		if(!triggerIsExist(rdI.getDatabase(),rdI.getTableName(),"D"))
-//			createTrigger(rdI.getDatabase(), rdI.getTableName(), rdI.getKeyField(), "D");*/
-//		//直接删除后创建触发器
-//		deleteTrigger(rdI.getDatabase(),rdI.getIndexTriggerRecord(),"C");
-//		deleteTrigger(rdI.getDatabase(),rdI.getIndexTriggerRecord(),"U");
-//		deleteTrigger(rdI.getDatabase(),rdI.getIndexTriggerRecord(),"D");
-//		createTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), rdI.getKeyField(), "C");
-//		createTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), rdI.getKeyField(), "U");
-//		createTrigger(rdI.getDatabase(), rdI.getIndexTriggerRecord(), rdI.getKeyField(), "D");
-//		
-//		String sql = "";
-//		if(rdI.getFiledMapperLsit()!=null&&iserror.equals("0")){
-//			for(FiledMapper fm : rdI.getFiledMapperLsit()){
-//				if(StrKit.isBlank(fm.getSqlField())){
-//					iserror = "1";
-//					error = "字段映射未填不完整";
-//					break;
-//				}else{
-//					String[] f = fm.getSqlField().split(";");
-//					for(String s : f){
-//						sql +=s+",";
-//					}
-//				}
-//			}
-//			sql = sql.substring(0,sql.length()-1);
-//		}
-//		
-//		String resume = rdI.getDefaultResumeFieldName();
-//		String binaryF1 = "",binaryF2="";
-//		if((DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.IMAGE.getValue())).endsWith(ipt)){
-//			binaryF1 = ",b."+rdI.getBinaryField();
-//			binaryF2 = ","+rdI.getBinaryField();
-//		}
-//			
-//		String trigsql = "select b."+rdI.getKeyField()+",b."+rdI.getDefaultTitleFieldName()+",b."+resume+binaryF1+",b."+ sql.replace(",", ",b.") +" from "+SQLUtil.INDEX_TRIGGER_RECORD+
-//				" a left join "+rdI.getTableName()+" b on a.columnvalue=b."+rdI.getKeyField()+" where 1=1 ";
-//		
-//		sql = "select "+rdI.getKeyField()+","+rdI.getDefaultTitleFieldName()+","+resume+binaryF2+","+ sql +" from "+rdI.getTableName()+" where 1=1 ";
-//		
-//		if(rdI.getFiledSpecialMapperLsit()!=null&&iserror.equals("0")){
-//			for(FiledSpecialMapper fsm :rdI.getFiledSpecialMapperLsit()){
-//				String sf = fsm.getSqlField();
-//				String[] f = sf.split(";");
-//				for(String s : f){
-//					if(sql.toUpperCase().indexOf(s.toUpperCase())<0){
-//						iserror = "1";
-//						error = "特殊字段映射不匹配";
-//						break;
-//					}
-//				}
-//				if(iserror.equals("1"))
-//					break;
-//			}
-//		}
-//		
-//		if(StrKit.notBlank(rdI.getCondtion())){
-//			String condtion = rdI.getCondtion().trim();
-//			if(condtion.startsWith("and")){
-//				sql += " "+condtion;
-//				trigsql = trigsql+" "+condtion+" order by a.insertdate ";
-//			}else{ 
-//				sql += "and "+condtion;
-//				trigsql = trigsql+"and "+condtion+" order by a.insertdate ";
-//			}
-//		}	
-//		
-//		if(StrKit.isBlank(rdI.getDatabaseRecordInterceptor()))
-//			rdI.setDatabaseRecordInterceptor("com.sxjun.retrieval.controller.index.DatabaseRecordInterceptor");
-//		
-//		
-//		rdI.setSql(sql);
-//		rdI.setTrigSql(trigsql);
-//		rdI.setIsError(iserror);
-//		rdI.setError(error);
-//		return rdI;
-//	}
 	
 	public void delete(){
 		String id=getPara();
@@ -342,20 +166,6 @@ public class RCrawlerIndexController extends BaseController<RCrawlerIndex> {
 	}
 
 	
-//	/*
-//	 * 获取redis中配置的数据库
-//	 */
-//	public void databases(){
-//		List<Database> dbs = dbCommonService.getObjs(Database.class);
-//		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
-//		for(Database db : dbs){
-//			Map<String,String> m = new HashMap<String,String>();
-// 			m.put("dbname",db.getId()+";"+db.getDatabaseName());
-//			l.add(m);
-//		}
-//		renderJson("dbs",l);
-//	}
-//	
 	public Map<String,String> addToMap(IndexCategory ic){
 		Map<String,String> m = new HashMap<String,String>();
 		m.put("index_name",ic.getId()+";"+ic.getIndexInfoType());
@@ -405,34 +215,5 @@ public class RCrawlerIndexController extends BaseController<RCrawlerIndex> {
 		renderJson("indexPathes",l);
 	}
 	
-//	/**
-//	 * 获取数据字段
-//	 * @return
-//	 */
-//	public List<Map<String,String>> findFields(){
-//		List<InitField> ifds = ifCommonService.getObjs(InitField.class);
-//		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
-//		for(InitField ifd : ifds){
-//			Map<String,String> m = new HashMap<String,String>();
-//			m.put("field",ifd.getField());
-//			l.add(m);
-//		}
-//		return l;
-//	}
-//	
-//	public void initFields(){
-//		renderJson("initFields",findFields());
-//	}
-//	
-//	public void indexPathType(){
-//		String id = getPara("id");
-//		IndexCategory ic = commonService.get(IndexCategory.class,id);
-//		renderJson("pathtype",DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, ic.getIndexPathType()));
-//	}
-//	
-//	
-//	public List<RCrawlerIndex> getRCrawlerIndexList(){
-//		return null;
-//	}
 	
 }

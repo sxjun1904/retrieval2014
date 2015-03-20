@@ -36,7 +36,7 @@ public class CrawlerIndexJob0 extends IndexCommon implements StatefulJob {
 		else	
 			rCrawlerIndexList = commonService.getObjs(RCrawlerIndex.class);
 		for(RCrawlerIndex rdI:rCrawlerIndexList){
-			if("0".equals(rdI.getIsError())&&"0".equals(rdI.getIsInit())&&"0".equals(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.CUSTOM.getValue())).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
+			if("0".equals(rdI.getIsError())&&"0".equals(rdI.getIsOn())&&(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE, IndexPathType.CUSTOM.getValue())).equals(DictUtils.getDictMapByKey(DictUtils.INDEXPATH_TYPE,rdI.getIndexCategory().getIndexPathType()))){
 				CustomCrawlerController crawlerController = new CustomCrawlerController(retrievalApplicationContext,rdI);
 				crawlerController.indexAll();
 				//启动定时任务
